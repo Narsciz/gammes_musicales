@@ -5,13 +5,19 @@
 
 using namespace std;
 
+
 class HarmonicStructure
 {
 private:
     QString name;
-    vector<int> harmonic;
+
+    std::vector<int> intervals;
+
 public:
     HarmonicStructure();
+    HarmonicStructure(QString,std::vector<int>);
+    std::vector<int> getIntervals();
+    QString getName();
 };
 
 #endif // HARMONICSTRUCTURE_H

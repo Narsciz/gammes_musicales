@@ -8,8 +8,7 @@ class Ut
 {
 private:
     MainWindow *w;
-    ScaleDictionary sd;
-    ChordDictionary cd;
+
 
 public:
     //Ut(MainWindow w);

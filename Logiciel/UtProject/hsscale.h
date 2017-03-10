@@ -6,6 +6,7 @@ class HSScale : public HarmonicStructure
 {
 public:
     HSScale();
+    HSScale(QString,std::vector<int>);
 };
 
 #endif // HSSCALE_H
