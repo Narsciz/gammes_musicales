@@ -6,12 +6,20 @@ CS::CS(Note f2, HarmonicStructure hs2){
 }
 
 vector<Note> CS::getNotes(){
-    vector<Note>* n=new vector<Note>();
-    return *n;
+    vector<Note> n;
+    int increment=0;
+    int noteSuivante;
+    n.push_back(f);
+    for(int i=0;i<hs.getIntervals().size();i++){
+        increment+=hs.getIntervals()[i];
+        noteSuivante=(f+increment)%12;
+        n.push_back((Note)noteSuivante);
+    }
+    return n;
 }
 
 Note CS::getF(){
-    return this->getF();
+    return f;
 }
 
 void CS::setF(Note f2){
@@ -19,7 +27,7 @@ void CS::setF(Note f2){
 }
 
 HarmonicStructure CS::getHS(){
-    return this->hs;
+    return hs;
 }
 
 void CS::setHS(HarmonicStructure hs2){
