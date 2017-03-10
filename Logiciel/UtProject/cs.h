@@ -9,6 +9,8 @@ private:
     Note f;
     HarmonicStructure hs;
 public:
+    CS(){}
+
     CS(Note f2, HarmonicStructure hs2);
     vector<Note> getNotes();
 

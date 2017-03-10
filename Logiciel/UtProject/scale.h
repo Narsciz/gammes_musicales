@@ -5,6 +5,7 @@
 class Scale : public CS
 {
 public:
+    Scale(){}
     Scale(Note f2, HarmonicStructure hs2);
 };
 
