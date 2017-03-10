@@ -22,7 +22,8 @@ SOURCES += main.cpp\
     chorddictionary.cpp \
     scaledictionary.cpp \
     cs.cpp \
-    ut.cpp
+    ut.cpp \
+    menubar.cpp
 
 HEADERS  += mainwindow.h \
     chord.h \
@@ -34,6 +35,7 @@ HEADERS  += mainwindow.h \
     scaledictionary.h \
     algo.h \
     cs.h \
-    ut.h
+    ut.h \
+    menubar.h
 
 FORMS    += mainwindow.ui
