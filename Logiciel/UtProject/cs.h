@@ -6,6 +6,7 @@ class CS
 {
 public:
     CS();
+    void* getnot(){return null;}
 };
 
 #endif // CS_H
