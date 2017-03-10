@@ -13,8 +13,27 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    chord.cpp \
+    scale.cpp \
+    harmonicstructure.cpp \
+    hschord.cpp \
+    hsscale.cpp \
+    chorddictionary.cpp \
+    scaledictionary.cpp \
+    cs.cpp \
+    ut.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    chord.h \
+    scale.h \
+    harmonicstructure.h \
+    hschord.h \
+    hsscale.h \
+    chorddictionary.h \
+    scaledictionary.h \
+    algo.h \
+    cs.h \
+    ut.h
 
 FORMS    += mainwindow.ui
