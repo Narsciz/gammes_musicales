@@ -2,8 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-
-#include "menubar.h"
+#include <QMenu>
+#include <QAction>
 
 namespace Ui {
 class MainWindow;
@@ -15,11 +15,13 @@ class MainWindow : public QMainWindow
 
 private:
     Ui::MainWindow *ui;
-    MenuBar menu;
+
 
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+
+    void menubar();
 };
 
 #endif // MAINWINDOW_H
