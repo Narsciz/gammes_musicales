@@ -16,8 +16,6 @@ public:
     HSScale* getScaleByIndex(int);
     bool contains(HSScale*);
 
-
-
 };
 
 #endif // SCALEDICTIONARY_H
