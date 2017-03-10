@@ -11,7 +11,7 @@ private:
 public:
     CS(){}
     CS(Note f2, HarmonicStructure hs2);
-    vector<Note> getNotes();
+    std::vector<Note> getNotes();
 
     Note getF();
     void setF(Note f2);

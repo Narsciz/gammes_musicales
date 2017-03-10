@@ -1,4 +1,5 @@
 #include "cs.h"
+using namespace std;
 
 CS::CS(Note f2, HarmonicStructure hs2){
     f=f2;

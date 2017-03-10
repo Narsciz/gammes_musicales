@@ -7,8 +7,6 @@
 #include <QString>
 #include <vector>
 
-using namespace std;
-
 
 class HarmonicStructure
 {
@@ -16,8 +14,6 @@ private:
     QString name;
 
     std::vector<int> intervals;
-
-    vector<int> harmonic;
 
 public:
     HarmonicStructure();

@@ -2,9 +2,7 @@
 
 using namespace std;
 
-HarmonicStructure::HarmonicStructure(QString n,vector<int> i):name(n),intervals(i)
-{
-
+HarmonicStructure::HarmonicStructure(QString n,vector<int> i):name(n),intervals(i){
 }
 HarmonicStructure::HarmonicStructure(){}
 
