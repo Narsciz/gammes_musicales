@@ -1,11 +1,19 @@
 #ifndef CHORDDICTIONARY_H
 #define CHORDDICTIONARY_H
 
-
+#include <vector>
+#include "hschord.h"
 class ChordDictionary
 {
-public:
+private :
+    static ChordDictionary* INSTANCE;
+    std::vector<HSChord*> chords;
     ChordDictionary();
+public:
+    ChordDictionary * getInstance();
+    HSChord* getChordByIndex(int);
+    bool contains(HSChord*);
+
 };
 
 #endif // CHORDDICTIONARY_H
