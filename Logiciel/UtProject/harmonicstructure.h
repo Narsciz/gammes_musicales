@@ -3,9 +3,7 @@
 #include <QString>
 #include <vector>
 
-
-#include <QString>
-#include <vector>
+using namespace std;
 
 
 class HarmonicStructure

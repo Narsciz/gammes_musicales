@@ -10,6 +10,7 @@ private:
     HarmonicStructure hs;
 public:
     CS(){}
+
     CS(Note f2, HarmonicStructure hs2);
     std::vector<Note> getNotes();
 
