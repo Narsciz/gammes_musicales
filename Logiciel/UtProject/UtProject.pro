@@ -34,7 +34,7 @@ HEADERS  += mainwindow.h \
     scaledictionary.h \
     algo.h \
     cs.h \
-    ut.h \
-    note.h
+    ut.h
+
 
 FORMS    += mainwindow.ui
