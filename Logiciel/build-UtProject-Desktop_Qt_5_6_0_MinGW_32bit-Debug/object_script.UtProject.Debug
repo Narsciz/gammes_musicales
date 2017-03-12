@@ -10,9 +10,11 @@ INPUT(
 ./debug\scaledictionary.o
 ./debug\cs.o
 ./debug\ut.o
-./debug\chordsdisplaylayout.o
-./debug\scalesdisplaylayout.o
+./debug\chordslistdisplay.o
+./debug\scaleslistdisplay.o
+./debug\chorddisplay.o
+./debug\scaledisplay.o
 ./debug\moc_mainwindow.o
-./debug\moc_chordsdisplaylayout.o
-./debug\moc_scalesdisplaylayout.o
+./debug\moc_scaleslistdisplay.o
+./debug\moc_chordslistdisplay.o
 );

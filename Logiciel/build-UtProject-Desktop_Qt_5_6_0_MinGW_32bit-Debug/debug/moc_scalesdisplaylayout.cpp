@@ -61,7 +61,7 @@ void ScalesDisplayLayout::qt_static_metacall(QObject *_o, QMetaObject::Call _c, 
 }
 
 const QMetaObject ScalesDisplayLayout::staticMetaObject = {
-    { &QVBoxLayout::staticMetaObject, qt_meta_stringdata_ScalesDisplayLayout.data,
+    { &QGroupBox::staticMetaObject, qt_meta_stringdata_ScalesDisplayLayout.data,
       qt_meta_data_ScalesDisplayLayout,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
 };
 
@@ -76,12 +76,12 @@ void *ScalesDisplayLayout::qt_metacast(const char *_clname)
     if (!_clname) return Q_NULLPTR;
     if (!strcmp(_clname, qt_meta_stringdata_ScalesDisplayLayout.stringdata0))
         return static_cast<void*>(const_cast< ScalesDisplayLayout*>(this));
-    return QVBoxLayout::qt_metacast(_clname);
+    return QGroupBox::qt_metacast(_clname);
 }
 
 int ScalesDisplayLayout::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = QVBoxLayout::qt_metacall(_c, _id, _a);
+    _id = QGroupBox::qt_metacall(_c, _id, _a);
     if (_id < 0)
         return _id;
     return _id;

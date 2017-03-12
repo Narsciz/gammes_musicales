@@ -10,9 +10,11 @@ INPUT(
 ./release\scaledictionary.o
 ./release\cs.o
 ./release\ut.o
-./release\chordsdisplaylayout.o
-./release\scalesdisplaylayout.o
+./release\chordslistdisplay.o
+./release\scaleslistdisplay.o
+./release\chorddisplay.o
+./release\scaledisplay.o
 ./release\moc_mainwindow.o
-./release\moc_chordsdisplaylayout.o
-./release\moc_scalesdisplaylayout.o
+./release\moc_scaleslistdisplay.o
+./release\moc_chordslistdisplay.o
 );

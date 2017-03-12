@@ -74,11 +74,9 @@ MainWindow::~MainWindow()
   {
       this->clearLayout(this->chordsLayout, true);
 
-      this->chordsLabel = new QLabel("Accords : ");
-      this->cdLayout = new ChordsDisplayLayout();
+      this->cListDisplay = new ChordsListDisplay();
 
-      this->chordsLayout->addWidget(this->chordsLabel, 0, 0, 1, 1);
-      this->chordsLayout->addLayout(this->cdLayout, 1, 0, 1, 1);
+      this->chordsLayout->addWidget(this->cListDisplay, 1, 0, 1, 1);
   }
 
   void MainWindow::constructChoicesLayout()
@@ -86,9 +84,28 @@ MainWindow::~MainWindow()
       this->clearLayout(this->choicesLayout, true);
 
       this->noteComboBox = new QComboBox();
+      this->noteComboBox->addItem("C");
+      this->noteComboBox->addItem("C#");
+      this->noteComboBox->addItem("D");
+      this->noteComboBox->addItem("D#");
+      this->noteComboBox->addItem("E");
+      this->noteComboBox->addItem("F");
+      this->noteComboBox->addItem("F#");
+      this->noteComboBox->addItem("G");
+      this->noteComboBox->addItem("G#");
+      this->noteComboBox->addItem("A");
+      this->noteComboBox->addItem("A#");
+      this->noteComboBox->addItem("B");
       this->hsComboBox = new QComboBox();
-      this->addButton = new QPushButton("Ajouter");
+      this->hsComboBox->addItem("M");
+      this->hsComboBox->addItem("m");
+      this->hsComboBox->addItem("+");
+      this->hsComboBox->addItem("-");
+      this->addButton = new QPushButton("Ajouter", this);
+      QObject::connect(addButton, SIGNAL(clicked()), this, SLOT(slotAddButton()));
       this->parametersComboBox = new QComboBox();
+      this->parametersComboBox->addItem("- de gammes");
+      this->parametersComboBox->addItem("- de notes");
       this->generateButton = new QPushButton("Générer");
 
       this->choicesLayout->addWidget(this->noteComboBox, 0, 0, 1, 1);
@@ -98,17 +115,15 @@ MainWindow::~MainWindow()
       this->choicesLayout->addWidget(this->parametersComboBox, 0, 4, 1, 1);
       this->choicesLayout->addItem(new QSpacerItem(100, 2), 0, 5, 1, 1);
       this->choicesLayout->addWidget(this->generateButton, 0, 6, 1, 1);
-  }
+ }
 
   void MainWindow::constructScalesLayout()
   {
       this->clearLayout(this->scalesLayout, true);
 
-      this->scalesLabel = new QLabel("Gammes trouvées : ");
-      this->sdLayout = new ScalesDisplayLayout();
+      this->sListDisplay = new ScalesListDisplay();
 
-      this->scalesLayout->addWidget(this->scalesLabel, 0, 0, 1, 1);
-      this->scalesLayout->addLayout(this->sdLayout, 1, 0, 1, 1);
+      this->scalesLayout->addWidget(this->sListDisplay, 0, 0, 1, 1);
   }
 
 
@@ -125,4 +140,14 @@ MainWindow::~MainWindow()
               clearLayout(childLayout, deleteWidgets);
           delete item;
       }
+  }
+
+  void MainWindow::slotAddButton() //Ajoute lors de l'appuie sur le bouton "Ajouter", les choix d'accords courant au layout d'accords
+  {
+      this->cListDisplay->addChord(this->noteComboBox->currentText(), this->hsComboBox->currentText());
+  }
+
+  void MainWindow::slotGenerateButton()
+  {
+
   }
