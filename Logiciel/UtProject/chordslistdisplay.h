@@ -26,10 +26,18 @@ public:
     ChordsListDisplay();//Constructeur par défaut utilisé pour construire un affichage sans accord
     ChordsListDisplay(QString file);//Constructeur utilisé lors de l'importation d'un fichier texte
 
-    //
+    //Accesseurs
+    QVector<ChordDisplay*> getListChords();
+
+    //Gestion des Accords
     void addChord(QString note, QString sh); //Ajoute un accord a la suite de ceux déjà choisit par l'utilisateur
-    void deleteChord(int i); //Supprime l'accord d'indice i dans le vecteur et refresh l'affichage
     void refresh();
+    void clear();
+    void enableDeletingChords();
+    void disableDeletingChords();
+
+public slots:
+    void slotDeleteChord(ChordDisplay *cd);
 };
 
 #endif // CHORDSDISPLAYLAYOUT_H

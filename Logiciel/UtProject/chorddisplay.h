@@ -12,13 +12,24 @@
 
 class ChordDisplay : public QGroupBox
 {
+    Q_OBJECT
+
 private:
     QGridLayout *boxLayout;
-    QPushButton *closeButton;
+    QPushButton *deleteButton;
+    QPushButton *viewButton;
     QLabel *chordName;
 
 public:
     ChordDisplay(QString note, QString sh);
+    void disableDelete();
+    void enableDelete();
+
+public slots:
+    void slotDeleteButton();
+
+signals:
+    void deleteSignal(ChordDisplay *cd);
 };
 
 #endif // CHORDDISPLAY_H

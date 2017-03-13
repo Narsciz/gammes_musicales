@@ -8,8 +8,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     this->setWindowTitle("Ut");
-    this->setFixedHeight(800);
-    this->setFixedWidth(1200);
+    //this->setFixedHeight(800);
+    //this->setFixedWidth(1200);
     QIcon icon("./cle.png");
     this->setWindowIcon(icon);
 
@@ -60,14 +60,21 @@ MainWindow::~MainWindow()
 
       this->chordsLayout = new QGridLayout();
       constructChordsLayout();
+      this->choicesDisplay = new QGroupBox();
       this->choicesLayout = new QGridLayout();
+      this->choicesDisplay->setLayout(choicesLayout);
       constructChoicesLayout();
       this->scalesLayout = new QGridLayout();
       constructScalesLayout();
 
+      this->returnButton = new QPushButton("Retour");
+      QObject::connect(this->returnButton, SIGNAL(clicked()), this, SLOT(slotReturnButton()));
+      this->returnButton->setVisible(false);
+
       this->mainLayout->addLayout(this->chordsLayout, 0, 0, 1, 1);
-      this->mainLayout->addLayout(this->choicesLayout, 1, 0, 1, 1);
+      this->mainLayout->addWidget(this->choicesDisplay, 1, 0, 1, 1);
       this->mainLayout->addLayout(this->scalesLayout, 2, 0, 1, 1);
+      this->mainLayout->addWidget(this->returnButton, 3, 0, 1, 1);
   }
 
   void MainWindow::constructChordsLayout()
@@ -75,14 +82,25 @@ MainWindow::~MainWindow()
       this->clearLayout(this->chordsLayout, true);
 
       this->cListDisplay = new ChordsListDisplay();
+      this->reinitializeButton = new QPushButton("Réinitialiser");
+      QObject::connect(this->reinitializeButton, SIGNAL(clicked()), this, SLOT(slotReinitializeButton()));
 
-      this->chordsLayout->addWidget(this->cListDisplay, 1, 0, 1, 1);
+      this->chordsLayout->addWidget(this->cListDisplay, 0, 0, 1, 6);
+      this->chordsLayout->addWidget(this->reinitializeButton, 0, 6, 1, 1);
   }
 
   void MainWindow::constructChoicesLayout()
   {
       this->clearLayout(this->choicesLayout, true);
 
+      this->choicesDisplay->setFixedHeight(70);
+
+      this->noteLabel = new QLabel("Fondamentale");
+      this->noteLabel->setAlignment(Qt::AlignCenter);
+      this->hsLabel = new QLabel("Structure harmonique");
+      this->hsLabel->setAlignment(Qt::AlignCenter);
+      this->parametersLabel = new QLabel("Paramètre");
+      this->parametersLabel->setAlignment(Qt::AlignCenter);
       this->noteComboBox = new QComboBox();
       this->noteComboBox->addItem("C");
       this->noteComboBox->addItem("C#");
@@ -102,19 +120,23 @@ MainWindow::~MainWindow()
       this->hsComboBox->addItem("+");
       this->hsComboBox->addItem("-");
       this->addButton = new QPushButton("Ajouter", this);
-      QObject::connect(addButton, SIGNAL(clicked()), this, SLOT(slotAddButton()));
+      QObject::connect(this->addButton, SIGNAL(clicked()), this, SLOT(slotAddButton()));
       this->parametersComboBox = new QComboBox();
       this->parametersComboBox->addItem("- de gammes");
       this->parametersComboBox->addItem("- de notes");
       this->generateButton = new QPushButton("Générer");
+      QObject::connect(this->generateButton, SIGNAL(clicked()), this, SLOT(slotGenerateButton()));
 
-      this->choicesLayout->addWidget(this->noteComboBox, 0, 0, 1, 1);
-      this->choicesLayout->addWidget(this->hsComboBox, 0, 1, 1, 1);
-      this->choicesLayout->addWidget(this->addButton, 0, 2, 1, 1);
-      this->choicesLayout->addItem(new QSpacerItem(100, 2), 0, 3, 1, 1);
-      this->choicesLayout->addWidget(this->parametersComboBox, 0, 4, 1, 1);
-      this->choicesLayout->addItem(new QSpacerItem(100, 2), 0, 5, 1, 1);
-      this->choicesLayout->addWidget(this->generateButton, 0, 6, 1, 1);
+      this->choicesLayout->addWidget(this->noteLabel, 0, 0, 1, 1);
+      this->choicesLayout->addWidget(this->hsLabel, 0, 1, 1, 1);
+      this->choicesLayout->addWidget(this->parametersLabel, 0, 4, 1, 1);
+      this->choicesLayout->addWidget(this->noteComboBox, 1, 0, 1, 1);
+      this->choicesLayout->addWidget(this->hsComboBox, 1, 1, 1, 1);
+      this->choicesLayout->addWidget(this->addButton, 1, 2, 1, 1);
+      this->choicesLayout->addWidget(new QLabel(), 1, 3, 1, 1);
+      this->choicesLayout->addWidget(this->parametersComboBox, 1, 4, 1, 1);
+      this->choicesLayout->addWidget(new QLabel(), 1, 5, 1, 1);
+      this->choicesLayout->addWidget(this->generateButton, 1, 6, 1, 1);
  }
 
   void MainWindow::constructScalesLayout()
@@ -124,6 +146,8 @@ MainWindow::~MainWindow()
       this->sListDisplay = new ScalesListDisplay();
 
       this->scalesLayout->addWidget(this->sListDisplay, 0, 0, 1, 1);
+
+      this->sListDisplay->setVisible(false);
   }
 
 
@@ -149,5 +173,31 @@ MainWindow::~MainWindow()
 
   void MainWindow::slotGenerateButton()
   {
+      if(this->cListDisplay->getListChords().size()>0)
+      {
+          this->sListDisplay->setVisible(true);
+          this->choicesDisplay->setVisible(false);
+          this->returnButton->setVisible(true);
+          this->reinitializeButton->setDisabled(true);
+          this->cListDisplay->disableDeletingChords();
+      }
+      else
+      {
+          QMessageBox::warning(this, "Aucun accord spécifié", "Vous n'avez sélectionné aucun accord. Pour générer une suite de gamme, veuillez d'abord entrer une suite d'accord.");
+      }
+  }
 
+  void MainWindow::slotReturnButton()
+  {
+      constructScalesLayout();
+      this->sListDisplay->setVisible(false);
+      this->choicesDisplay->setVisible(true);
+      this->returnButton->setVisible(false);
+      this->reinitializeButton->setDisabled(false);
+      this->cListDisplay->enableDeletingChords();
+  }
+
+  void MainWindow::slotReinitializeButton()
+  {
+      this->cListDisplay->clear();
   }
