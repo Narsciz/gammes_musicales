@@ -313,6 +313,7 @@ debug/moc_mainwindow.cpp: B:/Qt/5.6/mingw49_32/include/QtWidgets/QMainWindow \
 		../UtProject/note.h \
 		../UtProject/harmonicstructure.h \
 		../UtProject/scaleslistdisplay.h \
+		B:/Qt/5.6/mingw49_32/include/QtWidgets/QVBoxLayout \
 		../UtProject/mainwindow.h
 	B:\Qt\5.6\mingw49_32\bin\moc.exe $(DEFINES) -D__GNUC__ -DWIN32 -IB:/Qt/5.6/mingw49_32/mkspecs/win32-g++ -IB:/Users/Narsciz/Desktop/MASTER/MASTER1/TER_M1/gammes_musicales/Logiciel/UtProject -IB:/Qt/5.6/mingw49_32/include -IB:/Qt/5.6/mingw49_32/include/QtWidgets -IB:/Qt/5.6/mingw49_32/include/QtGui -IB:/Qt/5.6/mingw49_32/include/QtANGLE -IB:/Qt/5.6/mingw49_32/include/QtCore -I. ..\UtProject\mainwindow.h -o debug\moc_mainwindow.cpp
 
@@ -422,11 +423,11 @@ debug/moc_scaleslistdisplay.cpp: B:/Qt/5.6/mingw49_32/include/QtWidgets/QGroupBo
 		B:/Qt/5.6/mingw49_32/include/QtCore/qfiledevice.h \
 		B:/Qt/5.6/mingw49_32/include/QtGui/qvector2d.h \
 		B:/Qt/5.6/mingw49_32/include/QtGui/qtouchdevice.h \
-		B:/Qt/5.6/mingw49_32/include/QtWidgets/QGridLayout \
-		B:/Qt/5.6/mingw49_32/include/QtWidgets/qgridlayout.h \
+		B:/Qt/5.6/mingw49_32/include/QtWidgets/QVBoxLayout \
+		B:/Qt/5.6/mingw49_32/include/QtWidgets/qboxlayout.h \
 		B:/Qt/5.6/mingw49_32/include/QtWidgets/qlayout.h \
 		B:/Qt/5.6/mingw49_32/include/QtWidgets/qlayoutitem.h \
-		B:/Qt/5.6/mingw49_32/include/QtWidgets/qboxlayout.h \
+		B:/Qt/5.6/mingw49_32/include/QtWidgets/qgridlayout.h \
 		B:/Qt/5.6/mingw49_32/include/QtWidgets/QPushButton \
 		B:/Qt/5.6/mingw49_32/include/QtWidgets/qpushbutton.h \
 		B:/Qt/5.6/mingw49_32/include/QtWidgets/qabstractbutton.h \
@@ -987,6 +988,7 @@ debug/main.o: ../UtProject/main.cpp ../UtProject/mainwindow.h \
 		../UtProject/note.h \
 		../UtProject/harmonicstructure.h \
 		../UtProject/scaleslistdisplay.h \
+		B:/Qt/5.6/mingw49_32/include/QtWidgets/QVBoxLayout \
 		B:/Qt/5.6/mingw49_32/include/QtWidgets/QApplication \
 		B:/Qt/5.6/mingw49_32/include/QtWidgets/qapplication.h \
 		B:/Qt/5.6/mingw49_32/include/QtWidgets/qdesktopwidget.h \
@@ -1158,6 +1160,7 @@ debug/mainwindow.o: ../UtProject/mainwindow.cpp ../UtProject/mainwindow.h \
 		../UtProject/note.h \
 		../UtProject/harmonicstructure.h \
 		../UtProject/scaleslistdisplay.h \
+		B:/Qt/5.6/mingw49_32/include/QtWidgets/QVBoxLayout \
 		ui_mainwindow.h \
 		B:/Qt/5.6/mingw49_32/include/QtCore/QVariant \
 		B:/Qt/5.6/mingw49_32/include/QtWidgets/QApplication \
@@ -1673,6 +1676,7 @@ debug/ut.o: ../UtProject/ut.cpp ../UtProject/ut.h \
 		../UtProject/note.h \
 		../UtProject/harmonicstructure.h \
 		../UtProject/scaleslistdisplay.h \
+		B:/Qt/5.6/mingw49_32/include/QtWidgets/QVBoxLayout \
 		../UtProject/scaledictionary.h \
 		../UtProject/hsscale.h \
 		../UtProject/chorddictionary.h \
@@ -1914,11 +1918,11 @@ debug/scaleslistdisplay.o: ../UtProject/scaleslistdisplay.cpp ../UtProject/scale
 		B:/Qt/5.6/mingw49_32/include/QtCore/qfiledevice.h \
 		B:/Qt/5.6/mingw49_32/include/QtGui/qvector2d.h \
 		B:/Qt/5.6/mingw49_32/include/QtGui/qtouchdevice.h \
-		B:/Qt/5.6/mingw49_32/include/QtWidgets/QGridLayout \
-		B:/Qt/5.6/mingw49_32/include/QtWidgets/qgridlayout.h \
+		B:/Qt/5.6/mingw49_32/include/QtWidgets/QVBoxLayout \
+		B:/Qt/5.6/mingw49_32/include/QtWidgets/qboxlayout.h \
 		B:/Qt/5.6/mingw49_32/include/QtWidgets/qlayout.h \
 		B:/Qt/5.6/mingw49_32/include/QtWidgets/qlayoutitem.h \
-		B:/Qt/5.6/mingw49_32/include/QtWidgets/qboxlayout.h \
+		B:/Qt/5.6/mingw49_32/include/QtWidgets/qgridlayout.h \
 		B:/Qt/5.6/mingw49_32/include/QtWidgets/QPushButton \
 		B:/Qt/5.6/mingw49_32/include/QtWidgets/qpushbutton.h \
 		B:/Qt/5.6/mingw49_32/include/QtWidgets/qabstractbutton.h \
@@ -2222,15 +2226,26 @@ debug/scalesdisplay.o: ../UtProject/scalesdisplay.cpp ../UtProject/scalesdisplay
 		B:/Qt/5.6/mingw49_32/include/QtCore/qregexp.h \
 		B:/Qt/5.6/mingw49_32/include/QtCore/qstringmatcher.h \
 		B:/Qt/5.6/mingw49_32/include/QtCore/qpoint.h \
-		../UtProject/scaledisplay.h \
-		B:/Qt/5.6/mingw49_32/include/QtWidgets/QLabel \
-		B:/Qt/5.6/mingw49_32/include/QtWidgets/qlabel.h \
-		B:/Qt/5.6/mingw49_32/include/QtWidgets/qframe.h \
-		B:/Qt/5.6/mingw49_32/include/QtWidgets/qwidget.h \
+		B:/Qt/5.6/mingw49_32/include/QtWidgets/QPushButton \
+		B:/Qt/5.6/mingw49_32/include/QtWidgets/qpushbutton.h \
+		B:/Qt/5.6/mingw49_32/include/QtWidgets/qabstractbutton.h \
+		B:/Qt/5.6/mingw49_32/include/QtGui/qicon.h \
+		B:/Qt/5.6/mingw49_32/include/QtCore/qsize.h \
+		B:/Qt/5.6/mingw49_32/include/QtGui/qpixmap.h \
+		B:/Qt/5.6/mingw49_32/include/QtGui/qpaintdevice.h \
 		B:/Qt/5.6/mingw49_32/include/QtGui/qwindowdefs.h \
 		B:/Qt/5.6/mingw49_32/include/QtCore/qobjectdefs.h \
 		B:/Qt/5.6/mingw49_32/include/QtCore/qobjectdefs_impl.h \
 		B:/Qt/5.6/mingw49_32/include/QtGui/qwindowdefs_win.h \
+		B:/Qt/5.6/mingw49_32/include/QtCore/qrect.h \
+		B:/Qt/5.6/mingw49_32/include/QtCore/qmargins.h \
+		B:/Qt/5.6/mingw49_32/include/QtGui/qcolor.h \
+		B:/Qt/5.6/mingw49_32/include/QtGui/qrgb.h \
+		B:/Qt/5.6/mingw49_32/include/QtGui/qrgba64.h \
+		B:/Qt/5.6/mingw49_32/include/QtCore/qsharedpointer.h \
+		B:/Qt/5.6/mingw49_32/include/QtCore/qshareddata.h \
+		B:/Qt/5.6/mingw49_32/include/QtCore/qhash.h \
+		B:/Qt/5.6/mingw49_32/include/QtCore/qsharedpointer_impl.h \
 		B:/Qt/5.6/mingw49_32/include/QtCore/qobject.h \
 		B:/Qt/5.6/mingw49_32/include/QtCore/qcoreevent.h \
 		B:/Qt/5.6/mingw49_32/include/QtCore/qscopedpointer.h \
@@ -2238,36 +2253,25 @@ debug/scalesdisplay.o: ../UtProject/scalesdisplay.cpp ../UtProject/scalesdisplay
 		B:/Qt/5.6/mingw49_32/include/QtCore/qvarlengtharray.h \
 		B:/Qt/5.6/mingw49_32/include/QtCore/qcontainerfwd.h \
 		B:/Qt/5.6/mingw49_32/include/QtCore/qobject_impl.h \
-		B:/Qt/5.6/mingw49_32/include/QtCore/qmargins.h \
-		B:/Qt/5.6/mingw49_32/include/QtGui/qpaintdevice.h \
-		B:/Qt/5.6/mingw49_32/include/QtCore/qrect.h \
-		B:/Qt/5.6/mingw49_32/include/QtCore/qsize.h \
-		B:/Qt/5.6/mingw49_32/include/QtGui/qpalette.h \
-		B:/Qt/5.6/mingw49_32/include/QtGui/qcolor.h \
-		B:/Qt/5.6/mingw49_32/include/QtGui/qrgb.h \
-		B:/Qt/5.6/mingw49_32/include/QtGui/qrgba64.h \
-		B:/Qt/5.6/mingw49_32/include/QtGui/qbrush.h \
+		B:/Qt/5.6/mingw49_32/include/QtGui/qimage.h \
+		B:/Qt/5.6/mingw49_32/include/QtGui/qpixelformat.h \
+		B:/Qt/5.6/mingw49_32/include/QtGui/qtransform.h \
 		B:/Qt/5.6/mingw49_32/include/QtGui/qmatrix.h \
 		B:/Qt/5.6/mingw49_32/include/QtGui/qpolygon.h \
 		B:/Qt/5.6/mingw49_32/include/QtGui/qregion.h \
 		B:/Qt/5.6/mingw49_32/include/QtCore/qdatastream.h \
 		B:/Qt/5.6/mingw49_32/include/QtCore/qiodevice.h \
 		B:/Qt/5.6/mingw49_32/include/QtCore/qline.h \
-		B:/Qt/5.6/mingw49_32/include/QtGui/qtransform.h \
 		B:/Qt/5.6/mingw49_32/include/QtGui/qpainterpath.h \
-		B:/Qt/5.6/mingw49_32/include/QtGui/qimage.h \
-		B:/Qt/5.6/mingw49_32/include/QtGui/qpixelformat.h \
-		B:/Qt/5.6/mingw49_32/include/QtGui/qpixmap.h \
-		B:/Qt/5.6/mingw49_32/include/QtCore/qsharedpointer.h \
-		B:/Qt/5.6/mingw49_32/include/QtCore/qshareddata.h \
-		B:/Qt/5.6/mingw49_32/include/QtCore/qhash.h \
-		B:/Qt/5.6/mingw49_32/include/QtCore/qsharedpointer_impl.h \
+		B:/Qt/5.6/mingw49_32/include/QtGui/qkeysequence.h \
+		B:/Qt/5.6/mingw49_32/include/QtWidgets/qwidget.h \
+		B:/Qt/5.6/mingw49_32/include/QtGui/qpalette.h \
+		B:/Qt/5.6/mingw49_32/include/QtGui/qbrush.h \
 		B:/Qt/5.6/mingw49_32/include/QtGui/qfont.h \
 		B:/Qt/5.6/mingw49_32/include/QtGui/qfontmetrics.h \
 		B:/Qt/5.6/mingw49_32/include/QtGui/qfontinfo.h \
 		B:/Qt/5.6/mingw49_32/include/QtWidgets/qsizepolicy.h \
 		B:/Qt/5.6/mingw49_32/include/QtGui/qcursor.h \
-		B:/Qt/5.6/mingw49_32/include/QtGui/qkeysequence.h \
 		B:/Qt/5.6/mingw49_32/include/QtGui/qevent.h \
 		B:/Qt/5.6/mingw49_32/include/QtCore/qvariant.h \
 		B:/Qt/5.6/mingw49_32/include/QtCore/qmap.h \
@@ -2282,10 +2286,10 @@ debug/scalesdisplay.o: ../UtProject/scalesdisplay.cpp ../UtProject/scalesdisplay
 		B:/Qt/5.6/mingw49_32/include/QtCore/qfiledevice.h \
 		B:/Qt/5.6/mingw49_32/include/QtGui/qvector2d.h \
 		B:/Qt/5.6/mingw49_32/include/QtGui/qtouchdevice.h \
-		B:/Qt/5.6/mingw49_32/include/QtWidgets/QPushButton \
-		B:/Qt/5.6/mingw49_32/include/QtWidgets/qpushbutton.h \
-		B:/Qt/5.6/mingw49_32/include/QtWidgets/qabstractbutton.h \
-		B:/Qt/5.6/mingw49_32/include/QtGui/qicon.h \
+		../UtProject/scaledisplay.h \
+		B:/Qt/5.6/mingw49_32/include/QtWidgets/QLabel \
+		B:/Qt/5.6/mingw49_32/include/QtWidgets/qlabel.h \
+		B:/Qt/5.6/mingw49_32/include/QtWidgets/qframe.h \
 		B:/Qt/5.6/mingw49_32/include/QtWidgets/QGroupBox \
 		B:/Qt/5.6/mingw49_32/include/QtWidgets/qgroupbox.h \
 		B:/Qt/5.6/mingw49_32/include/QtWidgets/QGridLayout \
