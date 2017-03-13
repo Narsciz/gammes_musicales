@@ -33,7 +33,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = UtProject1.0.0
-DISTDIR = /auto_home/sweill/Uts/gammes_musicales/Logiciel/build-UtProject-Desktop-Debug/.tmp/UtProject1.0.0
+DISTDIR = /auto_home/mcoquilhat/Desktop/TER/Ut/gammes_musicales/Logiciel/build-UtProject-Desktop-Debug/.tmp/UtProject1.0.0
 LINK          = g++
 LFLAGS        = -m64
 LIBS          = $(SUBLIBS) -L/usr/X11R6/lib64 -lQt5Widgets -lQt5Gui -lQt5Core -lGL -lpthread 
@@ -137,8 +137,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../UtProject/scaledictionary.h \
 		../UtProject/algo.h \
 		../UtProject/cs.h \
-		../UtProject/ut.h \
-		../UtProject/note.h ../UtProject/main.cpp \
+		../UtProject/ut.h ../UtProject/main.cpp \
 		../UtProject/mainwindow.cpp \
 		../UtProject/chord.cpp \
 		../UtProject/scale.cpp \
@@ -314,7 +313,7 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../UtProject/mainwindow.h ../UtProject/chord.h ../UtProject/scale.h ../UtProject/harmonicstructure.h ../UtProject/hschord.h ../UtProject/hsscale.h ../UtProject/chorddictionary.h ../UtProject/scaledictionary.h ../UtProject/algo.h ../UtProject/cs.h ../UtProject/ut.h ../UtProject/note.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../UtProject/mainwindow.h ../UtProject/chord.h ../UtProject/scale.h ../UtProject/harmonicstructure.h ../UtProject/hschord.h ../UtProject/hsscale.h ../UtProject/chorddictionary.h ../UtProject/scaledictionary.h ../UtProject/algo.h ../UtProject/cs.h ../UtProject/ut.h $(DISTDIR)/
 	$(COPY_FILE) --parents ../UtProject/main.cpp ../UtProject/mainwindow.cpp ../UtProject/chord.cpp ../UtProject/scale.cpp ../UtProject/harmonicstructure.cpp ../UtProject/hschord.cpp ../UtProject/hsscale.cpp ../UtProject/chorddictionary.cpp ../UtProject/scaledictionary.cpp ../UtProject/cs.cpp ../UtProject/ut.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../UtProject/mainwindow.ui $(DISTDIR)/
 
@@ -343,7 +342,7 @@ compiler_moc_header_make_all: moc_mainwindow.cpp
 compiler_moc_header_clean:
 	-$(DEL_FILE) moc_mainwindow.cpp
 moc_mainwindow.cpp: ../UtProject/mainwindow.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/auto_home/sweill/Uts/gammes_musicales/Logiciel/UtProject -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../UtProject/mainwindow.h -o moc_mainwindow.cpp
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/auto_home/mcoquilhat/Desktop/TER/Ut/gammes_musicales/Logiciel/UtProject -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../UtProject/mainwindow.h -o moc_mainwindow.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -363,7 +362,13 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 
 ####### Compile
 
-main.o: ../UtProject/main.cpp ../UtProject/mainwindow.h
+main.o: ../UtProject/main.cpp ../UtProject/mainwindow.h \
+		../UtProject/ut.h \
+		../UtProject/scaledictionary.h \
+		../UtProject/hsscale.h \
+		../UtProject/harmonicstructure.h \
+		../UtProject/chorddictionary.h \
+		../UtProject/hschord.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../UtProject/main.cpp
 
 mainwindow.o: ../UtProject/mainwindow.cpp ../UtProject/mainwindow.h \
@@ -409,7 +414,12 @@ cs.o: ../UtProject/cs.cpp ../UtProject/cs.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cs.o ../UtProject/cs.cpp
 
 ut.o: ../UtProject/ut.cpp ../UtProject/ut.h \
-		../UtProject/mainwindow.h
+		../UtProject/mainwindow.h \
+		../UtProject/scaledictionary.h \
+		../UtProject/hsscale.h \
+		../UtProject/harmonicstructure.h \
+		../UtProject/chorddictionary.h \
+		../UtProject/hschord.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ut.o ../UtProject/ut.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
