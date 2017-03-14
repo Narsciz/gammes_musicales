@@ -15,6 +15,10 @@
 #include <QCoreApplication>
 #include <QMessageBox>
 #include <QString>
+#include <QFileDialog>
+#include <QApplication>
+#include <iostream>
+using namespace std;
 
 #include <QVector>
 
@@ -58,6 +62,9 @@ private:
     QLabel *hsLabel;
     QLabel *parametersLabel;
 
+    //FileDialog
+    QFileDialog *explorer;
+
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
@@ -69,12 +76,17 @@ public:
     void constructScalesLayout();
 
     void clearLayout(QLayout *layout, bool deleteWidgets);
+    QString openExplorer(int i);
 
 public slots :
     void slotAddButton();
     void slotGenerateButton();
     void slotReturnButton();
     void slotReinitializeButton();
+    void slotNewFile();
+    void slotImportFile();
+    void slotSaveFile();
+    void slotCloseFile();
 };
 
 #endif // MAINWINDOW_H

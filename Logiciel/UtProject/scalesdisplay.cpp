@@ -11,6 +11,9 @@ ScalesDisplay::ScalesDisplay(QVector<QString> scaleList) : QGroupBox()
     }
     this->setLayout(scalesLayout);
 
+    this->setMinimumSize(400, 100);
+    this->setContentsMargins(10, 10, 10, 10);
+
     refresh();
 }
 

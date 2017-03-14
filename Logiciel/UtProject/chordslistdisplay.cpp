@@ -9,6 +9,9 @@ ChordsListDisplay::ChordsListDisplay() : QGroupBox()
     this->chordsLayout->setAlignment(Qt::AlignTop);
     this->chordsLayout->setHorizontalSpacing(4);
 
+    this->setMinimumSize(400, 100);
+    this->setContentsMargins(10, 10, 10, 10);
+
     this->setLayout(this->chordsLayout);
 }
 

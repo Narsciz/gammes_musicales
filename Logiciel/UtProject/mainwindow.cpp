@@ -13,6 +13,9 @@ MainWindow::MainWindow(QWidget *parent) :
     QIcon icon("./cle.png");
     this->setWindowIcon(icon);
 
+    this->mainLayout = new QGridLayout();
+    this->ui->centralWidget->setLayout(this->mainLayout);
+
     constructMenuBar();
     constructLayout();
 }
@@ -28,9 +31,13 @@ MainWindow::~MainWindow()
 
      QMenu *file = menuBar->addMenu("Fichier");
      QAction *newFile = new QAction("Nouveau", menuBar);
+     connect(newFile, SIGNAL(triggered(bool)), this, SLOT(slotNewFile()));
      QAction *importFile = new QAction("Importer", menuBar);
+     connect(importFile, SIGNAL(triggered(bool)), this, SLOT(slotImportFile()));
      QAction *saveFile = new QAction("Enregistrer", menuBar);
-     QAction *closeFile = new QAction("Fermer", menuBar);
+     connect(saveFile, SIGNAL(triggered(bool)), this, SLOT(slotSaveFile()));
+     QAction *closeFile = new QAction("Quitter", menuBar);
+     connect(closeFile, SIGNAL(triggered(bool)), this, SLOT(slotCloseFile()));
      file->addAction(newFile);
      file->addAction(importFile);
      file->addAction(saveFile);
@@ -55,9 +62,6 @@ MainWindow::~MainWindow()
 
   void MainWindow::constructLayout()
   {
-      this->mainLayout = new QGridLayout();
-      this->ui->centralWidget->setLayout(this->mainLayout);
-
       this->chordsLayout = new QGridLayout();
       constructChordsLayout();
       this->choicesDisplay = new QGroupBox();
@@ -166,6 +170,22 @@ MainWindow::~MainWindow()
       }
   }
 
+  QString MainWindow::openExplorer(int i)
+  {
+      this->explorer = new QFileDialog();
+      this->explorer->setFileMode(QFileDialog::ExistingFile);
+      this->explorer->setNameFilter(tr("Images (*.png *.xpm *.jpg)"));
+      QStringList fileNameTemp;
+      QString fileName = "";
+      if(this->explorer->exec())
+      {
+          fileNameTemp = this->explorer->selectedFiles();
+          for(int i=0; i<fileName.size(); i++)
+              fileName += fileNameTemp.at(i).toLocal8Bit().constData();
+      }
+      return fileName;
+  }
+
   void MainWindow::slotAddButton() //Ajoute lors de l'appuie sur le bouton "Ajouter", les choix d'accords courant au layout d'accords
   {
       this->cListDisplay->addChord(this->noteComboBox->currentText(), this->hsComboBox->currentText());
@@ -221,8 +241,27 @@ MainWindow::~MainWindow()
 
   void MainWindow::slotReinitializeButton()
   {
-
-      //this->cListDisplay->clear();
       clearLayout(this->chordsLayout);
       constructChordsLayout();
+  }
+
+  void MainWindow::slotNewFile()
+  {
+      clearLayout(this->mainLayout);
+      constructLayout();
+  }
+
+  void MainWindow::slotImportFile()
+  {
+      openExplorer(1);
+  }
+
+  void MainWindow::slotSaveFile()
+  {
+      openExplorer(1);
+  }
+
+  void MainWindow::slotCloseFile()
+  {
+    this->close();
   }
