@@ -185,6 +185,26 @@ MainWindow::~MainWindow()
       {
           QMessageBox::warning(this, "Aucun accord spécifié", "Vous n'avez sélectionné aucun accord. Pour générer une suite de gamme, veuillez d'abord entrer une suite d'accord.");
       }
+      /*__________________________________Test______________*/
+      QVector<QString> test1;
+      test1.push_back("1");
+      test1.push_back("2");
+      test1.push_back("3");
+      test1.push_back("4");
+      test1.push_back("5");
+      test1.push_back("6");
+      /*QVector<QString> test2;
+      test2.push_back("1");
+      test2.push_back("2");
+      test2.push_back("3");
+      test2.push_back("4");
+      test2.push_back("5");*/
+      QVector<QVector<QString>> testglob;
+      testglob.push_back(test1);
+      //testglob.push_back(test2);
+
+      this->sListDisplay->constructScalesFoundList(testglob);
+      /*__________________________________FinTest___________*/
   }
 
   void MainWindow::slotReturnButton()
@@ -195,9 +215,14 @@ MainWindow::~MainWindow()
       this->returnButton->setVisible(false);
       this->reinitializeButton->setDisabled(false);
       this->cListDisplay->enableDeletingChords();
+      clearLayout(this->scalesLayout);
+      constructScalesLayout();
   }
 
   void MainWindow::slotReinitializeButton()
   {
-      this->cListDisplay->clear();
+
+      //this->cListDisplay->clear();
+      clearLayout(this->chordsLayout);
+      constructChordsLayout();
   }

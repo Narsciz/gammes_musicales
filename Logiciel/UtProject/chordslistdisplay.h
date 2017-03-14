@@ -32,7 +32,6 @@ public:
     //Gestion des Accords
     void addChord(QString note, QString sh); //Ajoute un accord a la suite de ceux déjà choisit par l'utilisateur
     void refresh();
-    void clear();
     void enableDeletingChords();
     void disableDeletingChords();
 

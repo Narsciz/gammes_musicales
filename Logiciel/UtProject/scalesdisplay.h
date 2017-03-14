@@ -3,17 +3,21 @@
 
 #include <QVector>
 #include <QPushButton>
+#include <QGroupBox>
+#include <QGridLayout>
 
 #include "scaledisplay.h"
 
-class ScalesDisplay
+class ScalesDisplay : public QGroupBox
 {
 private:
-    QVector<ScaleDisplay*> scaleList;
+    QGridLayout *scalesLayout;
+    QVector<ScaleDisplay*> scalesList;
     QPushButton *saveButton;
 
 public:
     ScalesDisplay(QVector<QString> scaleList);
+    void refresh();
 };
 
 #endif // SCALESDISPLAY_H

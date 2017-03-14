@@ -26,18 +26,13 @@ void ChordsListDisplay::addChord(QString note, QString sh)
 
 void ChordsListDisplay::refresh()
 {
-    /*
-    for(int i=0; i<this->listChords.size(); i++)
-        this->chordsLayout->removeWidget(this->listChords[i]);
-    delete this->chordsLayout;
-    this->chordsLayout = new QGridLayout();*/
     int i=0;
     int j=0;
     int k=0;
     int nb = 0;
-    while(i<listChords.size())
+    while(i<this->listChords.size())
     {
-        if((i*60)+120>this->width() && !nb)
+        if((i*64)+80>this->width() && !nb)
         {
             nb = k;
             k = 0;
@@ -55,16 +50,6 @@ void ChordsListDisplay::refresh()
         k++;
         i++;
     }
-}
-
-void ChordsListDisplay::clear()
-{
-
-    while(!this->listChords.isEmpty())
-    {
-        delete this->listChords.takeLast();
-    }
-    refresh();
 }
 
 void ChordsListDisplay::enableDeletingChords()

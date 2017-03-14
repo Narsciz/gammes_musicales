@@ -14,6 +14,9 @@
 #include <QGroupBox>
 #include <QCoreApplication>
 #include <QMessageBox>
+#include <QString>
+
+#include <QVector>
 
 #include "chordslistdisplay.h"
 #include "scaleslistdisplay.h"

@@ -4,7 +4,7 @@
 
 using namespace std;
 
-ChordDisplay::ChordDisplay(QString note, QString sh) : QGroupBox()
+ChordDisplay::ChordDisplay(QString note, QString hs) : QGroupBox()
 {
     this->setFixedSize(60, 60);
     this->boxLayout = new QGridLayout();
@@ -22,8 +22,12 @@ ChordDisplay::ChordDisplay(QString note, QString sh) : QGroupBox()
     this->viewButton = new QPushButton();
     this->viewButton->setIcon(iconView);
     this->viewButton->setFixedSize(20, 20);
+    //QObject::connect(this->viewButton, SIGNAL(pressed()), this, SLOT(slotOpenView()));
+    //QObject::connect(this->viewButton, SIGNAL(released()), this, SLOT(slotCloseView()));
 
-    this->chordName = new QLabel(note + sh);
+    this->note = note;
+    this->hs = hs;
+    this->chordName = new QLabel(note + hs);
     this->chordName->setFixedSize(58, 37);
     QFont f( "Arial", 10, QFont::Bold);
     this->chordName->setFont(f);
@@ -50,4 +54,13 @@ void ChordDisplay::slotDeleteButton()
 {
     emit this->deleteSignal(this);
     delete this;
+}
+
+void ChordDisplay::slotOpenView()
+{
+    //this->view->show();
+}
+void ChordDisplay::slotCloseView()
+{
+    //this->view->close();
 }

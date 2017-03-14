@@ -8,6 +8,9 @@
 #include <QIcon>
 #include <QString>
 
+#include <QWindow>
+#include <QScreen>
+
 #include <chord.h>
 
 class ChordDisplay : public QGroupBox
@@ -18,7 +21,10 @@ private:
     QGridLayout *boxLayout;
     QPushButton *deleteButton;
     QPushButton *viewButton;
+    QWindow *view;
     QLabel *chordName;
+    QString note;
+    QString hs;
 
 public:
     ChordDisplay(QString note, QString sh);
@@ -27,6 +33,8 @@ public:
 
 public slots:
     void slotDeleteButton();
+    void slotOpenView();
+    void slotCloseView();
 
 signals:
     void deleteSignal(ChordDisplay *cd);
