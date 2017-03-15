@@ -27,7 +27,8 @@ SOURCES += main.cpp\
     scaleslistdisplay.cpp \
     chorddisplay.cpp \
     scaledisplay.cpp \
-    scalesdisplay.cpp
+    scalesdisplay.cpp \
+    node.cpp
 
 HEADERS  += mainwindow.h \
     chord.h \
@@ -44,7 +45,8 @@ HEADERS  += mainwindow.h \
     chordslistdisplay.h \
     chorddisplay.h \
     scaledisplay.h \
-    scalesdisplay.h
+    scalesdisplay.h \
+    node.h
 
 
 FORMS    += mainwindow.ui

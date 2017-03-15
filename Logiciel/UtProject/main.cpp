@@ -3,10 +3,13 @@
 #include "ut.h"
 #include <QMenuBar>
 #include <QMenu>
-
+#include <iostream>
+#include <QDebug>
+using namespace std;
 int main(int argc, char *argv[])
 {
 
+    qInfo() <<(int)INFINITY;
     QApplication app(argc, argv);
 
     MainWindow *window = new MainWindow();
