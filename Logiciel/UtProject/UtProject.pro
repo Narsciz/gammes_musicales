@@ -28,7 +28,8 @@ SOURCES += main.cpp\
     chorddisplay.cpp \
     scaledisplay.cpp \
     scalesdisplay.cpp \
-    node.cpp
+    node.cpp \
+    algobrut.cpp
 
 HEADERS  += mainwindow.h \
     chord.h \
@@ -46,7 +47,8 @@ HEADERS  += mainwindow.h \
     chorddisplay.h \
     scaledisplay.h \
     scalesdisplay.h \
-    node.h
+    node.h \
+    algobrut.h
 
 
 FORMS    += mainwindow.ui
