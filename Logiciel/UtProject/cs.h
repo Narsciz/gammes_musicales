@@ -18,6 +18,9 @@ public:
     void setF(Note f2);
     HarmonicStructure getHS();
     void setHS(HarmonicStructure hs2);
+
+    bool ContainsNote(Note,vector<Note>);
+    bool isContainedIn(CS);
 };
 
 #endif // CS_H
