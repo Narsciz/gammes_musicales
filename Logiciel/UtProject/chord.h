@@ -2,6 +2,7 @@
 #define CHORD_H
 #include "cs.h"
 #include "scale.h"
+#include "scaledictionary.h"
 class Chord : public CS
 {
 public:
