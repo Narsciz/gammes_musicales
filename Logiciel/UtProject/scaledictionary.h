@@ -3,6 +3,7 @@
 
 #include <vector>
 #include "hsscale.h"
+#include "scale.h"
 
 class ScaleDictionary
 {
@@ -15,6 +16,8 @@ public:
     static ScaleDictionary* getInstance();
     HSScale* getScaleByIndex(int);
     bool contains(HSScale*);
+
+    std::vector<Scale*> getAllScales();
 
 };
 
