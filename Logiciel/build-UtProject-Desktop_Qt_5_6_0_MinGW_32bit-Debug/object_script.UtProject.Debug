@@ -14,7 +14,10 @@ INPUT(
 ./debug\scaleslistdisplay.o
 ./debug\chorddisplay.o
 ./debug\scaledisplay.o
+./debug\scalesdisplay.o
 ./debug\moc_mainwindow.o
 ./debug\moc_scaleslistdisplay.o
 ./debug\moc_chordslistdisplay.o
+./debug\moc_chorddisplay.o
+./debug\moc_scaledisplay.o
 );

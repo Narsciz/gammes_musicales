@@ -10,7 +10,7 @@ private :
     std::vector<HSChord*> chords;
     ChordDictionary();
 public:
-    ChordDictionary * getInstance();
+    static ChordDictionary * getInstance();
     HSChord* getChordByIndex(int);
     bool contains(HSChord*);
 

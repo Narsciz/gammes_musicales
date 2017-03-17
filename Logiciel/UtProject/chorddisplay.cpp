@@ -6,23 +6,62 @@ using namespace std;
 
 ChordDisplay::ChordDisplay(QString note, QString hs) : QGroupBox()
 {
-    this->setFixedSize(60, 40);
-    this->setStyleSheet("background-color: rgb(200,200,200)");
+    this->setFixedSize(60, 60);
+    this->setStyleSheet("background-color: rgb(155,155,155)");
     this->boxLayout = new QGridLayout();
     this->boxLayout->setMargin(0);
+    this->boxLayout->setSpacing(0);
+    this->boxLayout->setAlignment(Qt::AlignTop);
 
-    QIcon icon("./close.png");
-    this->closeButton = new QPushButton();
-    closeButton->setIcon(icon);
-    closeButton->setFixedSize(20, 20);
+    QIcon iconDelete("./delete.png");
+    this->deleteButton = new QPushButton();
+    this->deleteButton->setIcon(iconDelete);
+    this->deleteButton->setFixedSize(20, 20);
+    QObject::connect(this->deleteButton, SIGNAL(clicked()), this, SLOT(slotDeleteButton()));
+
+    QIcon iconView("./view.png");
+    this->viewButton = new QPushButton();
+    this->viewButton->setIcon(iconView);
+    this->viewButton->setFixedSize(20, 20);
+    //QObject::connect(this->viewButton, SIGNAL(pressed()), this, SLOT(slotOpenView()));
+    //QObject::connect(this->viewButton, SIGNAL(released()), this, SLOT(slotCloseView()));
+
+    this->note = note;
+    this->hs = hs;
     this->chordName = new QLabel(note + hs);
+    this->chordName->setFixedSize(58, 37);
+    QFont f( "Arial", 10, QFont::Bold);
+    this->chordName->setFont(f);
+    this->chordName->setAlignment(Qt::AlignCenter);
 
-    chordName->setFixedSize(30, 10);
-
-    this->boxLayout->addWidget(this->closeButton, 0, 2, 1, 1);
-    this->boxLayout->addItem(new QSpacerItem(20, 20), 1, 0, 1, 1);
-    this->boxLayout->addWidget(this->chordName, 1, 1, 1, 1);
-    this->boxLayout->addItem(new QSpacerItem(10, 10), 2, 0, 1, 1);
+    this->boxLayout->addWidget(this->viewButton, 0, 0, 1, 1);
+    this->boxLayout->addWidget(this->deleteButton, 0, 2, 1, 1);
+    this->boxLayout->addWidget(this->chordName, 1, 0, 1, 3);
 
     this->setLayout(this->boxLayout);
+}
+
+void ChordDisplay::disableDelete()
+{
+    this->deleteButton->setVisible(false);
+}
+
+void ChordDisplay::enableDelete()
+{
+    this->deleteButton->setVisible(true);
+}
+
+void ChordDisplay::slotDeleteButton()
+{
+    emit this->deleteSignal(this);
+    delete this;
+}
+
+void ChordDisplay::slotOpenView()
+{
+    //this->view->show();
+}
+void ChordDisplay::slotCloseView()
+{
+    //this->view->close();
 }

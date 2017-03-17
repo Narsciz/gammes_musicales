@@ -7,17 +7,20 @@ class CS
 {
 private:
     Note f;
-    HarmonicStructure hs;
+    HarmonicStructure *hs;
 public:
     CS(){}
 
-    CS(Note f2, HarmonicStructure hs2);
+    CS(Note f2, HarmonicStructure *hs2);
     std::vector<Note> getNotes();
 
     Note getF();
     void setF(Note f2);
-    HarmonicStructure getHS();
-    void setHS(HarmonicStructure hs2);
+    HarmonicStructure* getHS();
+    void setHS(HarmonicStructure *hs2);
+
+    bool ContainsNote(Note,std::vector<Note>);
+    bool isContainedIn(CS*);
 };
 
 #endif // CS_H

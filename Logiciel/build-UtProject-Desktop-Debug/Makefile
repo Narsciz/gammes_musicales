@@ -62,9 +62,14 @@ SOURCES       = ../UtProject/main.cpp \
 		../UtProject/chordslistdisplay.cpp \
 		../UtProject/scaleslistdisplay.cpp \
 		../UtProject/chorddisplay.cpp \
-		../UtProject/scaledisplay.cpp moc_mainwindow.cpp \
+		../UtProject/scaledisplay.cpp \
+		../UtProject/scalesdisplay.cpp \
+		../UtProject/node.cpp \
+		../UtProject/algobrut.cpp moc_mainwindow.cpp \
 		moc_scaleslistdisplay.cpp \
-		moc_chordslistdisplay.cpp
+		moc_chordslistdisplay.cpp \
+		moc_chorddisplay.cpp \
+		moc_scaledisplay.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		chord.o \
@@ -80,9 +85,14 @@ OBJECTS       = main.o \
 		scaleslistdisplay.o \
 		chorddisplay.o \
 		scaledisplay.o \
+		scalesdisplay.o \
+		node.o \
+		algobrut.o \
 		moc_mainwindow.o \
 		moc_scaleslistdisplay.o \
-		moc_chordslistdisplay.o
+		moc_chordslistdisplay.o \
+		moc_chorddisplay.o \
+		moc_scaledisplay.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf \
@@ -153,7 +163,10 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../UtProject/scaleslistdisplay.h \
 		../UtProject/chordslistdisplay.h \
 		../UtProject/chorddisplay.h \
-		../UtProject/scaledisplay.h ../UtProject/main.cpp \
+		../UtProject/scaledisplay.h \
+		../UtProject/scalesdisplay.h \
+		../UtProject/node.h \
+		../UtProject/algobrut.h ../UtProject/main.cpp \
 		../UtProject/mainwindow.cpp \
 		../UtProject/chord.cpp \
 		../UtProject/scale.cpp \
@@ -167,7 +180,10 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../UtProject/chordslistdisplay.cpp \
 		../UtProject/scaleslistdisplay.cpp \
 		../UtProject/chorddisplay.cpp \
-		../UtProject/scaledisplay.cpp
+		../UtProject/scaledisplay.cpp \
+		../UtProject/scalesdisplay.cpp \
+		../UtProject/node.cpp \
+		../UtProject/algobrut.cpp
 QMAKE_TARGET  = UtProject
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = UtProject
@@ -333,8 +349,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../UtProject/mainwindow.h ../UtProject/chord.h ../UtProject/scale.h ../UtProject/harmonicstructure.h ../UtProject/hschord.h ../UtProject/hsscale.h ../UtProject/chorddictionary.h ../UtProject/scaledictionary.h ../UtProject/algo.h ../UtProject/cs.h ../UtProject/ut.h ../UtProject/scaleslistdisplay.h ../UtProject/chordslistdisplay.h ../UtProject/chorddisplay.h ../UtProject/scaledisplay.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../UtProject/main.cpp ../UtProject/mainwindow.cpp ../UtProject/chord.cpp ../UtProject/scale.cpp ../UtProject/harmonicstructure.cpp ../UtProject/hschord.cpp ../UtProject/hsscale.cpp ../UtProject/chorddictionary.cpp ../UtProject/scaledictionary.cpp ../UtProject/cs.cpp ../UtProject/ut.cpp ../UtProject/chordslistdisplay.cpp ../UtProject/scaleslistdisplay.cpp ../UtProject/chorddisplay.cpp ../UtProject/scaledisplay.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../UtProject/mainwindow.h ../UtProject/chord.h ../UtProject/scale.h ../UtProject/harmonicstructure.h ../UtProject/hschord.h ../UtProject/hsscale.h ../UtProject/chorddictionary.h ../UtProject/scaledictionary.h ../UtProject/algo.h ../UtProject/cs.h ../UtProject/ut.h ../UtProject/scaleslistdisplay.h ../UtProject/chordslistdisplay.h ../UtProject/chorddisplay.h ../UtProject/scaledisplay.h ../UtProject/scalesdisplay.h ../UtProject/node.h ../UtProject/algobrut.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../UtProject/main.cpp ../UtProject/mainwindow.cpp ../UtProject/chord.cpp ../UtProject/scale.cpp ../UtProject/harmonicstructure.cpp ../UtProject/hschord.cpp ../UtProject/hsscale.cpp ../UtProject/chorddictionary.cpp ../UtProject/scaledictionary.cpp ../UtProject/cs.cpp ../UtProject/ut.cpp ../UtProject/chordslistdisplay.cpp ../UtProject/scaleslistdisplay.cpp ../UtProject/chorddisplay.cpp ../UtProject/scaledisplay.cpp ../UtProject/scalesdisplay.cpp ../UtProject/node.cpp ../UtProject/algobrut.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../UtProject/mainwindow.ui $(DISTDIR)/
 
 
@@ -358,20 +374,27 @@ check: first
 
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_scaleslistdisplay.cpp moc_chordslistdisplay.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_scaleslistdisplay.cpp moc_chordslistdisplay.cpp moc_chorddisplay.cpp moc_scaledisplay.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_scaleslistdisplay.cpp moc_chordslistdisplay.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_scaleslistdisplay.cpp moc_chordslistdisplay.cpp moc_chorddisplay.cpp moc_scaledisplay.cpp
 moc_mainwindow.cpp: ../UtProject/chordslistdisplay.h \
 		../UtProject/chorddisplay.h \
 		../UtProject/chord.h \
 		../UtProject/cs.h \
 		../UtProject/note.h \
 		../UtProject/harmonicstructure.h \
+		../UtProject/scale.h \
+		../UtProject/scaledictionary.h \
+		../UtProject/hsscale.h \
 		../UtProject/scaleslistdisplay.h \
+		../UtProject/scalesdisplay.h \
+		../UtProject/scaledisplay.h \
 		../UtProject/mainwindow.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/auto_home/mcoquilhat/Desktop/TER/Ut/gammes_musicales/Logiciel/UtProject -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../UtProject/mainwindow.h -o moc_mainwindow.cpp
 
-moc_scaleslistdisplay.cpp: ../UtProject/scaleslistdisplay.h
+moc_scaleslistdisplay.cpp: ../UtProject/scalesdisplay.h \
+		../UtProject/scaledisplay.h \
+		../UtProject/scaleslistdisplay.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/auto_home/mcoquilhat/Desktop/TER/Ut/gammes_musicales/Logiciel/UtProject -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../UtProject/scaleslistdisplay.h -o moc_scaleslistdisplay.cpp
 
 moc_chordslistdisplay.cpp: ../UtProject/chorddisplay.h \
@@ -379,8 +402,24 @@ moc_chordslistdisplay.cpp: ../UtProject/chorddisplay.h \
 		../UtProject/cs.h \
 		../UtProject/note.h \
 		../UtProject/harmonicstructure.h \
+		../UtProject/scale.h \
+		../UtProject/scaledictionary.h \
+		../UtProject/hsscale.h \
 		../UtProject/chordslistdisplay.h
 	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/auto_home/mcoquilhat/Desktop/TER/Ut/gammes_musicales/Logiciel/UtProject -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../UtProject/chordslistdisplay.h -o moc_chordslistdisplay.cpp
+
+moc_chorddisplay.cpp: ../UtProject/chord.h \
+		../UtProject/cs.h \
+		../UtProject/note.h \
+		../UtProject/harmonicstructure.h \
+		../UtProject/scale.h \
+		../UtProject/scaledictionary.h \
+		../UtProject/hsscale.h \
+		../UtProject/chorddisplay.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/auto_home/mcoquilhat/Desktop/TER/Ut/gammes_musicales/Logiciel/UtProject -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../UtProject/chorddisplay.h -o moc_chorddisplay.cpp
+
+moc_scaledisplay.cpp: ../UtProject/scaledisplay.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/auto_home/mcoquilhat/Desktop/TER/Ut/gammes_musicales/Logiciel/UtProject -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../UtProject/scaledisplay.h -o moc_scaledisplay.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
@@ -407,10 +446,13 @@ main.o: ../UtProject/main.cpp ../UtProject/mainwindow.h \
 		../UtProject/cs.h \
 		../UtProject/note.h \
 		../UtProject/harmonicstructure.h \
-		../UtProject/scaleslistdisplay.h \
-		../UtProject/ut.h \
+		../UtProject/scale.h \
 		../UtProject/scaledictionary.h \
 		../UtProject/hsscale.h \
+		../UtProject/scaleslistdisplay.h \
+		../UtProject/scalesdisplay.h \
+		../UtProject/scaledisplay.h \
+		../UtProject/ut.h \
 		../UtProject/chorddictionary.h \
 		../UtProject/hschord.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../UtProject/main.cpp
@@ -422,14 +464,22 @@ mainwindow.o: ../UtProject/mainwindow.cpp ../UtProject/mainwindow.h \
 		../UtProject/cs.h \
 		../UtProject/note.h \
 		../UtProject/harmonicstructure.h \
+		../UtProject/scale.h \
+		../UtProject/scaledictionary.h \
+		../UtProject/hsscale.h \
 		../UtProject/scaleslistdisplay.h \
+		../UtProject/scalesdisplay.h \
+		../UtProject/scaledisplay.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../UtProject/mainwindow.cpp
 
 chord.o: ../UtProject/chord.cpp ../UtProject/chord.h \
 		../UtProject/cs.h \
 		../UtProject/note.h \
-		../UtProject/harmonicstructure.h
+		../UtProject/harmonicstructure.h \
+		../UtProject/scale.h \
+		../UtProject/scaledictionary.h \
+		../UtProject/hsscale.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o chord.o ../UtProject/chord.cpp
 
 scale.o: ../UtProject/scale.cpp ../UtProject/scale.h \
@@ -456,7 +506,10 @@ chorddictionary.o: ../UtProject/chorddictionary.cpp ../UtProject/chorddictionary
 
 scaledictionary.o: ../UtProject/scaledictionary.cpp ../UtProject/scaledictionary.h \
 		../UtProject/hsscale.h \
-		../UtProject/harmonicstructure.h
+		../UtProject/harmonicstructure.h \
+		../UtProject/scale.h \
+		../UtProject/cs.h \
+		../UtProject/note.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o scaledictionary.o ../UtProject/scaledictionary.cpp
 
 cs.o: ../UtProject/cs.cpp ../UtProject/cs.h \
@@ -472,9 +525,12 @@ ut.o: ../UtProject/ut.cpp ../UtProject/ut.h \
 		../UtProject/cs.h \
 		../UtProject/note.h \
 		../UtProject/harmonicstructure.h \
-		../UtProject/scaleslistdisplay.h \
+		../UtProject/scale.h \
 		../UtProject/scaledictionary.h \
 		../UtProject/hsscale.h \
+		../UtProject/scaleslistdisplay.h \
+		../UtProject/scalesdisplay.h \
+		../UtProject/scaledisplay.h \
 		../UtProject/chorddictionary.h \
 		../UtProject/hschord.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ut.o ../UtProject/ut.cpp
@@ -484,21 +540,47 @@ chordslistdisplay.o: ../UtProject/chordslistdisplay.cpp ../UtProject/chordslistd
 		../UtProject/chord.h \
 		../UtProject/cs.h \
 		../UtProject/note.h \
-		../UtProject/harmonicstructure.h
+		../UtProject/harmonicstructure.h \
+		../UtProject/scale.h \
+		../UtProject/scaledictionary.h \
+		../UtProject/hsscale.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o chordslistdisplay.o ../UtProject/chordslistdisplay.cpp
 
-scaleslistdisplay.o: ../UtProject/scaleslistdisplay.cpp ../UtProject/scaleslistdisplay.h
+scaleslistdisplay.o: ../UtProject/scaleslistdisplay.cpp ../UtProject/scaleslistdisplay.h \
+		../UtProject/scalesdisplay.h \
+		../UtProject/scaledisplay.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o scaleslistdisplay.o ../UtProject/scaleslistdisplay.cpp
 
 chorddisplay.o: ../UtProject/chorddisplay.cpp ../UtProject/chorddisplay.h \
 		../UtProject/chord.h \
 		../UtProject/cs.h \
 		../UtProject/note.h \
-		../UtProject/harmonicstructure.h
+		../UtProject/harmonicstructure.h \
+		../UtProject/scale.h \
+		../UtProject/scaledictionary.h \
+		../UtProject/hsscale.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o chorddisplay.o ../UtProject/chorddisplay.cpp
 
 scaledisplay.o: ../UtProject/scaledisplay.cpp ../UtProject/scaledisplay.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o scaledisplay.o ../UtProject/scaledisplay.cpp
+
+scalesdisplay.o: ../UtProject/scalesdisplay.cpp ../UtProject/scalesdisplay.h \
+		../UtProject/scaledisplay.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o scalesdisplay.o ../UtProject/scalesdisplay.cpp
+
+node.o: ../UtProject/node.cpp ../UtProject/node.h \
+		../UtProject/scale.h \
+		../UtProject/cs.h \
+		../UtProject/note.h \
+		../UtProject/harmonicstructure.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o node.o ../UtProject/node.cpp
+
+algobrut.o: ../UtProject/algobrut.cpp ../UtProject/algobrut.h \
+		../UtProject/scale.h \
+		../UtProject/cs.h \
+		../UtProject/note.h \
+		../UtProject/harmonicstructure.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o algobrut.o ../UtProject/algobrut.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
@@ -508,6 +590,12 @@ moc_scaleslistdisplay.o: moc_scaleslistdisplay.cpp
 
 moc_chordslistdisplay.o: moc_chordslistdisplay.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_chordslistdisplay.o moc_chordslistdisplay.cpp
+
+moc_chorddisplay.o: moc_chorddisplay.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_chorddisplay.o moc_chorddisplay.cpp
+
+moc_scaledisplay.o: moc_scaledisplay.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_scaledisplay.o moc_scaledisplay.cpp
 
 ####### Install
 

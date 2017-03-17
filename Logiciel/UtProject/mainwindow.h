@@ -11,7 +11,16 @@
 #include <QComboBox>
 #include <QLabel>
 #include <QSpacerItem>
+#include <QGroupBox>
 #include <QCoreApplication>
+#include <QMessageBox>
+#include <QString>
+#include <QFileDialog>
+#include <QApplication>
+#include <iostream>
+using namespace std;
+
+#include <QVector>
 
 #include "chordslistdisplay.h"
 #include "scaleslistdisplay.h"
@@ -33,11 +42,15 @@ private:
     QGridLayout *choicesLayout;//Layout affichant l'interface permettant à l'utilisateur de choisir accords et paramètres, "visible" avant lancement de l'algorithme, "hidden" après
     QGridLayout *scalesLayout;
     ChordsListDisplay *cListDisplay;//Layout affichant les accords choisit par l'utilisateur
+    QGroupBox *choicesDisplay;
     ScalesListDisplay *sListDisplay;//Layout affichant les gammes générées, "hidden" avant lancement de l'algorithme, "visible" après lancement
+
 
     //Button
     QPushButton *addButton;
     QPushButton *generateButton;
+    QPushButton *returnButton;
+    QPushButton *reinitializeButton;
 
     //ComboBox
     QComboBox *noteComboBox;
@@ -45,6 +58,12 @@ private:
     QComboBox *parametersComboBox;
 
     //Label
+    QLabel *noteLabel;
+    QLabel *hsLabel;
+    QLabel *parametersLabel;
+
+    //FileDialog
+    QFileDialog *explorer;
 
 public:
     explicit MainWindow(QWidget *parent = 0);
@@ -57,10 +76,17 @@ public:
     void constructScalesLayout();
 
     void clearLayout(QLayout *layout, bool deleteWidgets);
+    QString openExplorer(int i);
 
 public slots :
     void slotAddButton();
     void slotGenerateButton();
+    void slotReturnButton();
+    void slotReinitializeButton();
+    void slotNewFile();
+    void slotImportFile();
+    void slotSaveFile();
+    void slotCloseFile();
 };
 
 #endif // MAINWINDOW_H
