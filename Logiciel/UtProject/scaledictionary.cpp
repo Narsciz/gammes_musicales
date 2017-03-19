@@ -32,4 +32,5 @@ vector<Scale*> ScaleDictionary::getAllScales()
 
 }
 
+void ScaleDictionary::add(HSScale *h){scales.push_back(h);}
 ScaleDictionary *ScaleDictionary::INSTANCE=NULL;

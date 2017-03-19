@@ -16,7 +16,7 @@ public:
     static ScaleDictionary* getInstance();
     HSScale* getScaleByIndex(int);
     bool contains(HSScale*);
-
+    void add(HSScale*);
     std::vector<Scale*> getAllScales();
 
 };

@@ -13,6 +13,8 @@ public:
     static ChordDictionary * getInstance();
     HSChord* getChordByIndex(int);
     bool contains(HSChord*);
+    void add(HSChord*);
+    void generateBaseChords();
 
 };
 
