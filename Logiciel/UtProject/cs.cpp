@@ -54,3 +54,24 @@ bool CS::isContainedIn(CS* c){//si une note de this n'est pas dans c, return fal
     return true;
 
 }
+
+bool CS::equals(CS * cs)
+{
+    if (cs->getF()==getF() && cs->getHS()->getName()==getHS()->getName())
+            return true;
+    else return false;
+}
+
+bool CS::sameNotes(CS * cs)
+{
+    vector<Note> notes1=getNotes();
+    vector<Note> notes2=cs->getNotes();
+    if (notes1.size()==notes2.size())
+    {
+        for (int i=0;i<notes1.size();i++)
+            if (notes1[i]!=notes2[i])
+                return false;
+        return true;
+    }
+    return false;
+}

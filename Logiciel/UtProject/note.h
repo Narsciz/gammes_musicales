@@ -1,7 +1,7 @@
 #ifndef NOTE
 #define NOTE
 
-#endif // NOTE
+
 
 enum Note
 {
@@ -19,3 +19,5 @@ enum Note
     Bsharp=11,
     END_OF_LIST
 };
+
+#endif // NOTE

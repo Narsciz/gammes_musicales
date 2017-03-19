@@ -5,7 +5,7 @@ using namespace std;
 Chord::Chord(Note f2, HarmonicStructure* hs2) : CS::CS(f2, hs2){
 }
 
-vector<Scale*> Chord::CandidatesScales()
+vector<Scale*> Chord::candidatesScales()
 {
     vector<Scale*> res;
     vector<Scale*> searching_set=ScaleDictionary::getInstance()->getAllScales();

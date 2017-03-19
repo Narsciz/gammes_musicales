@@ -3,20 +3,25 @@
 
 #include "chord.h"
 #include "scale.h"
+#include "note.h"
+#include "node.h"
+
 #include <vector>
 
 using namespace std;
 
-K-partitesScales(vector<Chord*> SA)
+
+vector<vector<Scale*> > KpartitesScales(vector<Chord*> SA)
 {
     vector<vector<Scale*> > Kpartite;
     for (int i=0;i<SA.size();i++)
-        K-partite.push_back(SA[i].candidatesScales());
+        Kpartite.push_back(SA[i]->candidatesScales());
     return Kpartite;
 }
 
 std::vector<std::vector<Node*> >ScaleToGraph(std::vector<std::vector<Scale*> > Kpartite)
 {
+    /*
     vector<vector<Node*> > Graph;
 
     //génération de la taille graphe (tout est NULL normalement)
@@ -31,7 +36,7 @@ std::vector<std::vector<Node*> >ScaleToGraph(std::vector<std::vector<Scale*> > K
     s->distanceRoot=0;
 
 
-    Graph[0][0]=this;
+    Graph[0][0]=s;
     int i=0;
     int j;
 
@@ -56,6 +61,17 @@ std::vector<std::vector<Node*> >ScaleToGraph(std::vector<std::vector<Scale*> > K
     s->distanceRoot=INFINITY;
     s->g=NULL;
     Graph[i][0]=s;
+    */
+
+}
+
+bool isNoteInNotes(Note n,vector<Note> s)
+{
+
+    for (int i=0;i<s.size();i++)
+        if (s[i]==n)
+            return true;
+    return false;
 
 }
 

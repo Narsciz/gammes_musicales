@@ -13,6 +13,9 @@ public:
 
     //ça c'est l'algo brut en dessous v
     void generateSols(int,std::vector<Scale*>);//use : generateSols(0,vector<Scale*> vide)
+    std::vector<std::vector<Scale*> > findLeastsConsecutivesNotesChanges();
+    std::vector<std::vector<Scale*> > findLeastsConsecutivesScalesChanges();
+    std::vector<std::vector<Scale*> > findLeastsTotalScales();
 };
 
 #endif // ALGOBRUT_H
