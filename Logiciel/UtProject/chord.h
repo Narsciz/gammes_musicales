@@ -1,5 +1,6 @@
 #ifndef CHORD_H
 #define CHORD_H
+
 #include "cs.h"
 #include "scale.h"
 #include "scaledictionary.h"

@@ -29,7 +29,6 @@ vector<vector<Scale*> > AlgoBrut::findLeastsConsecutivesNotesChanges()
 {
     vector<int> values;
     int value;
-    int minValue=INFINITY;
 
     for (int i=0;i<solutionsPossibles.size();i++)//on remplit le tableau values
     {
@@ -39,13 +38,70 @@ vector<vector<Scale*> > AlgoBrut::findLeastsConsecutivesNotesChanges()
         values.push_back(value);
     }
 
+    int minValue=INFINITY;
     for (int i=0;i<values.size();i++)//on cherche la plus petite valeur possible
         minValue=min(values[i],minValue);
 
     vector<vector<Scale*> >res;
-    for (int i=0;i<values.size();i++)
+    for (int i=0;i<values.size();i++)//on ajoute dans le résultat retour toutes les occurences de la contrainte optimisée
         if (values[i]==minValue)
             res.push_back(solutionsPossibles[i]);
+
     return res;
 
 }
+
+vector<vector<Scale*> > AlgoBrut::findLeastsConsecutivesScalesChanges()
+{
+    vector<int> values;
+    int value;
+
+    for (int i=0;i<solutionsPossibles.size();i++)
+    {
+        value=0;
+        for (int j=0;j<solutionsPossibles[i].size()-1;j++)
+            if (!solutionsPossibles[i][j]->equals(solutionsPossibles[i][j+1]))
+                value++;
+        values.push_back(value);
+    }
+
+    int minValue=INFINITY;
+    for (int i=0;i<values.size();i++)
+        minValue=min(minValue,values[i]);
+
+    vector<vector<Scale*> > res;
+    for (int i=0;i<values.size();i++)
+        if (values[i]==minValue)
+            res.push_back(solutionsPossibles[i]);
+
+    return res;
+}
+
+vector<vector<Scale*> > AlgoBrut::findLeastsTotalScales()
+{
+    vector<int> values;
+    vector<Scale*> distinctsScales;//sert à stocker les différentes gammes de chaque suite de gammes
+
+    for (int i=0;i<solutionsPossibles.size();i++)
+    {
+
+        for (int j=0;j<solutionsPossibles[i].size();j++)
+            if (isScaleInScales(solutionsPossibles[i][j],distinctsScales))
+                distinctsScales.push_back(solutionsPossibles[i][j]);
+
+        values.push_back(distinctsScales.size());
+        distinctsScales.clear();
+    }
+
+    int minValue=INFINITY;
+    for (int i=0;i<values.size();i++)
+        minValue=min(minValue,values[i]);
+
+    vector<vector<Scale*> > res;
+    for (int i=0;i<values.size();i++)
+        if (values[i]==minValue)
+            res.push_back(solutionsPossibles[i]);
+
+    return res;
+}
+

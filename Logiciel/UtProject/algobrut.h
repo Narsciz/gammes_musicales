@@ -3,6 +3,8 @@
 
 #include <vector>
 #include <scale.h>
+#include "algo.h"
+
 class AlgoBrut
 {
 private:

@@ -29,7 +29,8 @@ SOURCES += main.cpp\
     scaledisplay.cpp \
     scalesdisplay.cpp \
     node.cpp \
-    algobrut.cpp
+    algobrut.cpp \
+    algo.cpp
 
 HEADERS  += mainwindow.h \
     chord.h \
