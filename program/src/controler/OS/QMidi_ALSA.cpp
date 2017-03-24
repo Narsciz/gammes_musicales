@@ -10,7 +10,7 @@
 #include <alsa/seq_midi_event.h>
 
 struct NativeMidiOutInstances {
-	snd_seq_t* midiOutPtr;
+    snd_seq_t* midiOutPtr;
 };
 
 // TODO: error reporting
@@ -19,19 +19,19 @@ QMap<QString, QString> QMidiOut::devices()
 {
 	QMap<QString, QString> ret;
 
-	snd_seq_client_info_t* cinfo;
+    snd_seq_client_info_t* cinfo;
 	snd_seq_port_info_t* pinfo;
 	int client;
 	int err;
 	snd_seq_t* handle;
 
-	err = snd_seq_open(&handle, "hw", SND_SEQ_OPEN_DUPLEX, 0);
-	if (err < 0) {
-		/* Use snd_strerror(errno) to get the error here. */
-		return ret;
-	}
+    err = snd_seq_open(&handle, "hw", SND_SEQ_OPEN_DUPLEX, 0);
+    if (err < 0) {
+        /* Use snd_strerror(errno) to get the error here. */
+        return ret;
+    }
 
-	snd_seq_client_info_alloca(&cinfo);
+    snd_seq_client_info_alloca(&cinfo);
 	snd_seq_client_info_set_client(cinfo, -1);
 
 	while (snd_seq_query_next_client(handle, cinfo) >= 0) {
@@ -48,10 +48,10 @@ QMap<QString, QString> QMidiOut::devices()
 				QString name = snd_seq_client_info_get_name(cinfo);
 				ret.insert(port, name);
 			}
-		}
-	}
+        }
+    }
 
-	return ret;
+    return ret;
 }
 
 bool QMidiOut::connect(QString outDeviceId)
@@ -60,7 +60,7 @@ bool QMidiOut::connect(QString outDeviceId)
 		disconnect();
 	fMidiPtrs = new NativeMidiOutInstances;
 
-	int err = snd_seq_open(&fMidiPtrs->midiOutPtr, "default", SND_SEQ_OPEN_OUTPUT, 0);
+    int err = snd_seq_open(&fMidiPtrs->midiOutPtr, "default", SND_SEQ_OPEN_OUTPUT, 0);
 	if (err < 0)
 		return false;
 	snd_seq_set_client_name(fMidiPtrs->midiOutPtr, "QMidi");
@@ -71,7 +71,7 @@ bool QMidiOut::connect(QString outDeviceId)
 	QStringList l = outDeviceId.split(":");
 	int client = l.at(0).toInt();
 	int port = l.at(1).toInt();
-	snd_seq_connect_to(fMidiPtrs->midiOutPtr, 0, client, port);
+    snd_seq_connect_to(fMidiPtrs->midiOutPtr, 0, client, port);
 
 	fDeviceId = outDeviceId;
 	fConnected = true;
@@ -87,7 +87,7 @@ void QMidiOut::disconnect()
 	int client = l.at(0).toInt();
 	int port = l.at(1).toInt();
 
-	snd_seq_disconnect_from(fMidiPtrs->midiOutPtr, 0, client, port);
+    snd_seq_disconnect_from(fMidiPtrs->midiOutPtr, 0, client, port);
 	fConnected = false;
 
 	delete fMidiPtrs;
@@ -104,7 +104,7 @@ void QMidiOut::sendMsg(qint32 msg)
 	buf[1] = (msg >> 8) & 0xFF;
 	buf[2] = (msg >> 16) & 0xFF;
 
-	snd_seq_event_t ev;
+    snd_seq_event_t ev;
 	snd_midi_event_t* mev;
 
 	snd_seq_ev_clear(&ev);
@@ -117,5 +117,5 @@ void QMidiOut::sendMsg(qint32 msg)
 	snd_midi_event_encode(mev, (unsigned char*)&buf, 3, &ev);
 
 	snd_seq_event_output(fMidiPtrs->midiOutPtr, &ev);
-	snd_seq_drain_output(fMidiPtrs->midiOutPtr);
+    snd_seq_drain_output(fMidiPtrs->midiOutPtr);
 }
