@@ -15,6 +15,13 @@ bool ScaleDictionary::contains(HSScale * s)
     return false;
 }
 
+
+void ScaleDictionary::generateBaseScale()
+{
+    getInstance()->add(new HSScale("majeur",{2,2,1,2,2,2,1}));
+    //http://www.solfego.fr/toutes-les-gammes.htm
+}
+
 ScaleDictionary *ScaleDictionary::getInstance()
 {
     if (INSTANCE==NULL)

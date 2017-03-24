@@ -1,6 +1,6 @@
-#include "mainwindow.h"
+#include "view/mainwindow.h"
 #include <QApplication>
-#include "ut.h"
+#include "view/ut.h"
 #include <QMenuBar>
 #include <QMenu>
 #include <iostream>
@@ -8,6 +8,7 @@
 using namespace std;
 int main(int argc, char *argv[])
 {
+
 
 
     //qInfo() <<(int)INFINITY;

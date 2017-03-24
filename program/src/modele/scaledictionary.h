@@ -2,8 +2,8 @@
 #define SCALEDICTIONARY_H
 
 #include <vector>
-#include "hsscale.h"
-#include "scale.h"
+#include "modele/hsscale.h"
+#include "modele/scale.h"
 
 class ScaleDictionary
 {
@@ -18,6 +18,7 @@ public:
     bool contains(HSScale*);
     void add(HSScale*);
     std::vector<Scale*> getAllScales();
+    void generateBaseScale();
 
 };
 

@@ -54,3 +54,5 @@ HEADERS  += view/mainwindow.h \
 
 
 FORMS    += view/mainwindow.ui
+
+CONFIG += c++11

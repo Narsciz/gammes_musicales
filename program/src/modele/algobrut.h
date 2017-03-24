@@ -2,8 +2,8 @@
 #define ALGOBRUT_H
 
 #include <vector>
-#include <scale.h>
-#include "algo.h"
+#include "modele/scale.h"
+#include "modele/algo.h"
 
 class AlgoBrut
 {
