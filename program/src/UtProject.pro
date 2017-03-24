@@ -30,7 +30,13 @@ SOURCES += main.cpp\
     modele/node.cpp \
     modele/algobrut.cpp \
     modele/algo.cpp \
-    controler/ut.cpp
+    controler/ut.cpp \
+    controler/QMidiFile.cpp \
+    controler/QMidiOut.cpp \
+    controler/OS/QMidi_ALSA.cpp \
+    controler/OS/QMidi_Haiku.cpp \
+    controler/OS/QMidi_Win32.cpp \
+
 
 HEADERS  += view/mainwindow.h \
     modele/chord.h \
@@ -51,9 +57,30 @@ HEADERS  += view/mainwindow.h \
     modele/algobrut.h \
     modele/ttt.h \
     controler/ut.h \
+<<<<<<< HEAD
     modele/note.h
+=======
+    controler/QMidiFile.h \
+    controler/QMidiOut.h \
+>>>>>>> 818e3fe00dc20f5afa793df87ac8bf4ab7cfffc2
 
 
 FORMS    += view/mainwindow.ui
 
+# QMidi include file for QMake
 CONFIG += c++11
+
+win32 {
+        LIBS += -lwinmm
+        SOURCES += $$PWD/controler/OS/QMidi_Win32.cpp
+}
+
+linux* {
+        LIBS += -lasound
+        SOURCES += $$PWD/controler/OS/QMidi_ALSA.cpp
+}
+
+haiku* {
+        LIBS += -lmidi2
+        SOURCES += $$PWD/controler/OS/QMidi_Haiku.cpp
+}

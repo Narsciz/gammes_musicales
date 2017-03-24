@@ -1,1 +1,4 @@
 /program/build*
+/Logiciel
+/Logiciel/*
+/program/src/UtProject.pro.*
