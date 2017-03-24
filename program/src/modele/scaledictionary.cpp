@@ -18,7 +18,21 @@ bool ScaleDictionary::contains(HSScale * s)
 
 void ScaleDictionary::generateBaseScale()
 {
-    getInstance()->add(new HSScale("majeur",{2,2,1,2,2,2,1}));
+    getInstance()->add(new HSScale("Aéolien",{2,1,2,2,1,2}));
+    getInstance()->add(new HSScale("Aélien(b5)",{2,1,2,1,2,2}));
+    getInstance()->add(new HSScale("Altéré superlocrien",{1,2,1,2,2}));
+    getInstance()->add(new HSScale("Arabe",{2,2,1,1,2}));
+    getInstance()->add(new HSScale("Bartock",{2,2,2,1,2,1}));
+    getInstance()->add(new HSScale("Blues(heptatonique)",{3,2,1,1,3,1}));
+    getInstance()->add(new HSScale("Demi-ton tons sans sixte",{1,2,1,2,1,3}));
+    getInstance()->add(new HSScale("Dorien",{2,1,2,2,2,1}));
+    getInstance()->add(new HSScale("Enigmatique",{1,3,2,2,2,1}));
+    getInstance()->add(new HSScale("Espagnole(première forme)",{1,3,2,2,2,1}));
+    getInstance()->add(new HSScale("Gitane",{1,3,1,2,2,1}));
+    getInstance()->add(new HSScale("Gypsy",{1,3,1,2,1,3}));
+    getInstance()->add(new HSScale("Hindou",{2,2,1,2,1,2}));
+    getInstance()->add(new HSScale("Hongroise gitane",{2,1}));
+
     //http://www.solfego.fr/toutes-les-gammes.htm
 }
 
