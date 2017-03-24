@@ -24,7 +24,7 @@ bool ChordDictionary::contains(HSChord * c)
 
 void ChordDictionary::generateBaseChords()
 {
-    getInstance()->add(new HSChord("M",{4,3}));
+    /*getInstance()->add(new HSChord("M",{4,3}));
     getInstance()->add(new HSChord("+",{4,4}));
     getInstance()->add(new HSChord("m",{3,4}));
     getInstance()->add(new HSChord("2",{2,2,3}));
@@ -47,7 +47,7 @@ void ChordDictionary::generateBaseChords()
     getInstance()->add(new HSChord("5",{7}));
     getInstance()->add(new HSChord("dim7",{3,3,3}));
     getInstance()->add(new HSChord("7(b5)",{4,2,4}));
-    getInstance()->add(new HSChord("7(#5)",{4,4,2}));
+    getInstance()->add(new HSChord("7(#5)",{4,4,2}));*/
 
 }
 

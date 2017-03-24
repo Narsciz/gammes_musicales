@@ -1,5 +1,6 @@
 #include "algobrut.h"
 
+#define INFINITY 10000000
 using namespace std;
 
 AlgoBrut::AlgoBrut(std::vector<std::vector<Scale *> > graph):KpartiteGraph(graph)
