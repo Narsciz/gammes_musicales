@@ -18,7 +18,7 @@ bool ScaleDictionary::contains(HSScale * s)
 
 void ScaleDictionary::generateBaseScale()
 {
-    getInstance()->add(new HSScale("Aéolien",{2,1,2,2,1,2}));
+    /*getInstance()->add(new HSScale("Aéolien",{2,1,2,2,1,2}));
     getInstance()->add(new HSScale("Aélien(b5)",{2,1,2,1,2,2}));
     getInstance()->add(new HSScale("Altéré superlocrien",{1,2,1,2,2}));
     getInstance()->add(new HSScale("Arabe",{2,2,1,1,2}));
@@ -30,8 +30,9 @@ void ScaleDictionary::generateBaseScale()
     getInstance()->add(new HSScale("Espagnole(première forme)",{1,3,2,2,2,1}));
     getInstance()->add(new HSScale("Gitane",{1,3,1,2,2,1}));
     getInstance()->add(new HSScale("Gypsy",{1,3,1,2,1,3}));
-    getInstance()->add(new HSScale("Hindou",{2,2,1,2,1,2}));
-    getInstance()->add(new HSScale("Hongroise gitane",{2,1}));
+    getInstance()->add(new HSScale("Hindou",{2,2,1,2,1,2}));*/
+    getInstance()->add(new HSScale("Mineur harmonique",{2,1,2,2,1,3}));
+    getInstance()->add(new HSScale("Majeur",{2,2,1,2,2,2}));
 
     //http://www.solfego.fr/toutes-les-gammes.htm
 }

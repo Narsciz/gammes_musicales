@@ -5,6 +5,61 @@ CS::CS(Note f2, HarmonicStructure *hs2){
     f=f2;
     hs=hs2;
 }
+QString getNameNote(Note n)
+{
+    switch(n)
+    {
+    case 0:
+        return "C";
+        break;
+    case 1:
+        return "C#";
+
+        break;
+    case 2:
+        return "D";
+
+        break;
+    case 3:
+        return "D#";
+
+        break;
+    case 4:
+        return "E";
+
+        break;
+    case 5:
+        return "F";
+
+        break;
+    case 6:
+        return "F#";
+
+        break;
+    case 7:
+        return "G";
+
+        break;
+    case 8:
+        return "G#";
+
+        break;
+    case 9:
+        return "A";
+
+        break;
+    case 10:
+        return "A#";
+
+        break;
+    case 11:
+        return "B";
+
+        break;
+    }
+}
+
+QString CS::getName(){return getNameNote(f)+hs->getName();}
 
 vector<Note> CS::getNotes(){
     vector<Note> n;

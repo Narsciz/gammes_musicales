@@ -50,7 +50,8 @@ HEADERS  += view/mainwindow.h \
     modele/node.h \
     modele/algobrut.h \
     modele/ttt.h \
-    controler/ut.h
+    controler/ut.h \
+    modele/note.h
 
 
 FORMS    += view/mainwindow.ui

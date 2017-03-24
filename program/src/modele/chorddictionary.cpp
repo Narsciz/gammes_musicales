@@ -23,7 +23,7 @@ bool ChordDictionary::contains(HSChord * c)
 }
 
 
-
+int ChordDictionary::getSize(){return chords.size();}
 void ChordDictionary::generateBaseChords()
 {
     getInstance()->add(new HSChord("M",{4,3}));
@@ -53,6 +53,15 @@ void ChordDictionary::generateBaseChords()
 
 }
 
+HSChord* ChordDictionary::getChordByIndex(int i){return chords[i];}
+vector<Chord*> ChordDictionary::getAllChords()
+{
+    vector<Chord*> res;
+    for (int j=0;j<chords.size();j++)
+        for (int i=0;i<12;i++)
+            res.push_back(new Chord((Note)i,chords[j]));
+    return res;
+}
 
 void ChordDictionary::add(HSChord *h){if (!contains(h)) chords.push_back(h);}
 

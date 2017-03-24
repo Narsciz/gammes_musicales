@@ -2,7 +2,7 @@
 #define CS_H
 #include "note.h"
 #include "harmonicstructure.h"
-
+#include <string>
 class CS
 {
 private:
@@ -13,6 +13,8 @@ public:
 
     CS(Note f2, HarmonicStructure *hs2);
     std::vector<Note> getNotes();
+
+    QString getName();
 
     Note getF();
     void setF(Note f2);

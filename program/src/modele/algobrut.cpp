@@ -19,11 +19,13 @@ void AlgoBrut::generateSols(int index,vector<Scale*> solutionPossible)
         {
             solutionPossible.push_back(KpartiteGraph[index][i]);
             generateSols(index+1,solutionPossible);
+            solutionPossible.pop_back();
         }
-
     }
 }
 
+
+vector<vector<Scale*> > AlgoBrut::getSols(){return solutionsPossibles;}
 
 vector<vector<Scale*> > AlgoBrut::findLeastsConsecutivesNotesChanges()
 {
@@ -86,7 +88,7 @@ vector<vector<Scale*> > AlgoBrut::findLeastsTotalScales()
     {
 
         for (int j=0;j<solutionsPossibles[i].size();j++)
-            if (isScaleInScales(solutionsPossibles[i][j],distinctsScales))
+            if (!isScaleInScales(solutionsPossibles[i][j],distinctsScales))
                 distinctsScales.push_back(solutionsPossibles[i][j]);
 
         values.push_back(distinctsScales.size());

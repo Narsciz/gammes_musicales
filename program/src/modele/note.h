@@ -13,10 +13,10 @@ enum Note
     F=5,
     Fsharp=6,
     G=7,
-    A=8,
-    Asharp=9,
-    B=10,
-    Bsharp=11,
+    Gsharp=8,
+    A=9,
+    Asharp=10,
+    B=11,
     END_OF_LIST
 };
 

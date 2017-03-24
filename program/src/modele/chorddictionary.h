@@ -3,6 +3,7 @@
 
 #include <vector>
 #include "hschord.h"
+#include "chord.h"
 class ChordDictionary
 {
 private :
@@ -10,11 +11,13 @@ private :
     std::vector<HSChord*> chords;
     ChordDictionary();
 public:
+    int getSize();
     static ChordDictionary * getInstance();
     HSChord* getChordByIndex(int);
     bool contains(HSChord*);
     void add(HSChord*);
     void generateBaseChords();
+    std::vector<Chord*> getAllChords();
 
 };
 
