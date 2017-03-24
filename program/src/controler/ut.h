@@ -1,8 +1,8 @@
 #ifndef UT_H
 #define UT_H
-#include "mainwindow.h"
-#include "scaledictionary.h"
-#include "chorddictionary.h"
+#include "view/mainwindow.h"
+#include "modele/scaledictionary.h"
+#include "modele/chorddictionary.h"
 
 class Ut
 {

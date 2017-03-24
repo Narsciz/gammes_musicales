@@ -13,43 +13,44 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
-    chord.cpp \
-    scale.cpp \
-    harmonicstructure.cpp \
-    hschord.cpp \
-    hsscale.cpp \
-    chorddictionary.cpp \
-    scaledictionary.cpp \
-    cs.cpp \
-    ut.cpp \
-    chordslistdisplay.cpp \
-    scaleslistdisplay.cpp \
-    chorddisplay.cpp \
-    scaledisplay.cpp \
-    scalesdisplay.cpp \
-    node.cpp \
-    algobrut.cpp \
-    algo.cpp
+        view/mainwindow.cpp \
+    modele/chord.cpp \
+    modele/scale.cpp \
+    modele/harmonicstructure.cpp \
+    modele/hschord.cpp \
+    modele/hsscale.cpp \
+    modele/chorddictionary.cpp \
+    modele/scaledictionary.cpp \
+    modele/cs.cpp \
+    view/chordslistdisplay.cpp \
+    view/scaleslistdisplay.cpp \
+    view/chorddisplay.cpp \
+    view/scaledisplay.cpp \
+    view/scalesdisplay.cpp \
+    modele/node.cpp \
+    modele/algobrut.cpp \
+    modele/algo.cpp \
+    controler/ut.cpp
 
-HEADERS  += mainwindow.h \
-    chord.h \
-    scale.h \
-    harmonicstructure.h \
-    hschord.h \
-    hsscale.h \
-    chorddictionary.h \
-    scaledictionary.h \
-    algo.h \
-    cs.h \
-    ut.h \
-    scaleslistdisplay.h \
-    chordslistdisplay.h \
-    chorddisplay.h \
-    scaledisplay.h \
-    scalesdisplay.h \
-    node.h \
-    algobrut.h
+HEADERS  += view/mainwindow.h \
+    modele/chord.h \
+    modele/scale.h \
+    modele/harmonicstructure.h \
+    modele/hschord.h \
+    modele/hsscale.h \
+    modele/chorddictionary.h \
+    modele/scaledictionary.h \
+    modele/algo.h \
+    modele/cs.h \
+    view/scaleslistdisplay.h \
+    view/chordslistdisplay.h \
+    view/chorddisplay.h \
+    view/scaledisplay.h \
+    view/scalesdisplay.h \
+    modele/node.h \
+    modele/algobrut.h \
+    modele/ttt.h \
+    controler/ut.h
 
 
-FORMS    += mainwindow.ui
+FORMS    += view/mainwindow.ui
