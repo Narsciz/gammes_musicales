@@ -2,7 +2,7 @@
  * Copyright 2012-2016 Augustin Cavalier <waddlesplash>
  * All rights reserved. Distributed under the terms of the MIT license.
  */
-#include "QMidiOut.h"
+#include "controler/QMidiOut.h"
 
 #include <QStringList>
 #include <alsa/asoundlib.h>

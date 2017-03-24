@@ -14,7 +14,7 @@ CC            = gcc
 CXX           = g++
 DEFINES       = -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
 CFLAGS        = -m64 -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
-CXXFLAGS      = -m64 -pipe -g -Wall -W -D_REENTRANT -fPIC $(DEFINES)
+CXXFLAGS      = -m64 -pipe -g -std=c++0x -Wall -W -D_REENTRANT -fPIC $(DEFINES)
 INCPATH       = -I../../program/src -I. -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I. -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64
 QMAKE         = /usr/lib/x86_64-linux-gnu/qt5/bin/qmake
 DEL_FILE      = rm -f
@@ -36,7 +36,7 @@ DISTNAME      = UtProject1.0.0
 DISTDIR = /auto_home/mcoquilhat/Desktop/TER/Ut/gammes_musicales/Logiciel/build-UtProject-Desktop-Debug/.tmp/UtProject1.0.0
 LINK          = g++
 LFLAGS        = -m64
-LIBS          = $(SUBLIBS) -L/usr/X11R6/lib64 -lQt5Widgets -lQt5Gui -lQt5Core -lGL -lpthread 
+LIBS          = $(SUBLIBS) -L/usr/X11R6/lib64 -lasound -lQt5Widgets -lQt5Gui -lQt5Core -lGL -lpthread 
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -49,24 +49,30 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = ../../program/src/main.cpp \
-		../../program/src/mainwindow.cpp \
-		../../program/src/chord.cpp \
-		../../program/src/scale.cpp \
-		../../program/src/harmonicstructure.cpp \
-		../../program/src/hschord.cpp \
-		../../program/src/hsscale.cpp \
-		../../program/src/chorddictionary.cpp \
-		../../program/src/scaledictionary.cpp \
-		../../program/src/cs.cpp \
-		../../program/src/ut.cpp \
-		../../program/src/chordslistdisplay.cpp \
-		../../program/src/scaleslistdisplay.cpp \
-		../../program/src/chorddisplay.cpp \
-		../../program/src/scaledisplay.cpp \
-		../../program/src/scalesdisplay.cpp \
-		../../program/src/node.cpp \
-		../../program/src/algobrut.cpp \
-		../../program/src/algo.cpp moc_mainwindow.cpp \
+		../../program/src/view/mainwindow.cpp \
+		../../program/src/modele/chord.cpp \
+		../../program/src/modele/scale.cpp \
+		../../program/src/modele/harmonicstructure.cpp \
+		../../program/src/modele/hschord.cpp \
+		../../program/src/modele/hsscale.cpp \
+		../../program/src/modele/chorddictionary.cpp \
+		../../program/src/modele/scaledictionary.cpp \
+		../../program/src/modele/cs.cpp \
+		../../program/src/view/chordslistdisplay.cpp \
+		../../program/src/view/scaleslistdisplay.cpp \
+		../../program/src/view/chorddisplay.cpp \
+		../../program/src/view/scaledisplay.cpp \
+		../../program/src/view/scalesdisplay.cpp \
+		../../program/src/modele/node.cpp \
+		../../program/src/modele/algobrut.cpp \
+		../../program/src/modele/algo.cpp \
+		../../program/src/controler/ut.cpp \
+		../../program/src/controler/QMidiFile.cpp \
+		../../program/src/controler/QMidiOut.cpp \
+		../../program/src/controler/OS/QMidi_ALSA.cpp \
+		../../program/src/controler/OS/QMidi_Haiku.cpp \
+		../../program/src/controler/OS/QMidi_Win32.cpp \
+		../../program/src/controler/OS/QMidi_ALSA.cpp moc_mainwindow.cpp \
 		moc_scaleslistdisplay.cpp \
 		moc_chordslistdisplay.cpp \
 		moc_chorddisplay.cpp \
@@ -81,7 +87,6 @@ OBJECTS       = main.o \
 		chorddictionary.o \
 		scaledictionary.o \
 		cs.o \
-		ut.o \
 		chordslistdisplay.o \
 		scaleslistdisplay.o \
 		chorddisplay.o \
@@ -90,6 +95,13 @@ OBJECTS       = main.o \
 		node.o \
 		algobrut.o \
 		algo.o \
+		ut.o \
+		QMidiFile.o \
+		QMidiOut.o \
+		QMidi_ALSA.o \
+		QMidi_Haiku.o \
+		QMidi_Win32.o \
+		QMidi_ALSA.o \
 		moc_mainwindow.o \
 		moc_scaleslistdisplay.o \
 		moc_chordslistdisplay.o \
@@ -140,6 +152,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resolve_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_post.prf \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/c++11.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/warn_on.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resources.prf \
@@ -151,42 +164,51 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
-		../../program/src/UtProject.pro ../../program/src/mainwindow.h \
-		../../program/src/chord.h \
-		../../program/src/scale.h \
-		../../program/src/harmonicstructure.h \
-		../../program/src/hschord.h \
-		../../program/src/hsscale.h \
-		../../program/src/chorddictionary.h \
-		../../program/src/scaledictionary.h \
-		../../program/src/algo.h \
-		../../program/src/cs.h \
-		../../program/src/ut.h \
-		../../program/src/scaleslistdisplay.h \
-		../../program/src/chordslistdisplay.h \
-		../../program/src/chorddisplay.h \
-		../../program/src/scaledisplay.h \
-		../../program/src/scalesdisplay.h \
-		../../program/src/node.h \
-		../../program/src/algobrut.h ../../program/src/main.cpp \
-		../../program/src/mainwindow.cpp \
-		../../program/src/chord.cpp \
-		../../program/src/scale.cpp \
-		../../program/src/harmonicstructure.cpp \
-		../../program/src/hschord.cpp \
-		../../program/src/hsscale.cpp \
-		../../program/src/chorddictionary.cpp \
-		../../program/src/scaledictionary.cpp \
-		../../program/src/cs.cpp \
-		../../program/src/ut.cpp \
-		../../program/src/chordslistdisplay.cpp \
-		../../program/src/scaleslistdisplay.cpp \
-		../../program/src/chorddisplay.cpp \
-		../../program/src/scaledisplay.cpp \
-		../../program/src/scalesdisplay.cpp \
-		../../program/src/node.cpp \
-		../../program/src/algobrut.cpp \
-		../../program/src/algo.cpp
+		../../program/src/UtProject.pro ../../program/src/view/mainwindow.h \
+		../../program/src/modele/chord.h \
+		../../program/src/modele/scale.h \
+		../../program/src/modele/harmonicstructure.h \
+		../../program/src/modele/hschord.h \
+		../../program/src/modele/hsscale.h \
+		../../program/src/modele/chorddictionary.h \
+		../../program/src/modele/scaledictionary.h \
+		../../program/src/modele/algo.h \
+		../../program/src/modele/cs.h \
+		../../program/src/view/scaleslistdisplay.h \
+		../../program/src/view/chordslistdisplay.h \
+		../../program/src/view/chorddisplay.h \
+		../../program/src/view/scaledisplay.h \
+		../../program/src/view/scalesdisplay.h \
+		../../program/src/modele/node.h \
+		../../program/src/modele/algobrut.h \
+		../../program/src/modele/ttt.h \
+		../../program/src/controler/ut.h \
+		../../program/src/controler/QMidiFile.h \
+		../../program/src/controler/QMidiOut.h ../../program/src/main.cpp \
+		../../program/src/view/mainwindow.cpp \
+		../../program/src/modele/chord.cpp \
+		../../program/src/modele/scale.cpp \
+		../../program/src/modele/harmonicstructure.cpp \
+		../../program/src/modele/hschord.cpp \
+		../../program/src/modele/hsscale.cpp \
+		../../program/src/modele/chorddictionary.cpp \
+		../../program/src/modele/scaledictionary.cpp \
+		../../program/src/modele/cs.cpp \
+		../../program/src/view/chordslistdisplay.cpp \
+		../../program/src/view/scaleslistdisplay.cpp \
+		../../program/src/view/chorddisplay.cpp \
+		../../program/src/view/scaledisplay.cpp \
+		../../program/src/view/scalesdisplay.cpp \
+		../../program/src/modele/node.cpp \
+		../../program/src/modele/algobrut.cpp \
+		../../program/src/modele/algo.cpp \
+		../../program/src/controler/ut.cpp \
+		../../program/src/controler/QMidiFile.cpp \
+		../../program/src/controler/QMidiOut.cpp \
+		../../program/src/controler/OS/QMidi_ALSA.cpp \
+		../../program/src/controler/OS/QMidi_Haiku.cpp \
+		../../program/src/controler/OS/QMidi_Win32.cpp \
+		../../program/src/controler/OS/QMidi_ALSA.cpp
 QMAKE_TARGET  = UtProject
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = UtProject
@@ -262,6 +284,7 @@ Makefile: ../../program/src/UtProject.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resolve_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_post.prf \
+		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/c++11.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/warn_on.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resources.prf \
@@ -323,6 +346,7 @@ Makefile: ../../program/src/UtProject.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resolve_config.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_post.prf:
+/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/c++11.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/warn_on.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/resources.prf:
@@ -352,9 +376,9 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../../program/src/mainwindow.h ../../program/src/chord.h ../../program/src/scale.h ../../program/src/harmonicstructure.h ../../program/src/hschord.h ../../program/src/hsscale.h ../../program/src/chorddictionary.h ../../program/src/scaledictionary.h ../../program/src/algo.h ../../program/src/cs.h ../../program/src/ut.h ../../program/src/scaleslistdisplay.h ../../program/src/chordslistdisplay.h ../../program/src/chorddisplay.h ../../program/src/scaledisplay.h ../../program/src/scalesdisplay.h ../../program/src/node.h ../../program/src/algobrut.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../program/src/main.cpp ../../program/src/mainwindow.cpp ../../program/src/chord.cpp ../../program/src/scale.cpp ../../program/src/harmonicstructure.cpp ../../program/src/hschord.cpp ../../program/src/hsscale.cpp ../../program/src/chorddictionary.cpp ../../program/src/scaledictionary.cpp ../../program/src/cs.cpp ../../program/src/ut.cpp ../../program/src/chordslistdisplay.cpp ../../program/src/scaleslistdisplay.cpp ../../program/src/chorddisplay.cpp ../../program/src/scaledisplay.cpp ../../program/src/scalesdisplay.cpp ../../program/src/node.cpp ../../program/src/algobrut.cpp ../../program/src/algo.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../../program/src/mainwindow.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../../program/src/view/mainwindow.h ../../program/src/modele/chord.h ../../program/src/modele/scale.h ../../program/src/modele/harmonicstructure.h ../../program/src/modele/hschord.h ../../program/src/modele/hsscale.h ../../program/src/modele/chorddictionary.h ../../program/src/modele/scaledictionary.h ../../program/src/modele/algo.h ../../program/src/modele/cs.h ../../program/src/view/scaleslistdisplay.h ../../program/src/view/chordslistdisplay.h ../../program/src/view/chorddisplay.h ../../program/src/view/scaledisplay.h ../../program/src/view/scalesdisplay.h ../../program/src/modele/node.h ../../program/src/modele/algobrut.h ../../program/src/modele/ttt.h ../../program/src/controler/ut.h ../../program/src/controler/QMidiFile.h ../../program/src/controler/QMidiOut.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../../program/src/main.cpp ../../program/src/view/mainwindow.cpp ../../program/src/modele/chord.cpp ../../program/src/modele/scale.cpp ../../program/src/modele/harmonicstructure.cpp ../../program/src/modele/hschord.cpp ../../program/src/modele/hsscale.cpp ../../program/src/modele/chorddictionary.cpp ../../program/src/modele/scaledictionary.cpp ../../program/src/modele/cs.cpp ../../program/src/view/chordslistdisplay.cpp ../../program/src/view/scaleslistdisplay.cpp ../../program/src/view/chorddisplay.cpp ../../program/src/view/scaledisplay.cpp ../../program/src/view/scalesdisplay.cpp ../../program/src/modele/node.cpp ../../program/src/modele/algobrut.cpp ../../program/src/modele/algo.cpp ../../program/src/controler/ut.cpp ../../program/src/controler/QMidiFile.cpp ../../program/src/controler/QMidiOut.cpp ../../program/src/controler/OS/QMidi_ALSA.cpp ../../program/src/controler/OS/QMidi_Haiku.cpp ../../program/src/controler/OS/QMidi_Win32.cpp ../../program/src/controler/OS/QMidi_ALSA.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../../program/src/view/mainwindow.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -380,57 +404,57 @@ compiler_rcc_clean:
 compiler_moc_header_make_all: moc_mainwindow.cpp moc_scaleslistdisplay.cpp moc_chordslistdisplay.cpp moc_chorddisplay.cpp moc_scaledisplay.cpp
 compiler_moc_header_clean:
 	-$(DEL_FILE) moc_mainwindow.cpp moc_scaleslistdisplay.cpp moc_chordslistdisplay.cpp moc_chorddisplay.cpp moc_scaledisplay.cpp
-moc_mainwindow.cpp: ../../program/src/chordslistdisplay.h \
-		../../program/src/chorddisplay.h \
-		../../program/src/chord.h \
-		../../program/src/cs.h \
-		../../program/src/note.h \
-		../../program/src/harmonicstructure.h \
-		../../program/src/scale.h \
-		../../program/src/scaledictionary.h \
-		../../program/src/hsscale.h \
-		../../program/src/scaleslistdisplay.h \
-		../../program/src/scalesdisplay.h \
-		../../program/src/scaledisplay.h \
-		../../program/src/mainwindow.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/auto_home/mcoquilhat/Desktop/TER/Ut/gammes_musicales/program/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../program/src/mainwindow.h -o moc_mainwindow.cpp
+moc_mainwindow.cpp: ../../program/src/view/chordslistdisplay.h \
+		../../program/src/view/chorddisplay.h \
+		../../program/src/modele/chord.h \
+		../../program/src/modele/cs.h \
+		../../program/src/modele/note.h \
+		../../program/src/modele/harmonicstructure.h \
+		../../program/src/modele/scale.h \
+		../../program/src/modele/scaledictionary.h \
+		../../program/src/modele/hsscale.h \
+		../../program/src/view/scaleslistdisplay.h \
+		../../program/src/view/scalesdisplay.h \
+		../../program/src/view/scaledisplay.h \
+		../../program/src/view/mainwindow.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/auto_home/mcoquilhat/Desktop/TER/Ut/gammes_musicales/program/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../program/src/view/mainwindow.h -o moc_mainwindow.cpp
 
-moc_scaleslistdisplay.cpp: ../../program/src/scalesdisplay.h \
-		../../program/src/scaledisplay.h \
-		../../program/src/scaleslistdisplay.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/auto_home/mcoquilhat/Desktop/TER/Ut/gammes_musicales/program/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../program/src/scaleslistdisplay.h -o moc_scaleslistdisplay.cpp
+moc_scaleslistdisplay.cpp: ../../program/src/view/scalesdisplay.h \
+		../../program/src/view/scaledisplay.h \
+		../../program/src/view/scaleslistdisplay.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/auto_home/mcoquilhat/Desktop/TER/Ut/gammes_musicales/program/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../program/src/view/scaleslistdisplay.h -o moc_scaleslistdisplay.cpp
 
-moc_chordslistdisplay.cpp: ../../program/src/chorddisplay.h \
-		../../program/src/chord.h \
-		../../program/src/cs.h \
-		../../program/src/note.h \
-		../../program/src/harmonicstructure.h \
-		../../program/src/scale.h \
-		../../program/src/scaledictionary.h \
-		../../program/src/hsscale.h \
-		../../program/src/chordslistdisplay.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/auto_home/mcoquilhat/Desktop/TER/Ut/gammes_musicales/program/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../program/src/chordslistdisplay.h -o moc_chordslistdisplay.cpp
+moc_chordslistdisplay.cpp: ../../program/src/view/chorddisplay.h \
+		../../program/src/modele/chord.h \
+		../../program/src/modele/cs.h \
+		../../program/src/modele/note.h \
+		../../program/src/modele/harmonicstructure.h \
+		../../program/src/modele/scale.h \
+		../../program/src/modele/scaledictionary.h \
+		../../program/src/modele/hsscale.h \
+		../../program/src/view/chordslistdisplay.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/auto_home/mcoquilhat/Desktop/TER/Ut/gammes_musicales/program/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../program/src/view/chordslistdisplay.h -o moc_chordslistdisplay.cpp
 
-moc_chorddisplay.cpp: ../../program/src/chord.h \
-		../../program/src/cs.h \
-		../../program/src/note.h \
-		../../program/src/harmonicstructure.h \
-		../../program/src/scale.h \
-		../../program/src/scaledictionary.h \
-		../../program/src/hsscale.h \
-		../../program/src/chorddisplay.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/auto_home/mcoquilhat/Desktop/TER/Ut/gammes_musicales/program/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../program/src/chorddisplay.h -o moc_chorddisplay.cpp
+moc_chorddisplay.cpp: ../../program/src/modele/chord.h \
+		../../program/src/modele/cs.h \
+		../../program/src/modele/note.h \
+		../../program/src/modele/harmonicstructure.h \
+		../../program/src/modele/scale.h \
+		../../program/src/modele/scaledictionary.h \
+		../../program/src/modele/hsscale.h \
+		../../program/src/view/chorddisplay.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/auto_home/mcoquilhat/Desktop/TER/Ut/gammes_musicales/program/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../program/src/view/chorddisplay.h -o moc_chorddisplay.cpp
 
-moc_scaledisplay.cpp: ../../program/src/scaledisplay.h
-	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/auto_home/mcoquilhat/Desktop/TER/Ut/gammes_musicales/program/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../program/src/scaledisplay.h -o moc_scaledisplay.cpp
+moc_scaledisplay.cpp: ../../program/src/view/scaledisplay.h
+	/usr/lib/x86_64-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++-64 -I/auto_home/mcoquilhat/Desktop/TER/Ut/gammes_musicales/program/src -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../../program/src/view/scaledisplay.h -o moc_scaledisplay.cpp
 
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
 compiler_uic_make_all: ui_mainwindow.h
 compiler_uic_clean:
 	-$(DEL_FILE) ui_mainwindow.h
-ui_mainwindow.h: ../../program/src/mainwindow.ui
-	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ../../program/src/mainwindow.ui -o ui_mainwindow.h
+ui_mainwindow.h: ../../program/src/view/mainwindow.ui
+	/usr/lib/x86_64-linux-gnu/qt5/bin/uic ../../program/src/view/mainwindow.ui -o ui_mainwindow.h
 
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
@@ -442,169 +466,191 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 
 ####### Compile
 
-main.o: ../../program/src/main.cpp ../../program/src/mainwindow.h \
-		../../program/src/chordslistdisplay.h \
-		../../program/src/chorddisplay.h \
-		../../program/src/chord.h \
-		../../program/src/cs.h \
-		../../program/src/note.h \
-		../../program/src/harmonicstructure.h \
-		../../program/src/scale.h \
-		../../program/src/scaledictionary.h \
-		../../program/src/hsscale.h \
-		../../program/src/scaleslistdisplay.h \
-		../../program/src/scalesdisplay.h \
-		../../program/src/scaledisplay.h \
-		../../program/src/ut.h \
-		../../program/src/chorddictionary.h \
-		../../program/src/hschord.h
+main.o: ../../program/src/main.cpp ../../program/src/view/mainwindow.h \
+		../../program/src/view/chordslistdisplay.h \
+		../../program/src/view/chorddisplay.h \
+		../../program/src/modele/chord.h \
+		../../program/src/modele/cs.h \
+		../../program/src/modele/note.h \
+		../../program/src/modele/harmonicstructure.h \
+		../../program/src/modele/scale.h \
+		../../program/src/modele/scaledictionary.h \
+		../../program/src/modele/hsscale.h \
+		../../program/src/view/scaleslistdisplay.h \
+		../../program/src/view/scalesdisplay.h \
+		../../program/src/view/scaledisplay.h \
+		../../program/src/view/ut.h \
+		../../program/src/modele/chorddictionary.h \
+		../../program/src/modele/hschord.h \
+		../../program/src/modele/algobrut.h \
+		../../program/src/modele/algo.h \
+		../../program/src/modele/node.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../../program/src/main.cpp
 
-mainwindow.o: ../../program/src/mainwindow.cpp ../../program/src/mainwindow.h \
-		../../program/src/chordslistdisplay.h \
-		../../program/src/chorddisplay.h \
-		../../program/src/chord.h \
-		../../program/src/cs.h \
-		../../program/src/note.h \
-		../../program/src/harmonicstructure.h \
-		../../program/src/scale.h \
-		../../program/src/scaledictionary.h \
-		../../program/src/hsscale.h \
-		../../program/src/scaleslistdisplay.h \
-		../../program/src/scalesdisplay.h \
-		../../program/src/scaledisplay.h \
+mainwindow.o: ../../program/src/view/mainwindow.cpp ../../program/src/view/mainwindow.h \
+		../../program/src/view/chordslistdisplay.h \
+		../../program/src/view/chorddisplay.h \
+		../../program/src/modele/chord.h \
+		../../program/src/modele/cs.h \
+		../../program/src/modele/note.h \
+		../../program/src/modele/harmonicstructure.h \
+		../../program/src/modele/scale.h \
+		../../program/src/modele/scaledictionary.h \
+		../../program/src/modele/hsscale.h \
+		../../program/src/view/scaleslistdisplay.h \
+		../../program/src/view/scalesdisplay.h \
+		../../program/src/view/scaledisplay.h \
 		ui_mainwindow.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../../program/src/mainwindow.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../../program/src/view/mainwindow.cpp
 
-chord.o: ../../program/src/chord.cpp ../../program/src/chord.h \
-		../../program/src/cs.h \
-		../../program/src/note.h \
-		../../program/src/harmonicstructure.h \
-		../../program/src/scale.h \
-		../../program/src/scaledictionary.h \
-		../../program/src/hsscale.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o chord.o ../../program/src/chord.cpp
+chord.o: ../../program/src/modele/chord.cpp ../../program/src/modele/chord.h \
+		../../program/src/modele/cs.h \
+		../../program/src/modele/note.h \
+		../../program/src/modele/harmonicstructure.h \
+		../../program/src/modele/scale.h \
+		../../program/src/modele/scaledictionary.h \
+		../../program/src/modele/hsscale.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o chord.o ../../program/src/modele/chord.cpp
 
-scale.o: ../../program/src/scale.cpp ../../program/src/scale.h \
-		../../program/src/cs.h \
-		../../program/src/note.h \
-		../../program/src/harmonicstructure.h \
-		../../program/src/algo.h \
-		../../program/src/chord.h \
-		../../program/src/scaledictionary.h \
-		../../program/src/hsscale.h \
-		../../program/src/node.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o scale.o ../../program/src/scale.cpp
+scale.o: ../../program/src/modele/scale.cpp ../../program/src/modele/scale.h \
+		../../program/src/modele/cs.h \
+		../../program/src/modele/note.h \
+		../../program/src/modele/harmonicstructure.h \
+		../../program/src/modele/algo.h \
+		../../program/src/modele/chord.h \
+		../../program/src/modele/scaledictionary.h \
+		../../program/src/modele/hsscale.h \
+		../../program/src/modele/node.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o scale.o ../../program/src/modele/scale.cpp
 
-harmonicstructure.o: ../../program/src/harmonicstructure.cpp ../../program/src/harmonicstructure.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o harmonicstructure.o ../../program/src/harmonicstructure.cpp
+harmonicstructure.o: ../../program/src/modele/harmonicstructure.cpp ../../program/src/modele/harmonicstructure.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o harmonicstructure.o ../../program/src/modele/harmonicstructure.cpp
 
-hschord.o: ../../program/src/hschord.cpp ../../program/src/hschord.h \
-		../../program/src/harmonicstructure.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o hschord.o ../../program/src/hschord.cpp
+hschord.o: ../../program/src/modele/hschord.cpp ../../program/src/modele/hschord.h \
+		../../program/src/modele/harmonicstructure.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o hschord.o ../../program/src/modele/hschord.cpp
 
-hsscale.o: ../../program/src/hsscale.cpp ../../program/src/hsscale.h \
-		../../program/src/harmonicstructure.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o hsscale.o ../../program/src/hsscale.cpp
+hsscale.o: ../../program/src/modele/hsscale.cpp ../../program/src/modele/hsscale.h \
+		../../program/src/modele/harmonicstructure.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o hsscale.o ../../program/src/modele/hsscale.cpp
 
-chorddictionary.o: ../../program/src/chorddictionary.cpp ../../program/src/chorddictionary.h \
-		../../program/src/hschord.h \
-		../../program/src/harmonicstructure.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o chorddictionary.o ../../program/src/chorddictionary.cpp
+chorddictionary.o: ../../program/src/modele/chorddictionary.cpp ../../program/src/modele/chorddictionary.h \
+		../../program/src/modele/hschord.h \
+		../../program/src/modele/harmonicstructure.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o chorddictionary.o ../../program/src/modele/chorddictionary.cpp
 
-scaledictionary.o: ../../program/src/scaledictionary.cpp ../../program/src/scaledictionary.h \
-		../../program/src/hsscale.h \
-		../../program/src/harmonicstructure.h \
-		../../program/src/scale.h \
-		../../program/src/cs.h \
-		../../program/src/note.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o scaledictionary.o ../../program/src/scaledictionary.cpp
+scaledictionary.o: ../../program/src/modele/scaledictionary.cpp ../../program/src/modele/scaledictionary.h \
+		../../program/src/modele/hsscale.h \
+		../../program/src/modele/harmonicstructure.h \
+		../../program/src/modele/scale.h \
+		../../program/src/modele/cs.h \
+		../../program/src/modele/note.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o scaledictionary.o ../../program/src/modele/scaledictionary.cpp
 
-cs.o: ../../program/src/cs.cpp ../../program/src/cs.h \
-		../../program/src/note.h \
-		../../program/src/harmonicstructure.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cs.o ../../program/src/cs.cpp
+cs.o: ../../program/src/modele/cs.cpp ../../program/src/modele/cs.h \
+		../../program/src/modele/note.h \
+		../../program/src/modele/harmonicstructure.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cs.o ../../program/src/modele/cs.cpp
 
-ut.o: ../../program/src/ut.cpp ../../program/src/ut.h \
-		../../program/src/mainwindow.h \
-		../../program/src/chordslistdisplay.h \
-		../../program/src/chorddisplay.h \
-		../../program/src/chord.h \
-		../../program/src/cs.h \
-		../../program/src/note.h \
-		../../program/src/harmonicstructure.h \
-		../../program/src/scale.h \
-		../../program/src/scaledictionary.h \
-		../../program/src/hsscale.h \
-		../../program/src/scaleslistdisplay.h \
-		../../program/src/scalesdisplay.h \
-		../../program/src/scaledisplay.h \
-		../../program/src/chorddictionary.h \
-		../../program/src/hschord.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ut.o ../../program/src/ut.cpp
+chordslistdisplay.o: ../../program/src/view/chordslistdisplay.cpp ../../program/src/view/chordslistdisplay.h \
+		../../program/src/view/chorddisplay.h \
+		../../program/src/modele/chord.h \
+		../../program/src/modele/cs.h \
+		../../program/src/modele/note.h \
+		../../program/src/modele/harmonicstructure.h \
+		../../program/src/modele/scale.h \
+		../../program/src/modele/scaledictionary.h \
+		../../program/src/modele/hsscale.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o chordslistdisplay.o ../../program/src/view/chordslistdisplay.cpp
 
-chordslistdisplay.o: ../../program/src/chordslistdisplay.cpp ../../program/src/chordslistdisplay.h \
-		../../program/src/chorddisplay.h \
-		../../program/src/chord.h \
-		../../program/src/cs.h \
-		../../program/src/note.h \
-		../../program/src/harmonicstructure.h \
-		../../program/src/scale.h \
-		../../program/src/scaledictionary.h \
-		../../program/src/hsscale.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o chordslistdisplay.o ../../program/src/chordslistdisplay.cpp
+scaleslistdisplay.o: ../../program/src/view/scaleslistdisplay.cpp ../../program/src/view/scaleslistdisplay.h \
+		../../program/src/view/scalesdisplay.h \
+		../../program/src/view/scaledisplay.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o scaleslistdisplay.o ../../program/src/view/scaleslistdisplay.cpp
 
-scaleslistdisplay.o: ../../program/src/scaleslistdisplay.cpp ../../program/src/scaleslistdisplay.h \
-		../../program/src/scalesdisplay.h \
-		../../program/src/scaledisplay.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o scaleslistdisplay.o ../../program/src/scaleslistdisplay.cpp
+chorddisplay.o: ../../program/src/view/chorddisplay.cpp ../../program/src/view/chorddisplay.h \
+		../../program/src/modele/chord.h \
+		../../program/src/modele/cs.h \
+		../../program/src/modele/note.h \
+		../../program/src/modele/harmonicstructure.h \
+		../../program/src/modele/scale.h \
+		../../program/src/modele/scaledictionary.h \
+		../../program/src/modele/hsscale.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o chorddisplay.o ../../program/src/view/chorddisplay.cpp
 
-chorddisplay.o: ../../program/src/chorddisplay.cpp ../../program/src/chorddisplay.h \
-		../../program/src/chord.h \
-		../../program/src/cs.h \
-		../../program/src/note.h \
-		../../program/src/harmonicstructure.h \
-		../../program/src/scale.h \
-		../../program/src/scaledictionary.h \
-		../../program/src/hsscale.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o chorddisplay.o ../../program/src/chorddisplay.cpp
+scaledisplay.o: ../../program/src/view/scaledisplay.cpp ../../program/src/view/scaledisplay.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o scaledisplay.o ../../program/src/view/scaledisplay.cpp
 
-scaledisplay.o: ../../program/src/scaledisplay.cpp ../../program/src/scaledisplay.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o scaledisplay.o ../../program/src/scaledisplay.cpp
+scalesdisplay.o: ../../program/src/view/scalesdisplay.cpp ../../program/src/view/scalesdisplay.h \
+		../../program/src/view/scaledisplay.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o scalesdisplay.o ../../program/src/view/scalesdisplay.cpp
 
-scalesdisplay.o: ../../program/src/scalesdisplay.cpp ../../program/src/scalesdisplay.h \
-		../../program/src/scaledisplay.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o scalesdisplay.o ../../program/src/scalesdisplay.cpp
+node.o: ../../program/src/modele/node.cpp ../../program/src/modele/node.h \
+		../../program/src/modele/scale.h \
+		../../program/src/modele/cs.h \
+		../../program/src/modele/note.h \
+		../../program/src/modele/harmonicstructure.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o node.o ../../program/src/modele/node.cpp
 
-node.o: ../../program/src/node.cpp ../../program/src/node.h \
-		../../program/src/scale.h \
-		../../program/src/cs.h \
-		../../program/src/note.h \
-		../../program/src/harmonicstructure.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o node.o ../../program/src/node.cpp
+algobrut.o: ../../program/src/modele/algobrut.cpp ../../program/src/modele/algobrut.h \
+		../../program/src/modele/scale.h \
+		../../program/src/modele/cs.h \
+		../../program/src/modele/note.h \
+		../../program/src/modele/harmonicstructure.h \
+		../../program/src/modele/algo.h \
+		../../program/src/modele/chord.h \
+		../../program/src/modele/scaledictionary.h \
+		../../program/src/modele/hsscale.h \
+		../../program/src/modele/node.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o algobrut.o ../../program/src/modele/algobrut.cpp
 
-algobrut.o: ../../program/src/algobrut.cpp ../../program/src/algobrut.h \
-		../../program/src/scale.h \
-		../../program/src/cs.h \
-		../../program/src/note.h \
-		../../program/src/harmonicstructure.h \
-		../../program/src/algo.h \
-		../../program/src/chord.h \
-		../../program/src/scaledictionary.h \
-		../../program/src/hsscale.h \
-		../../program/src/node.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o algobrut.o ../../program/src/algobrut.cpp
+algo.o: ../../program/src/modele/algo.cpp ../../program/src/modele/algo.h \
+		../../program/src/modele/chord.h \
+		../../program/src/modele/cs.h \
+		../../program/src/modele/note.h \
+		../../program/src/modele/harmonicstructure.h \
+		../../program/src/modele/scale.h \
+		../../program/src/modele/scaledictionary.h \
+		../../program/src/modele/hsscale.h \
+		../../program/src/modele/node.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o algo.o ../../program/src/modele/algo.cpp
 
-algo.o: ../../program/src/algo.cpp ../../program/src/algo.h \
-		../../program/src/chord.h \
-		../../program/src/cs.h \
-		../../program/src/note.h \
-		../../program/src/harmonicstructure.h \
-		../../program/src/scale.h \
-		../../program/src/scaledictionary.h \
-		../../program/src/hsscale.h \
-		../../program/src/node.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o algo.o ../../program/src/algo.cpp
+ut.o: ../../program/src/controler/ut.cpp ../../program/src/controler/ut.h \
+		../../program/src/view/mainwindow.h \
+		../../program/src/view/chordslistdisplay.h \
+		../../program/src/view/chorddisplay.h \
+		../../program/src/modele/chord.h \
+		../../program/src/modele/cs.h \
+		../../program/src/modele/note.h \
+		../../program/src/modele/harmonicstructure.h \
+		../../program/src/modele/scale.h \
+		../../program/src/modele/scaledictionary.h \
+		../../program/src/modele/hsscale.h \
+		../../program/src/view/scaleslistdisplay.h \
+		../../program/src/view/scalesdisplay.h \
+		../../program/src/view/scaledisplay.h \
+		../../program/src/modele/chorddictionary.h \
+		../../program/src/modele/hschord.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ut.o ../../program/src/controler/ut.cpp
+
+QMidiFile.o: ../../program/src/controler/QMidiFile.cpp ../../program/src/controler/QMidiFile.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o QMidiFile.o ../../program/src/controler/QMidiFile.cpp
+
+QMidiOut.o: ../../program/src/controler/QMidiOut.cpp ../../program/src/controler/QMidiOut.h \
+		../../program/src/controler/QMidiFile.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o QMidiOut.o ../../program/src/controler/QMidiOut.cpp
+
+QMidi_ALSA.o: ../../program/src/controler/OS/QMidi_ALSA.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o QMidi_ALSA.o ../../program/src/controler/OS/QMidi_ALSA.cpp
+
+QMidi_Haiku.o: ../../program/src/controler/OS/QMidi_Haiku.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o QMidi_Haiku.o ../../program/src/controler/OS/QMidi_Haiku.cpp
+
+QMidi_Win32.o: ../../program/src/controler/OS/QMidi_Win32.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o QMidi_Win32.o ../../program/src/controler/OS/QMidi_Win32.cpp
+
+QMidi_ALSA.o: ../../program/src/controler/OS/QMidi_ALSA.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o QMidi_ALSA.o ../../program/src/controler/OS/QMidi_ALSA.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
