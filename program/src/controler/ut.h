@@ -13,6 +13,8 @@ private:
 public:
     //Ut(MainWindow w);
     Ut();
+    QVector<QVector<QString> > convertCStoView(std::vector<std::vector<CS*> >);
+    std::vector<std::vector<CS*> > convertCStoModel(QVector<QVector<QString> >);
 };
 
 #endif // UT_H

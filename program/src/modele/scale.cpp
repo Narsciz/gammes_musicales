@@ -16,14 +16,14 @@ int Scale::notesDifferencesWithScale(Scale* s)// on fait union-intersection des 
 
     Union=notes1;
     intersection=notes1;
-    for (int i=0;i<notes2.size();i++)
+    for (size_t i=0;i<notes2.size();i++)
     {
         if(isNoteInNotes(notes2[i],notes1))
         {
             Union.push_back(notes2[i]);
-            for (int i=0;i<intersection.size();i++)
-                if (intersection[i]==notes2[i])
-                    intersection.erase(intersection.begin()+i);
+            for (size_t j=0;j<intersection.size();j++)
+                if (intersection[j]==notes2[j])
+                    intersection.erase(intersection.begin()+j);
         }
     }
 

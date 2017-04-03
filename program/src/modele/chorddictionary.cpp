@@ -16,7 +16,7 @@ ChordDictionary* ChordDictionary::getInstance()
 
 bool ChordDictionary::contains(HSChord * c)
 {
-    for (int i=0;i<chords.size();i++)
+    for (size_t i=0;i<chords.size();i++)
         if (chords[i]->getIntervals()==c->getIntervals())
             return true;
     return false;
@@ -53,11 +53,26 @@ void ChordDictionary::generateBaseChords()
 
 }
 
+
+QVector<QString> ChordDictionary::getHSnames(){
+    QVector<QString> res;
+    for (size_t i=0;i<chords.size();i++)
+        res.push_back(chords[i]->getName());
+    return res;
+}
+
+HSChord* ChordDictionary::getHSbyName(QString s){
+    for (size_t i=0;i<chords.size();i++)
+        if (chords[i]->getName()==s)
+            return chords[i];
+    return NULL;
+}
+
 HSChord* ChordDictionary::getChordByIndex(int i){return chords[i];}
 vector<Chord*> ChordDictionary::getAllChords()
 {
     vector<Chord*> res;
-    for (int j=0;j<chords.size();j++)
+    for (size_t j=0;j<chords.size();j++)
         for (int i=0;i<12;i++)
             res.push_back(new Chord((Note)i,chords[j]));
     return res;

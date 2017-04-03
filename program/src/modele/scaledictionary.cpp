@@ -9,7 +9,7 @@ ScaleDictionary::ScaleDictionary()
 
 bool ScaleDictionary::contains(HSScale * s)
 {
-    for (int i=0;i<scales.size();i++)
+    for (size_t i=0;i<scales.size();i++)
         if (scales[i]==s)
             return true;
     return false;
@@ -37,6 +37,21 @@ void ScaleDictionary::generateBaseScale()
     //http://www.solfego.fr/toutes-les-gammes.htm
 }
 
+
+HSScale* ScaleDictionary::getHSbyName(QString s){
+    for (size_t i=0;i<scales.size();i++)
+        if (scales[i]->getName()==s)
+            return scales[i];
+    return NULL;
+}
+
+QVector<QString> ScaleDictionary::getHSnames(){
+    QVector<QString> res;
+    for (size_t i=0;i<scales.size();i++)
+        res.push_back(scales[i]->getName());
+    return res;
+}
+
 ScaleDictionary *ScaleDictionary::getInstance()
 {
     if (INSTANCE==NULL)
@@ -47,7 +62,7 @@ ScaleDictionary *ScaleDictionary::getInstance()
 vector<Scale*> ScaleDictionary::getAllScales()
 {
     vector<Scale*> res;
-    for (int i=0;i<scales.size();i++)
+    for (size_t i=0;i<scales.size();i++)
         for (int j=0;j<12;j++)
             res.push_back(new Scale((Note)j,scales[i]));
     return res;

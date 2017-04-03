@@ -36,10 +36,10 @@ int main(int argc, char *argv[])
 
     qInfo()<<"graphe k-partie :";
     vector<vector<Scale*> > K=KpartitesScales(SA);
-    for (int i=0;i<K.size();i++)
+    for (size_t i=0;i<K.size();i++)
     {
         QString ligne="";
-        for (int j=0;j<K[i].size();j++)
+        for (size_t j=0;j<K[i].size();j++)
             ligne+="|"+K[i][j]->getName();
         qInfo()<<ligne;
     }
@@ -61,10 +61,10 @@ int main(int argc, char *argv[])
     vector<vector<Scale*> > contrainte1=algo.findLeastsTotalScales();
 
     qInfo()<<"solution :";
-    for (int i=0;i<contrainte1.size();i++)
+    for (size_t i=0;i<contrainte1.size();i++)
     {
         QString ligne="";
-        for (int j=0;j<contrainte1[i].size();j++)
+        for (size_t j=0;j<contrainte1[i].size();j++)
             ligne+="|"+contrainte1[i][j]->getName();
         qInfo()<<ligne;
     }

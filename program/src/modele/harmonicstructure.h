@@ -16,6 +16,7 @@ private:
 public:
     HarmonicStructure();
     HarmonicStructure(QString,std::vector<int>);
+
     std::vector<int> getIntervals();
     QString getName();
 };

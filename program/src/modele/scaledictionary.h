@@ -4,7 +4,7 @@
 #include <vector>
 #include "modele/hsscale.h"
 #include "modele/scale.h"
-
+#include <QVector>
 class ScaleDictionary
 {
 private:
@@ -15,10 +15,12 @@ private:
 public:
     static ScaleDictionary* getInstance();
     HSScale* getScaleByIndex(int);
+    HSScale* getHSbyName(QString);
     bool contains(HSScale*);
     void add(HSScale*);
     std::vector<Scale*> getAllScales();
     void generateBaseScale();
+    QVector<QString> getHSnames();
 
 };
 

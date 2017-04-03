@@ -9,7 +9,7 @@ vector<Scale*> Chord::candidatesScales()
 {
     vector<Scale*> res;
     vector<Scale*> searching_set=ScaleDictionary::getInstance()->getAllScales();
-    for (int i=0;i<searching_set.size();i++)
+    for (size_t i=0;i<searching_set.size();i++)
         if (this->isContainedIn(searching_set[i]))
             res.push_back(searching_set[i]);
     return res;

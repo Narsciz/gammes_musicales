@@ -4,6 +4,7 @@
 #include <vector>
 #include "hschord.h"
 #include "chord.h"
+#include <QVector>
 class ChordDictionary
 {
 private :
@@ -14,10 +15,12 @@ public:
     int getSize();
     static ChordDictionary * getInstance();
     HSChord* getChordByIndex(int);
+    HSChord* getHSbyName(QString);
     bool contains(HSChord*);
     void add(HSChord*);
     void generateBaseChords();
     std::vector<Chord*> getAllChords();
+    QVector<QString> getHSnames();
 
 };
 
