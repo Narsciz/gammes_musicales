@@ -27,7 +27,7 @@ ChordDisplay::ChordDisplay(QString note, QString hs) : QGroupBox()
 
     this->note = note;
     this->hs = hs;
-    this->chordName = new QLabel(note + hs);
+    this->chordName = new QLabel(note + ":" + hs);
     this->chordName->setFixedSize(58, 37);
     QFont f( "Arial", 10, QFont::Bold);
     this->chordName->setFont(f);

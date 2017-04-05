@@ -19,6 +19,7 @@
 #include <QApplication>
 #include <iostream>
 #include <QFile>
+#include <QSpacerItem>
 using namespace std;
 
 #include <QVector>
@@ -81,6 +82,7 @@ public:
     QVector<QString> testFile(QString filePath);
     void resizeEvent ( QResizeEvent * event );
     void fillComboBoxHS(QVector<QString> listHS);
+    void constructScaleFoundView(QVector<QVector<QString>> listFoundScales);
 
 public slots :
     void slotAddButton();
@@ -94,7 +96,7 @@ public slots :
     void slotDebugTestFile();
 
 signals :
-    void generateSignal(QVector<QVector<QString> > listChords);
+    void generateSignal(QVector<QString> listChords, int parameter);
 };
 
 #endif // MAINWINDOW_H

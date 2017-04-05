@@ -2,6 +2,7 @@
 #include "scaledictionary.h"
 #include "chorddictionary.h"
 #include <stdexcept>
+#include <iostream>
 using namespace std;
 
 QString noteToString(Note n);
@@ -13,6 +14,7 @@ CS::CS(Note f2, HarmonicStructure *hs2){
 
 CS::CS(QString name){
     QStringList splittedName=name.split(':');
+    cout<<"cs.cpp line 17 : splittedName.size() = " << splittedName.size() << endl << flush;
     if (splittedName.size()<2)
         throw std::out_of_range("out of range");
     f=stringToNote(splittedName[0]);

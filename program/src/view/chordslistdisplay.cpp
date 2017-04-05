@@ -3,24 +3,28 @@
 ChordsListDisplay::ChordsListDisplay() : QGroupBox()
 {
     this->setTitle("Accords : ");
-    this->setStyleSheet("background-color: rgb(255,255,255)");
+    //this->setStyleSheet("background-color: rgb(255,255,255)");
     this->chordsLayout = new QGridLayout();
 
     this->chordsLayout->setAlignment(Qt::AlignTop);
     this->chordsLayout->setHorizontalSpacing(4);
 
-    this->setMinimumSize(400, 160);
-    this->setContentsMargins(10, 10, 10, 10);
+    this->setMinimumSize(446, 100);
+    this->setContentsMargins(5, 5, 5, 5);
 
-    /*this->baseLayout = new QGridLayout();
+
+    //this->setLayout(this->chordsLayout);
+    this->scrollArea = new QScrollArea();
+    this->baseLayout = new QVBoxLayout();
     this->scrolledWidget = new QWidget();
-    this->scrollArea = new QScrollArea();*/
+    this->scrolledWidget->setLayout(chordsLayout);
 
-    this->setLayout(this->chordsLayout);
-
-    /*this->baseLayout->addWidget(scrollArea);
+    this->setLayout(baseLayout);
+    this->baseLayout->addWidget(scrollArea);
     this->scrollArea->setWidget(scrolledWidget);
-    this->scrolledWidget->setLayout(chordsLayout);*/
+    this->scrollArea->setWidgetResizable(true);
+    /*this->scrollArea->horizontalScrollBar()->setDisabled(true);
+    this->scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);*/
 }
 
 QVector<ChordDisplay*> ChordsListDisplay::getListChords()
@@ -60,7 +64,7 @@ void ChordsListDisplay::refresh()
     int nb = 0;
     while(i<this->listChords.size())
     {
-        if((i*64)+80>this->width() && !nb)
+        if((i*64)+100>this->width() && !nb)
         {
             nb = k;
             k = 0;

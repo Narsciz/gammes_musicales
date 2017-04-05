@@ -6,6 +6,10 @@ using namespace std;
 Scale::Scale(Note f2, HarmonicStructure* hs2) : CS::CS(f2, hs2){
 }
 
+Scale::Scale(QString name) : CS::CS( name){
+
+}
+
 int Scale::notesDifferencesWithScale(Scale* s)// on fait union-intersection des deux gammes, vu que c'est l'opération qu'on avait dit qu'on utiliserait
 {
     vector<Note> Union;

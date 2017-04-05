@@ -6,6 +6,8 @@
 #include <QVector>
 #include <QString>
 #include <QScrollArea>
+#include <QScrollBar>
+#include <QVBoxLayout>
 
 #include <QWidget>
 
@@ -21,7 +23,7 @@ class ChordsListDisplay : public QGroupBox
     Q_OBJECT
 
 private:
-    QGridLayout *baseLayout;
+    QVBoxLayout *baseLayout;
     QGridLayout *chordsLayout;
     QScrollArea *scrollArea;
     QVector<ChordDisplay*> listChords;

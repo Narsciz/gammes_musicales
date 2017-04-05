@@ -3,6 +3,11 @@
 #include "view/mainwindow.h"
 #include "modele/scaledictionary.h"
 #include "modele/chorddictionary.h"
+#include "modele/algobrut.h"
+#include "modele/algo.h"
+#include "modele/cs.h"
+#include "modele/scale.h"
+#include "modele/chord.h"
 #include <QObject>
 
 class Ut : public QObject
@@ -15,11 +20,11 @@ private:
 
 public:
     Ut(MainWindow *w);
-    QVector<QVector<QString> > convertCStoView(std::vector<std::vector<CS*> >);
-    std::vector<std::vector<CS*> > convertCStoModel(QVector<QVector<QString> >);
+    QVector<QVector<QString> > convertCStoView(std::vector<std::vector<Scale*> >);
+    std::vector<Chord*> convertCStoModel(QVector<QString> cs);
 
 public slots:
-    void generateSlot(QVector<QVector<QString> > listChords);
+    void generateSlot(QVector<QString> listChords, int parameter);
 };
 
 #endif // UT_H

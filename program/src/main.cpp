@@ -73,7 +73,6 @@ int main(int argc, char *argv[])
     //vector<Note> notes=
 
 
-
     QApplication app(argc, argv);
 
     MainWindow *window = new MainWindow();

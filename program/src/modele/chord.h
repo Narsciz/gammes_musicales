@@ -8,6 +8,7 @@ class Chord : public CS
 {
 public:
     Chord(){}
+    Chord(QString name);
     Chord(Note f2, HarmonicStructure* hs2);
     std::vector<Scale*> candidatesScales();
 

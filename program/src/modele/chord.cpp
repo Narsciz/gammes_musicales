@@ -5,6 +5,10 @@ using namespace std;
 Chord::Chord(Note f2, HarmonicStructure* hs2) : CS::CS(f2, hs2){
 }
 
+Chord::Chord(QString name) : CS::CS( name){
+
+}
+
 vector<Scale*> Chord::candidatesScales()
 {
     vector<Scale*> res;

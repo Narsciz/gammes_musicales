@@ -8,7 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     this->setWindowTitle("Ut");
-    this->setMinimumSize(500, 480);
+    this->setMinimumSize(540, 480);
     QIcon icon("./cle.png");
     this->setWindowIcon(icon);
 
@@ -79,9 +79,8 @@ MainWindow::~MainWindow()
 
       this->mainLayout->addLayout(this->chordsLayout, 0, 0, 1, 1);
       this->mainLayout->addWidget(this->choicesDisplay, 1, 0, 1, 1);
-      this->mainLayout->addLayout(this->scalesLayout, 2, 0, 2, 1);
+      this->mainLayout->addLayout(this->scalesLayout, 2, 0, 1, 1);
       this->mainLayout->addWidget(this->returnButton, 4, 0, 1, 1);
-
   }
   void MainWindow::constructChordsLayout()
   {
@@ -89,6 +88,7 @@ MainWindow::~MainWindow()
 
       this->cListDisplay = new ChordsListDisplay();
       this->reinitializeButton = new QPushButton("Réinitialiser");
+      this->reinitializeButton->setFixedWidth(70);
       QObject::connect(this->reinitializeButton, SIGNAL(clicked()), this, SLOT(slotReinitializeButton()));
 
       this->chordsLayout->addWidget(this->cListDisplay, 0, 0, 2, 6);
@@ -121,10 +121,6 @@ MainWindow::~MainWindow()
       this->noteComboBox->addItem("A#");
       this->noteComboBox->addItem("B");
       this->hsComboBox = new QComboBox();
-      this->hsComboBox->addItem("M");
-      this->hsComboBox->addItem("m");
-      this->hsComboBox->addItem("+");
-      this->hsComboBox->addItem("-");
       this->addButton = new QPushButton("Ajouter", this);
       QObject::connect(this->addButton, SIGNAL(clicked()), this, SLOT(slotAddButton()));
       this->parametersComboBox = new QComboBox();
@@ -256,22 +252,7 @@ MainWindow::~MainWindow()
   }
   void MainWindow::resizeEvent ( QResizeEvent * event )
   {
-      //if(this->sListDisplay->isHidden())
-      //{
-       //   this->cListDisplay->setGeometry(5, 1, (this->ui->centralWidget->width())-15-70 /*but2->width()*/, (this->ui->centralWidget->height())-70-13);
-         // this->reinitializeButton->setGeometry(this->cListDisplay->width()+10 , 6, 70, (this->ui->centralWidget->height())-70-13-5);
-         // this->choicesDisplay->setGeometry(5, this->cListDisplay->height()+5, (this->ui->centralWidget->width())-10, 70);
-
-        // this->cListDisplay->refresh();
-      //}
-     // else
-     // {
-        //  this->cListDisplay->setGeometry(5, 1, (this->ui->centralWidget->width())-15-40 /*reinitializeButton->width()*/, (this->ui->centralWidget->height()/2)-7-this->returnButton->height());
-        //  this->reinitializeButton->setGeometry(this->cListDisplay->width()+10 , 6, 40, (this->ui->centralWidget->height()/2)-7-this->returnButton->height()-5);
-        //  this->sListDisplay->setGeometry(5, this->cListDisplay->height()+5, (this->ui->centralWidget->width())-10, (this->cListDisplay->height()));
-
-      //    this->cListDisplay->refresh();
-     // }
+    this->cListDisplay->refresh();
   }
 
   void MainWindow::fillComboBoxHS(QVector<QString> listHS)
@@ -280,6 +261,11 @@ MainWindow::~MainWindow()
       {
           this->hsComboBox->addItem(listHS[i]);
       }
+  }
+
+  void MainWindow::constructScaleFoundView(QVector<QVector<QString>> listFoundScales)
+  {
+      this->sListDisplay->constructScalesFoundList(listFoundScales);
   }
 
   void MainWindow::slotAddButton() //Ajoute lors de l'appuie sur le bouton "Ajouter", les choix d'accords courant au layout d'accords
@@ -301,13 +287,10 @@ MainWindow::~MainWindow()
           QMessageBox::information(this, "Aucun accord spécifié", "Vous n'avez sélectionné aucun accord. Pour générer une suite de gamme, veuillez d'abord entrer une suite d'accord.");
       }
 
-      QVector<QVector<QString> > listChordsName;
-      listChordsName.push_back(this->cListDisplay->getListChordsName());
-
-      emit generateSignal(listChordsName);
+      emit generateSignal(cListDisplay->getListChordsName(), this->parametersComboBox->currentIndex());
 
       //__________________________________Test______________
-      QVector<QString> test1;
+      /*QVector<QString> test1;
       test1.push_back("1");
       test1.push_back("2");
       test1.push_back("3");
@@ -324,7 +307,7 @@ MainWindow::~MainWindow()
       testglob.push_back(test1);
       testglob.push_back(test2);
 
-      this->sListDisplay->constructScalesFoundList(testglob);
+      this->sListDisplay->constructScalesFoundList(testglob);*/
       //__________________________________FinTest___________
   }
   void MainWindow::slotReturnButton()

@@ -10,9 +10,9 @@ class ChordDictionary
 private :
     static ChordDictionary* INSTANCE;
     std::vector<HSChord*> chords;
+    ChordDictionary();
 
 public:
-    ChordDictionary();
     int getSize();
     static ChordDictionary * getInstance();
     HSChord* getChordByIndex(int);

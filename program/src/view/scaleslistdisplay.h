@@ -6,6 +6,8 @@
 #include <QPushButton>
 #include <QVector>
 #include <QString>
+#include <QScrollArea>
+#include <QWidget>
 
 #include "scalesdisplay.h"
 
@@ -18,7 +20,11 @@ private:
     QGridLayout *scalesFoundLayout;
     QVector<ScalesDisplay*> listScales;
     QVector<QPushButton*> listSaveButtons;
+    QVector<QPushButton*> listExportButtons;
 
+    QVBoxLayout *baseLayout;
+    QScrollArea *scrollArea;
+    QWidget *scrolledWidget;
 public:
     ScalesListDisplay();
     void constructScalesFoundList(QVector<QVector<QString>> listFoundScales);
