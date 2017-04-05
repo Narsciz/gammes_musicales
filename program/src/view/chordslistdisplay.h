@@ -5,6 +5,9 @@
 #include <QGridLayout>
 #include <QVector>
 #include <QString>
+#include <QScrollArea>
+
+#include <QWidget>
 
 //temp
 #include <iostream>
@@ -18,8 +21,12 @@ class ChordsListDisplay : public QGroupBox
     Q_OBJECT
 
 private:
+    QGridLayout *baseLayout;
     QGridLayout *chordsLayout;
+    QScrollArea *scrollArea;
     QVector<ChordDisplay*> listChords;
+
+    QWidget *scrolledWidget;
 
 public:
     //Constructeurs
@@ -28,9 +35,11 @@ public:
 
     //Accesseurs
     QVector<ChordDisplay*> getListChords();
+    QVector<QString> getListChordsName();
 
     //Gestion des Accords
     void addChord(QString note, QString sh); //Ajoute un accord a la suite de ceux déjà choisit par l'utilisateur
+    void addChord(QString chord);
     void refresh();
     void enableDeletingChords();
     void disableDeletingChords();

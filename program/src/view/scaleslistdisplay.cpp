@@ -10,7 +10,7 @@ ScalesListDisplay::ScalesListDisplay() : QGroupBox()
     this->scalesFoundLayout->setVerticalSpacing(0);
 }
 
-void ScalesListDisplay::constructScalesFoundList(QVector<QVector<QString> > listFoundScales)
+void ScalesListDisplay::constructScalesFoundList(QVector<QVector<QString>> listFoundScales)
 {
     for(int i=0; i< listFoundScales.size(); i++)
     {

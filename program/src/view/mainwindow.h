@@ -18,6 +18,7 @@
 #include <QFileDialog>
 #include <QApplication>
 #include <iostream>
+#include <QFile>
 using namespace std;
 
 #include <QVector>
@@ -77,6 +78,9 @@ public:
 
     void clearLayout(QLayout *layout, bool deleteWidgets);
     QString openExplorer(int i);
+    QVector<QString> testFile(QString filePath);
+    void resizeEvent ( QResizeEvent * event );
+    void fillComboBoxHS(QVector<QString> listHS);
 
 public slots :
     void slotAddButton();
@@ -87,6 +91,10 @@ public slots :
     void slotImportFile();
     void slotSaveFile();
     void slotCloseFile();
+    void slotDebugTestFile();
+
+signals :
+    void generateSignal(QVector<QVector<QString> > listChords);
 };
 
 #endif // MAINWINDOW_H

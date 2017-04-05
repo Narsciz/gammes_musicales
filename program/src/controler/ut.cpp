@@ -1,10 +1,17 @@
-#include "ut.h"
+#include "controler/ut.h"
 
-//Ut::Ut(MainWindow w)
-Ut::Ut()
+Ut::Ut(MainWindow *w)
 {
+    cd = new ChordDictionary();
+    cd->generateBaseChords();
+    ScaleDictionary::getInstance()->generateBaseScale();
 
+    this->w = w;
+    QObject::connect(this->w, SIGNAL(generateSignal(QVector<QVector<QString> >)), this, SLOT(generateSlot(QVector<QVector<QString> >)));
+
+    w->fillComboBoxHS(cd->getHSnames());
 }
+
 QVector<QVector<QString> > Ut::convertCStoView(vector<vector<CS*> > cs){
     QVector<QVector<QString> > res;
     QVector<QString> ligne;
@@ -28,3 +35,8 @@ vector<vector<CS*> > Ut::convertCStoModel(QVector<QVector<QString> > cs){
     }
     return res;
 }
+
+ void Ut::generateSlot(QVector<QVector<QString> > listChords)
+ {
+
+ }

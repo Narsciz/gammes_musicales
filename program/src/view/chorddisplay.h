@@ -28,8 +28,10 @@ private:
 
 public:
     ChordDisplay(QString note, QString sh);
+    ChordDisplay(QString chord);
     void disableDelete();
     void enableDelete();
+    QString getName();
 
 public slots:
     void slotDeleteButton();

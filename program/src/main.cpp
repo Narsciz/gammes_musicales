@@ -1,6 +1,6 @@
 #include "view/mainwindow.h"
 #include <QApplication>
-#include "view/ut.h"
+#include "controler/ut.h"
 #include <QMenuBar>
 #include <QMenu>
 #include <iostream>
@@ -78,6 +78,8 @@ int main(int argc, char *argv[])
 
     MainWindow *window = new MainWindow();
 
+    Ut controler(window);
     window->show();
+
     return app.exec();
 }

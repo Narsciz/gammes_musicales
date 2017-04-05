@@ -1,6 +1,7 @@
 #include "cs.h"
 #include "scaledictionary.h"
 #include "chorddictionary.h"
+#include <stdexcept>
 using namespace std;
 
 QString noteToString(Note n);

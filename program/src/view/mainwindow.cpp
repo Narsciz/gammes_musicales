@@ -8,8 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     this->setWindowTitle("Ut");
-    this->setFixedHeight(800);
-    this->setFixedWidth(1200);
+    this->setMinimumSize(500, 480);
     QIcon icon("./cle.png");
     this->setWindowIcon(icon);
 
@@ -19,12 +18,10 @@ MainWindow::MainWindow(QWidget *parent) :
     constructMenuBar();
     constructLayout();
 }
-
 MainWindow::~MainWindow()
 {
     delete ui;
 }
-
  void MainWindow::constructMenuBar()
  {
      QMenuBar *menuBar = new QMenuBar();
@@ -57,30 +54,35 @@ MainWindow::~MainWindow()
 
      QMenu *options = menuBar->addMenu("Options");
 
+     QAction *debugTestSize = menuBar->addAction("DebugTestSize");
+     connect(debugTestSize, SIGNAL(triggered(bool)), this, SLOT(slotDebugTestFile()));
+
      this->setMenuBar(menuBar);
  }
-
   void MainWindow::constructLayout()
   {
+      this->mainLayout->setAlignment(Qt::AlignTop);
       this->chordsLayout = new QGridLayout();
       constructChordsLayout();
       this->choicesDisplay = new QGroupBox();
       this->choicesLayout = new QGridLayout();
-      this->choicesDisplay->setLayout(choicesLayout);
-      constructChoicesLayout();
-      this->scalesLayout = new QGridLayout();
-      constructScalesLayout();
 
-      this->returnButton = new QPushButton("Retour");
-      QObject::connect(this->returnButton, SIGNAL(clicked()), this, SLOT(slotReturnButton()));
-      this->returnButton->setVisible(false);
+
+          this->choicesDisplay->setLayout(choicesLayout);
+          constructChoicesLayout();
+
+          this->scalesLayout = new QGridLayout();
+          constructScalesLayout();
+          this->returnButton = new QPushButton("Retour");
+          QObject::connect(this->returnButton, SIGNAL(clicked()), this, SLOT(slotReturnButton()));
+          this->returnButton->setVisible(false);
 
       this->mainLayout->addLayout(this->chordsLayout, 0, 0, 1, 1);
       this->mainLayout->addWidget(this->choicesDisplay, 1, 0, 1, 1);
-      this->mainLayout->addLayout(this->scalesLayout, 2, 0, 1, 1);
-      this->mainLayout->addWidget(this->returnButton, 3, 0, 1, 1);
-  }
+      this->mainLayout->addLayout(this->scalesLayout, 2, 0, 2, 1);
+      this->mainLayout->addWidget(this->returnButton, 4, 0, 1, 1);
 
+  }
   void MainWindow::constructChordsLayout()
   {
       this->clearLayout(this->chordsLayout, true);
@@ -89,10 +91,10 @@ MainWindow::~MainWindow()
       this->reinitializeButton = new QPushButton("Réinitialiser");
       QObject::connect(this->reinitializeButton, SIGNAL(clicked()), this, SLOT(slotReinitializeButton()));
 
-      this->chordsLayout->addWidget(this->cListDisplay, 0, 0, 1, 6);
-      this->chordsLayout->addWidget(this->reinitializeButton, 0, 6, 1, 1);
+      this->chordsLayout->addWidget(this->cListDisplay, 0, 0, 2, 6);
+      this->chordsLayout->addWidget(this->reinitializeButton, 1, 6, 1, 1);
+      this->reinitializeButton->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Expanding);
   }
-
   void MainWindow::constructChoicesLayout()
   {
       this->clearLayout(this->choicesLayout, true);
@@ -142,7 +144,6 @@ MainWindow::~MainWindow()
       this->choicesLayout->addWidget(new QLabel(), 1, 5, 1, 1);
       this->choicesLayout->addWidget(this->generateButton, 1, 6, 1, 1);
  }
-
   void MainWindow::constructScalesLayout()
   {
       this->clearLayout(this->scalesLayout, true);
@@ -153,7 +154,6 @@ MainWindow::~MainWindow()
 
       this->sListDisplay->setVisible(false);
   }
-
 
   void MainWindow::clearLayout(QLayout *layout, bool deleteWidgets = true)
   {
@@ -174,7 +174,10 @@ MainWindow::~MainWindow()
   {
       this->explorer = new QFileDialog();
       this->explorer->setFileMode(QFileDialog::ExistingFile);
-      this->explorer->setNameFilter(tr("Images (*.png *.xpm *.jpg)"));
+      switch(i)
+      {
+        case 1: this->explorer->setNameFilter(tr("Fichiers textes (*.txt)"));
+      }
       QStringList fileNameTemp;
       QString fileName = "";
       if(this->explorer->exec())
@@ -186,11 +189,103 @@ MainWindow::~MainWindow()
       return fileName;
   }
 
+  QVector<QString> MainWindow::testFile(QString filePath)
+  {
+      QString fileContent = "";
+      QVector<QString> rtn;
+      QFile file(filePath);
+      if(file.open(QIODevice::ReadOnly | QIODevice::Text))
+      {
+          fileContent = file.readAll();
+          file.close();
+      }
+
+      cout<<fileContent.toStdString();
+
+      int i = 0;
+      bool note = true;
+      bool hsEnd = false;
+      QString temp;
+      do
+      {
+           if(note)
+           {
+               if(fileContent[i] == 'A' || fileContent[i] == 'B')
+               {
+                   i++;
+
+                   QString temp2 = ""+fileContent[i];
+                   cout<< temp2.toStdString()<<flush;
+
+                   rtn.push_back(""+fileContent[i]);
+                   note = false;
+               }
+               else
+               {
+                   fileContent = "";
+               }
+           }
+           else
+           {
+               if(!hsEnd)
+               {
+                    temp = "";
+                    while(fileContent[i] != ' ' && i<fileContent.size())
+                    {
+                        temp += fileContent[i];
+                        i++;
+                    }
+                    hsEnd = true;
+               }
+               else
+               {
+                   if(temp == "M")
+                   {
+                       cout << temp.toStdString()<<flush;
+                       rtn[rtn.size()-1] += temp;
+                       i++;
+                   }
+                   else
+                   {
+                       fileContent = "";
+                   }
+               }
+           }
+      }while(fileContent.size() != 0 && i<fileContent.size());
+      return rtn;
+  }
+  void MainWindow::resizeEvent ( QResizeEvent * event )
+  {
+      //if(this->sListDisplay->isHidden())
+      //{
+       //   this->cListDisplay->setGeometry(5, 1, (this->ui->centralWidget->width())-15-70 /*but2->width()*/, (this->ui->centralWidget->height())-70-13);
+         // this->reinitializeButton->setGeometry(this->cListDisplay->width()+10 , 6, 70, (this->ui->centralWidget->height())-70-13-5);
+         // this->choicesDisplay->setGeometry(5, this->cListDisplay->height()+5, (this->ui->centralWidget->width())-10, 70);
+
+        // this->cListDisplay->refresh();
+      //}
+     // else
+     // {
+        //  this->cListDisplay->setGeometry(5, 1, (this->ui->centralWidget->width())-15-40 /*reinitializeButton->width()*/, (this->ui->centralWidget->height()/2)-7-this->returnButton->height());
+        //  this->reinitializeButton->setGeometry(this->cListDisplay->width()+10 , 6, 40, (this->ui->centralWidget->height()/2)-7-this->returnButton->height()-5);
+        //  this->sListDisplay->setGeometry(5, this->cListDisplay->height()+5, (this->ui->centralWidget->width())-10, (this->cListDisplay->height()));
+
+      //    this->cListDisplay->refresh();
+     // }
+  }
+
+  void MainWindow::fillComboBoxHS(QVector<QString> listHS)
+  {
+      for(int i = 0; i<listHS.size(); i++)
+      {
+          this->hsComboBox->addItem(listHS[i]);
+      }
+  }
+
   void MainWindow::slotAddButton() //Ajoute lors de l'appuie sur le bouton "Ajouter", les choix d'accords courant au layout d'accords
   {
       this->cListDisplay->addChord(this->noteComboBox->currentText(), this->hsComboBox->currentText());
   }
-
   void MainWindow::slotGenerateButton()
   {
       if(this->cListDisplay->getListChords().size()>0)
@@ -203,9 +298,15 @@ MainWindow::~MainWindow()
       }
       else
       {
-          QMessageBox::warning(this, "Aucun accord spécifié", "Vous n'avez sélectionné aucun accord. Pour générer une suite de gamme, veuillez d'abord entrer une suite d'accord.");
+          QMessageBox::information(this, "Aucun accord spécifié", "Vous n'avez sélectionné aucun accord. Pour générer une suite de gamme, veuillez d'abord entrer une suite d'accord.");
       }
-      /*__________________________________Test______________*/
+
+      QVector<QVector<QString> > listChordsName;
+      listChordsName.push_back(this->cListDisplay->getListChordsName());
+
+      emit generateSignal(listChordsName);
+
+      //__________________________________Test______________
       QVector<QString> test1;
       test1.push_back("1");
       test1.push_back("2");
@@ -213,20 +314,19 @@ MainWindow::~MainWindow()
       test1.push_back("4");
       test1.push_back("5");
       test1.push_back("6");
-      /*QVector<QString> test2;
+      QVector<QString> test2;
       test2.push_back("1");
       test2.push_back("2");
       test2.push_back("3");
       test2.push_back("4");
-      test2.push_back("5");*/
-      QVector<QVector<QString> > testglob;
+      test2.push_back("5");
+      QVector<QVector<QString>> testglob;
       testglob.push_back(test1);
-      //testglob.push_back(test2);
+      testglob.push_back(test2);
 
       this->sListDisplay->constructScalesFoundList(testglob);
-      /*__________________________________FinTest___________*/
+      //__________________________________FinTest___________
   }
-
   void MainWindow::slotReturnButton()
   {
       constructScalesLayout();
@@ -238,30 +338,61 @@ MainWindow::~MainWindow()
       clearLayout(this->scalesLayout);
       constructScalesLayout();
   }
-
   void MainWindow::slotReinitializeButton()
   {
       clearLayout(this->chordsLayout);
       constructChordsLayout();
   }
-
   void MainWindow::slotNewFile()
   {
       clearLayout(this->mainLayout);
       constructLayout();
   }
-
   void MainWindow::slotImportFile()
   {
-      openExplorer(1);
-  }
+      QString fileContent = openExplorer(1);
+      QVector<QString> listChords = testFile(fileContent);
+      if(fileContent.size() != 0)
+      {
+            for(int i=0; i<listChords.size(); i++)
+            {
+                this->cListDisplay->addChord(listChords[i]);
+            }
+      }
+      else
+      {
+          QMessageBox::warning(this, "Fichier erroné", "Le fichier que vous avez sélectionné n'est pas au bon format. Il peut s'agir de l'extension (.txt) ou bien de la convention lors de la rédaction de vos accords qui n'a pas été respéctée. Veuillez vérifier votre fichier et recommencer. \n Pour plus d'informations sur la façon de rédiger vos accords, veuillez vous référer à l'aide.");
 
+      }
+  }
   void MainWindow::slotSaveFile()
   {
       openExplorer(1);
   }
-
   void MainWindow::slotCloseFile()
   {
     this->close();
   }
+  void MainWindow::slotDebugTestFile()
+{
+    int top, bottom, left, right;
+    this->getContentsMargins(&left, &top, &right, &bottom);
+    cout<<"MainWindowContentsMargins : top = "<<top<<", bottom = "<<bottom<<", left = "<<left<<", right = "<<right<<endl;
+    QSize size = this->size();
+    cout<<"MainWindowSize : width = "<<size.width()<<", heigth = "<<size.height()<<endl;
+
+    size = this->ui->centralWidget->size();
+    cout<<"CentralWidget : width = "<<size.width()<<", heigth = "<<size.height()<<endl;
+
+    this->cListDisplay->getContentsMargins(&left, &top, &right, &bottom);
+    cout<<"ChordListDisplayContentsMargins : top = "<<top<<", bottom = "<<bottom<<", left = "<<left<<", right = "<<right<<endl;
+    size = this->cListDisplay->size();
+    cout<<"ChordListDisplaySize : width = "<<size.width()<<", heigth = "<<size.height()<<endl;
+
+    this->choicesDisplay->getContentsMargins(&left, &top, &right, &bottom);
+    cout<<"choicesDisplayContentsMargins : top = "<<top<<", bottom = "<<bottom<<", left = "<<left<<", right = "<<right<<endl;
+    size = this->choicesDisplay->size();
+    cout<<"choicesDisplaySize : width = "<<size.width()<<", heigth = "<<size.height()<<endl;
+
+    cout<<"-----------------------------------------------------------------------"<<endl;
+}

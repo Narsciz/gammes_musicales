@@ -9,10 +9,18 @@ ChordsListDisplay::ChordsListDisplay() : QGroupBox()
     this->chordsLayout->setAlignment(Qt::AlignTop);
     this->chordsLayout->setHorizontalSpacing(4);
 
-    this->setMinimumSize(400, 100);
+    this->setMinimumSize(400, 160);
     this->setContentsMargins(10, 10, 10, 10);
 
+    /*this->baseLayout = new QGridLayout();
+    this->scrolledWidget = new QWidget();
+    this->scrollArea = new QScrollArea();*/
+
     this->setLayout(this->chordsLayout);
+
+    /*this->baseLayout->addWidget(scrollArea);
+    this->scrollArea->setWidget(scrolledWidget);
+    this->scrolledWidget->setLayout(chordsLayout);*/
 }
 
 QVector<ChordDisplay*> ChordsListDisplay::getListChords()
@@ -20,9 +28,26 @@ QVector<ChordDisplay*> ChordsListDisplay::getListChords()
     return this->listChords;
 }
 
+QVector<QString> ChordsListDisplay::getListChordsName()
+{
+    QVector<QString> res;
+    for(int i = 0; i<this->listChords.size(); i++)
+    {
+        res.push_back(listChords[i]->getName());
+    }
+    return res;
+}
+
 void ChordsListDisplay::addChord(QString note, QString sh)
 {
     this->listChords.push_back(new ChordDisplay(note, sh));
+    QObject::connect(this->listChords.last(), SIGNAL(deleteSignal(ChordDisplay*)), this, SLOT(slotDeleteChord(ChordDisplay*)));
+    this->refresh();
+}
+
+void ChordsListDisplay::addChord(QString chord)
+{
+    this->listChords.push_back(new ChordDisplay(chord));
     QObject::connect(this->listChords.last(), SIGNAL(deleteSignal(ChordDisplay*)), this, SLOT(slotDeleteChord(ChordDisplay*)));
     this->refresh();
 }
@@ -53,6 +78,7 @@ void ChordsListDisplay::refresh()
         k++;
         i++;
     }
+    //this->scrolledWidget->setFixedHeight(93+(j*66));
 }
 
 void ChordsListDisplay::enableDeletingChords()
