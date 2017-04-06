@@ -12,13 +12,13 @@ ChordDisplay::ChordDisplay(QString note, QString hs) : QGroupBox()
     this->boxLayout->setSpacing(0);
     this->boxLayout->setAlignment(Qt::AlignTop);
 
-    QIcon iconDelete("delete.png");
+    QIcon iconDelete("../assets/pictures/delete.png");
     this->deleteButton = new QPushButton();
     this->deleteButton->setIcon(iconDelete);
     this->deleteButton->setFixedSize(20, 20);
     QObject::connect(this->deleteButton, SIGNAL(clicked()), this, SLOT(slotDeleteButton()));
 
-    QIcon iconView("view.png");
+    QIcon iconView("../assets/pictures/view.png");
     this->viewButton = new QPushButton();
     this->viewButton->setIcon(iconView);
     this->viewButton->setFixedSize(20, 20);
@@ -48,13 +48,13 @@ ChordDisplay::ChordDisplay(QString chord) : QGroupBox()
     this->boxLayout->setSpacing(0);
     this->boxLayout->setAlignment(Qt::AlignTop);
 
-    QIcon iconDelete("./delete.png");
+    QIcon iconDelete("../assets/pictures/delete.png");
     this->deleteButton = new QPushButton();
     this->deleteButton->setIcon(iconDelete);
     this->deleteButton->setFixedSize(20, 20);
     QObject::connect(this->deleteButton, SIGNAL(clicked()), this, SLOT(slotDeleteButton()));
 
-    QIcon iconView("./view.png");
+    QIcon iconView("../assets/pictures/view.png");
     this->viewButton = new QPushButton();
     this->viewButton->setIcon(iconView);
     this->viewButton->setFixedSize(20, 20);

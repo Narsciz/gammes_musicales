@@ -9,7 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     this->setWindowTitle("Ut");
     this->setMinimumSize(540, 480);
-    QIcon icon("./cle.png");
+    QIcon icon("../assets/pictures/cle.png");
     this->setWindowIcon(icon);
 
     this->mainLayout = new QGridLayout();
@@ -124,8 +124,8 @@ MainWindow::~MainWindow()
       this->addButton = new QPushButton("Ajouter", this);
       QObject::connect(this->addButton, SIGNAL(clicked()), this, SLOT(slotAddButton()));
       this->parametersComboBox = new QComboBox();
-      this->parametersComboBox->addItem("- de gammes");
-      this->parametersComboBox->addItem("- de notes");
+      this->parametersComboBox->addItem("minimiser le nombre de gammes");
+      this->parametersComboBox->addItem("minimiser le nombre de notes");
       this->generateButton = new QPushButton("Générer");
       QObject::connect(this->generateButton, SIGNAL(clicked()), this, SLOT(slotGenerateButton()));
 

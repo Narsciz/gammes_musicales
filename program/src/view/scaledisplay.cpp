@@ -8,7 +8,7 @@ ScaleDisplay::ScaleDisplay(QString name) : QGroupBox()
     this->boxLayout->setSpacing(0);
     this->boxLayout->setAlignment(Qt::AlignTop);
 
-    QIcon iconView("./view.png");
+    QIcon iconView("../assets/pictures/view.png");
     this->viewButton = new QPushButton();
     this->viewButton->setIcon(iconView);
     this->viewButton->setFixedSize(20, 20);
