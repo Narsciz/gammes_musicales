@@ -123,14 +123,9 @@ MainWindow::~MainWindow()
       this->hsComboBox = new QComboBox();
       this->addButton = new QPushButton("Ajouter", this);
       QObject::connect(this->addButton, SIGNAL(clicked()), this, SLOT(slotAddButton()));
-<<<<<<< HEAD
+
       this->parametersButton = new QPushButton("Paramètres avancés");
       QObject::connect(this->parametersButton, SIGNAL(clicked()), this, SLOT(slotParametersButton()));
-=======
-      this->parametersComboBox = new QComboBox();
-      this->parametersComboBox->addItem("minimiser le nombre de gammes");
-      this->parametersComboBox->addItem("minimiser le nombre de notes");
->>>>>>> origin/master
       this->generateButton = new QPushButton("Générer");
       QObject::connect(this->generateButton, SIGNAL(clicked()), this, SLOT(slotGenerateButton()));
 
