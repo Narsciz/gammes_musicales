@@ -31,7 +31,6 @@ QVector<ChordDisplay*> ChordsListDisplay::getListChords()
 {
     return this->listChords;
 }
-
 QVector<QString> ChordsListDisplay::getListChordsName()
 {
     QVector<QString> res;
@@ -41,14 +40,12 @@ QVector<QString> ChordsListDisplay::getListChordsName()
     }
     return res;
 }
-
 void ChordsListDisplay::addChord(QString note, QString sh)
 {
     this->listChords.push_back(new ChordDisplay(note, sh));
     QObject::connect(this->listChords.last(), SIGNAL(deleteSignal(ChordDisplay*)), this, SLOT(slotDeleteChord(ChordDisplay*)));
     this->refresh();
 }
-
 void ChordsListDisplay::addChord(QString chord)
 {
     this->listChords.push_back(new ChordDisplay(chord));
@@ -84,7 +81,6 @@ void ChordsListDisplay::refresh()
     }
     //this->scrolledWidget->setFixedHeight(93+(j*66));
 }
-
 void ChordsListDisplay::enableDeletingChords()
 {
     for(int i=0; i<this->listChords.size(); i++)
@@ -92,7 +88,6 @@ void ChordsListDisplay::enableDeletingChords()
         listChords[i]->enableDelete();
     }
 }
-
 void ChordsListDisplay::disableDeletingChords()
 {
     for(int i=0; i<this->listChords.size(); i++)

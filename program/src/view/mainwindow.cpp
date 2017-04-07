@@ -1,16 +1,14 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::MainWindow)
+MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
     this->setWindowTitle("Ut");
     this->setMinimumSize(540, 480);
-    //QIcon icon("../assets/pictures/cle.png");
-    //this->setWindowIcon(icon);
+    QIcon icon("../assets/pictures/cle.png");
+    this->setWindowIcon(icon);
 
     this->mainLayout = new QGridLayout();
     this->ui->centralWidget->setLayout(this->mainLayout);
@@ -24,7 +22,7 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
- void MainWindow::constructMenuBar()
+void MainWindow::constructMenuBar()
  {
      QMenuBar *menuBar = new QMenuBar();
 
@@ -61,7 +59,7 @@ MainWindow::~MainWindow()
 
      this->setMenuBar(menuBar);
  }
-  void MainWindow::constructLayout()
+void MainWindow::constructLayout()
   {
       this->mainLayout->setAlignment(Qt::AlignTop);
       this->chordsLayout = new QGridLayout();
@@ -84,7 +82,7 @@ MainWindow::~MainWindow()
       this->mainLayout->addLayout(this->scalesLayout, 2, 0, 1, 1);
       this->mainLayout->addWidget(this->returnButton, 4, 0, 1, 1);
   }
-  void MainWindow::constructChordsLayout()
+void MainWindow::constructChordsLayout()
   {
       this->clearLayout(this->chordsLayout, true);
 
@@ -97,7 +95,7 @@ MainWindow::~MainWindow()
       this->chordsLayout->addWidget(this->reinitializeButton, 1, 6, 1, 1);
       this->reinitializeButton->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Expanding);
   }
-  void MainWindow::constructChoicesLayout()
+void MainWindow::constructChoicesLayout()
   {
       this->clearLayout(this->choicesLayout, true);
 
@@ -139,7 +137,7 @@ MainWindow::~MainWindow()
       this->choicesLayout->addWidget(new QLabel(), 1, 5, 1, 1);
       this->choicesLayout->addWidget(this->generateButton, 1, 6, 1, 1);
  }
-  void MainWindow::constructScalesLayout()
+void MainWindow::constructScalesLayout()
   {
       this->clearLayout(this->scalesLayout, true);
 
@@ -150,7 +148,7 @@ MainWindow::~MainWindow()
       this->sListDisplay->setVisible(false);
   }
 
-  void MainWindow::clearLayout(QLayout *layout, bool deleteWidgets = true)
+void MainWindow::clearLayout(QLayout *layout, bool deleteWidgets = true)
   {
       while (QLayoutItem* item = layout->takeAt(0))
       {
@@ -165,36 +163,37 @@ MainWindow::~MainWindow()
       }
   }
 
-  QString MainWindow::openExplorer(int i)
+QString MainWindow::openExplorer(int i)
   {
       this->explorer = new QFileDialog();
-      this->explorer->setFileMode(QFileDialog::ExistingFile);
-      switch(i)
-      {
-        case 1: this->explorer->setNameFilter(tr("Fichiers textes (*.txt)"));
-      }
       QStringList fileNameTemp;
       QString fileName = "";
+      switch(i)
+      {
+      case 1: this->explorer->setFileMode(QFileDialog::ExistingFile);
+      case 2: this->explorer->setNameFilter(tr("Fichiers textes (*.txt)"));
+              break;
+      case 3: this->explorer->setNameFilter(tr("Fichiers textes (*.xml)"));
+              break;
+      }
+
       if(this->explorer->exec())
       {
           fileNameTemp = this->explorer->selectedFiles();
           fileName = fileNameTemp[0];
       }
+
       return fileName;
   }
-
-  QVector<QString> MainWindow::testFile(QString filePath)
+QVector<QString> MainWindow::testFile(QString filePath)
   {
-      cout<<filePath.toStdString()<<endl<<flush;
       QString fileContent = "";
-      QVector<QString> rtn;
       QFile file(filePath);
       if(file.open(QIODevice::ReadOnly | QIODevice::Text))
       {
           fileContent = file.readAll();
           file.close();
       }
-      cout<<fileContent.toStdString()<<endl<<flush;
       QStringList listChords = fileContent.split(' ');
       QVector<QString> res = listChords.toVector();
       vector<Chord*> chords;
@@ -211,14 +210,25 @@ MainWindow::~MainWindow()
               res.clear();
               break;
           }
+          i++;
       }
+      return res;
   }
-  void MainWindow::resizeEvent ( QResizeEvent * event )
-  {
-    this->cListDisplay->refresh();
-  }
-
-  void MainWindow::fillComboBoxHS(QVector<QString> listHS)
+void MainWindow::saveFile(QString filePath, QString fileContent)
+{
+    QFile file(filePath);
+    if(file.open(QIODevice::WriteOnly | QIODevice::Text))
+    {
+        // Création d'un objet QTextStream à partir de notre objet QFile
+        QTextStream flux(&file);
+        // On choisit le codec correspondant au jeu de caractère que l'on souhaite ; ici, UTF-8
+        flux.setCodec("UTF-8");
+        // Écriture des différentes lignes dans le fichier
+        flux << fileContent;
+        file.close();
+    }
+}
+void MainWindow::fillComboBoxHS(QVector<QString> listHS)
   {
       for(int i = 0; i<listHS.size(); i++)
       {
@@ -226,26 +236,29 @@ MainWindow::~MainWindow()
       }
   }
 
-  void MainWindow::fillParametersLists(QVector<QString> listHSChords, QVector<QString> listHSScales)
+void MainWindow::fillParametersLists(QVector<QString> listHSChords, QVector<QString> listHSScales)
   {
       this->parametersWindow->fillLists(listHSChords, listHSScales);
   }
-
-  void MainWindow::constructScaleFoundView(QVector<QVector<QString>> listFoundScales)
+void MainWindow::constructScaleFoundView(QVector<QVector<QString>> listFoundScales)
   {
       this->sListDisplay->constructScalesFoundList(listFoundScales);
   }
-
-  ParametersDisplay* MainWindow::getParametersDisplay()
+ParametersDisplay* MainWindow::getParametersDisplay()
   {
       return this->parametersWindow;
   }
 
-  void MainWindow::slotAddButton() //Ajoute lors de l'appuie sur le bouton "Ajouter", les choix d'accords courant au layout d'accords
+void MainWindow::resizeEvent ( QResizeEvent * event )
+    {
+      this->cListDisplay->refresh();
+    }
+
+void MainWindow::slotAddButton() //Ajoute lors de l'appuie sur le bouton "Ajouter", les choix d'accords courant au layout d'accords
   {
       this->cListDisplay->addChord(this->noteComboBox->currentText(), this->hsComboBox->currentText());
   }
-  void MainWindow::slotGenerateButton()
+void MainWindow::slotGenerateButton()
   {
       if(this->cListDisplay->getListChords().size()>0)
       {
@@ -262,7 +275,7 @@ MainWindow::~MainWindow()
 
       emit generateSignal(cListDisplay->getListChordsName());
   }
-  void MainWindow::slotReturnButton()
+void MainWindow::slotReturnButton()
   {
       constructScalesLayout();
       this->sListDisplay->setVisible(false);
@@ -273,27 +286,25 @@ MainWindow::~MainWindow()
       clearLayout(this->scalesLayout);
       constructScalesLayout();
   }
-  void MainWindow::slotReinitializeButton()
+void MainWindow::slotReinitializeButton()
   {
       clearLayout(this->chordsLayout);
       constructChordsLayout();
   }
-
-  void MainWindow::slotParametersButton()
+void MainWindow::slotParametersButton()
   {
     this->parametersWindow->show();
   }
-
-  void MainWindow::slotNewFile()
+void MainWindow::slotNewFile()
   {
       clearLayout(this->mainLayout);
       constructLayout();
   }
-  void MainWindow::slotImportFile()
+void MainWindow::slotImportFile()
   {
-      QString fileContent = openExplorer(1);
-      QVector<QString> listChords = testFile(fileContent);
-      if(fileContent.size() != 0)
+      QString filePath = openExplorer(1);
+      QVector<QString> listChords = testFile(filePath);
+      if(listChords.size() != 0)
       {
             for(int i=0; i<listChords.size(); i++)
             {
@@ -302,19 +313,36 @@ MainWindow::~MainWindow()
       }
       else
       {
-          QMessageBox::warning(this, "Fichier erroné", "Le fichier que vous avez sélectionné n'est pas au bon format. Il peut s'agir de l'extension (.txt) ou bien de la convention lors de la rédaction de vos accords qui n'a pas été respéctée. Veuillez vérifier votre fichier et recommencer. \n Pour plus d'informations sur la façon de rédiger vos accords, veuillez vous référer à l'aide.");
+          QMessageBox::warning(this, "Fichier erroné", "Le fichier que vous avez sélectionné n'est pas au bon format. Il peut s'agir de l'extension (.txt) ou bien de la convention lors de la rédaction de vos accords qui n'a pas été respéctée. Veuillez vérifier votre fichier et recommencer.\nPour plus d'informations sur la façon de rédiger vos accords, veuillez vous référer à l'aide.");
 
       }
   }
-  void MainWindow::slotSaveFile()
+void MainWindow::slotSaveFile()
   {
-      openExplorer(1);
+      QString filePath = openExplorer(2);
+
+      QStringList ext = filePath.split('.');
+      if(ext.last()!="txt")
+          filePath += ".txt";
+
+      QVector<QString> listChordsName = this->cListDisplay->getListChordsName();
+      QString fileContent ="";
+      for(int i = 0; i<listChordsName.size(); i++)
+      {
+          fileContent += listChordsName[i];
+          if(i != listChordsName.size()-1)
+          {
+              fileContent += " ";
+          }
+      }
+
+      saveFile(filePath, fileContent);
   }
-  void MainWindow::slotCloseFile()
+void MainWindow::slotCloseFile()
   {
     this->close();
   }
-  void MainWindow::slotDebugTestFile()
+void MainWindow::slotDebugTestFile()
 {
     int top, bottom, left, right;
     this->getContentsMargins(&left, &top, &right, &bottom);

@@ -20,6 +20,7 @@
 #include <iostream>
 #include <QFile>
 #include <QSpacerItem>
+#include <QTextStream>
 #include "view/parametersdisplay.h"
 using namespace std;
 
@@ -83,6 +84,7 @@ public:
     void clearLayout(QLayout *layout, bool deleteWidgets);
     QString openExplorer(int i);
     QVector<QString> testFile(QString filePath);
+    void saveFile(QString filePath, QString fileContent);
     void resizeEvent ( QResizeEvent * event );
     void fillComboBoxHS(QVector<QString> listHS);
     void fillParametersLists(QVector<QString> listHSChords, QVector<QString> listHSScales);

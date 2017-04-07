@@ -39,7 +39,6 @@ ChordDisplay::ChordDisplay(QString note, QString hs) : QGroupBox()
 
     this->setLayout(this->boxLayout);
 }
-
 ChordDisplay::ChordDisplay(QString chord) : QGroupBox()
 {
     this->setFixedSize(60, 60);
@@ -80,12 +79,10 @@ void ChordDisplay::disableDelete()
 {
     this->deleteButton->setVisible(false);
 }
-
 void ChordDisplay::enableDelete()
 {
     this->deleteButton->setVisible(true);
 }
-
 QString ChordDisplay::getName()
 {
     return this->chordName->text();
@@ -96,7 +93,6 @@ void ChordDisplay::slotDeleteButton()
     emit this->deleteSignal(this);
     delete this;
 }
-
 void ChordDisplay::slotOpenView()
 {
     //this->view->show();

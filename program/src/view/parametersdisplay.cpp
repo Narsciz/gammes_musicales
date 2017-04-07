@@ -24,10 +24,12 @@ ParametersDisplay::ParametersDisplay() : QWidget()
 
     this->allowedChordsBox = new QGroupBox("Accords autorisés");
     this->allowedChordsLayout = new QVBoxLayout();
+    this->allowedChordsLayout->setAlignment(Qt::AlignTop);
     this->allowedChordsBox->setLayout(this->allowedChordsLayout);
 
     this->allowedScalesBox = new QGroupBox("Gammes autorisées");
     this->allowedScalesLayout = new QVBoxLayout();
+    this->allowedScalesLayout->setAlignment(Qt::AlignTop);
     this->allowedScalesBox->setLayout(this->allowedScalesLayout);
 
     this->mainLayout->addWidget(parametersBox, 0, 0, 1, 2);
@@ -66,7 +68,6 @@ int ParametersDisplay::getParameter()
         res = 2;
     return res;
 }
-
 int ParametersDisplay::getAlgo()
 {
     int res;
@@ -76,7 +77,6 @@ int ParametersDisplay::getAlgo()
         res = 2;
     return res;
 }
-
 QVector<QString> ParametersDisplay::getlistAllowedScales()
 {
     QVector<QString> res;

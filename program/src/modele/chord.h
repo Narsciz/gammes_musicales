@@ -6,6 +6,7 @@
 #include "scaledictionary.h"
 #include <QStringList>
 #include "chorddictionary.h"
+#include <stdexcept>
 
 class Chord : public CS
 {
