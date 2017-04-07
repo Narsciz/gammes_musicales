@@ -8,7 +8,7 @@ AlgoBrut::AlgoBrut(std::vector<std::vector<Scale *> > graph):KpartiteGraph(graph
 }
 
 
-void AlgoBrut::generateSols(int index,vector<Scale*> solutionPossible)
+void AlgoBrut::generateSolsRec(int index,vector<Scale*> solutionPossible)
 {
 
     if (index>=KpartiteGraph.size())
@@ -18,12 +18,17 @@ void AlgoBrut::generateSols(int index,vector<Scale*> solutionPossible)
         for (size_t i=0;i<KpartiteGraph[index].size();i++)
         {
             solutionPossible.push_back(KpartiteGraph[index][i]);
-            generateSols(index+1,solutionPossible);
+            generateSolsRec(index+1,solutionPossible);
             solutionPossible.pop_back();
         }
     }
 }
 
+void AlgoBrut::generateSols(){
+    solutionsPossibles.clear();
+    vector<Scale*> vide;
+    generateSolsRec(0,vide);
+}
 
 vector<vector<Scale*> > AlgoBrut::getSols(){return solutionsPossibles;}
 

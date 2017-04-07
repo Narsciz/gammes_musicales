@@ -2,6 +2,7 @@
 #define SCALE_H
 #include "cs.h"
 #include <QString>
+#include <QStringList>
 
 class Scale : public CS
 {

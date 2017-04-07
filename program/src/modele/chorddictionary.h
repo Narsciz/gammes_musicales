@@ -3,8 +3,9 @@
 
 #include <vector>
 #include "hschord.h"
-#include "chord.h"
 #include <QVector>
+
+class Chord;
 class ChordDictionary
 {
 private :

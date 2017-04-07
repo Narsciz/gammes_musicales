@@ -5,7 +5,7 @@
 #include "scale.h"
 #include "note.h"
 #include "node.h"
-
+#include <iostream>
 #include <vector>
 
 

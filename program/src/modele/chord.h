@@ -4,6 +4,9 @@
 #include "cs.h"
 #include "scale.h"
 #include "scaledictionary.h"
+#include <QStringList>
+#include "chorddictionary.h"
+
 class Chord : public CS
 {
 public:

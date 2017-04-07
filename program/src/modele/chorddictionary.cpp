@@ -1,5 +1,5 @@
 #include "chorddictionary.h"
-
+#include "chord.h"
 using namespace std;
 
 ChordDictionary::ChordDictionary()

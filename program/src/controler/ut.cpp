@@ -37,12 +37,17 @@ vector<Chord*> Ut::convertCStoModel(QVector<QString> cs){
  void Ut::generateSlot(QVector<QString> listChordsName)
  {
     vector<Chord*> listChords = convertCStoModel(listChordsName);
-    vector<vector<Scale*>> k = KpartitesScales(listChords);
+    vector<vector<Scale*> > k = KpartitesScales(listChords);
+    for (int i=0;i<k.size();i++){
+        for (int j=0;j<k[i].size();j++)
+            cout<<k[i][j]->getName().toStdString()<<"|"<<flush;
+        cout<<endl<<flush;
+    }
     AlgoBrut algobrut(k);
-    vector<Scale*> vect;
-    algobrut.generateSols(0, vect);
+    algobrut.generateSols();
+    vector<vector<Scale*> > SP=algobrut.getSols();
 
-    vector<vector<Scale*>> temp = algobrut.findLeastsConsecutivesNotesChanges();
+    vector<vector<Scale*>> temp = algobrut.findLeastsTotalScales();
 
 
     QVector<QVector<QString>> res = convertCStoView(temp);

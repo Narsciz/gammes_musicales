@@ -5,8 +5,6 @@
 #include <iostream>
 using namespace std;
 
-QString noteToString(Note n);
-Note stringToNote(QString s);
 CS::CS(Note f2, HarmonicStructure *hs2){
     f=f2;
     hs=hs2;
@@ -101,7 +99,7 @@ bool CS::sameNotes(CS * cs)
     return false;
 }
 
-Note stringToNote(QString s){
+Note CS::stringToNote(QString s){
 
     if (s=="C")
         return C;
@@ -131,7 +129,7 @@ Note stringToNote(QString s){
     return END_OF_LIST;
 }
 
-QString noteToString(Note n)
+QString CS::noteToString(Note n)
 {
     switch(n)
     {

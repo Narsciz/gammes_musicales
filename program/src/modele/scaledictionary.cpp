@@ -10,7 +10,7 @@ ScaleDictionary::ScaleDictionary()
 bool ScaleDictionary::contains(HSScale * s)
 {
     for (size_t i=0;i<scales.size();i++)
-        if (scales[i]==s)
+        if (scales[i]->getIntervals()==s->getIntervals())
             return true;
     return false;
 }
@@ -31,8 +31,8 @@ void ScaleDictionary::generateBaseScale()
     getInstance()->add(new HSScale("Gitane",{1,3,1,2,2,1}));
     getInstance()->add(new HSScale("Gypsy",{1,3,1,2,1,3}));
     getInstance()->add(new HSScale("Hindou",{2,2,1,2,1,2}));*/
-    getInstance()->add(new HSScale("Mineur harmonique",{2,1,2,2,1,3}));
-    getInstance()->add(new HSScale("Majeur",{2,2,1,2,2,2}));
+    getInstance()->add(new HSScale("m",{2,1,2,2,1,3}));
+    getInstance()->add(new HSScale("M",{2,2,1,2,2,2}));
 
     //http://www.solfego.fr/toutes-les-gammes.htm
 }
@@ -69,5 +69,5 @@ vector<Scale*> ScaleDictionary::getAllScales()
 
 }
 
-void ScaleDictionary::add(HSScale *h){scales.push_back(h);}
+void ScaleDictionary::add(HSScale *h){if (!contains(h)) scales.push_back(h);}
 ScaleDictionary *ScaleDictionary::INSTANCE=NULL;

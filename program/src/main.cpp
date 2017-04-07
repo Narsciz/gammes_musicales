@@ -20,19 +20,17 @@ int main(int argc, char *argv[])
     ScaleDictionary::getInstance()->generateBaseScale();
     vector<Chord*> SA;
     vector<Chord*> allowedChords=ChordDictionary::getInstance()->getAllChords();
-    SA.push_back(allowedChords[0]);
-    SA.push_back(allowedChords[1]);
-    SA.push_back(allowedChords[2]);
+    for (int i=0;i<4;i++)
+        SA.push_back(allowedChords[i]);
+
 
     //for (int i=0;i<ChordDictionary::getInstance()->getSize();i++)
       //    qInfo()<<ChordDictionary::getInstance()->getChordByIndex(i)->getName();
+
     qInfo()<<"suite d'accords :";
 
-    for (int i=0;i<3;i++)
-    {
-        vector<Note> notes=SA[i]->getNotes();
+    for (size_t i=0;i<SA.size();i++)
         qInfo()<<SA[i]->getName();
-    }
 
     qInfo()<<"graphe k-partie :";
     vector<vector<Scale*> > K=KpartitesScales(SA);
@@ -44,9 +42,8 @@ int main(int argc, char *argv[])
         qInfo()<<ligne;
     }
     AlgoBrut algo(K);
-    vector<Scale*> vide;
     qInfo()<<"algo rec:";
-    algo.generateSols(0,vide);
+    algo.generateSols();
     vector<vector<Scale*> > sols=algo.getSols();
 
     /*qInfo()<<"liste combinaison :";

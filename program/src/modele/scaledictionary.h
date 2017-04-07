@@ -10,6 +10,7 @@ class ScaleDictionary
 private:
     static ScaleDictionary* INSTANCE;
     std::vector<HSScale*> scales;
+
     ScaleDictionary();
 
 public:
