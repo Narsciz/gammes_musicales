@@ -178,14 +178,14 @@ MainWindow::~MainWindow()
       if(this->explorer->exec())
       {
           fileNameTemp = this->explorer->selectedFiles();
-          for(int j=0; j<fileName.size(); j++)
-              fileName += fileNameTemp.at(j).toLocal8Bit().constData();
+          fileName = fileNameTemp[0];
       }
       return fileName;
   }
 
   QVector<QString> MainWindow::testFile(QString filePath)
   {
+      cout<<filePath.toStdString()<<endl<<flush;
       QString fileContent = "";
       QVector<QString> rtn;
       QFile file(filePath);
@@ -194,59 +194,24 @@ MainWindow::~MainWindow()
           fileContent = file.readAll();
           file.close();
       }
-/*
+      cout<<fileContent.toStdString()<<endl<<flush;
+      QStringList listChords = fileContent.split(' ');
+      QVector<QString> res = listChords.toVector();
+      vector<Chord*> chords;
+
       int i = 0;
-      bool note = true;
-      bool hsEnd = false;
-      QString temp;
-      do
+      while(i<res.size())
       {
-           if(note)
-           {
-               if(fileContent[i] == 'A' || fileContent[i] == 'B')
-               {
-                   i++;
-
-                   QString temp2 = ""+fileContent[i];
-                   cout<< temp2.toStdString()<<flush;
-
-                   rtn.push_back(""+fileContent[i]);
-                   note = false;
-               }
-               else
-               {
-                   fileContent = "";
-               }
-           }
-           else
-           {
-               if(!hsEnd)
-               {
-                    temp = "";
-                    while(fileContent[i] != ' ' && i<fileContent.size())
-                    {
-                        temp += fileContent[i];
-                        i++;
-                    }
-                    hsEnd = true;
-               }
-               else
-               {
-                   if(temp == "M")
-                   {
-                       cout << temp.toStdString()<<flush;
-                       rtn[rtn.size()-1] += temp;
-                       i++;
-                   }
-                   else
-                   {
-                       fileContent = "";
-                   }
-               }
-           }
-      }while(fileContent.size() != 0 && i<fileContent.size());
-      return rtn;
-      */
+          try
+          {
+              Chord* testChord = new Chord(res[i]);
+          }
+          catch(std::out_of_range)
+          {
+              res.clear();
+              break;
+          }
+      }
   }
   void MainWindow::resizeEvent ( QResizeEvent * event )
   {
