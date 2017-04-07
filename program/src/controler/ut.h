@@ -4,10 +4,12 @@
 #include "modele/scaledictionary.h"
 #include "modele/chorddictionary.h"
 #include "modele/algobrut.h"
+#include "modele/abstractalgo.h"
 #include "modele/algo.h"
 #include "modele/cs.h"
 #include "modele/scale.h"
 #include "modele/chord.h"
+#include "modele/parametres.h"
 #include <QObject>
 
 class Ut : public QObject
@@ -24,7 +26,7 @@ public:
     std::vector<Chord*> convertCStoModel(QVector<QString> cs);
 
 public slots:
-    void generateSlot(QVector<QString> listChords, int parameter);
+    void generateSlot(QVector<QString> listChords);
 };
 
 #endif // UT_H

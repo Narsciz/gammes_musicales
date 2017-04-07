@@ -33,6 +33,9 @@ SOURCES += main.cpp\
     controler/ut.cpp \
     controler/QMidiFile.cpp \
     controler/QMidiOut.cpp \
+    view/parametersdisplay.cpp \
+    modele/abstractalgo.cpp \
+    modele/parametres.cpp
 
 HEADERS  += view/mainwindow.h \
     modele/chord.h \
@@ -55,7 +58,10 @@ HEADERS  += view/mainwindow.h \
     controler/ut.h \
     modele/note.h \
     controler/QMidiFile.h \
-    controler/QMidiOut.h
+    controler/QMidiOut.h \
+    view/parametersdisplay.h \
+    modele/abstractalgo.h \
+    modele/parametres.h
 
 FORMS  += view/mainwindow.ui
 

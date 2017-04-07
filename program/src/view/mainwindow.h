@@ -20,6 +20,7 @@
 #include <iostream>
 #include <QFile>
 #include <QSpacerItem>
+#include "view/parametersdisplay.h"
 using namespace std;
 
 #include <QVector>
@@ -53,19 +54,21 @@ private:
     QPushButton *generateButton;
     QPushButton *returnButton;
     QPushButton *reinitializeButton;
+    QPushButton *parametersButton;
 
     //ComboBox
     QComboBox *noteComboBox;
     QComboBox *hsComboBox;
-    QComboBox *parametersComboBox;
 
     //Label
     QLabel *noteLabel;
     QLabel *hsLabel;
-    QLabel *parametersLabel;
 
     //FileDialog
     QFileDialog *explorer;
+
+    //Widget
+    ParametersDisplay *parametersWindow;
 
 public:
     explicit MainWindow(QWidget *parent = 0);
@@ -82,13 +85,16 @@ public:
     QVector<QString> testFile(QString filePath);
     void resizeEvent ( QResizeEvent * event );
     void fillComboBoxHS(QVector<QString> listHS);
+    void fillParametersLists(QVector<QString> listHSChords, QVector<QString> listHSScales);
     void constructScaleFoundView(QVector<QVector<QString>> listFoundScales);
+    ParametersDisplay *getParametersDisplay();
 
 public slots :
     void slotAddButton();
     void slotGenerateButton();
     void slotReturnButton();
     void slotReinitializeButton();
+    void slotParametersButton();
     void slotNewFile();
     void slotImportFile();
     void slotSaveFile();
@@ -96,7 +102,7 @@ public slots :
     void slotDebugTestFile();
 
 signals :
-    void generateSignal(QVector<QString> listChords, int parameter);
+    void generateSignal(QVector<QString> listChords);
 };
 
 #endif // MAINWINDOW_H

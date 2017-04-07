@@ -17,6 +17,8 @@ MainWindow::MainWindow(QWidget *parent) :
 
     constructMenuBar();
     constructLayout();
+
+    this->parametersWindow = new ParametersDisplay();
 }
 MainWindow::~MainWindow()
 {
@@ -105,8 +107,6 @@ MainWindow::~MainWindow()
       this->noteLabel->setAlignment(Qt::AlignCenter);
       this->hsLabel = new QLabel("Structure harmonique");
       this->hsLabel->setAlignment(Qt::AlignCenter);
-      this->parametersLabel = new QLabel("Paramètre");
-      this->parametersLabel->setAlignment(Qt::AlignCenter);
       this->noteComboBox = new QComboBox();
       this->noteComboBox->addItem("C");
       this->noteComboBox->addItem("C#");
@@ -123,20 +123,18 @@ MainWindow::~MainWindow()
       this->hsComboBox = new QComboBox();
       this->addButton = new QPushButton("Ajouter", this);
       QObject::connect(this->addButton, SIGNAL(clicked()), this, SLOT(slotAddButton()));
-      this->parametersComboBox = new QComboBox();
-      this->parametersComboBox->addItem("- de gammes");
-      this->parametersComboBox->addItem("- de notes");
+      this->parametersButton = new QPushButton("Paramètres avancés");
+      QObject::connect(this->parametersButton, SIGNAL(clicked()), this, SLOT(slotParametersButton()));
       this->generateButton = new QPushButton("Générer");
       QObject::connect(this->generateButton, SIGNAL(clicked()), this, SLOT(slotGenerateButton()));
 
       this->choicesLayout->addWidget(this->noteLabel, 0, 0, 1, 1);
       this->choicesLayout->addWidget(this->hsLabel, 0, 1, 1, 1);
-      this->choicesLayout->addWidget(this->parametersLabel, 0, 4, 1, 1);
       this->choicesLayout->addWidget(this->noteComboBox, 1, 0, 1, 1);
       this->choicesLayout->addWidget(this->hsComboBox, 1, 1, 1, 1);
       this->choicesLayout->addWidget(this->addButton, 1, 2, 1, 1);
       this->choicesLayout->addWidget(new QLabel(), 1, 3, 1, 1);
-      this->choicesLayout->addWidget(this->parametersComboBox, 1, 4, 1, 1);
+      this->choicesLayout->addWidget(this->parametersButton, 1, 4, 1, 1);
       this->choicesLayout->addWidget(new QLabel(), 1, 5, 1, 1);
       this->choicesLayout->addWidget(this->generateButton, 1, 6, 1, 1);
  }
@@ -179,8 +177,8 @@ MainWindow::~MainWindow()
       if(this->explorer->exec())
       {
           fileNameTemp = this->explorer->selectedFiles();
-          for(int i=0; i<fileName.size(); i++)
-              fileName += fileNameTemp.at(i).toLocal8Bit().constData();
+          for(int j=0; j<fileName.size(); j++)
+              fileName += fileNameTemp.at(j).toLocal8Bit().constData();
       }
       return fileName;
   }
@@ -195,9 +193,7 @@ MainWindow::~MainWindow()
           fileContent = file.readAll();
           file.close();
       }
-
-      cout<<fileContent.toStdString();
-
+/*
       int i = 0;
       bool note = true;
       bool hsEnd = false;
@@ -249,6 +245,7 @@ MainWindow::~MainWindow()
            }
       }while(fileContent.size() != 0 && i<fileContent.size());
       return rtn;
+      */
   }
   void MainWindow::resizeEvent ( QResizeEvent * event )
   {
@@ -263,9 +260,19 @@ MainWindow::~MainWindow()
       }
   }
 
+  void MainWindow::fillParametersLists(QVector<QString> listHSChords, QVector<QString> listHSScales)
+  {
+      this->parametersWindow->fillLists(listHSChords, listHSScales);
+  }
+
   void MainWindow::constructScaleFoundView(QVector<QVector<QString>> listFoundScales)
   {
       this->sListDisplay->constructScalesFoundList(listFoundScales);
+  }
+
+  ParametersDisplay* MainWindow::getParametersDisplay()
+  {
+      return this->parametersWindow;
   }
 
   void MainWindow::slotAddButton() //Ajoute lors de l'appuie sur le bouton "Ajouter", les choix d'accords courant au layout d'accords
@@ -287,28 +294,7 @@ MainWindow::~MainWindow()
           QMessageBox::information(this, "Aucun accord spécifié", "Vous n'avez sélectionné aucun accord. Pour générer une suite de gamme, veuillez d'abord entrer une suite d'accord.");
       }
 
-      emit generateSignal(cListDisplay->getListChordsName(), this->parametersComboBox->currentIndex());
-
-      //__________________________________Test______________
-      /*QVector<QString> test1;
-      test1.push_back("1");
-      test1.push_back("2");
-      test1.push_back("3");
-      test1.push_back("4");
-      test1.push_back("5");
-      test1.push_back("6");
-      QVector<QString> test2;
-      test2.push_back("1");
-      test2.push_back("2");
-      test2.push_back("3");
-      test2.push_back("4");
-      test2.push_back("5");
-      QVector<QVector<QString>> testglob;
-      testglob.push_back(test1);
-      testglob.push_back(test2);
-
-      this->sListDisplay->constructScalesFoundList(testglob);*/
-      //__________________________________FinTest___________
+      emit generateSignal(cListDisplay->getListChordsName());
   }
   void MainWindow::slotReturnButton()
   {
@@ -326,6 +312,12 @@ MainWindow::~MainWindow()
       clearLayout(this->chordsLayout);
       constructChordsLayout();
   }
+
+  void MainWindow::slotParametersButton()
+  {
+    this->parametersWindow->show();
+  }
+
   void MainWindow::slotNewFile()
   {
       clearLayout(this->mainLayout);

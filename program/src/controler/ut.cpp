@@ -7,9 +7,10 @@ Ut::Ut(MainWindow *w)
     ScaleDictionary::getInstance()->generateBaseScale();
 
     this->w = w;
-    QObject::connect(this->w, SIGNAL(generateSignal(QVector<QString>,int)), this, SLOT(generateSlot(QVector<QString>, int)));
+    QObject::connect(this->w, SIGNAL(generateSignal(QVector<QString>)), this, SLOT(generateSlot(QVector<QString>)));
 
     w->fillComboBoxHS(ChordDictionary::getInstance()->getHSnames());
+    w->fillParametersLists(ChordDictionary::getInstance()->getHSnames(), ScaleDictionary::getInstance()->getHSnames());
 }
 
 QVector<QVector<QString> > Ut::convertCStoView(vector<vector<Scale*> > cs){
@@ -33,7 +34,7 @@ vector<Chord*> Ut::convertCStoModel(QVector<QString> cs){
     return res;
 }
 
- void Ut::generateSlot(QVector<QString> listChordsName, int parameter)
+ void Ut::generateSlot(QVector<QString> listChordsName)
  {
     vector<Chord*> listChords = convertCStoModel(listChordsName);
     vector<vector<Scale*>> k = KpartitesScales(listChords);
@@ -47,4 +48,20 @@ vector<Chord*> Ut::convertCStoModel(QVector<QString> cs){
     QVector<QVector<QString>> res = convertCStoView(temp);
 
     w->constructScaleFoundView(res);
+
+    /*
+    Parametres parametres(this->w->getParametersDisplay());
+    AbstractAlgo algo;
+    switch(parametres.getAlgo())
+    {
+    case 1: algo = AlgoBrut(convertCStoModel(parametres.getAllowedScales()));
+    case 2: algo = AlgoOpti(convertCStoModel(parametres.getAllowedScales()));
+    }
+    switch(parametres.getParameter())
+    {
+    case 1: algo.findLeastsConsecutivesNotesChanges();
+    case 2: algo.findLeastsConsecutivesScalesChanges();
+    }
+    w->constructScaleFoundView(algo.getSoluces());
+    */
  }
