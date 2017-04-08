@@ -5,22 +5,25 @@
 #include "modele/scale.h"
 #include "modele/algo.h"
 #include <iostream>
+#include "modele/abstractalgo.h"
 
-class AlgoBrut
+class AlgoBrut : public AbstractAlgo
 {
 private:
-    std::vector<std::vector<Scale*> > solutionsPossibles;
+    std::vector<std::vector<Scale*> > possiblesSolutions;
     std::vector<std::vector<Scale*> > KpartiteGraph;
+    std::vector<std::vector<Scale*> > filteredKpartiteGraph;
 public:
-    AlgoBrut(std::vector<std::vector<Scale*> >);
+    AlgoBrut(std::vector<Chord*>,std::vector<Scale*>);
 
     //ça c'est l'algo brut en dessous v
     std::vector<std::vector<Scale*> > getSols();
-    void generateSols();
+    void generatePossiblesSolutions();
+    void filterAllowedChordsInK();
     void generateSolsRec(int, std::vector<Scale*>);//use : generateSols(0,vector<Scale*> vide)
-    std::vector<std::vector<Scale*> > findLeastsConsecutivesNotesChanges();
-    std::vector<std::vector<Scale*> > findLeastsConsecutivesScalesChanges();
-    std::vector<std::vector<Scale*> > findLeastsTotalScales();
+    void findLeastsConsecutivesNotesChanges();
+    void findLeastsConsecutivesScalesChanges();
+    void findLeastsTotalScales();
 };
 
 #endif // ALGOBRUT_H

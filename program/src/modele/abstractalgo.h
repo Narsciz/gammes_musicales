@@ -7,18 +7,19 @@
 
 class AbstractAlgo
 {
-private :
+protected :
     std::vector<Chord*> data;
     std::vector<Scale*> allowedScales;
-    std::vector<std::vector<Scale*> > soluces;
+    std::vector<std::vector<Scale*> > results;
 
 public:
+    AbstractAlgo(){}
     AbstractAlgo(std::vector<Chord*> data, std::vector<Scale*> allowedScales);
 
     virtual void findLeastsConsecutivesNotesChanges() = 0;
     virtual void findLeastsConsecutivesScalesChanges() = 0;
     virtual void findLeastsTotalScales()=0;
-    std::vector<std::vector<Scale*> > getSoluces();
+    std::vector<std::vector<Scale*> > getResults();
 };
 
 #endif // ABSTRACTALGO_H

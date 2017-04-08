@@ -43,14 +43,12 @@ vector<Chord*> Ut::convertCStoModel(QVector<QString> cs){
             cout<<k[i][j]->getName().toStdString()<<"|"<<flush;
         cout<<endl<<flush;
     }
-    AlgoBrut algobrut(k);
-    algobrut.generateSols();
-    vector<vector<Scale*> > SP=algobrut.getSols();
+    AlgoBrut algobrut(listChords,ScaleDictionary::getInstance()->getAllScales());
+    algobrut.generatePossiblesSolutions();
 
-    vector<vector<Scale*>> temp = algobrut.findLeastsTotalScales();
+    algobrut.findLeastsTotalScales();
 
-
-    QVector<QVector<QString>> res = convertCStoView(temp);
+    QVector<QVector<QString>> res = convertCStoView(algobrut.getResults());
 
     w->constructScaleFoundView(res);
 
@@ -67,6 +65,6 @@ vector<Chord*> Ut::convertCStoModel(QVector<QString> cs){
     case 1: algo.findLeastsConsecutivesNotesChanges();
     case 2: algo.findLeastsConsecutivesScalesChanges();
     }
-    w->constructScaleFoundView(algo.getSoluces());
+    w->constructScaleFoundView(algo.getResults());
     */
  }
