@@ -36,8 +36,8 @@ int main(int argc, char *argv[])
         cout<<allowedScales[i]->getName().toStdString()<<"|"<<flush;
     cout<<endl<<flush;
 
-    AlgoBrut algo(SA,allowedScales);
-    algo.findLeastsTotalScales();
+    AlgoBrut algo(SA,ScaleDictionary::getInstance()->getAllScales());
+    algo.findLeastsConsecutivesScalesChanges();
     vector<vector<Scale*> > contrainte1=algo.getResults();
 
     cout<<"solution :"<<endl<<flush;

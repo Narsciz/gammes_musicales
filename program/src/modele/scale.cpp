@@ -28,18 +28,13 @@ int Scale::notesDifferencesWithScale(Scale* s)// on fait union-intersection des 
     vector<Note> notes1=getNotes();
     vector<Note> notes2=s->getNotes();
 
+
     Union=notes1;
-    intersection=notes1;
     for (size_t i=0;i<notes2.size();i++)
     {
         if(isNoteInNotes(notes2[i],notes1))
-        {
-            Union.push_back(notes2[i]);
-            for (size_t j=0;j<intersection.size();j++)
-                if (intersection[j]==notes2[j])
-                    intersection.erase(intersection.begin()+j);
-        }
+            intersection.push_back(notes2[i]);
+        else Union.push_back(notes2[i]);
     }
-
     return Union.size()-intersection.size();
 }

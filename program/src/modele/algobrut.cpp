@@ -65,7 +65,7 @@ void AlgoBrut::findLeastsConsecutivesNotesChanges()
     for (size_t i=0;i<possiblesSolutions.size();i++)//on remplit le tableau values
     {
         value=0;
-        for (size_t j=0;j<possiblesSolutions[i].size()-1;j++)//on fait la somme des differences de notes entre chaque couple de gammes consécutives
+        for (size_t j=0;j<possiblesSolutions[i].size()-1;j++)//on fait la somme des differences symétriques de notes entre chaque couple de gammes consécutives
             value+=possiblesSolutions[i][j]->notesDifferencesWithScale(possiblesSolutions[i][j+1]);
         values.push_back(value);
     }
@@ -94,7 +94,7 @@ void AlgoBrut::findLeastsConsecutivesScalesChanges()
     {
         value=0;
         for (size_t j=0;j<possiblesSolutions[i].size()-1;j++)
-            if (!possiblesSolutions[i][j]->equals(possiblesSolutions[i][j+1]))
+            if (!possiblesSolutions[i][j]->equals(possiblesSolutions[i][j+1]))//compare les noms et non les notes (donc si y a des gammes avec les mêmes noms mais des notes différentes, ou l'inverse y a problème)
                 value++;
         values.push_back(value);
     }
