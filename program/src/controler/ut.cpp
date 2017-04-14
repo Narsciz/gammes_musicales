@@ -112,14 +112,18 @@ QString Ut::SaveScale(QVector<QString> listChords, QVector<QString> listScale)
  {
     vector<Chord*> listChords = convertChordstoModel(listChordsName);
     vector<vector<Scale*> > k = KpartitesScales(listChords);
-    AlgoBrut algobrut(k);
-    algobrut.generateSols();
-    vector<vector<Scale*> > SP=algobrut.getSols();
 
-    vector<vector<Scale*>> temp = algobrut.findLeastsTotalScales();
+    for (int i=0;i<k.size();i++){
+        for (int j=0;j<k[i].size();j++)
+            cout<<k[i][j]->getName().toStdString()<<"|"<<flush;
+        cout<<endl<<flush;
+    }
+    AlgoBrut algobrut(listChords,ScaleDictionary::getInstance()->getAllScales());
+    algobrut.generatePossiblesSolutions();
 
+    algobrut.findLeastsTotalScales();
 
-    QVector<QVector<QString>> res = convertCStoView(temp);
+    QVector<QVector<QString>> res = convertCStoView(algobrut.getResults());
 
     w->constructScaleFoundView(res);
 
@@ -136,7 +140,7 @@ QString Ut::SaveScale(QVector<QString> listChords, QVector<QString> listScale)
     case 1: algo.findLeastsConsecutivesNotesChanges();
     case 2: algo.findLeastsConsecutivesScalesChanges();
     }
-    w->constructScaleFoundView(algo.getSoluces());
+    w->constructScaleFoundView(algo.getResults());
     */
  }
  void Ut::SaveScaleSlot(QVector<QString> listChords, QVector<QString> listScale)

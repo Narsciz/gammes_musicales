@@ -20,55 +20,35 @@ int main(int argc, char *argv[])
     ScaleDictionary::getInstance()->generateBaseScale();
     vector<Chord*> SA;
     vector<Chord*> allowedChords=ChordDictionary::getInstance()->getAllChords();
+    vector<Scale*> allowedScales=ScaleDictionary::getInstance()->getAllScales();
+    allowedScales.pop_back();allowedScales.pop_back();allowedScales.pop_back();allowedScales.pop_back();allowedScales.pop_back();
+
     for (int i=0;i<4;i++)
         SA.push_back(allowedChords[i]);
 
-
-    //for (int i=0;i<ChordDictionary::getInstance()->getSize();i++)
-      //    qInfo()<<ChordDictionary::getInstance()->getChordByIndex(i)->getName();
-
-    qInfo()<<"suite d'accords :";
-
+    cout<<"suite d'accords :"<<endl<<flush;
     for (size_t i=0;i<SA.size();i++)
-        qInfo()<<SA[i]->getName();
+        cout<<SA[i]->getName().toStdString()<<"|"<<flush;
+    cout<<endl<<flush;
 
-    qInfo()<<"graphe k-partie :";
-    vector<vector<Scale*> > K=KpartitesScales(SA);
-    for (size_t i=0;i<K.size();i++)
-    {
-        QString ligne="";
-        for (size_t j=0;j<K[i].size();j++)
-            ligne+="|"+K[i][j]->getName();
-        qInfo()<<ligne;
-    }
-    AlgoBrut algo(K);
-    qInfo()<<"algo rec:";
-    algo.generateSols();
-    vector<vector<Scale*> > sols=algo.getSols();
+    cout<<"gammes autorisées"<<endl<<flush;
+    for (size_t i=0;i<allowedScales.size();i++)
+        cout<<allowedScales[i]->getName().toStdString()<<"|"<<flush;
+    cout<<endl<<flush;
 
-    /*qInfo()<<"liste combinaison :";
-    for (int i=0;i<sols.size();i++)
-    {
-        QString ligne="";
-        for (int j=0;j<sols[i].size();j++)
-            ligne+="|"+sols[i][j]->getName();
-        qInfo()<<ligne;
-    }*/
+    AlgoBrut algo(SA,ScaleDictionary::getInstance()->getAllScales());
+    algo.findLeastsConsecutivesScalesChanges();
+    vector<vector<Scale*> > contrainte1=algo.getResults();
 
-    vector<vector<Scale*> > contrainte1=algo.findLeastsTotalScales();
-
-    qInfo()<<"solution :";
+    cout<<"solution :"<<endl<<flush;
     for (size_t i=0;i<contrainte1.size();i++)
     {
         QString ligne="";
         for (size_t j=0;j<contrainte1[i].size();j++)
             ligne+="|"+contrainte1[i][j]->getName();
-        qInfo()<<ligne;
+        cout<<ligne.toStdString()<<endl<<flush;
     }
-
-
-    //vector<Note> notes=
-
+    cout<<endl<<flush;
 
     QApplication app(argc, argv);
 

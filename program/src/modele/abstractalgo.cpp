@@ -6,7 +6,7 @@ AbstractAlgo::AbstractAlgo(std::vector<Chord*> data, std::vector<Scale*> allowed
     this->allowedScales = allowedScales;
 }
 
-std::vector<std::vector<Scale*> > AbstractAlgo::getSoluces()
+std::vector<std::vector<Scale*> > AbstractAlgo::getResults()
 {
-    return this->soluces;
+    return this->results;
 }
