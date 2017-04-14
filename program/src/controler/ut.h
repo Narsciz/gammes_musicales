@@ -24,9 +24,12 @@ public:
     Ut(MainWindow *w);
     QVector<QVector<QString> > convertCStoView(std::vector<std::vector<Scale*> >);
     std::vector<Chord*> convertCStoModel(QVector<QString> cs);
+    QString SaveScale(QVector<QString> listChords, QVector<QString> listScale);
 
 public slots:
     void generateSlot(QVector<QString> listChords);
+    void SaveScaleSlot(QVector<QString> listChords, QVector<QString> listScale);
+    void ExportScaleSlot(QVector<QString> listChords, QVector<QString> listScale);
 };
 
 #endif // UT_H

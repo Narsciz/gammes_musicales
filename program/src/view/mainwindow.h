@@ -102,9 +102,13 @@ public slots :
     void slotSaveFile();
     void slotCloseFile();
     void slotDebugTestFile();
+    void slotSaveScale(QVector<QString> listScale);
+    void slotExportScale(QVector<QString> listScale);
 
 signals :
     void generateSignal(QVector<QString> listChords);
+    void SaveScaleSignal(QVector<QString> listChords, QVector<QString> listScale);
+    void ExportScaleSignal(QVector<QString> listChords, QVector<QString> listScale);
 };
 
 #endif // MAINWINDOW_H

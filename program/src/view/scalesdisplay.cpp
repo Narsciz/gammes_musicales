@@ -44,3 +44,13 @@ void ScalesDisplay::refresh()
         i++;
     }
 }
+
+QVector<QString> ScalesDisplay::getListScale()
+{
+    QVector<QString> res;
+    for(int i=0; i<scalesList.size(); i++)
+    {
+        res.push_back(scalesList[i]->getName());
+    }
+    return res;
+}

@@ -19,6 +19,7 @@ private:
     QLabel *scaleName;
 public:
     ScaleDisplay(QString name);
+    QString getName();
 };
 
 #endif // SCALEDISPLAY_H

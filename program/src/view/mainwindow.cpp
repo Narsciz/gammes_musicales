@@ -146,7 +146,9 @@ void MainWindow::constructScalesLayout()
       this->scalesLayout->addWidget(this->sListDisplay, 0, 0, 1, 1);
 
       this->sListDisplay->setVisible(false);
-  }
+      connect(this->sListDisplay, SIGNAL(saveScaleSignal(QVector<QString>)), this, SLOT(slotSaveScale(QVector<QString>)));
+      connect(this->sListDisplay, SIGNAL(exportScaleSignal(QVector<QString>)), this, SLOT(slotExportScale(QVector<QString>)));
+ }
 
 void MainWindow::clearLayout(QLayout *layout, bool deleteWidgets = true)
   {
@@ -162,7 +164,6 @@ void MainWindow::clearLayout(QLayout *layout, bool deleteWidgets = true)
           delete item;
       }
   }
-
 QString MainWindow::openExplorer(int i)
   {
       this->explorer = new QFileDialog();
@@ -364,4 +365,13 @@ void MainWindow::slotDebugTestFile()
     cout<<"choicesDisplaySize : width = "<<size.width()<<", heigth = "<<size.height()<<endl;
 
     cout<<"-----------------------------------------------------------------------"<<endl;
+}
+void MainWindow::slotSaveScale(QVector<QString> listScale)
+{
+   emit SaveScaleSignal(this->cListDisplay->getListChordsName(), listScale);
+}
+void MainWindow::slotExportScale(QVector<QString> listScale)
+{
+    cout<<"Export Signal entered in MainWindow"<<endl<<flush;
+   emit ExportScaleSignal(this->cListDisplay->getListChordsName(), listScale);
 }

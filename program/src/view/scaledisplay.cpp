@@ -24,3 +24,8 @@ ScaleDisplay::ScaleDisplay(QString name) : QGroupBox()
 
     this->setLayout(this->boxLayout);
 }
+
+QString ScaleDisplay::getName()
+{
+    return this->scaleName->text();
+}

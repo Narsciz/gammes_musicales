@@ -8,6 +8,9 @@
 #include <QString>
 #include <QScrollArea>
 #include <QWidget>
+#include <iostream>
+
+using namespace std;
 
 #include "scalesdisplay.h"
 
@@ -25,9 +28,18 @@ private:
     QVBoxLayout *baseLayout;
     QScrollArea *scrollArea;
     QWidget *scrolledWidget;
+
 public:
     ScalesListDisplay();
     void constructScalesFoundList(QVector<QVector<QString>> listFoundScales);
+
+public slots:
+    void saveScaleSlot();
+    void exportScaleSlot();
+
+signals:
+    void saveScaleSignal(QVector<QString>);
+    void exportScaleSignal(QVector<QString>);
 };
 
 #endif // SCALESDISPLAYLAYOUT_H

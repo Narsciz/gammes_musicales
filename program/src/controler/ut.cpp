@@ -8,6 +8,8 @@ Ut::Ut(MainWindow *w)
 
     this->w = w;
     QObject::connect(this->w, SIGNAL(generateSignal(QVector<QString>)), this, SLOT(generateSlot(QVector<QString>)));
+    QObject::connect(this->w, SIGNAL(SaveScaleSignal(QVector<QString>,QVector<QString>)), this, SLOT(SaveScaleSlot(QVector<QString>,QVector<QString>)));
+    QObject::connect(this->w, SIGNAL(ExportScaleSignal(QVector<QString>,QVector<QString>)), this, SLOT(ExportScaleSlot(QVector<QString>,QVector<QString>)));
 
     w->fillComboBoxHS(ChordDictionary::getInstance()->getHSnames());
     w->fillParametersLists(ChordDictionary::getInstance()->getHSnames(), ScaleDictionary::getInstance()->getHSnames());
@@ -34,15 +36,73 @@ vector<Chord*> Ut::convertCStoModel(QVector<QString> cs){
     return res;
 }
 
+QString Ut::SaveScale(QVector<QString> listChords, QVector<QString> listScale)
+{
+    QString chords = "";
+    QString scales = "";
+    for(int i = 0; i<listChords.size(); i++)
+    {
+        chords += "|";
+        scales += "|";
+        if(listChords[i].size()<listScale[i].size())
+        {
+            int diff = listScale[i].size() - listChords[i].size();
+            for(int j = 0; j<=diff; j++)
+            {
+                if(j<diff/2)
+                {
+                    chords += " ";
+                }
+                if(j == diff/2)
+                {
+                    chords += listChords[i];
+                }
+                if(j>diff/2)
+                {
+                    chords += " ";
+                }
+            }
+            scales += listScale[i];
+        }
+        else
+        {
+            if(listChords[i].size()>listScale[i].size())
+            {
+                int diff = listChords[i].size() - listScale[i].size();
+                for(int j = 0; j<=diff; j++)
+                {
+                    if(j<diff/2)
+                    {
+                        scales += " ";
+                    }
+                    if(j == diff/2)
+                    {
+                        scales += listScale[i];
+                    }
+                    if(j>diff/2)
+                    {
+                        scales += " ";
+                    }
+                }
+                chords += listChords[i];
+            }
+            else
+            {
+                chords += listChords[i];
+                scales += listScale[i];
+            }
+        }
+    }
+    chords += "|";
+    chords += '\n';
+    scales += "|";
+    return chords + scales;
+}
+
  void Ut::generateSlot(QVector<QString> listChordsName)
  {
     vector<Chord*> listChords = convertCStoModel(listChordsName);
     vector<vector<Scale*> > k = KpartitesScales(listChords);
-    for (int i=0;i<k.size();i++){
-        for (int j=0;j<k[i].size();j++)
-            cout<<k[i][j]->getName().toStdString()<<"|"<<flush;
-        cout<<endl<<flush;
-    }
     AlgoBrut algobrut(k);
     algobrut.generateSols();
     vector<vector<Scale*> > SP=algobrut.getSols();
@@ -70,3 +130,17 @@ vector<Chord*> Ut::convertCStoModel(QVector<QString> cs){
     w->constructScaleFoundView(algo.getSoluces());
     */
  }
+ void Ut::SaveScaleSlot(QVector<QString> listChords, QVector<QString> listScale)
+ {
+     QString path = this->w->openExplorer(2);
+     QStringList ext = path.split('.');
+     if(ext.last()!="txt")
+         path += ".txt";
+     QString content = SaveScale(listChords, listScale);
+     this->w->saveFile(path, content);
+ }
+ void Ut::ExportScaleSlot(QVector<QString> listChords, QVector<QString> listScale)
+ {
+
+ }
+
