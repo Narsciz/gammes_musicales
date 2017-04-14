@@ -174,7 +174,7 @@ QString MainWindow::openExplorer(int i)
       case 1: this->explorer->setFileMode(QFileDialog::ExistingFile);
       case 2: this->explorer->setNameFilter(tr("Fichiers textes (*.txt)"));
               break;
-      case 3: this->explorer->setNameFilter(tr("Fichiers textes (*.xml)"));
+      case 3: this->explorer->setNameFilter(tr("Fichiers xml (*.xml)"));
               break;
       }
 

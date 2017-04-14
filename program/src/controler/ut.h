@@ -23,7 +23,8 @@ private:
 public:
     Ut(MainWindow *w);
     QVector<QVector<QString> > convertCStoView(std::vector<std::vector<Scale*> >);
-    std::vector<Chord*> convertCStoModel(QVector<QString> cs);
+    std::vector<Chord*> convertChordstoModel(QVector<QString> cs);
+    std::vector<Scale*> convertScalestoModel(QVector<QString> cs);
     QString SaveScale(QVector<QString> listChords, QVector<QString> listScale);
 
 public slots:

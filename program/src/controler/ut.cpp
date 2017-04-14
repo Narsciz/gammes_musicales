@@ -27,11 +27,20 @@ QVector<QVector<QString> > Ut::convertCStoView(vector<vector<Scale*> > cs){
     return res;
 }
 
-vector<Chord*> Ut::convertCStoModel(QVector<QString> cs){
+vector<Chord*> Ut::convertChordstoModel(QVector<QString> cs){
     vector<Chord*> res;
     for (int i=0;i<cs.size();i++)
     {
             res.push_back(new Chord(cs[i]));
+    }
+    return res;
+}
+
+vector<Scale*> Ut::convertScalestoModel(QVector<QString> cs){
+    vector<Scale*> res;
+    for (int i=0;i<cs.size();i++)
+    {
+            res.push_back(new Scale(cs[i]));
     }
     return res;
 }
@@ -101,7 +110,7 @@ QString Ut::SaveScale(QVector<QString> listChords, QVector<QString> listScale)
 
  void Ut::generateSlot(QVector<QString> listChordsName)
  {
-    vector<Chord*> listChords = convertCStoModel(listChordsName);
+    vector<Chord*> listChords = convertChordstoModel(listChordsName);
     vector<vector<Scale*> > k = KpartitesScales(listChords);
     AlgoBrut algobrut(k);
     algobrut.generateSols();
@@ -136,11 +145,29 @@ QString Ut::SaveScale(QVector<QString> listChords, QVector<QString> listScale)
      QStringList ext = path.split('.');
      if(ext.last()!="txt")
          path += ".txt";
+
      QString content = SaveScale(listChords, listScale);
+
      this->w->saveFile(path, content);
  }
- void Ut::ExportScaleSlot(QVector<QString> listChords, QVector<QString> listScale)
+ void Ut::ExportScaleSlot(QVector<QString> listChordsName, QVector<QString> listScaleName)
  {
+     QString path = this->w->openExplorer(3);
+     QStringList ext = path.split('.');
+     if(ext.last()!="xml")
+         path += ".xml";
 
+     vector<Chord*> listChords = convertChordstoModel(listChordsName);
+     vector<Scale*> listScales = convertScalestoModel(listScaleName);
+
+     QString content;
+
+     /*-------------------------------------------*/
+     //Ajouter ici la ou les fonctions pour générer le XML sous forme de QString
+     //en le stockant dans la variable content content
+     //exemple, voir au dessus
+     /*-------------------------------------------*/
+
+     this->w->saveFile(path, content);
  }
 
