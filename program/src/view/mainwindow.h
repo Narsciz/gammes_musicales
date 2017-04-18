@@ -88,7 +88,7 @@ public:
     void resizeEvent ( QResizeEvent * event );
     void fillComboBoxHS(QVector<QString> listHS);
     void fillParametersLists(QVector<QString> listHSChords, QVector<QString> listHSScales);
-    void constructScaleFoundView(QVector<QVector<QString>> listFoundScales);
+    void constructScaleFoundView(QVector<QVector<QString> > listFoundScales);
     ParametersDisplay *getParametersDisplay();
 
 public slots :

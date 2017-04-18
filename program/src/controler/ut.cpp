@@ -1,4 +1,5 @@
 #include "controler/ut.h"
+#include "modele/export.cpp"
 
 Ut::Ut(MainWindow *w)
 {
@@ -123,7 +124,7 @@ QString Ut::SaveScale(QVector<QString> listChords, QVector<QString> listScale)
 
     algobrut.findLeastsTotalScales();
 
-    QVector<QVector<QString>> res = convertCStoView(algobrut.getResults());
+    QVector<QVector<QString> > res = convertCStoView(algobrut.getResults());
 
     w->constructScaleFoundView(res);
 
@@ -161,17 +162,10 @@ QString Ut::SaveScale(QVector<QString> listChords, QVector<QString> listScale)
      if(ext.last()!="xml")
          path += ".xml";
 
-     vector<Chord*> listChords = convertChordstoModel(listChordsName);
+     vector<Chord*> listChords = convertChordstoModel(listChordsName); //Exporter les Chords en MIDI ?
      vector<Scale*> listScales = convertScalestoModel(listScaleName);
 
-     QString content;
-
-     /*-------------------------------------------*/
-     //Ajouter ici la ou les fonctions pour générer le XML sous forme de QString
-     //en le stockant dans la variable content content
-     //exemple, voir au dessus
-     /*-------------------------------------------*/
+     QString content=QString::fromStdString(exportMusicXML(listScales));
 
      this->w->saveFile(path, content);
  }
-

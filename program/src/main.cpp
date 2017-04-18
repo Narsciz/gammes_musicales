@@ -12,9 +12,6 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
-
-
-
     //qInfo() <<(int)INFINITY;
     ChordDictionary::getInstance()->generateBaseChords();
     ScaleDictionary::getInstance()->generateBaseScale();
@@ -48,6 +45,7 @@ int main(int argc, char *argv[])
             ligne+="|"+contrainte1[i][j]->getName();
         cout<<ligne.toStdString()<<endl<<flush;
     }
+
     cout<<endl<<flush;
 
     QApplication app(argc, argv);

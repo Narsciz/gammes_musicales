@@ -241,7 +241,7 @@ void MainWindow::fillParametersLists(QVector<QString> listHSChords, QVector<QStr
   {
       this->parametersWindow->fillLists(listHSChords, listHSScales);
   }
-void MainWindow::constructScaleFoundView(QVector<QVector<QString>> listFoundScales)
+void MainWindow::constructScaleFoundView(QVector<QVector<QString> > listFoundScales)
   {
       this->sListDisplay->constructScalesFoundList(listFoundScales);
   }

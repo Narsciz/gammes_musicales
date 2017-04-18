@@ -12,7 +12,6 @@ string note_To_String(Note n);
 string scaleMIDI(Scale s);
 
 //Create and save a XML Midi file path.xml for v, one of the solutions found by the main algorithm.
-void exportSlot(vector<Scale*> v, string path);
+void exportSlot(vector<Scale*> v);
 
 #endif // EXPORT
-

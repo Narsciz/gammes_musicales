@@ -8,6 +8,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
+QMAKE_CXXFLAGS += -std=c++0x
 TARGET = UtProject
 TEMPLATE = app
 
@@ -31,8 +32,6 @@ SOURCES += main.cpp\
     modele/algobrut.cpp \
     modele/algo.cpp \
     controler/ut.cpp \
-    controler/QMidiFile.cpp \
-    controler/QMidiOut.cpp \
     view/parametersdisplay.cpp \
     modele/abstractalgo.cpp \
     modele/parametres.cpp \
@@ -58,8 +57,6 @@ HEADERS  += view/mainwindow.h \
     modele/ttt.h \
     controler/ut.h \
     modele/note.h \
-    controler/QMidiFile.h \
-    controler/QMidiOut.h \
     view/parametersdisplay.h \
     modele/abstractalgo.h \
     modele/parametres.h \
@@ -67,20 +64,3 @@ HEADERS  += view/mainwindow.h \
 
 FORMS  += view/mainwindow.ui
 
-# QMidi include file for QMake
-CONFIG += c++11
-
-win32 {
-        LIBS += -lwinmm
-        SOURCES += $$PWD/controler/OS/QMidi_Win32.cpp
-}
-
-linux* {
-        LIBS += -lasound
-        SOURCES += $$PWD/controler/OS/QMidi_ALSA.cpp
-}
-
-haiku* {
-        LIBS += -lmidi2
-        SOURCES += $$PWD/controler/OS/QMidi_Haiku.cpp
-}

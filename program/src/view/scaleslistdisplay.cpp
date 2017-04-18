@@ -21,7 +21,7 @@ ScalesListDisplay::ScalesListDisplay() : QGroupBox()
     this->scrollArea->setWidgetResizable(true);
 }
 
-void ScalesListDisplay::constructScalesFoundList(QVector<QVector<QString>> listFoundScales)
+void ScalesListDisplay::constructScalesFoundList(QVector<QVector<QString> > listFoundScales)
 {
     for(int i=0; i< listFoundScales.size(); i++)
     {

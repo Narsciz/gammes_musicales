@@ -31,7 +31,7 @@ private:
 
 public:
     ScalesListDisplay();
-    void constructScalesFoundList(QVector<QVector<QString>> listFoundScales);
+    void constructScalesFoundList(QVector<QVector<QString> > listFoundScales);
 
 public slots:
     void saveScaleSlot();
