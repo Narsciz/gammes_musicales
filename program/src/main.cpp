@@ -5,7 +5,7 @@
 #include <QMenu>
 #include <iostream>
 #include <QDebug>
-#include "modele/algobrut.h"
+#include "modele/algobrutOmega.h"
 #include "modele/algo.h"
 using namespace std;
 
@@ -33,8 +33,8 @@ int main(int argc, char *argv[])
         cout<<allowedScales[i]->getName().toStdString()<<"|"<<flush;
     cout<<endl<<flush;
 
-    AlgoBrut algo(SA,ScaleDictionary::getInstance()->getAllScales());
-    algo.findLeastsConsecutivesScalesChanges();
+    AlgoBrutOmega algo(SA,ScaleDictionary::getInstance()->getAllScales());
+    algo.findLeastsTotalScales();
     vector<vector<Scale*> > contrainte1=algo.getResults();
 
     cout<<"solution :"<<endl<<flush;

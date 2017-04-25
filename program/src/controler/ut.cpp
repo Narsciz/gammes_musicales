@@ -114,8 +114,8 @@ QString Ut::SaveScale(QVector<QString> listChords, QVector<QString> listScale)
     vector<Chord*> listChords = convertChordstoModel(listChordsName);
     vector<vector<Scale*> > k = KpartitesScales(listChords);
 
-    for (int i=0;i<k.size();i++){
-        for (int j=0;j<k[i].size();j++)
+    for (size_t i=0;i<k.size();i++){
+        for (size_t j=0;j<k[i].size();j++)
             cout<<k[i][j]->getName().toStdString()<<"|"<<flush;
         cout<<endl<<flush;
     }

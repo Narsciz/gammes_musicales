@@ -9,11 +9,12 @@
 
 class AlgoBrut : public AbstractAlgo
 {
-private:
+protected:
     std::vector<std::vector<Scale*> > possiblesSolutions;
     std::vector<std::vector<Scale*> > KpartiteGraph;
     std::vector<std::vector<Scale*> > filteredKpartiteGraph;
 public:
+    AlgoBrut(){}
     AlgoBrut(std::vector<Chord*>,std::vector<Scale*>);
 
     //ça c'est l'algo brut en dessous v

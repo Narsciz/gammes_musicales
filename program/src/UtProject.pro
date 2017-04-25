@@ -35,7 +35,8 @@ SOURCES += main.cpp\
     view/parametersdisplay.cpp \
     modele/abstractalgo.cpp \
     modele/parametres.cpp \
-    modele/algoopti.cpp
+    modele/algoopti.cpp \
+    modele/algobrutomega.cpp
 
 HEADERS  += view/mainwindow.h \
     modele/chord.h \
@@ -60,7 +61,8 @@ HEADERS  += view/mainwindow.h \
     view/parametersdisplay.h \
     modele/abstractalgo.h \
     modele/parametres.h \
-    modele/algoopti.h
+    modele/algoopti.h \
+    modele/algobrutomega.h
 
 FORMS  += view/mainwindow.ui
 

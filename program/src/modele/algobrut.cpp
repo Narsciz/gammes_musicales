@@ -24,8 +24,8 @@ void AlgoBrut::filterAllowedChordsInK()
         ligne.clear();
     }
     cout<<"filteredKpartiteGraph in constructor:"<<endl<<flush;
-    for (int i=0;i<filteredKpartiteGraph.size();i++){
-        for (int j=0;j<filteredKpartiteGraph[i].size();j++)
+    for (size_t i=0;i<filteredKpartiteGraph.size();i++){
+        for (size_t j=0;j<filteredKpartiteGraph[i].size();j++)
             cout<<filteredKpartiteGraph[i][j]->getName().toStdString()<<"|"<<flush;
         cout<<endl<<flush;
     }
@@ -35,18 +35,26 @@ void AlgoBrut::filterAllowedChordsInK()
 void AlgoBrut::generateSolsRec(int index,vector<Scale*> solutionPossible)
 {
 
-    if (index>=filteredKpartiteGraph.size())
+    if (index>=(int)filteredKpartiteGraph.size())
         possiblesSolutions.push_back(solutionPossible);
     else
     {
+
         for (size_t i=0;i<filteredKpartiteGraph[index].size();i++)
         {
+            vector<Scale*> sol=solutionPossible;
+            sol.push_back(filteredKpartiteGraph[index][i]);
+            generateSolsRec(index+1,sol);
+
+            /***plus performant mais plus moche***
             solutionPossible.push_back(filteredKpartiteGraph[index][i]);
             generateSolsRec(index+1,solutionPossible);
             solutionPossible.pop_back();
+            **************************************/
         }
     }
 }
+
 
 void AlgoBrut::generatePossiblesSolutions(){
     possiblesSolutions.clear();
@@ -70,7 +78,7 @@ void AlgoBrut::findLeastsConsecutivesNotesChanges()
         values.push_back(value);
     }
 
-    int minValue=INFINITY;
+    int minValue=10000000;
     for (size_t i=0;i<values.size();i++)//on cherche la plus petite valeur possible
         minValue=min(values[i],minValue);
 
@@ -99,7 +107,7 @@ void AlgoBrut::findLeastsConsecutivesScalesChanges()
         values.push_back(value);
     }
 
-    int minValue=INFINITY;
+    int minValue=100000000;
     for (size_t i=0;i<values.size();i++)
         minValue=min(minValue,values[i]);
 
@@ -129,7 +137,7 @@ void AlgoBrut::findLeastsTotalScales()
         distinctsScales.clear();
     }
 
-    int minValue=INFINITY;
+    int minValue=100000000;
     for (size_t i=0;i<values.size();i++)
         minValue=min(minValue,values[i]);
 
@@ -140,4 +148,3 @@ void AlgoBrut::findLeastsTotalScales()
 
     //return res;
 }
-
