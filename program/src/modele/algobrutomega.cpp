@@ -1,10 +1,8 @@
 #include "algobrutomega.h"
 
-AlgoBrutOmega::AlgoBrutOmega(vector<Chord*> SA,vector<Scale*> AS)
+AlgoBrutOmega::AlgoBrutOmega(vector<Chord*> SA,vector<Scale*> AS):AlgoBrut(SA,AS)
 {
-    allowedScales=AS;
-    KpartiteGraph=KpartitesScales(SA);
-    filterAllowedChordsInK();
+
 }
 
 

@@ -7,7 +7,7 @@
 #include "node.h"
 #include <iostream>
 #include <vector>
-
+#include <limits.h>
 
 
 std::vector<std::vector<Scale*> > KpartitesScales(std::vector<Chord*> SA);

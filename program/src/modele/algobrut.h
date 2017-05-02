@@ -11,8 +11,6 @@ class AlgoBrut : public AbstractAlgo
 {
 protected:
     std::vector<std::vector<Scale*> > possiblesSolutions;
-    std::vector<std::vector<Scale*> > KpartiteGraph;
-    std::vector<std::vector<Scale*> > filteredKpartiteGraph;
 public:
     AlgoBrut(){}
     AlgoBrut(std::vector<Chord*>,std::vector<Scale*>);
@@ -20,7 +18,6 @@ public:
     //ça c'est l'algo brut en dessous v
     std::vector<std::vector<Scale*> > getSols();
     void generatePossiblesSolutions();
-    void filterAllowedChordsInK();
     void generateSolsRec(int, std::vector<Scale*>);//use : generateSols(0,vector<Scale*> vide)
     void findLeastsConsecutivesNotesChanges();
     void findLeastsConsecutivesScalesChanges();

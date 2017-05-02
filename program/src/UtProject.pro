@@ -11,6 +11,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 QMAKE_CXXFLAGS += -std=c++0x
 TARGET = UtProject
 TEMPLATE = app
+CONFIG += console
 
 
 SOURCES += main.cpp\
@@ -36,7 +37,8 @@ SOURCES += main.cpp\
     modele/abstractalgo.cpp \
     modele/parametres.cpp \
     modele/algoopti.cpp \
-    modele/algobrutomega.cpp
+    modele/algobrutomega.cpp \
+    test/testfunctions.cpp
 
 HEADERS  += view/mainwindow.h \
     modele/chord.h \
@@ -62,7 +64,8 @@ HEADERS  += view/mainwindow.h \
     modele/abstractalgo.h \
     modele/parametres.h \
     modele/algoopti.h \
-    modele/algobrutomega.h
+    modele/algobrutomega.h \
+    test/testfunctions.h
 
 FORMS  += view/mainwindow.ui
 

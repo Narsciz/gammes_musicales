@@ -28,7 +28,7 @@ int Scale::notesDifferencesWithScale(Scale* s)// on fait union-intersection des 
     vector<Note> notes1=getNotes();
     vector<Note> notes2=s->getNotes();
 
-
+    cout<<"diff"<<endl;
     Union=notes1;
     for (size_t i=0;i<notes2.size();i++)
     {

@@ -2,33 +2,8 @@
 
 using namespace std;
 
-AlgoBrut::AlgoBrut(vector<Chord*> SA,vector<Scale*> AS)
+AlgoBrut::AlgoBrut(vector<Chord*> SA,vector<Scale*> AS):AbstractAlgo(SA,AS)
 {
-    allowedScales=AS;
-    KpartiteGraph=KpartitesScales(SA);
-    filterAllowedChordsInK();
-    generatePossiblesSolutions();
-}
-
-void AlgoBrut::filterAllowedChordsInK()
-{
-    filteredKpartiteGraph.clear();
-    vector<Scale*> ligne;
-
-    for (size_t i=0;i<KpartiteGraph.size();i++)
-    {
-        for (size_t j=0;j<KpartiteGraph[i].size();j++)
-            if (isScaleInScales(KpartiteGraph[i][j],allowedScales))
-                ligne.push_back(KpartiteGraph[i][j]);
-        filteredKpartiteGraph.push_back(ligne);
-        ligne.clear();
-    }
-    cout<<"filteredKpartiteGraph in constructor:"<<endl<<flush;
-    for (size_t i=0;i<filteredKpartiteGraph.size();i++){
-        for (size_t j=0;j<filteredKpartiteGraph[i].size();j++)
-            cout<<filteredKpartiteGraph[i][j]->getName().toStdString()<<"|"<<flush;
-        cout<<endl<<flush;
-    }
 
 }
 
@@ -66,6 +41,7 @@ vector<vector<Scale*> > AlgoBrut::getSols(){return possiblesSolutions;}
 
 void AlgoBrut::findLeastsConsecutivesNotesChanges()
 {
+    generatePossiblesSolutions();
     results.clear();
     vector<int> values;
     int value;
@@ -93,7 +69,7 @@ void AlgoBrut::findLeastsConsecutivesNotesChanges()
 
 void AlgoBrut::findLeastsConsecutivesScalesChanges()
 {
-
+    generatePossiblesSolutions();
     results.clear();
     vector<int> values;
     int value;
@@ -121,7 +97,7 @@ void AlgoBrut::findLeastsConsecutivesScalesChanges()
 
 void AlgoBrut::findLeastsTotalScales()
 {
-
+    generatePossiblesSolutions();
     results.clear();
     vector<int> values;
     vector<Scale*> distinctsScales;//sert à stocker les différentes gammes de chaque suite de gammes

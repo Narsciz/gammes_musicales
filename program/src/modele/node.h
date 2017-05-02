@@ -3,7 +3,7 @@
 
 #include <vector>
 #include "scale.h"
-
+#include <iostream>
 
 class Node
 {
@@ -13,8 +13,10 @@ public:
     std::vector<Node*> predecessors;
     Scale* g;
 
-    Node();
-
+    Node(){}
+    Node(int,int,std::vector<Node*>,Scale*);
+    void display();
+    Scale * getScale();
 };
 
 #endif // SOMMET_H

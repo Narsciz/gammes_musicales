@@ -10,6 +10,7 @@ CS::CS(Note f2, HarmonicStructure *hs2){
     hs=hs2;
 }
 
+
 CS::CS(QString name){
     QStringList splittedName=name.split(':');
     if (splittedName.size()<2)

@@ -130,17 +130,20 @@ QString Ut::SaveScale(QVector<QString> listChords, QVector<QString> listScale)
 
     /*
     Parametres parametres(this->w->getParametersDisplay());
-    AbstractAlgo algo;
+    AbstractAlgo *algo;
+
     switch(parametres.getAlgo())
     {
-    case 1: algo = AlgoBrut(convertCStoModel(parametres.getAllowedScales()));
-    case 2: algo = AlgoOpti(convertCStoModel(parametres.getAllowedScales()));
+    case 1: algo = new AlgoBrut(convertCStoModel(parametres.getAllowedScales()));
+    case 2: algo = new AlgoOpti(convertCStoModel(parametres.getAllowedScales()));
     }
+
     switch(parametres.getParameter())
     {
     case 1: algo.findLeastsConsecutivesNotesChanges();
     case 2: algo.findLeastsConsecutivesScalesChanges();
     }
+
     w->constructScaleFoundView(algo.getResults());
     */
  }

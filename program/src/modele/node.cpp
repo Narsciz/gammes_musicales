@@ -2,32 +2,15 @@
 
 using namespace std;
 
-Node::Node()
+
+Node::Node(int i,int d,vector<Node*> preds,Scale* gg) : index(i),distanceRoot(d),predecessors(preds),g(gg) {}
+
+void Node::display()
 {
-
+    cout<<g->getName().toStdString()<<flush;
 }
-/*
-vector<vector<Node*> > Node::ScaleToGraph(vector<vector<Scale *> > Kpartite)
+
+Scale* Node::getScale()
 {
-    vector<vector<Node*> > Graph;
-    Node* s=this;
-    s->index=1;
-    s->distanceRoot=0;
-    //predecessors=NULL;
-
-    Graph[0][0]=this;
-    int i=0;
-    int j;
-
-    while (i<Kpartite.size())
-    {
-        j=0;
-        while(j<Kpartite[i].size())
-        {
-            index++;
-            distanceRoot=INFINITY;
-
-        }
-    }
+    return g;
 }
-*/
