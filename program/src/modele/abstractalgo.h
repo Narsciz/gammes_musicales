@@ -25,6 +25,7 @@ public:
     virtual void findLeastsConsecutivesScalesChanges() = 0;
     virtual void findLeastsTotalScales()=0;
     std::vector<std::vector<Scale*> > getResults();
+    std::vector<std::vector<Scale*> > getFilteredKpartiteGraph();
 };
 
 #endif // ABSTRACTALGO_H

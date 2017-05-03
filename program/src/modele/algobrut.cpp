@@ -7,23 +7,24 @@ AlgoBrut::AlgoBrut(vector<Chord*> SA,vector<Scale*> AS):AbstractAlgo(SA,AS)
 
 }
 
-void AlgoBrut::generateSolsRec(int index,vector<Scale*> solutionPossible)
+void AlgoBrut::generateSolsRec(int index, vector<Scale*> solutionPossible)
 {
 
-    if (index>=(int)filteredKpartiteGraph.size())
+    if (index >= (int)filteredKpartiteGraph.size())
         possiblesSolutions.push_back(solutionPossible);
     else
     {
 
-        for (size_t i=0;i<filteredKpartiteGraph[index].size();i++)
+        for (size_t i = 0; i < filteredKpartiteGraph[index].size(); i++)
         {
-            vector<Scale*> sol=solutionPossible;
+            vector<Scale*> sol = solutionPossible;
             sol.push_back(filteredKpartiteGraph[index][i]);
-            generateSolsRec(index+1,sol);
+
+            generateSolsRec(index + 1, sol);
 
             /***plus performant mais plus moche***
             solutionPossible.push_back(filteredKpartiteGraph[index][i]);
-            generateSolsRec(index+1,solutionPossible);
+            generateSolsRec(index + 1, solutionPossible);
             solutionPossible.pop_back();
             **************************************/
         }

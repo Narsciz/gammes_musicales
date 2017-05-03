@@ -1,21 +1,21 @@
 #include "algoopti.h"
+#include "./test/testfunctions.h"
 
 using namespace std;
 
 AlgoOpti::AlgoOpti(std::vector<Chord*> SA, std::vector<Scale*> AS) : AbstractAlgo(SA,AS)
 {
     GAKO = KpartitesToGAKO(KpartiteGraph);
-    cout<<"fin constructeur"<<endl;
 }
 
 void AlgoOpti::findLeastsConsecutivesNotesChanges()
 {
-    cout<<"pcc"<<endl;
+
     calculatePCCs("symetrical_difference");
     results.clear();
+
     vector<Scale*> vide;
-    cout<<"recursion"<<endl;
-    generateSolutions(GAKO.back().back(),vide);
+    generateSolutions(GAKO.back()[0], vide);
 
 }
 
@@ -31,24 +31,27 @@ void AlgoOpti::findLeastsConsecutivesScalesChanges()
 vector<Scale*> reverse(vector<Scale*> v)
 {
     vector<Scale*> res;
-    for (size_t i=0;i<v.size();i++)
+    for (size_t i = 0; i < v.size(); i++)
         res.push_back(v[v.size()-1-i]);
+
     return res;
 }
 
-void AlgoOpti::generateSolutions(Node * currentNode,vector<Scale*> solution)
+void AlgoOpti::generateSolutions(Node * currentNode, vector<Scale*> solution)
 {
     if (currentNode->predecessors.empty()){
-        solution=reverse(solution);
+
+        solution = reverse(solution);
         solution.pop_back();
         results.push_back(solution);
     }
     else
     {
-        vector<Scale*> sol=solution;
-        sol.push_back(currentNode->g);
-        for (size_t i=0;i<currentNode->predecessors.size();i++)
-            generateSolutions(currentNode->predecessors[i],sol);
+        // cout << "Pushed scale = " << ((currentNode->g != NULL) ? currentNode->g->getName().toStdString() : "NULL") << endl << flush;
+        solution.push_back(currentNode->g);
+
+        for (size_t i = 0; i < currentNode->predecessors.size(); i++)
+            generateSolutions(currentNode->predecessors[i], solution);
     }
 }
 
@@ -60,17 +63,14 @@ void AlgoOpti::calculatePCCs(string ponderation)
     // Double boucle pour respecter l'ordre topologique
     for(size_t i = 0; i < GAKO.size(); i++) {
 
-
         for(size_t j = 0; j < GAKO[i].size(); j++) {
 
             // Boucle sur les voisins de GAKO[i][j]
-            cout<<i<<","<<j<<endl;
             neighbours = GAKO[i][j]->index;
-            if (neighbours>=0)
-                for(size_t k = 0; k < GAKO[neighbours].size(); k++){cout<<"k:"<<k<<endl;
+            if (neighbours >= 0)
+                for(size_t k = 0; k < GAKO[neighbours].size(); k++){
                     relax(GAKO[i][j], GAKO[neighbours][k], ponderation);
                 }
-
         }
     }
 }
@@ -80,25 +80,27 @@ vector<vector<Node*> > AlgoOpti::KpartitesToGAKO(vector<vector<Scale*> > Kpartit
 
     vector<vector<Node*> > Graph;
     vector<Node*> nodeList;
-    vector<Node*> predecessors;//liste des prédecesseurs toujours vide
+    vector<Node*> predecessors; // liste des prédecesseurs toujours vide
 
-    //node entrée
-    vector<Node*> entree;
-    entree.push_back(new Node(1,0,predecessors,NULL));
-    Graph.push_back(entree);
-
-    for (size_t i=1;i<Kpartite.size();i++){
+    for (size_t i = 0; i < Kpartite.size(); i++){
         nodeList.clear();
 
-        for (size_t j=0;j<Kpartite[i].size();j++)
-            nodeList.push_back(new Node(i+1,INT_MAX,predecessors,Kpartite[i][j]));
+        // index des voisins est i + 2 car on ajoute le sommet d'entree apres
+        // ce qui entraine un decalage des indices par rapport a la structure KPartite
+        for (size_t j = 0; j < Kpartite[i].size(); j++)
+            nodeList.push_back(new Node(i + 2, INT_MAX, predecessors, Kpartite[i][j]));
 
         Graph.push_back(nodeList);
     }
 
+    //node entrée
+    vector<Node*> entree;
+    entree.push_back(new Node(1, 0, predecessors, NULL));
+    Graph.insert(Graph.begin(), entree);
+
     //node sortie
     vector<Node*> sortie;
-    sortie.push_back(new Node(-1,INT_MAX,predecessors,NULL));
+    sortie.push_back(new Node(-1, INT_MAX, predecessors, NULL));
     Graph.push_back(sortie);
 
     return Graph;
@@ -106,7 +108,7 @@ vector<vector<Node*> > AlgoOpti::KpartitesToGAKO(vector<vector<Scale*> > Kpartit
 
 int AlgoOpti::ponderation(Node* u, Node* v, string type)
 {
-    cout<<"ponderation"<<endl;
+
     // fonction de ponderation binaire
     if(type == "binary") {
         if  (u->g!=NULL && v->g!=NULL)
@@ -126,9 +128,11 @@ int AlgoOpti::ponderation(Node* u, Node* v, string type)
 void AlgoOpti::relax(Node* u, Node* v, string ponderationType)
 {
     if(v->distanceRoot > u->distanceRoot + ponderation(u, v, ponderationType)) {
+
         v->distanceRoot = u->distanceRoot + ponderation(u, v, ponderationType);
+
         vector<Node*> newPreds;
         newPreds.push_back(u);
-        v->predecessors=newPreds;
+        v->predecessors = newPreds;
     }
 }

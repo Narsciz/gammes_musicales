@@ -36,13 +36,14 @@ void ChordDictionary::generateBaseChords()
     getInstance()->add(new HSChord("sus",{5,2}));
     getInstance()->add(new HSChord("4",{4,1,2}));
     getInstance()->add(new HSChord("m6",{3,4,2}));
-    getInstance()->add(new HSChord("m(ma7)",{3,4,4}));
+    getInstance()->add(new HSChord("m(M7)",{3,4,4}));
     getInstance()->add(new HSChord("7sus",{5,2,3}));
     getInstance()->add(new HSChord("6",{4,3,2}));
-    getInstance()->add(new HSChord("ma7",{4,3,4}));
+    getInstance()->add(new HSChord("M7",{4,3,4}));
     getInstance()->add(new HSChord("m7",{3,4,3}));
-    getInstance()->add(new HSChord("ma7(b5)",{4,2,5}));
-    getInstance()->add(new HSChord("ma7(#5)",{4,4,3}));
+    getInstance()->add(new HSChord("M7(#11)",{4,2,5}));
+    getInstance()->add(new HSChord("M7(b5)",{4,2,5}));
+    getInstance()->add(new HSChord("M7(#5)",{4,4,3}));
     getInstance()->add(new HSChord("m7(b5)",{3,3,4}));
     getInstance()->add(new HSChord("7",{4,3,3}));
     getInstance()->add(new HSChord("m(#5)",{3,5}));

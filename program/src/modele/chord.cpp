@@ -6,14 +6,17 @@ Chord::Chord(Note f2, HarmonicStructure* hs2) : CS::CS(f2, hs2){
 }
 
 Chord::Chord(QString name){
+
     QStringList splittedName=name.split(':');
-    if (splittedName.size()<2)
+
+    if (splittedName.size() < 2)
         throw std::out_of_range("out of range");
-    f=stringToNote(splittedName[0]);
+    f = stringToNote(splittedName[0]);
+
     HarmonicStructure *hs2;
-    if ((hs2=ChordDictionary::getInstance()->getHSbyName(splittedName[1]))!=NULL)
-            hs=hs2;
-    else hs=NULL;
+    if ((hs2 = ChordDictionary::getInstance()->getHSbyName(splittedName[1]))!=NULL)
+            hs = hs2;
+    else hs = NULL;
 }
 
 vector<Scale*> Chord::candidatesScales()

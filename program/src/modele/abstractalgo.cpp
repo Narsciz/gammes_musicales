@@ -6,7 +6,7 @@ AbstractAlgo::AbstractAlgo(std::vector<Chord*> data, std::vector<Scale*> allowed
 {
     this->data = data;
     this->allowedScales = allowedScales;
-    KpartiteGraph=KpartitesScales(data);
+    KpartiteGraph = KpartitesScales(data);
     filterAllowedChordsInK();
 }
 
@@ -15,6 +15,10 @@ std::vector<std::vector<Scale*> > AbstractAlgo::getResults()
     return this->results;
 }
 
+std::vector<std::vector<Scale*> > AbstractAlgo::getFilteredKpartiteGraph()
+{
+    return filteredKpartiteGraph;
+}
 
 
 void AbstractAlgo::filterAllowedChordsInK()
@@ -29,12 +33,6 @@ void AbstractAlgo::filterAllowedChordsInK()
                 ligne.push_back(KpartiteGraph[i][j]);
         filteredKpartiteGraph.push_back(ligne);
         ligne.clear();
-    }
-    cout<<"filteredKpartiteGraph in constructor:"<<endl<<flush;
-    for (size_t i=0;i<filteredKpartiteGraph.size();i++){
-        for (size_t j=0;j<filteredKpartiteGraph[i].size();j++)
-            cout<<filteredKpartiteGraph[i][j]->getName().toStdString()<<"|"<<flush;
-        cout<<endl<<flush;
     }
 
 }
