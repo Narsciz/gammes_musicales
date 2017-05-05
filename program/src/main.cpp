@@ -15,8 +15,8 @@ using namespace std;
 int main(int argc, char *argv[])
 {
 
-//    cout << "TEST ALGO BRUT" << endl << endl << flush;
-//    testAlgo("brut", "consecutivesNotes");
+    cout << "TEST ALGO BRUT" << endl << endl << flush;
+    testAlgo("brut", "consecutivesNotes");
 
     cout << "======================================" << endl << flush;
 

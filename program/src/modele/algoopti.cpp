@@ -69,7 +69,7 @@ void AlgoOpti::calculatePCCs(string ponderation)
             neighbours = GAKO[i][j]->index;
             if (neighbours >= 0)
                 for(size_t k = 0; k < GAKO[neighbours].size(); k++){
-                    relax(GAKO[i][j], GAKO[neighbours][k], ponderation);
+                    relaxList(GAKO[i][j], GAKO[neighbours][k], ponderation);
                 }
         }
     }
@@ -135,4 +135,18 @@ void AlgoOpti::relax(Node* u, Node* v, string ponderationType)
         newPreds.push_back(u);
         v->predecessors = newPreds;
     }
+}
+
+void AlgoOpti::relaxList(Node* u,Node* v,string ponderationType)
+{
+    if(v->distanceRoot > u->distanceRoot + ponderation(u, v, ponderationType)) {
+
+        v->distanceRoot = u->distanceRoot + ponderation(u, v, ponderationType);
+
+        vector<Node*> newPreds;
+        newPreds.push_back(u);
+        v->predecessors = newPreds;
+    }
+    else  if (v->distanceRoot == u->distanceRoot+ponderation(u,v,ponderationType))
+        v->predecessors.push_back(u);
 }

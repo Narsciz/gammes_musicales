@@ -17,6 +17,7 @@ public:
     void findLeastsTotalScales(){}
     void calculatePCCs(std::string);
     void relax(Node*, Node*, std::string);
+    void relaxList(Node*,Node*,std::string);
     int ponderation(Node*, Node*, std::string);
     void generateSolutions(Node*,std::vector<Scale*>);
 };
