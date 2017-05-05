@@ -103,25 +103,25 @@ Note CS::stringToNote(QString s){
 
     if (s=="C")
         return C;
-    if (s== "C#")
+    if (s== "C#" || s=="Db")
         return Csharp;
     if (s== "D")
         return D;
-    if (s== "D#")
+    if (s== "D#" || s=="Eb")
         return Dsharp;
     if (s== "E")
         return E;
     if (s== "F")
         return F;
-    if (s== "F#")
+    if (s== "F#" || "Gb")
         return Fsharp;
     if (s== "G")
         return G;
-    if (s== "G#")
+    if (s== "G#" || "Ab")
         return Gsharp;
     if (s== "A")
         return A;
-    if (s== "A#")
+    if (s== "A#" || "Bb")
         return Asharp;
     if (s== "B")
         return B;
@@ -165,6 +165,52 @@ QString CS::noteToString(Note n)
         break;
     case 10:
         return "A#";
+        break;
+    case 11:
+        return "B";
+        break;
+    default :
+        return "Er";
+    }
+}
+
+
+QString CS::noteToString(Note n,bool sharp)
+{
+    switch(n)
+    {
+    case 0:
+        return "C";
+        break;
+    case 1:
+        return sharp ? "C#" : "Db";
+        break;
+    case 2:
+        return "D";
+        break;
+    case 3:
+        return sharp ? "D#" : "Eb";
+        break;
+    case 4:
+        return "E";
+        break;
+    case 5:
+        return "F";
+        break;
+    case 6:
+        return sharp ? "F#" : "Gb";
+        break;
+    case 7:
+        return "G";
+        break;
+    case 8:
+        return sharp ? "G#" : "Ab";
+        break;
+    case 9:
+        return "A";
+        break;
+    case 10:
+        return sharp ? "A#" : "Bb";
         break;
     case 11:
         return "B";
