@@ -12,12 +12,17 @@ void testAlgo(string algoName, string algoConstraint)
     vector<Chord*> allowedChords = ChordDictionary::getInstance()->getAllChords();
     vector<Scale*> allowedScales = ScaleDictionary::getInstance()->getAllScales();
 
+//    SA.push_back(new Chord("C:M7"));
+//    SA.push_back(new Chord("F:M7(#11)"));
+//    SA.push_back(new Chord("G:M"));
+//    SA.push_back(new Chord("A:m"));
+//    SA.push_back(new Chord("D:7"));
+//    SA.push_back(new Chord("G:7"));
+//    SA.push_back(new Chord("C:M7"));
+//    SA.push_back(new Chord("C:M7"));
+//    SA.push_back(new Chord("C:M7"));
     SA.push_back(new Chord("C:M7"));
-    SA.push_back(new Chord("F:M7(#11)"));
-    SA.push_back(new Chord("G:M"));
-    SA.push_back(new Chord("A:m"));
-    SA.push_back(new Chord("D:7"));
-    SA.push_back(new Chord("G:7"));
+    SA.push_back(new Chord("C:M7"));
     SA.push_back(new Chord("C:M7"));
 
     cout << "Suite d'accords :" << endl << flush;
@@ -72,7 +77,7 @@ void testAlgo(string algoName, string algoConstraint)
 
     cout << "Time taken for " << algoName
          << ", " << algoConstraint << " : "
-         << setiosflags(ios::fixed) << setprecision(2) << (double)(clock() - tStart)/CLOCKS_PER_SEC << " secs."
+         << setiosflags(ios::fixed) << setprecision(4) << (double)(clock() - tStart)/CLOCKS_PER_SEC << " secs."
             << endl << flush;
 
 }

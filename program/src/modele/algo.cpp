@@ -5,8 +5,9 @@ using namespace std;
 vector<vector<Scale*> > KpartitesScales(vector<Chord*> SA)
 {
     vector<vector<Scale*> > Kpartite;
-    for (size_t i=0;i<SA.size();i++)
+    for (size_t i = 0; i < SA.size(); i++)
         Kpartite.push_back(SA[i]->candidatesScales());
+
     return Kpartite;
 }
 

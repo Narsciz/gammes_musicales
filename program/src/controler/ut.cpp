@@ -46,6 +46,21 @@ vector<Scale*> Ut::convertScalestoModel(QVector<QString> cs){
     return res;
 }
 
+QVector<QVector<QString>> Ut::convertScaleToString(vector<vector<Scale*>> scalesToConvert){
+    QVector<QVector<QString>> stringScalesToVector;
+    QVector<QString> line;
+    for(int i=0; i<scalesToConvert.size();i++){
+
+        for(int j=0; j<scalesToConvert[i].size();j++){
+            line.push_back(scalesToConvert[i][j]->getName());
+        }
+        stringScalesToVector.push_back(line);
+        line.clear();
+    }
+
+    return stringScalesToVector;
+}
+
 QString Ut::SaveScale(QVector<QString> listChords, QVector<QString> listScale)
 {
     QString chords = "";
@@ -112,14 +127,14 @@ QString Ut::SaveScale(QVector<QString> listChords, QVector<QString> listScale)
  void Ut::generateSlot(QVector<QString> listChordsName)
  {
     vector<Chord*> listChords = convertChordstoModel(listChordsName);
-    vector<vector<Scale*> > k = KpartitesScales(listChords);
+//    vector<vector<Scale*> > k = KpartitesScales(listChords);
 
-    for (size_t i=0;i<k.size();i++){
-        for (size_t j=0;j<k[i].size();j++)
-            cout<<k[i][j]->getName().toStdString()<<"|"<<flush;
-        cout<<endl<<flush;
-    }
-    AlgoBrut algobrut(listChords,ScaleDictionary::getInstance()->getAllScales());
+//    for (size_t i=0;i<k.size();i++){
+//        for (size_t j=0;j<k[i].size();j++)
+//            cout<<k[i][j]->getName().toStdString()<<"|"<<flush;
+//        cout<<endl<<flush;
+//    }
+  /*  AlgoBrut algobrut(listChords,ScaleDictionary::getInstance()->getAllScales());
     algobrut.generatePossiblesSolutions();
 
     algobrut.findLeastsTotalScales();
@@ -127,26 +142,33 @@ QString Ut::SaveScale(QVector<QString> listChords, QVector<QString> listScale)
     QVector<QVector<QString> > res = convertCStoView(algobrut.getResults());
 
     w->constructScaleFoundView(res);
+*/
 
-    /*
-    Parametres parametres(this->w->getParametersDisplay());
+    ParametersDisplay* parametres = this->w->getParametersDisplay();
     AbstractAlgo *algo;
-
-    switch(parametres.getAlgo())
+    switch(parametres->getAlgo())
     {
-    case 1: algo = new AlgoBrut(convertCStoModel(parametres.getAllowedScales()));
-    case 2: algo = new AlgoOpti(convertCStoModel(parametres.getAllowedScales()));
+    case 1:
+        algo = new AlgoBrut(listChords, ScaleDictionary::getInstance()->getScalesByTypes(parametres->getlistAllowedHSscales()));
+        break;
+    case 2:
+        algo = new AlgoOpti(listChords, ScaleDictionary::getInstance()->getScalesByTypes(parametres->getlistAllowedHSscales()));
+        break;
     }
 
-    switch(parametres.getParameter())
+    switch(parametres->getParameter())
     {
-    case 1: algo.findLeastsConsecutivesNotesChanges();
-    case 2: algo.findLeastsConsecutivesScalesChanges();
+    case 1:
+        algo->findLeastsConsecutivesNotesChanges();
+        break;
+    case 2:
+        algo->findLeastsConsecutivesScalesChanges();
+        break;
     }
 
-    w->constructScaleFoundView(algo.getResults());
-    */
+    w->constructScaleFoundView(convertScaleToString(algo->getResults()));
  }
+
  void Ut::SaveScaleSlot(QVector<QString> listChords, QVector<QString> listScale)
  {
      QString path = this->w->openExplorer(2);
@@ -172,3 +194,4 @@ QString Ut::SaveScale(QVector<QString> listChords, QVector<QString> listScale)
 
      this->w->saveFile(path, content);
  }
+

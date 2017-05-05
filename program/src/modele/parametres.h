@@ -16,7 +16,7 @@ public:
     Parametres(ParametersDisplay view);
     int getParameter();
     int getAlgo();
-    QVector<QString> getAllowedScales();
+    QVector<QString> getAllowedHSscales();
 };
 
 #endif // PARAMETRES_H

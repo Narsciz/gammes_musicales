@@ -10,7 +10,7 @@
 #include <QCheckBox>
 #include <QVector>
 #include <QString>
-
+#include <iostream>
 class ParametersDisplay : public QWidget
 {
     Q_OBJECT
@@ -40,7 +40,7 @@ public:
     void fillLists(QVector<QString> listHSChords, QVector<QString> listHSScales);
     int getParameter();
     int getAlgo();
-    QVector<QString> getlistAllowedScales();
+    QVector<QString> getlistAllowedHSscales();
 };
 
 #endif // PARAMETERSDISPLAY_H

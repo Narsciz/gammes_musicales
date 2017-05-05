@@ -15,6 +15,14 @@ bool ScaleDictionary::contains(HSScale * s)
     return false;
 }
 
+vector<Scale*> ScaleDictionary::getScalesByTypes(QVector<QString> hsScales)//paramètre : liste des structures harmoniques
+{
+    vector<Scale*> res;
+    for (size_t i=0;i<hsScales.size();i++)
+        for (int j=0;j<12;j++)
+            res.push_back(new Scale((Note)j,getHSbyName(hsScales[i])));
+    return res;
+}
 
 void ScaleDictionary::generateBaseScale()
 {

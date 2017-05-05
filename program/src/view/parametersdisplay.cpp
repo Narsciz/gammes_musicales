@@ -1,4 +1,7 @@
 #include "parametersdisplay.h"
+#include "modele/scaledictionary.h"
+
+using namespace std;
 
 ParametersDisplay::ParametersDisplay() : QWidget()
 {
@@ -77,13 +80,16 @@ int ParametersDisplay::getAlgo()
         res = 2;
     return res;
 }
-QVector<QString> ParametersDisplay::getlistAllowedScales()
+QVector<QString> ParametersDisplay::getlistAllowedHSscales()
 {
+
+
     QVector<QString> res;
     for(int i = 0; i<this->listScales.size(); i++)
     {
         if(listScales[i]->isChecked())
             res.push_back(listScales[i]->text());
     }
+
     return res;
 }
