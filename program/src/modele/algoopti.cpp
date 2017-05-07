@@ -5,7 +5,7 @@ using namespace std;
 
 AlgoOpti::AlgoOpti(std::vector<Chord*> SA, std::vector<Scale*> AS) : AbstractAlgo(SA,AS)
 {
-    GAKO = KpartitesToGAKO(KpartiteGraph);
+    GAKO = KpartitesToGAKO(filteredKpartiteGraph);
 }
 
 void AlgoOpti::findLeastsConsecutivesNotesChanges()

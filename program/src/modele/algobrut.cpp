@@ -4,7 +4,7 @@ using namespace std;
 
 AlgoBrut::AlgoBrut(vector<Chord*> SA,vector<Scale*> AS):AbstractAlgo(SA,AS)
 {
-cout<<"const"<<endl;
+
 }
 
 void AlgoBrut::generateSolsRec(int index, vector<Scale*> solutionPossible)

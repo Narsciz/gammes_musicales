@@ -4,12 +4,10 @@ using namespace std;
 
 AbstractAlgo::AbstractAlgo(std::vector<Chord*> data, std::vector<Scale*> allowedScales)
 {
-    cout<<"abs"<<endl;
     this->data = data;
     this->allowedScales = allowedScales;
     KpartiteGraph = KpartitesScales(data);
     filterAllowedChordsInK();
-    cout<<"abs end"<<endl;
 }
 
 std::vector<std::vector<Scale*> > AbstractAlgo::getResults()

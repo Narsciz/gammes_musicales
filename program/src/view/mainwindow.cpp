@@ -190,17 +190,19 @@ QVector<QString> MainWindow::testFile(QString filePath)
   {
       QString fileContent = "";
       QFile file(filePath);
+
       if(file.open(QIODevice::ReadOnly | QIODevice::Text))
       {
           fileContent = file.readAll();
           file.close();
       }
+
       QStringList listChords = fileContent.split(' ');
       QVector<QString> res = listChords.toVector();
       vector<Chord*> chords;
 
       int i = 0;
-      while(i<res.size())
+      while(i < res.size())
       {
           try
           {
@@ -211,10 +213,13 @@ QVector<QString> MainWindow::testFile(QString filePath)
               res.clear();
               break;
           }
+
           i++;
       }
+
       return res;
   }
+
 void MainWindow::saveFile(QString filePath, QString fileContent)
 {
     QFile file(filePath);
@@ -287,27 +292,32 @@ void MainWindow::slotReturnButton()
       clearLayout(this->scalesLayout);
       constructScalesLayout();
   }
+
 void MainWindow::slotReinitializeButton()
   {
       clearLayout(this->chordsLayout);
       constructChordsLayout();
   }
+
 void MainWindow::slotParametersButton()
   {
     this->parametersWindow->show();
   }
+
 void MainWindow::slotNewFile()
   {
       clearLayout(this->mainLayout);
       constructLayout();
   }
+
 void MainWindow::slotImportFile()
   {
       QString filePath = openExplorer(1);
       QVector<QString> listChords = testFile(filePath);
+
       if(listChords.size() != 0)
       {
-            for(int i=0; i<listChords.size(); i++)
+            for(int i = 0; i < listChords.size(); i++)
             {
                 this->cListDisplay->addChord(listChords[i]);
             }
