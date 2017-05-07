@@ -15,6 +15,7 @@ private:
 
 public:
     static ScaleDictionary* getInstance();
+    vector<Scale*> getScalesByTypes(QVector<QString>);
     HSScale* getScaleByIndex(int);
     HSScale* getHSbyName(QString);
     bool contains(HSScale*);

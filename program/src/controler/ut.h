@@ -4,12 +4,14 @@
 #include "modele/scaledictionary.h"
 #include "modele/chorddictionary.h"
 #include "modele/algobrut.h"
+#include "modele/algoopti.h"
 #include "modele/abstractalgo.h"
 #include "modele/algo.h"
 #include "modele/cs.h"
 #include "modele/scale.h"
 #include "modele/chord.h"
 #include "modele/parametres.h"
+
 #include <QObject>
 
 class Ut : public QObject
@@ -26,6 +28,7 @@ public:
     std::vector<Chord*> convertChordstoModel(QVector<QString> cs);
     std::vector<Scale*> convertScalestoModel(QVector<QString> cs);
     QString SaveScale(QVector<QString> listChords, QVector<QString> listScale);
+    QVector<QVector<QString>> convertScaleToString(std::vector<std::vector<Scale*>> scalesToConvert);
 
 public slots:
     void generateSlot(QVector<QString> listChords);

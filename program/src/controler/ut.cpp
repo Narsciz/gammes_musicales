@@ -46,6 +46,21 @@ vector<Scale*> Ut::convertScalestoModel(QVector<QString> cs){
     return res;
 }
 
+QVector<QVector<QString>> Ut::convertScaleToString(vector<vector<Scale*>> scalesToConvert){
+    QVector<QVector<QString>> stringScalesToVector;
+    QVector<QString> line;
+    for(int i=0; i<scalesToConvert.size();i++){
+
+        for(int j=0; j<scalesToConvert[i].size();j++){
+            line.push_back(scalesToConvert[i][j]->getName());
+        }
+        stringScalesToVector.push_back(line);
+        line.clear();
+    }
+
+    return stringScalesToVector;
+}
+
 QString Ut::SaveScale(QVector<QString> listChords, QVector<QString> listScale)
 {
     QString chords = "";
@@ -111,42 +126,39 @@ QString Ut::SaveScale(QVector<QString> listChords, QVector<QString> listScale)
 
  void Ut::generateSlot(QVector<QString> listChordsName)
  {
-    vector<Chord*> listChords = convertChordstoModel(listChordsName);
-    vector<vector<Scale*> > k = KpartitesScales(listChords);
+     try {
+        vector<Chord*> listChords = convertChordstoModel(listChordsName);
 
-    for (size_t i=0;i<k.size();i++){
-        for (size_t j=0;j<k[i].size();j++)
-            cout<<k[i][j]->getName().toStdString()<<"|"<<flush;
-        cout<<endl<<flush;
-    }
-    AlgoBrut algobrut(listChords,ScaleDictionary::getInstance()->getAllScales());
-    algobrut.generatePossiblesSolutions();
+        ParametersDisplay* parametres = this->w->getParametersDisplay();
+        AbstractAlgo *algo;
+        switch(parametres->getAlgo())
+        {
+        case 1:
+            algo = new AlgoBrut(listChords, ScaleDictionary::getInstance()->getScalesByTypes(parametres->getlistAllowedHSscales()));
+            break;
+        case 2:
+            algo = new AlgoOpti(listChords, ScaleDictionary::getInstance()->getScalesByTypes(parametres->getlistAllowedHSscales()));
+            break;
+        }
 
-    algobrut.findLeastsTotalScales();
+        switch(parametres->getParameter())
+        {
+        case 1:
+            algo->findLeastsConsecutivesNotesChanges();
+            break;
+        case 2:
+            algo->findLeastsConsecutivesScalesChanges();
+            break;
+        }
 
-    QVector<QVector<QString> > res = convertCStoView(algobrut.getResults());
-
-    w->constructScaleFoundView(res);
-
-    /*
-    Parametres parametres(this->w->getParametersDisplay());
-    AbstractAlgo *algo;
-
-    switch(parametres.getAlgo())
-    {
-    case 1: algo = new AlgoBrut(convertCStoModel(parametres.getAllowedScales()));
-    case 2: algo = new AlgoOpti(convertCStoModel(parametres.getAllowedScales()));
-    }
-
-    switch(parametres.getParameter())
-    {
-    case 1: algo.findLeastsConsecutivesNotesChanges();
-    case 2: algo.findLeastsConsecutivesScalesChanges();
-    }
-
-    w->constructScaleFoundView(algo.getResults());
-    */
+        w->constructScaleFoundView(convertScaleToString(algo->getResults()));
+     }
+     // Exception levee quand un accord est mal ecrit (B7 au lieu de B:7 par exemple)
+     catch(out_of_range out_of_range_exception) {
+         cout << out_of_range_exception.what() << endl;
+     }
  }
+
  void Ut::SaveScaleSlot(QVector<QString> listChords, QVector<QString> listScale)
  {
      QString path = this->w->openExplorer(2);
@@ -172,3 +184,4 @@ QString Ut::SaveScale(QVector<QString> listChords, QVector<QString> listScale)
 
      this->w->saveFile(path, content);
  }
+

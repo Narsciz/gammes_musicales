@@ -60,10 +60,14 @@ ChordDisplay::ChordDisplay(QString chord) : QGroupBox()
     //QObject::connect(this->viewButton, SIGNAL(pressed()), this, SLOT(slotOpenView()));
     //QObject::connect(this->viewButton, SIGNAL(released()), this, SLOT(slotCloseView()));
 
-    this->note = chord[0];
-    this->hs = chord.right(chord.size()-2);
-    this->chordName = new QLabel(note + hs);
+
+
+    this->note = chord.split(':')[0];
+    this->hs = chord.split(':')[1];
+
+    this->chordName = new QLabel(chord);
     this->chordName->setFixedSize(58, 37);
+
     QFont f( "Arial", 10, QFont::Bold);
     this->chordName->setFont(f);
     this->chordName->setAlignment(Qt::AlignCenter);

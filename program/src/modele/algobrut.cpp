@@ -9,24 +9,25 @@ AlgoBrut::AlgoBrut(vector<Chord*> SA,vector<Scale*> AS):AbstractAlgo(SA,AS)
 
 void AlgoBrut::generateSolsRec(int index, vector<Scale*> solutionPossible)
 {
-
-    if (index >= (int)filteredKpartiteGraph.size())
-        possiblesSolutions.push_back(solutionPossible);
-    else
-    {
-
-        for (size_t i = 0; i < filteredKpartiteGraph[index].size(); i++)
+    if ((int)filteredKpartiteGraph.size()>0){
+        if (index >= (int)filteredKpartiteGraph.size())
+           possiblesSolutions.push_back(solutionPossible);
+        else
         {
-            vector<Scale*> sol = solutionPossible;
-            sol.push_back(filteredKpartiteGraph[index][i]);
 
-            generateSolsRec(index + 1, sol);
+            for (size_t i = 0; i < filteredKpartiteGraph[index].size(); i++)
+            {
+                vector<Scale*> sol = solutionPossible;
+                sol.push_back(filteredKpartiteGraph[index][i]);
 
-            /***plus performant mais plus moche***
-            solutionPossible.push_back(filteredKpartiteGraph[index][i]);
-            generateSolsRec(index + 1, solutionPossible);
-            solutionPossible.pop_back();
-            **************************************/
+                generateSolsRec(index + 1, sol);
+
+                /***plus performant mais plus moche***
+                solutionPossible.push_back(filteredKpartiteGraph[index][i]);
+                generateSolsRec(index + 1, solutionPossible);
+                solutionPossible.pop_back();
+                **************************************/
+            }
         }
     }
 }
@@ -44,14 +45,18 @@ void AlgoBrut::findLeastsConsecutivesNotesChanges()
 {
     generatePossiblesSolutions();
     results.clear();
+
     vector<int> values;
     int value;
 
-    for (size_t i=0;i<possiblesSolutions.size();i++)//on remplit le tableau values
+
+    for (size_t i=0; i<possiblesSolutions.size();i++)//on remplit le tableau values
     {
-        value=0;
-        for (size_t j=0;j<possiblesSolutions[i].size()-1;j++)//on fait la somme des differences symétriques de notes entre chaque couple de gammes consécutives
-            value+=possiblesSolutions[i][j]->notesDifferencesWithScale(possiblesSolutions[i][j+1]);
+        value = 0;
+
+        //on fait la somme des differences symétriques de notes entre chaque couple de gammes consécutives
+        for (size_t j = 0; j<possiblesSolutions[i].size()-1;j++)
+            value += possiblesSolutions[i][j]->notesDifferencesWithScale(possiblesSolutions[i][j+1]);
         values.push_back(value);
     }
 

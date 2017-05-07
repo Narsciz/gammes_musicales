@@ -4,7 +4,7 @@ Parametres::Parametres(ParametersDisplay view)
 {
     this->parameter = view.getParameter();
     this->algo = view.getAlgo();
-    this->allowedScales = view.getlistAllowedScales();
+    this->allowedScales = view.getlistAllowedHSscales();
 }
 
 int Parametres::getParameter()
@@ -17,7 +17,7 @@ int Parametres::getAlgo()
     return this->algo;
 }
 
-QVector<QString> Parametres::getAllowedScales()
+QVector<QString> Parametres::getAllowedHSscales()
 {
     return this->allowedScales;
 }

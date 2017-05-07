@@ -19,16 +19,23 @@ void testAlgo(string algoName, string algoConstraint)
     SA.push_back(new Chord("D:7"));
     SA.push_back(new Chord("G:7"));
     SA.push_back(new Chord("C:M7"));
+    SA.push_back(new Chord("C:M7"));
+    SA.push_back(new Chord("C:M7"));
+    SA.push_back(new Chord("C:M7"));
+    SA.push_back(new Chord("C:M7"));
+    SA.push_back(new Chord("C:M7"));
+    SA.push_back(new Chord("C:M7"));
+    SA.push_back(new Chord("F:M7(#11)"));
+    SA.push_back(new Chord("G:M"));
+    SA.push_back(new Chord("A:m"));
+    SA.push_back(new Chord("D:7"));
+    SA.push_back(new Chord("G:7"));
+    SA.push_back(new Chord("C:M7"));
 
     cout << "Suite d'accords :" << endl << flush;
     for (size_t i = 0; i < SA.size(); i++)
         cout << SA[i]->getName().toStdString() << "|" << flush;
     cout << endl << endl << flush;
-
-//    cout << "Gammes autorisées" << endl << flush;
-//    for (size_t i=0;i<allowedScales.size();i++)
-//        cout << allowedScales[i]->getName().toStdString() << "|" << flush;
-//    cout << endl << endl << flush;
 
     clock_t tStart = clock();
     AbstractAlgo *algo;
@@ -72,7 +79,7 @@ void testAlgo(string algoName, string algoConstraint)
 
     cout << "Time taken for " << algoName
          << ", " << algoConstraint << " : "
-         << setiosflags(ios::fixed) << setprecision(2) << (double)(clock() - tStart)/CLOCKS_PER_SEC << " secs."
+         << setiosflags(ios::fixed) << setprecision(4) << (double)(clock() - tStart)/CLOCKS_PER_SEC << " secs."
             << endl << flush;
 
 }

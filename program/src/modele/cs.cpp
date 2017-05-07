@@ -12,16 +12,18 @@ CS::CS(Note f2, HarmonicStructure *hs2){
 
 
 CS::CS(QString name){
-    QStringList splittedName=name.split(':');
-    if (splittedName.size()<2)
-        throw std::out_of_range("out of range");
-    f=stringToNote(splittedName[0]);
+    QStringList splittedName = name.split(':');
+    if (splittedName.size() < 2)
+        throw std::out_of_range("out of range " + splittedName[0].toStdString());
+
+    f = stringToNote(splittedName[0]);
+
     HarmonicStructure *hs2;
-    if ((hs2=ScaleDictionary::getInstance()->getHSbyName(splittedName[1]))!=NULL)
+    if ((hs2 = ScaleDictionary::getInstance()->getHSbyName(splittedName[1])) != NULL)
         hs=hs2;
-    else if ((hs2=ChordDictionary::getInstance()->getHSbyName(splittedName[1]))!=NULL)
-        hs=hs2;
-    else hs=NULL;
+    else if ((hs2 = ChordDictionary::getInstance()->getHSbyName(splittedName[1])) != NULL)
+        hs = hs2;
+    else hs = NULL;
 }
 
 
