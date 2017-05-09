@@ -54,11 +54,9 @@ void MainWindow::constructMenuBar()
 
      QMenu *options = menuBar->addMenu("Options");
 
-     QAction *debugTestSize = menuBar->addAction("DebugTestSize");
-     connect(debugTestSize, SIGNAL(triggered(bool)), this, SLOT(slotDebugTestFile()));
+//     QAction *debugTestSize = menuBar->addAction("DebugTestSize");
+//     connect(debugTestSize, SIGNAL(triggered(bool)), this, SLOT(slotDebugTestFile()));
 
-     QAction *display=menuBar->addAction("afficher");
-     connect(display, SIGNAL(triggered(bool)), this, SLOT(slotDisplayButton()));
 
      QAction *stats = menuBar->addAction("Statistiques");
      connect(stats, SIGNAL(triggered(bool)), this, SLOT(slotStats()));
@@ -66,11 +64,6 @@ void MainWindow::constructMenuBar()
      this->setMenuBar(menuBar);
  }
 
-
-void MainWindow::slotDisplayButton()
-{
-    emit displaySignal();
-}
 
 void MainWindow::constructLayout()
   {

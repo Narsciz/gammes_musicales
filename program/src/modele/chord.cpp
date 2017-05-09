@@ -16,7 +16,11 @@ Chord::Chord(QString name){
     HarmonicStructure *hs2;
     if ((hs2 = ChordDictionary::getInstance()->getHSbyName(splittedName[1])) != NULL)
             hs = hs2;
-    else hs = NULL;
+    else
+    {
+        cout << "Structure harmonique " << splittedName[1].toStdString() << endl;
+        hs = NULL;
+    }
 }
 
 vector<Scale*> Chord::candidatesScales()

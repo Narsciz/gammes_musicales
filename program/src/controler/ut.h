@@ -35,10 +35,13 @@ public:
     QVector<QVector<QString>> convertScaleToString(std::vector<std::vector<Scale*>> scalesToConvert);
     void join();
 public slots:
-    void slotDisplay();
+    void displayResultsSlot();
     void generateSlot(QVector<QString> listChords);
     void SaveScaleSlot(QVector<QString> listChords, QVector<QString> listScale);
     void ExportScaleSlot(QVector<QString> listChords, QVector<QString> listScale);
+
+signals:
+    void displayResultsSignal();
 };
 
 #endif // UT_H

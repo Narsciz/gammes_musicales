@@ -95,7 +95,6 @@ public:
     void goToResultsInterface();
 
 public slots :
-    void slotDisplayButton();
     void slotAddButton();
     void slotGenerateButton();
     void slotReturnButton();
@@ -112,7 +111,7 @@ public slots :
 
 
 signals :
-    void displaySignal();
+
     void generateSignal(QVector<QString> listChords);
     void SaveScaleSignal(QVector<QString> listChords, QVector<QString> listScale);
     void ExportScaleSignal(QVector<QString> listChords, QVector<QString> listScale);

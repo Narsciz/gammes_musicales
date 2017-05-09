@@ -6,28 +6,9 @@
 using namespace std;
 
 CS::CS(Note f2, HarmonicStructure *hs2){
-    f=f2;
-    hs=hs2;
+    f = f2;
+    hs = hs2;
 }
-
-
-CS::CS(QString name){
-    QStringList splittedName = name.split(':');
-    if (splittedName.size() < 2)
-        throw std::out_of_range("out of range " + splittedName[0].toStdString());
-
-    f = stringToNote(splittedName[0]);
-
-    HarmonicStructure *hs2;
-    if ((hs2 = ScaleDictionary::getInstance()->getHSbyName(splittedName[1])) != NULL)
-        hs=hs2;
-    else if ((hs2 = ChordDictionary::getInstance()->getHSbyName(splittedName[1])) != NULL)
-        hs = hs2;
-    else hs = NULL;
-}
-
-
-
 
 QString CS::getName(){return noteToString(f)+":"+hs->getName();}
 
@@ -89,11 +70,11 @@ bool CS::equals(CS * cs)
 
 bool CS::sameNotes(CS * cs)
 {
-    vector<Note> notes1=getNotes();
-    vector<Note> notes2=cs->getNotes();
-    if (notes1.size()==notes2.size())
+    vector<Note> notes1 = getNotes();
+    vector<Note> notes2 = cs->getNotes();
+    if (notes1.size() == notes2.size())
     {
-        for (size_t i=0;i<notes1.size();i++)
+        for (size_t i = 0; i < notes1.size(); i++)
             if (notes1[i]!=notes2[i])
                 return false;
         return true;
@@ -103,27 +84,27 @@ bool CS::sameNotes(CS * cs)
 
 Note CS::stringToNote(QString s){
 
-    if (s=="C")
+    if (s == "C")
         return C;
-    if (s== "C#" || s=="Db")
+    if (s== "C#")
         return Csharp;
     if (s== "D")
         return D;
-    if (s== "D#" || s=="Eb")
+    if (s== "D#")
         return Dsharp;
     if (s== "E")
         return E;
     if (s== "F")
         return F;
-    if (s== "F#" || "Gb")
+    if (s== "F#")
         return Fsharp;
     if (s== "G")
         return G;
-    if (s== "G#" || "Ab")
+    if (s== "G#")
         return Gsharp;
     if (s== "A")
         return A;
-    if (s== "A#" || "Bb")
+    if (s== "A#")
         return Asharp;
     if (s== "B")
         return B;
@@ -176,48 +157,3 @@ QString CS::noteToString(Note n)
     }
 }
 
-
-QString CS::noteToString(Note n,bool sharp)
-{
-    switch(n)
-    {
-    case 0:
-        return "C";
-        break;
-    case 1:
-        return sharp ? "C#" : "Db";
-        break;
-    case 2:
-        return "D";
-        break;
-    case 3:
-        return sharp ? "D#" : "Eb";
-        break;
-    case 4:
-        return "E";
-        break;
-    case 5:
-        return "F";
-        break;
-    case 6:
-        return sharp ? "F#" : "Gb";
-        break;
-    case 7:
-        return "G";
-        break;
-    case 8:
-        return sharp ? "G#" : "Ab";
-        break;
-    case 9:
-        return "A";
-        break;
-    case 10:
-        return sharp ? "A#" : "Bb";
-        break;
-    case 11:
-        return "B";
-        break;
-    default :
-        return "Er";
-    }
-}

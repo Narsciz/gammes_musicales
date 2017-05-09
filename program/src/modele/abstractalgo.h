@@ -6,6 +6,7 @@
 #include <modele/scale.h>
 #include <modele/algo.h>
 #include <thread>
+
 class AbstractAlgo
 {
 protected :

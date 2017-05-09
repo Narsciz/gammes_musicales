@@ -8,6 +8,7 @@ class AlgoOpti : public AbstractAlgo
 {
 protected:
     std::vector<std::vector<Node*> > GAKO;
+
 public:
     AlgoOpti(){}
     AlgoOpti(std::vector<Chord*> data, std::vector<Scale*> allowedScales);

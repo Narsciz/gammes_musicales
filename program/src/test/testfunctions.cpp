@@ -25,12 +25,19 @@ void testAlgo(string algoName, string algoConstraint)
     SA.push_back(new Chord("C:M7"));
     SA.push_back(new Chord("C:M7"));
     SA.push_back(new Chord("C:M7"));
+    SA.push_back(new Chord("G:M"));
+    SA.push_back(new Chord("A:m"));
+    SA.push_back(new Chord("D:7"));
+    SA.push_back(new Chord("G:7"));
+    SA.push_back(new Chord("C:M7"));
     SA.push_back(new Chord("F:M7(#11)"));
     SA.push_back(new Chord("G:M"));
     SA.push_back(new Chord("A:m"));
     SA.push_back(new Chord("D:7"));
     SA.push_back(new Chord("G:7"));
     SA.push_back(new Chord("C:M7"));
+
+
 
     cout << "Suite d'accords :" << endl << flush;
     for (size_t i = 0; i < SA.size(); i++)

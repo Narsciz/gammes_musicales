@@ -6,7 +6,7 @@ class HSChord : public HarmonicStructure
 {
 public:
     HSChord();
-    HSChord(QString,std::vector<int>);
+    HSChord(QString,std::vector<int>, QString alias = "");
     HSChord(QString);
 };
 

@@ -11,7 +11,7 @@ Ut::Ut(MainWindow *w)
     QObject::connect(this->w, SIGNAL(generateSignal(QVector<QString>)), this, SLOT(generateSlot(QVector<QString>)));
     QObject::connect(this->w, SIGNAL(SaveScaleSignal(QVector<QString>,QVector<QString>)), this, SLOT(SaveScaleSlot(QVector<QString>,QVector<QString>)));
     QObject::connect(this->w, SIGNAL(ExportScaleSignal(QVector<QString>,QVector<QString>)), this, SLOT(ExportScaleSlot(QVector<QString>,QVector<QString>)));
-    QObject::connect(this->w,SIGNAL(displaySignal()),this,SLOT(slotDisplay()));
+    QObject::connect(this,SIGNAL(displayResultsSignal()),this,SLOT(displayResultsSlot()));
 
 
 
@@ -20,7 +20,7 @@ Ut::Ut(MainWindow *w)
 }
 
 
-void Ut::slotDisplay(){
+void Ut::displayResultsSlot(){
     w->goToResultsInterface();
     w->constructScaleFoundView(convertScaleToString(algo->getResults()));
 }
@@ -139,7 +139,7 @@ void Ut::join()
     if (algoThread.joinable())
         algoThread.join();
     else return;
-    emit w->displaySignal();
+    emit displayResultsSignal();
 }
  void Ut::generateSlot(QVector<QString> listChordsName)
  {

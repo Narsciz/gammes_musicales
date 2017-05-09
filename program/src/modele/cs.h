@@ -14,7 +14,6 @@ public:
     CS(){}
 
     CS(Note f2, HarmonicStructure *hs2);
-    CS(QString);
     std::vector<Note> getNotes();
 
     QString getName();

@@ -58,7 +58,6 @@ HEADERS  += view/mainwindow.h \
     view/scalesdisplay.h \
     modele/node.h \
     modele/algobrut.h \
-    modele/ttt.h \
     controler/ut.h \
     modele/note.h \
     view/parametersdisplay.h \

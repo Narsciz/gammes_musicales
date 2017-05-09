@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
 {
 
 //    cout << "TEST ALGO BRUT" << endl << endl << flush;
-//    testAlgo("brut", "consecutivesNotes");
+//    testAlgo("omega", "consecutivesNotes");
 
 //    cout << "======================================" << endl << flush;
 

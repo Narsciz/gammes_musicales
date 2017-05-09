@@ -40,7 +40,7 @@ void ScaleDictionary::generateBaseScale()
     getInstance()->add(new HSScale("Gitane",{1,3,1,2,2,1}));
     getInstance()->add(new HSScale("Gypsy",{1,3,1,2,1,3}));
     getInstance()->add(new HSScale("Hindou",{2,2,1,2,1,2}));*/
-    getInstance()->add(new HSScale("m",{2,1,2,2,1,3}));
+    getInstance()->add(new HSScale("m",{2,1,2,2,1,3}, "Mineure Harmonique"));
     getInstance()->add(new HSScale("M",{2,2,1,2,2,2}));
 
     //http://www.solfego.fr/toutes-les-gammes.htm
