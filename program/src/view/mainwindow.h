@@ -27,6 +27,7 @@ using namespace std;
 #include <QVector>
 
 #include "chordslistdisplay.h"
+#include "view/statsdisplay.h"
 #include "scaleslistdisplay.h"
 
 #include <thread>
@@ -107,6 +108,7 @@ public slots :
     void slotDebugTestFile();
     void slotSaveScale(QVector<QString> listScale);
     void slotExportScale(QVector<QString> listScale);
+    void slotStats();
 
 
 signals :

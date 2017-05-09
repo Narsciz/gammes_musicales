@@ -38,7 +38,8 @@ SOURCES += main.cpp\
     modele/parametres.cpp \
     modele/algoopti.cpp \
     modele/algobrutomega.cpp \
-    test/testfunctions.cpp
+    test/testfunctions.cpp \
+    view/statsdisplay.cpp
 
 HEADERS  += view/mainwindow.h \
     modele/chord.h \
@@ -65,7 +66,8 @@ HEADERS  += view/mainwindow.h \
     modele/parametres.h \
     modele/algoopti.h \
     modele/algobrutomega.h \
-    test/testfunctions.h
+    test/testfunctions.h \
+    view/statsdisplay.h
 
 FORMS  += view/mainwindow.ui
 

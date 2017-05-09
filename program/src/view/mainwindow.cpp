@@ -60,6 +60,9 @@ void MainWindow::constructMenuBar()
      QAction *display=menuBar->addAction("afficher");
      connect(display, SIGNAL(triggered(bool)), this, SLOT(slotDisplayButton()));
 
+     QAction *stats = menuBar->addAction("Statistiques");
+     connect(stats, SIGNAL(triggered(bool)), this, SLOT(slotStats()));
+
      this->setMenuBar(menuBar);
  }
 
@@ -406,4 +409,10 @@ void MainWindow::slotExportScale(QVector<QString> listScale)
 {
     cout<<"Export Signal entered in MainWindow"<<endl<<flush;
    emit ExportScaleSignal(this->cListDisplay->getListChordsName(), listScale);
+}
+
+void MainWindow::slotStats()
+{
+    StatsDisplay *stats = new StatsDisplay();
+    stats->show();
 }
