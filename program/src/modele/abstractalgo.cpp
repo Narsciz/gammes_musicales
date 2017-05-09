@@ -36,3 +36,18 @@ void AbstractAlgo::filterAllowedChordsInK()
     }
 
 }
+
+void AbstractAlgo::callConsecutivesNotesChangesInThread(std::thread& algoThread)
+{
+    algoThread=thread(AbstractAlgo::findLeastsConsecutivesNotesChanges,this);
+}
+
+void AbstractAlgo::callConsecutivesScalesChangesInThread(std::thread& algoThread)
+{
+    algoThread=thread(AbstractAlgo::findLeastsConsecutivesScalesChanges,this);
+}
+
+void AbstractAlgo::callTotalScalesInThread(std::thread& algoThread)
+{
+    algoThread=thread(AbstractAlgo::findLeastsTotalScales,this);
+}

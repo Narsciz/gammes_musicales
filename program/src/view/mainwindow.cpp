@@ -57,8 +57,18 @@ void MainWindow::constructMenuBar()
      QAction *debugTestSize = menuBar->addAction("DebugTestSize");
      connect(debugTestSize, SIGNAL(triggered(bool)), this, SLOT(slotDebugTestFile()));
 
+     QAction *display=menuBar->addAction("afficher");
+     connect(display, SIGNAL(triggered(bool)), this, SLOT(slotDisplayButton()));
+
      this->setMenuBar(menuBar);
  }
+
+
+void MainWindow::slotDisplayButton()
+{
+    emit displaySignal();
+}
+
 void MainWindow::constructLayout()
   {
       this->mainLayout->setAlignment(Qt::AlignTop);
@@ -137,6 +147,8 @@ void MainWindow::constructChoicesLayout()
       this->choicesLayout->addWidget(new QLabel(), 1, 5, 1, 1);
       this->choicesLayout->addWidget(this->generateButton, 1, 6, 1, 1);
  }
+
+
 void MainWindow::constructScalesLayout()
   {
       this->clearLayout(this->scalesLayout, true);
@@ -281,6 +293,16 @@ void MainWindow::slotGenerateButton()
 
       emit generateSignal(cListDisplay->getListChordsName());
   }
+
+void MainWindow::goToResultsInterface()
+{
+    this->sListDisplay->setVisible(true);
+    this->choicesDisplay->setVisible(false);
+    this->returnButton->setVisible(true);
+    this->reinitializeButton->setDisabled(true);
+    this->cListDisplay->disableDeletingChords();
+}
+
 void MainWindow::slotReturnButton()
   {
       constructScalesLayout();

@@ -5,10 +5,11 @@
 #include <modele/chord.h>
 #include <modele/scale.h>
 #include <modele/algo.h>
-
+#include <thread>
 class AbstractAlgo
 {
 protected :
+
     std::vector<Chord*> data;
     std::vector<Scale*> allowedScales;
     std::vector<std::vector<Scale*> > results;
@@ -19,6 +20,9 @@ public:
     AbstractAlgo(){}
     AbstractAlgo(std::vector<Chord*> data, std::vector<Scale*> allowedScales);
 
+    void callConsecutivesNotesChangesInThread(std::thread&);
+    void callConsecutivesScalesChangesInThread(std::thread&);
+    void callTotalScalesInThread(std::thread&);
 
     void filterAllowedChordsInK();
     virtual void findLeastsConsecutivesNotesChanges() = 0;

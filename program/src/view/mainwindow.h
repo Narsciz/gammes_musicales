@@ -29,6 +29,7 @@ using namespace std;
 #include "chordslistdisplay.h"
 #include "scaleslistdisplay.h"
 
+#include <thread>
 namespace Ui {
 class MainWindow;
 }
@@ -90,8 +91,10 @@ public:
     void fillParametersLists(QVector<QString> listHSChords, QVector<QString> listHSScales);
     void constructScaleFoundView(QVector<QVector<QString> > listFoundScales);
     ParametersDisplay *getParametersDisplay();
+    void goToResultsInterface();
 
 public slots :
+    void slotDisplayButton();
     void slotAddButton();
     void slotGenerateButton();
     void slotReturnButton();
@@ -105,7 +108,9 @@ public slots :
     void slotSaveScale(QVector<QString> listScale);
     void slotExportScale(QVector<QString> listScale);
 
+
 signals :
+    void displaySignal();
     void generateSignal(QVector<QString> listChords);
     void SaveScaleSignal(QVector<QString> listChords, QVector<QString> listScale);
     void ExportScaleSignal(QVector<QString> listChords, QVector<QString> listScale);
