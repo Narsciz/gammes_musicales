@@ -21,6 +21,8 @@ public:
     AbstractAlgo(){}
     AbstractAlgo(std::vector<Chord*> data, std::vector<Scale*> allowedScales);
 
+    virtual void setLimit(int){ std::cout << "setLimit from abstractAlgo" << std::endl;}
+
     void callConsecutivesNotesChangesInThread(std::thread&);
     void callConsecutivesScalesChangesInThread(std::thread&);
     void callTotalScalesInThread(std::thread&);

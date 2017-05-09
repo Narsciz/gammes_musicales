@@ -1,10 +1,11 @@
 #include "testfunctions.h"
+#include "view/mainwindow.h"
 #include <time.h>
 #include <iomanip>
 
 using namespace std;
 
-void testAlgo(string algoName, string algoConstraint)
+void testAlgo(string algoName, string algoConstraint,int limit)
 {
     ChordDictionary::getInstance()->generateBaseChords();
     ScaleDictionary::getInstance()->generateBaseScale();
@@ -12,32 +13,11 @@ void testAlgo(string algoName, string algoConstraint)
     vector<Chord*> allowedChords = ChordDictionary::getInstance()->getAllChords();
     vector<Scale*> allowedScales = ScaleDictionary::getInstance()->getAllScales();
 
-    SA.push_back(new Chord("C:M7"));
-    SA.push_back(new Chord("F:M7(#11)"));
-    SA.push_back(new Chord("G:M"));
-    SA.push_back(new Chord("A:m"));
-    SA.push_back(new Chord("D:7"));
-    SA.push_back(new Chord("G:7"));
-    SA.push_back(new Chord("C:M7"));
-    SA.push_back(new Chord("C:M7"));
-    SA.push_back(new Chord("C:M7"));
-    SA.push_back(new Chord("C:M7"));
-    SA.push_back(new Chord("C:M7"));
-    SA.push_back(new Chord("C:M7"));
-    SA.push_back(new Chord("C:M7"));
-    SA.push_back(new Chord("G:M"));
-    SA.push_back(new Chord("A:m"));
-    SA.push_back(new Chord("D:7"));
-    SA.push_back(new Chord("G:7"));
-    SA.push_back(new Chord("C:M7"));
-    SA.push_back(new Chord("F:M7(#11)"));
-    SA.push_back(new Chord("G:M"));
-    SA.push_back(new Chord("A:m"));
-    SA.push_back(new Chord("D:7"));
-    SA.push_back(new Chord("G:7"));
-    SA.push_back(new Chord("C:M7"));
 
+    QVector<QString> chords = MainWindow::testFile("../assets/imports/RoundMidnight.txt");
 
+    for(int i = 0; i < chords.size(); i++)
+        SA.push_back(new Chord(chords[i]));
 
     cout << "Suite d'accords :" << endl << flush;
     for (size_t i = 0; i < SA.size(); i++)
@@ -51,8 +31,10 @@ void testAlgo(string algoName, string algoConstraint)
         algo=new AlgoBrut(SA,ScaleDictionary::getInstance()->getAllScales());
     else if (algoName=="omega")
         algo=new AlgoBrutOmega(SA,ScaleDictionary::getInstance()->getAllScales());
-    else if (algoName=="optimise")
+    else if (algoName=="optimise"){
         algo=new AlgoOpti(SA,ScaleDictionary::getInstance()->getAllScales());
+        algo->setLimit(limit);
+    }
 
     vector<vector<Scale*> > filteredKpartiteGraph = algo->getFilteredKpartiteGraph();
 

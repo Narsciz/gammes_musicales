@@ -40,8 +40,12 @@ void ScaleDictionary::generateBaseScale()
     getInstance()->add(new HSScale("Gitane",{1,3,1,2,2,1}));
     getInstance()->add(new HSScale("Gypsy",{1,3,1,2,1,3}));
     getInstance()->add(new HSScale("Hindou",{2,2,1,2,1,2}));*/
-    getInstance()->add(new HSScale("m",{2,1,2,2,1,3}, "Mineure Harmonique"));
-    getInstance()->add(new HSScale("M",{2,2,1,2,2,2}));
+    getInstance()->add(new HSScale("m",{2,1,2,2,1,3}, "Mineure harmonique"));
+    getInstance()->add(new HSScale("mm",{2,1,2,2,2,2}, "Mineure mélodique"));
+    getInstance()->add(new HSScale("M",{2,2,1,2,2,2}, "Majeure"));
+    getInstance()->add(new HSScale("Pm",{3, 2, 2, 3}, "Pentatonique mineure"));
+
+
 
     //http://www.solfego.fr/toutes-les-gammes.htm
 }

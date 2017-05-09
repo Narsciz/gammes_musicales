@@ -70,7 +70,6 @@ void AlgoBrut::findLeastsConsecutivesNotesChanges()
             results.push_back(possiblesSolutions[i]);
 
 //    soluces=res;
-    cout<<"end"<<endl;
 }
 
 void AlgoBrut::findLeastsConsecutivesScalesChanges()

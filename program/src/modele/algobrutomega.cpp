@@ -9,10 +9,11 @@ AlgoBrutOmega::AlgoBrutOmega(vector<Chord*> SA,vector<Scale*> AS):AlgoBrut(SA,AS
 void AlgoBrutOmega::generateSolsRec(int index,vector<Scale*> solutionPossible,int omega,int constraint)
 {
 
-    if (index>=(int)filteredKpartiteGraph.size()){
-        minOmega=min(minOmega,omega);
-        if (omega<=minOmega){
+    if (index >= (int)filteredKpartiteGraph.size()){
+        minOmega = min(minOmega,omega);
+        if (omega <= minOmega){
             omegas.push_back(omega);
+
             possiblesSolutions.push_back(solutionPossible);
         }
     }
@@ -22,7 +23,7 @@ void AlgoBrutOmega::generateSolsRec(int index,vector<Scale*> solutionPossible,in
         {
             int value;
 
-            if (constraint==0){//LeastsConsecutivesNotesChanges
+            if (constraint == 0){//LeastsConsecutivesNotesChanges
                 if (solutionPossible.size()==0)
                     value=0;
                 else value=solutionPossible.back()->notesDifferencesWithScale(filteredKpartiteGraph[index][i]);
@@ -42,7 +43,7 @@ void AlgoBrutOmega::generateSolsRec(int index,vector<Scale*> solutionPossible,in
                 else value=1;
             }
 
-            if ((omega+value)<=minOmega){
+            if ((omega+value) <= minOmega){
                 vector<Scale*> sol=solutionPossible;
                 sol.push_back(filteredKpartiteGraph[index][i]);
                 generateSolsRec(index+1,sol,omega+value,constraint);

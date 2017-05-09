@@ -151,7 +151,7 @@ void Ut::join()
         switch(parametres->getAlgo())
         {
         case 1:
-            algo = new AlgoBrut(listChords, ScaleDictionary::getInstance()->getScalesByTypes(parametres->getlistAllowedHSscales()));
+            algo = new AlgoBrutOmega(listChords, ScaleDictionary::getInstance()->getScalesByTypes(parametres->getlistAllowedHSscales()));
             break;
         case 2:
             algo = new AlgoOpti(listChords, ScaleDictionary::getInstance()->getScalesByTypes(parametres->getlistAllowedHSscales()));

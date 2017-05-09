@@ -54,7 +54,7 @@ void ParametersDisplay::fillLists(QVector<QString> listHSChords, QVector<QString
         this->listChords.last()->setChecked(true);
         this->allowedChordsLayout->addWidget(this->listChords.last());
     }
-    for(int i = 0; i<listHSScales.size(); i++)
+    for(int i = 0; i < listHSScales.size(); i++)
     {
         this->listScales.push_back(new QCheckBox(listHSScales[i]));
         this->listScales.last()->setChecked(true);

@@ -18,8 +18,7 @@ Chord::Chord(QString name){
             hs = hs2;
     else
     {
-        cout << "Structure harmonique " << splittedName[1].toStdString() << endl;
-        hs = NULL;
+        throw std::out_of_range("out of range");
     }
 }
 

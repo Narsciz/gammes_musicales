@@ -109,8 +109,10 @@ void MainWindow::constructChoicesLayout()
 
       this->noteLabel = new QLabel("Fondamentale");
       this->noteLabel->setAlignment(Qt::AlignCenter);
+
       this->hsLabel = new QLabel("Structure harmonique");
       this->hsLabel->setAlignment(Qt::AlignCenter);
+
       this->noteComboBox = new QComboBox();
       this->noteComboBox->addItem("C");
       this->noteComboBox->addItem("C#");
@@ -124,12 +126,14 @@ void MainWindow::constructChoicesLayout()
       this->noteComboBox->addItem("A");
       this->noteComboBox->addItem("A#");
       this->noteComboBox->addItem("B");
+
       this->hsComboBox = new QComboBox();
       this->addButton = new QPushButton("Ajouter", this);
       QObject::connect(this->addButton, SIGNAL(clicked()), this, SLOT(slotAddButton()));
 
       this->parametersButton = new QPushButton("Paramètres avancés");
       QObject::connect(this->parametersButton, SIGNAL(clicked()), this, SLOT(slotParametersButton()));
+
       this->generateButton = new QPushButton("Générer");
       QObject::connect(this->generateButton, SIGNAL(clicked()), this, SLOT(slotGenerateButton()));
 
@@ -194,6 +198,7 @@ QString MainWindow::openExplorer(int i)
 
       return fileName;
   }
+
 QVector<QString> MainWindow::testFile(QString filePath)
   {
       QString fileContent = "";
@@ -346,6 +351,7 @@ void MainWindow::slotImportFile()
 
       }
   }
+
 void MainWindow::slotSaveFile()
   {
       QString filePath = openExplorer(2);

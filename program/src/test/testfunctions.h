@@ -6,7 +6,7 @@
 #include "modele/algoopti.h"
 
 
-void testAlgo(std::string,std::string);
+void testAlgo(std::string,std::string,int limit=INT_MAX);
 void testGAKO();
 void displayGAKO(std::vector<std::vector<Node*> >);
 

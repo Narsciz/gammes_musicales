@@ -85,7 +85,7 @@ public:
 
     void clearLayout(QLayout *layout, bool deleteWidgets);
     QString openExplorer(int i);
-    QVector<QString> testFile(QString filePath);
+    static QVector<QString> testFile(QString filePath);
     void saveFile(QString filePath, QString fileContent);
     void resizeEvent ( QResizeEvent * event );
     void fillComboBoxHS(QVector<QString> listHS);

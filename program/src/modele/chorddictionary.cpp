@@ -45,10 +45,11 @@ void ChordDictionary::generateBaseChords()
     getInstance()->add(new HSChord("M7(b5)",{4,2,5}));
     getInstance()->add(new HSChord("M7(#5)",{4,4,3}));
     getInstance()->add(new HSChord("m7(b5)",{3,3,4}));
+    getInstance()->add(new HSChord("m7(b9)",{1,2,4,3}));
     getInstance()->add(new HSChord("7",{4,3,3}));
     getInstance()->add(new HSChord("m(#5)",{3,5}));
-    getInstance()->add(new HSChord("5",{7}));
     getInstance()->add(new HSChord("dim7",{3,3,3}));
+    getInstance()->add(new HSChord("7(b9)",{1,3,3,3}));
     getInstance()->add(new HSChord("7(b5)",{4,2,4}));
     getInstance()->add(new HSChord("7(#5)",{4,4,2}));
 

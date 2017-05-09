@@ -16,12 +16,17 @@ int main(int argc, char *argv[])
 {
 
 //    cout << "TEST ALGO BRUT" << endl << endl << flush;
+//    testAlgo("brut", "consecutivesNotes");
+
+//    cout << " ====================================== " << endl;
+
+//    cout << "TEST ALGO BRUT OMEGA" << endl << endl << flush;
 //    testAlgo("omega", "consecutivesNotes");
 
-//    cout << "======================================" << endl << flush;
+    cout << " ====================================== " << endl << flush;
 
-//    cout << "TEST ALGO OPTIMISE" << endl << endl << flush;
-//    testAlgo("optimise", "consecutivesNotes");
+    cout << "TEST ALGO OPTIMISE" << endl << endl << flush;
+    testAlgo("optimise", "consecutivesNotes", 2);
 
     QApplication app(argc, argv);
 

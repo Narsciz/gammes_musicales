@@ -17,9 +17,12 @@ private:
     QGridLayout *boxLayout;
     QPushButton *viewButton;
     QLabel *scaleName;
+    QLabel *scaleAlias;
+
 public:
     ScaleDisplay(QString name);
     QString getName();
+    QString getAlias();
 };
 
 #endif // SCALEDISPLAY_H

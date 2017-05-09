@@ -1,4 +1,6 @@
 #include "algoopti.h"
+#include <time.h>
+#include <iomanip>
 #include "./test/testfunctions.h"
 
 using namespace std;
@@ -39,14 +41,18 @@ vector<Scale*> reverse(vector<Scale*> v)
 
 void AlgoOpti::generateSolutions(Node * currentNode, vector<Scale*> solution)
 {
-    if (currentNode->predecessors.empty()){
+    if (results.size() > limit)
+        return;
 
+    if (currentNode->predecessors.empty())
+    {
         solution = reverse(solution);
         solution.pop_back();
         results.push_back(solution);
     }
     else
     {
+
         // cout << "Pushed scale = " << ((currentNode->g != NULL) ? currentNode->g->getName().toStdString() : "NULL") << endl << flush;
         solution.push_back(currentNode->g);
 
@@ -55,8 +61,15 @@ void AlgoOpti::generateSolutions(Node * currentNode, vector<Scale*> solution)
     }
 }
 
+void AlgoOpti::setLimit(int l)
+{
+    limit = l;
+}
+
 void AlgoOpti::calculatePCCs(string ponderation)
 {
+    clock_t tStart = clock();
+
     // indice de la k-partie contenant les voisins d'un sommet
     int neighbours;
 
@@ -73,6 +86,9 @@ void AlgoOpti::calculatePCCs(string ponderation)
                 }
         }
     }
+
+    cout << "Time taken for " << setiosflags(ios::fixed) << setprecision(4) << (double)(clock() - tStart)/CLOCKS_PER_SEC << " secs."
+            << endl << flush;
 }
 
 vector<vector<Node*> > AlgoOpti::KpartitesToGAKO(vector<vector<Scale*> > Kpartite)

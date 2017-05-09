@@ -29,3 +29,8 @@ QString ScaleDisplay::getName()
 {
     return this->scaleName->text();
 }
+
+QString ScaleDisplay::getAlias()
+{
+    return this->scaleAlias->text();
+}
