@@ -217,7 +217,7 @@ void Ut::join()
      vector<Chord*> listChords = convertChordstoModel(listChordsName); //Exporter les Chords en MIDI ?
      vector<Scale*> listScales = convertScalestoModel(listScaleName);
 
-     QString content=QString::fromStdString(exportMusicXML(listScales));
+     QString content=QString::fromStdString(exportMusicXML(listScales,listChords));
 
      this->w->saveFile(path, content);
  }
