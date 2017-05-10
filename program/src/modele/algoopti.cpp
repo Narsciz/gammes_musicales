@@ -147,7 +147,7 @@ int AlgoOpti::ponderation(Node* u, Node* v, string type)
     // fonction de ponderation binaire
     if(type == "binary") {
         if  (u->g!=NULL && v->g!=NULL)
-            return (u->getScale()->sameNotes(v->getScale())) ? 1 : 0;
+            return (u->getScale()->equals(v->getScale())) ? 1 : 0;
         else return 0;
 
     }

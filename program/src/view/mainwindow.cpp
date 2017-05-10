@@ -288,13 +288,12 @@ void MainWindow::slotGenerateButton()
           this->returnButton->setVisible(true);
           this->reinitializeButton->setDisabled(true);
           this->cListDisplay->disableDeletingChords();
+          emit generateSignal(cListDisplay->getListChordsName());
       }
       else
       {
           QMessageBox::information(this, "Aucun accord spécifié", "Vous n'avez sélectionné aucun accord. Pour générer une suite de gamme, veuillez d'abord entrer une suite d'accord.");
       }
-
-      emit generateSignal(cListDisplay->getListChordsName());
   }
 
 void MainWindow::goToResultsInterface()
