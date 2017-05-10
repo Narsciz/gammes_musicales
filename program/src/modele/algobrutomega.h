@@ -2,6 +2,10 @@
 #define ALGOBRUTOMEGA_H
 
 #include "modele/algobrut.h"
+#include <time.h>
+#include <iomanip>
+#include <QFile>
+#include <QTextStream>
 
 class AlgoBrutOmega : public AlgoBrut
 {

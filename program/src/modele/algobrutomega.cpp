@@ -59,6 +59,9 @@ void AlgoBrutOmega::generateSolsRec(int index,vector<Scale*> solutionPossible,in
 }
 
 void AlgoBrutOmega::findLeastsConsecutivesNotesChanges(){
+
+    clock_t tStart = clock();
+
     possiblesSolutions.clear();
     vector<Scale*> vide;
     minOmega=10000000;
@@ -66,9 +69,21 @@ void AlgoBrutOmega::findLeastsConsecutivesNotesChanges(){
     filterPossiblesSolutions();
     minOmega=10000000;
     results=possiblesSolutions;
+
+    double timeTaken = (double)(clock() - tStart)/CLOCKS_PER_SEC;
+    QFile file("../stats/noteStats.txt");
+    if(file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text))
+    {
+        QTextStream out(&file);
+        out << ";2|" << data.size() << "|" << timeTaken;
+    }
+    file.close();
 }
 
 void AlgoBrutOmega::findLeastsConsecutivesScalesChanges(){
+
+    clock_t tStart = clock();
+
     possiblesSolutions.clear();
     vector<Scale*> vide;
     minOmega=10000000;
@@ -76,9 +91,21 @@ void AlgoBrutOmega::findLeastsConsecutivesScalesChanges(){
     filterPossiblesSolutions();
     minOmega=10000000;
     results=possiblesSolutions;
+
+    double timeTaken = (double)(clock() - tStart)/CLOCKS_PER_SEC;
+    QFile file("../stats/scaleStats.txt");
+    if(file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text))
+    {
+        QTextStream out(&file);
+        out << ";2|" << data.size() << "|" << timeTaken;
+    }
+    file.close();
 }
 
 void AlgoBrutOmega::findLeastsTotalScales(){
+
+    clock_t tStart = clock();
+
     possiblesSolutions.clear();
     vector<Scale*> vide;
     minOmega=10000000;
@@ -87,6 +114,14 @@ void AlgoBrutOmega::findLeastsTotalScales(){
     minOmega=10000000;
     results=possiblesSolutions;
 
+    double timeTaken = (double)(clock() - tStart)/CLOCKS_PER_SEC;
+    QFile file("../stats/totalScaleStats.txt");
+    if(file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text))
+    {
+        QTextStream out(&file);
+        out << ";2|" << data.size() << "|" << timeTaken;
+    }
+    file.close();
 }
 
 

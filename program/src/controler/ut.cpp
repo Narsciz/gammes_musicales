@@ -156,6 +156,9 @@ void Ut::join()
         case 2:
             algo = new AlgoOpti(listChords, ScaleDictionary::getInstance()->getScalesByTypes(parametres->getlistAllowedHSscales()));
             break;
+        case 3:
+            algo = new AlgoBrut(listChords, ScaleDictionary::getInstance()->getScalesByTypes(parametres->getlistAllowedHSscales()));
+            break;
         }
 
         if (algoThread.joinable())
@@ -164,11 +167,13 @@ void Ut::join()
         switch(parametres->getParameter())
         {
         case 1:
-
-            algo->callConsecutivesNotesChangesInThread(algoThread);
+            algo->callConsecutivesScalesChangesInThread(algoThread);
             break;
         case 2:
-            algo->callConsecutivesScalesChangesInThread(algoThread);
+            algo->callConsecutivesNotesChangesInThread(algoThread);
+            break;
+        case 3:
+            algo->callTotalScalesInThread(algoThread);
             break;
         }
 

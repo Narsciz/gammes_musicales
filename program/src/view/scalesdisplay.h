@@ -15,8 +15,8 @@ private:
     QVector<ScaleDisplay*> scalesList;
 
 public:
-    ScalesDisplay(QVector<QString> scaleList);
-    void refresh();
+    ScalesDisplay(QString name, QVector<QString> scaleList);
+    void refresh(int width);
     QVector<QString> getListScale();
 };
 

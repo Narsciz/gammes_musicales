@@ -12,6 +12,7 @@ AlgoOpti::AlgoOpti(std::vector<Chord*> SA, std::vector<Scale*> AS) : AbstractAlg
 
 void AlgoOpti::findLeastsConsecutivesNotesChanges()
 {
+    clock_t tStart = clock();
 
     calculatePCCs("symetrical_difference");
     results.clear();
@@ -19,15 +20,33 @@ void AlgoOpti::findLeastsConsecutivesNotesChanges()
     vector<Scale*> vide;
     generateSolutions(GAKO.back()[0], vide);
 
+    double timeTaken = (double)(clock() - tStart)/CLOCKS_PER_SEC;
+    QFile file("../stats/noteStats.txt");
+    if(file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text))
+    {
+        QTextStream out(&file);
+        out << ";3|" << data.size() << "|" << timeTaken;
+    }
+    file.close();
 }
 
 void AlgoOpti::findLeastsConsecutivesScalesChanges()
 {
+    clock_t tStart = clock();
 
     calculatePCCs("binary");
     results.clear();
     vector<Scale*> vide;
     generateSolutions(GAKO.back().back(),vide);
+
+    double timeTaken = (double)(clock() - tStart)/CLOCKS_PER_SEC;
+    QFile file("../stats/scaleStats.txt");
+    if(file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text))
+    {
+        QTextStream out(&file);
+        out << ";3|" << data.size() << "|" << timeTaken;
+    }
+    file.close();
 }
 
 vector<Scale*> reverse(vector<Scale*> v)

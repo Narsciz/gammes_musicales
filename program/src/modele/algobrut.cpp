@@ -43,6 +43,8 @@ vector<vector<Scale*> > AlgoBrut::getSols(){return possiblesSolutions;}
 
 void AlgoBrut::findLeastsConsecutivesNotesChanges()
 {
+    clock_t tStart = clock();
+
     generatePossiblesSolutions();
     results.clear();
 
@@ -70,10 +72,21 @@ void AlgoBrut::findLeastsConsecutivesNotesChanges()
             results.push_back(possiblesSolutions[i]);
 
 //    soluces=res;
+
+    double timeTaken = (double)(clock() - tStart)/CLOCKS_PER_SEC;
+    QFile file("../stats/noteStats.txt");
+    if(file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text))
+    {
+        QTextStream out(&file);
+        out << ";1|" << data.size() << "|" << timeTaken;
+    }
+    file.close();
 }
 
 void AlgoBrut::findLeastsConsecutivesScalesChanges()
 {
+    clock_t tStart = clock();
+
     generatePossiblesSolutions();
     results.clear();
     vector<int> values;
@@ -98,10 +111,21 @@ void AlgoBrut::findLeastsConsecutivesScalesChanges()
             results.push_back(possiblesSolutions[i]);
 
     //return res;
+
+    double timeTaken = (double)(clock() - tStart)/CLOCKS_PER_SEC;
+    QFile file("../stats/scaleStats.txt");
+    if(file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text))
+    {
+        QTextStream out(&file);
+        out << ";1|" << data.size() << "|" << timeTaken;
+    }
+    file.close();
 }
 
 void AlgoBrut::findLeastsTotalScales()
 {
+    clock_t tStart = clock();
+
     generatePossiblesSolutions();
     results.clear();
     vector<int> values;
@@ -128,4 +152,13 @@ void AlgoBrut::findLeastsTotalScales()
             results.push_back(possiblesSolutions[i]);
 
     //return res;
+
+    double timeTaken = (double)(clock() - tStart)/CLOCKS_PER_SEC;
+    QFile file("../stats/totalScaleStats.txt");
+    if(file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text))
+    {
+        QTextStream out(&file);
+        out << ";1|" << data.size() << "|" << timeTaken;
+    }
+    file.close();
 }

@@ -9,6 +9,7 @@
 #include <QScrollArea>
 #include <QWidget>
 #include <iostream>
+#include <QScrollBar>
 
 using namespace std;
 
@@ -32,6 +33,8 @@ private:
 public:
     ScalesListDisplay();
     void constructScalesFoundList(QVector<QVector<QString> > listFoundScales);
+    void setName(QString name);
+    void refresh();
 
 public slots:
     void saveScaleSlot();

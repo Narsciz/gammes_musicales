@@ -3,7 +3,6 @@
 ChordsListDisplay::ChordsListDisplay() : QGroupBox()
 {
     this->setTitle("Accords : ");
-    //this->setStyleSheet("background-color: rgb(255,255,255)");
     this->chordsLayout = new QGridLayout();
 
     this->chordsLayout->setAlignment(Qt::AlignTop);
@@ -12,8 +11,6 @@ ChordsListDisplay::ChordsListDisplay() : QGroupBox()
     this->setMinimumSize(446, 100);
     this->setContentsMargins(5, 5, 5, 5);
 
-
-    //this->setLayout(this->chordsLayout);
     this->scrollArea = new QScrollArea();
     this->baseLayout = new QVBoxLayout();
     this->scrolledWidget = new QWidget();
@@ -23,8 +20,6 @@ ChordsListDisplay::ChordsListDisplay() : QGroupBox()
     this->baseLayout->addWidget(scrollArea);
     this->scrollArea->setWidget(scrolledWidget);
     this->scrollArea->setWidgetResizable(true);
-    /*this->scrollArea->horizontalScrollBar()->setDisabled(true);
-    this->scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);*/
 }
 
 QVector<ChordDisplay*> ChordsListDisplay::getListChords()
@@ -79,7 +74,6 @@ void ChordsListDisplay::refresh()
         k++;
         i++;
     }
-    //this->scrolledWidget->setFixedHeight(93+(j*66));
 }
 void ChordsListDisplay::enableDeletingChords()
 {

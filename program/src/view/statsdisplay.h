@@ -12,6 +12,9 @@
 #include <QStringList>
 #include <QVector>
 #include <QFile>
+#include <iostream>
+
+using namespace std;
 
 class StatsDisplay : public QWidget
 {

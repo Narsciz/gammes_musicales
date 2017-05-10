@@ -1,7 +1,8 @@
 #include "scalesdisplay.h"
 
-ScalesDisplay::ScalesDisplay(QVector<QString> scaleList) : QGroupBox()
+ScalesDisplay::ScalesDisplay(QString name, QVector<QString> scaleList) : QGroupBox()
 {
+    this->setTitle(name);
     this->scalesLayout = new QGridLayout();
     this->scalesLayout->setAlignment(Qt::AlignTop);
     this->scalesLayout->setHorizontalSpacing(4);
@@ -11,13 +12,12 @@ ScalesDisplay::ScalesDisplay(QVector<QString> scaleList) : QGroupBox()
     }
     this->setLayout(scalesLayout);
 
-    this->setMinimumSize(400, 100);
-    this->setContentsMargins(1, 10, 1, 10);
+    //this->setMinimumSize(400, 100);
+    this->setContentsMargins(5, 5, 5, 5);
 
-    refresh();
 }
 
-void ScalesDisplay::refresh()
+void ScalesDisplay::refresh(int width)
 {
     int i=0;
     int j=0;
@@ -25,7 +25,7 @@ void ScalesDisplay::refresh()
     int nb = 0;
     while(i<this->scalesList.size())
     {
-        if((i*64)+80>this->width() && !nb)
+        if((i*64)+80>width && !nb)
         {
             nb = k;
             k = 0;

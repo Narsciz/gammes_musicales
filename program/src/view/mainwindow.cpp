@@ -261,7 +261,8 @@ void MainWindow::fillParametersLists(QVector<QString> listHSChords, QVector<QStr
   }
 void MainWindow::constructScaleFoundView(QVector<QVector<QString> > listFoundScales)
   {
-      this->sListDisplay->constructScalesFoundList(listFoundScales);
+    this->sListDisplay->constructScalesFoundList(listFoundScales);
+    this->sListDisplay->setName(QString::number(listFoundScales.size()) + " Gammes Trouvées");
   }
 ParametersDisplay* MainWindow::getParametersDisplay()
   {
@@ -271,6 +272,7 @@ ParametersDisplay* MainWindow::getParametersDisplay()
 void MainWindow::resizeEvent ( QResizeEvent * event )
     {
       this->cListDisplay->refresh();
+      this->sListDisplay->refresh();
     }
 
 void MainWindow::slotAddButton() //Ajoute lors de l'appuie sur le bouton "Ajouter", les choix d'accords courant au layout d'accords
@@ -315,24 +317,20 @@ void MainWindow::slotReturnButton()
       clearLayout(this->scalesLayout);
       constructScalesLayout();
   }
-
 void MainWindow::slotReinitializeButton()
   {
       clearLayout(this->chordsLayout);
       constructChordsLayout();
   }
-
 void MainWindow::slotParametersButton()
   {
     this->parametersWindow->show();
   }
-
 void MainWindow::slotNewFile()
   {
       clearLayout(this->mainLayout);
       constructLayout();
   }
-
 void MainWindow::slotImportFile()
   {
       QString filePath = openExplorer(1);
@@ -351,7 +349,6 @@ void MainWindow::slotImportFile()
 
       }
   }
-
 void MainWindow::slotSaveFile()
   {
       QString filePath = openExplorer(2);
@@ -409,7 +406,6 @@ void MainWindow::slotExportScale(QVector<QString> listScale)
     cout<<"Export Signal entered in MainWindow"<<endl<<flush;
    emit ExportScaleSignal(this->cListDisplay->getListChordsName(), listScale);
 }
-
 void MainWindow::slotStats()
 {
     StatsDisplay *stats = new StatsDisplay();

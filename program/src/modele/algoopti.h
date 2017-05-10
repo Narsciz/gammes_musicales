@@ -3,6 +3,10 @@
 
 #include "modele/abstractalgo.h"
 #include "modele/node.h"
+#include <time.h>
+#include <iomanip>
+#include <QFile>
+#include <QTextStream>
 
 class AlgoOpti : public AbstractAlgo
 {

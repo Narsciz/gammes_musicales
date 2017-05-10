@@ -10,6 +10,7 @@
 #include <QCheckBox>
 #include <QVector>
 #include <QString>
+#include <QPushButton>
 #include <iostream>
 class ParametersDisplay : public QWidget
 {
@@ -21,19 +22,19 @@ private :
     QHBoxLayout *parametersLayout;
     QRadioButton *lessScale;
     QRadioButton *lessNote;
+    QRadioButton *lessTotalScale;
 
     QGroupBox *algoBox;
     QHBoxLayout *algoLayout;
     QRadioButton *algoBrut;
+    QRadioButton *algoOmega;
     QRadioButton *algoOptiv1;
-
-    QGroupBox *allowedChordsBox;
-    QVBoxLayout *allowedChordsLayout;
-    QVector<QCheckBox*> listChords;
 
     QGroupBox *allowedScalesBox;
     QVBoxLayout *allowedScalesLayout;
     QVector<QCheckBox*> listScales;
+
+    QPushButton *validateButton;
 
 public:
     ParametersDisplay();
@@ -41,6 +42,10 @@ public:
     int getParameter();
     int getAlgo();
     QVector<QString> getlistAllowedHSscales();
+
+public slots:
+   void totalScaleSlot();
+   void validateSlot();
 };
 
 #endif // PARAMETERSDISPLAY_H

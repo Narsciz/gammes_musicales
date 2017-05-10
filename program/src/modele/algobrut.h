@@ -6,6 +6,10 @@
 #include "modele/algo.h"
 #include <iostream>
 #include "modele/abstractalgo.h"
+#include <time.h>
+#include <iomanip>
+#include <QFile>
+#include <QTextStream>
 
 class AlgoBrut : public AbstractAlgo
 {
