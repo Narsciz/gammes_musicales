@@ -19,6 +19,7 @@
 class Ut : public QObject
 {
     Q_OBJECT
+
 private:
     AbstractAlgo * algo=new AlgoBrut();
     std::thread algoThread;

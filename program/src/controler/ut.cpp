@@ -177,21 +177,23 @@ void Ut::join()
             break;
         }
 
-        /**** thread manière 1 *****/
-//detach enlève le lien entre l'objet algoThread et la fonction callThread du modèle, ça permet d'autoriser plusieurs générations d'accords en même temps
-//et ça évite que le programme plante si on quitte le programme sans que tous les threads aient fini de s'éxécuter
-//mais même si on peut lancer plusieurs générations en même temps, seulement les résultats de la dernière pourront être extraites, donc ça sert à rien de spammer le bouton générer (à part si on veut bouffer toute la ram de l'ordi)
-//si c'était possible de plutôt stopper un thread de manière simple, ce serait sûrement mieux, mais c'est compliqué apparemment...
-//du coup il faut appuyer sur le bouton afficher quand l'algo finit pour avoir le résultat
-//fonctionnerait sans bouton afficher si on autorisait le modèle à envoyer un message au controler (appel de fonction ou directement signal) quand l'algo termine
-        //algoThread.detach();
+    /**** thread manière 1 *****/
+    //detach enlève le lien entre l'objet algoThread et la fonction callThread du modèle, ça permet d'autoriser plusieurs générations d'accords en même temps
+    //et ça évite que le programme plante si on quitte le programme sans que tous les threads aient fini de s'éxécuter
+    //mais même si on peut lancer plusieurs générations en même temps, seulement les résultats de la dernière pourront être extraites, donc ça sert à rien de spammer le bouton générer (à part si on veut bouffer toute la ram de l'ordi)
+    //si c'était possible de plutôt stopper un thread de manière simple, ce serait sûrement mieux, mais c'est compliqué apparemment...
+    //du coup il faut appuyer sur le bouton afficher quand l'algo finit pour avoir le résultat
+    //fonctionnerait sans bouton afficher si on autorisait le modèle à envoyer un message au controler (appel de fonction ou directement signal) quand l'algo termine
+    //algoThread.detach();
 
 
-        /*** thread manière 2 ******/
-//joinThread est un autre thread qui attend que algoThread finisse (avec un join sur algoThread) et quand il a fini, il emet le signal d'afficher le résultat (displaySignal)
-//il faut le détacher parce qu'on pourra jamais le réutiliser sinon
-//marche bien, mais il faut pas oublier de détacher algoThread aussi plus haut
-        std::thread(Ut::join,this).detach();
+    /*** thread manière 2 ******/
+    //joinThread est un autre thread qui attend que algoThread finisse (avec un join sur algoThread) et quand il a fini, il emet le signal d'afficher le résultat (displaySignal)
+    //il faut le détacher parce qu'on pourra jamais le réutiliser sinon
+    //marche bien, mais il faut pas oublier de détacher algoThread aussi plus haut
+        Ut* ut = this;
+
+        std::thread(&Ut::join, ut).detach();
 
     w->constructScaleFoundView(convertScaleToString(algo->getResults()));
      }

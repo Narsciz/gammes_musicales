@@ -13,7 +13,6 @@ TARGET = UtProject
 TEMPLATE = app
 CONFIG += console
 
-
 SOURCES += main.cpp\
         view/mainwindow.cpp \
     modele/chord.cpp \

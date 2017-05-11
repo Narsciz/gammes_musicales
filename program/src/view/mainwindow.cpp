@@ -7,8 +7,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 
     this->setWindowTitle("Ut");
     this->setMinimumSize(540, 480);
-    QIcon icon("../assets/pictures/cle.png");
-    this->setWindowIcon(icon);
+//    QIcon icon("../assets/pictures/cle.png");
+//    this->setWindowIcon(icon);
 
     this->mainLayout = new QGridLayout();
     this->ui->centralWidget->setLayout(this->mainLayout);

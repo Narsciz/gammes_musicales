@@ -26,11 +26,12 @@ void AbstractAlgo::filterAllowedChordsInK()
     filteredKpartiteGraph.clear();
     vector<Scale*> ligne;
 
-    for (size_t i=0;i<KpartiteGraph.size();i++)
+    for (size_t i = 0; i < KpartiteGraph.size(); i++)
     {
-        for (size_t j=0;j<KpartiteGraph[i].size();j++)
-            if (isScaleInScales(KpartiteGraph[i][j],allowedScales))
+        for (size_t j=0; j < KpartiteGraph[i].size(); j++)
+            if (isScaleInScales(KpartiteGraph[i][j], allowedScales))
                 ligne.push_back(KpartiteGraph[i][j]);
+
         filteredKpartiteGraph.push_back(ligne);
         ligne.clear();
     }
@@ -39,15 +40,15 @@ void AbstractAlgo::filterAllowedChordsInK()
 
 void AbstractAlgo::callConsecutivesNotesChangesInThread(std::thread& algoThread)
 {
-    algoThread=thread(AbstractAlgo::findLeastsConsecutivesNotesChanges,this);
+    algoThread = thread(&AbstractAlgo::findLeastsConsecutivesNotesChanges, this);
 }
 
 void AbstractAlgo::callConsecutivesScalesChangesInThread(std::thread& algoThread)
 {
-    algoThread=thread(AbstractAlgo::findLeastsConsecutivesScalesChanges,this);
+    algoThread = thread(&AbstractAlgo::findLeastsConsecutivesScalesChanges, this);
 }
 
 void AbstractAlgo::callTotalScalesInThread(std::thread& algoThread)
 {
-    algoThread=thread(AbstractAlgo::findLeastsTotalScales,this);
+    algoThread = thread(&AbstractAlgo::findLeastsTotalScales, this);
 }

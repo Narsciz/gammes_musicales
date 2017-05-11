@@ -5,6 +5,7 @@
 #include <QMenu>
 #include <iostream>
 #include <QDebug>
+#include<QStyleFactory>
 #include "modele/algobrutomega.h"
 #include "modele/algo.h"
 #include "test/testfunctions.h"
