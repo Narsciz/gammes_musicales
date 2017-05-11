@@ -1,7 +1,4 @@
 #include "algoopti.h"
-#include <time.h>
-#include <iomanip>
-#include "./test/testfunctions.h"
 
 using namespace std;
 
@@ -22,11 +19,13 @@ void AlgoOpti::findLeastsConsecutivesNotesChanges()
 
     double timeTaken = (double)(clock() - tStart)/CLOCKS_PER_SEC;
     QFile file("../stats/noteStats.txt");
+
     if(file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text))
     {
         QTextStream out(&file);
         out << ";3|" << data.size() << "|" << timeTaken;
     }
+
     file.close();
 }
 
@@ -87,7 +86,6 @@ void AlgoOpti::setLimit(int l)
 
 void AlgoOpti::calculatePCCs(string ponderation)
 {
-    clock_t tStart = clock();
 
     // indice de la k-partie contenant les voisins d'un sommet
     int neighbours;
@@ -106,8 +104,6 @@ void AlgoOpti::calculatePCCs(string ponderation)
         }
     }
 
-    cout << "Time taken for " << setiosflags(ios::fixed) << setprecision(4) << (double)(clock() - tStart)/CLOCKS_PER_SEC << " secs."
-            << endl << flush;
 }
 
 vector<vector<Node*> > AlgoOpti::KpartitesToGAKO(vector<vector<Scale*> > Kpartite)
@@ -146,8 +142,8 @@ int AlgoOpti::ponderation(Node* u, Node* v, string type)
 
     // fonction de ponderation binaire
     if(type == "binary") {
-        if  (u->g!=NULL && v->g!=NULL)
-            return (u->getScale()->equals(v->getScale())) ? 1 : 0;
+        if  (u->g != NULL && v->g != NULL)
+            return (u->getScale()->equals(v->getScale())) ? 0 : 1;
         else return 0;
 
     }

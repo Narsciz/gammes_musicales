@@ -7,6 +7,9 @@
 #include <iomanip>
 #include <QFile>
 #include <QTextStream>
+#include <time.h>
+#include <iomanip>
+#include "./test/testfunctions.h"
 
 class AlgoOpti : public AbstractAlgo
 {

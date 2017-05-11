@@ -10,18 +10,23 @@ CS::CS(Note f2, HarmonicStructure *hs2){
     hs = hs2;
 }
 
-QString CS::getName(){return noteToString(f)+":"+hs->getName();}
+QString CS::getName(){
+    return noteToString(f) + ":" + hs->getName();
+}
 
 vector<Note> CS::getNotes(){
+
     vector<Note> n;
-    int increment=0;
+    int increment = 0;
     int noteSuivante;
     n.push_back(f);
-    for(size_t i=0;i<hs->getIntervals().size();i++){
-        increment+=hs->getIntervals()[i];
-        noteSuivante=(f+increment)%12;
+
+    for(size_t i = 0; i < hs->getIntervals().size(); i++){
+        increment += hs->getIntervals()[i];
+        noteSuivante = (f+increment) % 12;
         n.push_back((Note)noteSuivante);
     }
+
     return n;
 }
 
