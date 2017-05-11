@@ -8,10 +8,10 @@
 #include <QIcon>
 #include <QString>
 
-#include <QWindow>
 #include <QScreen>
 
 #include <modele/chord.h>
+#include "view/chordsview.h"
 
 class ChordDisplay : public QGroupBox
 {
@@ -21,10 +21,10 @@ private:
     QGridLayout *boxLayout;
     QPushButton *deleteButton;
     QPushButton *viewButton;
-    QWindow *view;
     QLabel *chordName;
     QString note;
     QString hs;
+    ChordsView *chordsView;
 
 public:
     ChordDisplay(QString note, QString sh);

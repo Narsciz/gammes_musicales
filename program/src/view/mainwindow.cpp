@@ -64,7 +64,6 @@ void MainWindow::constructMenuBar()
      this->setMenuBar(menuBar);
  }
 
-
 void MainWindow::constructLayout()
   {
       this->mainLayout->setAlignment(Qt::AlignTop);
@@ -147,7 +146,6 @@ void MainWindow::constructChoicesLayout()
       this->choicesLayout->addWidget(new QLabel(), 1, 5, 1, 1);
       this->choicesLayout->addWidget(this->generateButton, 1, 6, 1, 1);
  }
-
 
 void MainWindow::constructScalesLayout()
   {

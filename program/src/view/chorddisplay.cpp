@@ -22,8 +22,8 @@ ChordDisplay::ChordDisplay(QString note, QString hs) : QGroupBox()
     this->viewButton = new QPushButton();
     this->viewButton->setIcon(iconView);
     this->viewButton->setFixedSize(20, 20);
-    //QObject::connect(this->viewButton, SIGNAL(pressed()), this, SLOT(slotOpenView()));
-    //QObject::connect(this->viewButton, SIGNAL(released()), this, SLOT(slotCloseView()));
+    QObject::connect(this->viewButton, SIGNAL(pressed()), this, SLOT(slotOpenView()));
+    QObject::connect(this->viewButton, SIGNAL(released()), this, SLOT(slotCloseView()));
 
     this->note = note;
     this->hs = hs;
@@ -99,9 +99,10 @@ void ChordDisplay::slotDeleteButton()
 }
 void ChordDisplay::slotOpenView()
 {
-    //this->view->show();
+    chordsView = new ChordsView(chordName->text());
+    chordsView->show();
 }
 void ChordDisplay::slotCloseView()
 {
-    //this->view->close();
+    chordsView->close();
 }
