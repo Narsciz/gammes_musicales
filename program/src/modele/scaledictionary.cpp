@@ -52,9 +52,11 @@ void ScaleDictionary::generateBaseScale()
 
 
 HSScale* ScaleDictionary::getHSbyName(QString s){
-    for (size_t i=0;i<scales.size();i++)
-        if (scales[i]->getName()==s)
+
+    for (size_t i = 0; i < scales.size(); i++)
+        if (scales[i]->getName() == s)
             return scales[i];
+
     return NULL;
 }
 
@@ -67,20 +69,24 @@ QVector<QString> ScaleDictionary::getHSnames(){
 
 ScaleDictionary *ScaleDictionary::getInstance()
 {
-    if (INSTANCE==NULL)
-        INSTANCE=new ScaleDictionary;
+    if (INSTANCE == NULL)
+        INSTANCE = new ScaleDictionary;
     return INSTANCE;
 }
 
 vector<Scale*> ScaleDictionary::getAllScales()
 {
     vector<Scale*> res;
-    for (size_t i=0;i<scales.size();i++)
-        for (int j=0;j<12;j++)
-            res.push_back(new Scale((Note)j,scales[i]));
+    for (size_t i = 0; i<scales.size(); i++)
+        for (int j = 0; j < 12; j++)
+            res.push_back(new Scale((Note)j, scales[i]));
     return res;
 
 }
 
-void ScaleDictionary::add(HSScale *h){if (!contains(h)) scales.push_back(h);}
-ScaleDictionary *ScaleDictionary::INSTANCE=NULL;
+void ScaleDictionary::add(HSScale *h) {
+    if (!contains(h))
+        scales.push_back(h);
+}
+
+ScaleDictionary *ScaleDictionary::INSTANCE = NULL;

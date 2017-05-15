@@ -3,15 +3,19 @@
 #include "chorddictionary.h"
 #include <stdexcept>
 #include <iostream>
+
 using namespace std;
 
-CS::CS(Note f2, HarmonicStructure *hs2){
+CS::CS(Note f2, HarmonicStructure *hs2) {
+
     f = f2;
     hs = hs2;
 }
 
-QString CS::getName(){
+QString CS::getName() {
+
     return noteToString(f) + ":" + hs->getName();
+
 }
 
 vector<Note> CS::getNotes(){
@@ -23,8 +27,8 @@ vector<Note> CS::getNotes(){
 
     for(size_t i = 0; i < hs->getIntervals().size(); i++){
         increment += hs->getIntervals()[i];
-        noteSuivante = (f+increment) % 12;
-        n.push_back((Note)noteSuivante);
+        noteSuivante = (f + increment) % 12;
+        n.push_back((Note) noteSuivante);
     }
 
     return n;
@@ -66,6 +70,9 @@ bool CS::isContainedIn(CS* c){//si une note de this n'est pas dans c, return fal
 
 }
 
+// comparaison entre 2 gammes/accords, on comparera seulement les noms de HS et de la fondamentale dans un souci de performance,
+// donc il faut faire gaffe à ce qu'il y ait jamais deux structures harmoniques identiques avec des noms différents,
+// et jamais deux HS différentes avec un même nom (faudra sûrement géré ça dans les dicos)
 bool CS::equals(CS * cs)
 {
     if (cs->getF()==getF() && cs->getHS()->getName()==getHS()->getName())
@@ -73,6 +80,8 @@ bool CS::equals(CS * cs)
     else return false;
 }
 
+// bon, du coup j'ai mis cette fonction aussi qui compare les notes plutôt, moins performant,
+// mais on est sûr de les comparer correctement
 bool CS::sameNotes(CS * cs)
 {
     vector<Note> notes1 = getNotes();

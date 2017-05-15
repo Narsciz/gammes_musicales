@@ -16,9 +16,10 @@ Scale::Scale(QString name) {
     f = stringToNote(splittedName[0]);
 
     HarmonicStructure *hs2;
+
     if ((hs2 = ScaleDictionary::getInstance()->getHSbyName(splittedName[1])) != NULL)
         hs = hs2;
-    else hs = NULL;
+    else throw std::out_of_range("out of range");
 
 }
 

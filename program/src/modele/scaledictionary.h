@@ -5,6 +5,8 @@
 #include "modele/hsscale.h"
 #include "modele/scale.h"
 #include <QVector>
+#include <iostream>
+
 class ScaleDictionary
 {
 private:
