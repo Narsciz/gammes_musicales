@@ -16,7 +16,7 @@ Ut::Ut(MainWindow *w)
 
 
     w->fillComboBoxHS(ChordDictionary::getInstance()->getHSnames());
-    w->fillParametersLists(ChordDictionary::getInstance()->getHSnames(), ScaleDictionary::getInstance()->getHSnames());
+    w->fillParametersLists(ScaleDictionary::getInstance()->getHSnames());
 }
 
 
@@ -155,6 +155,7 @@ void Ut::join()
             break;
         case 2:
             algo = new AlgoOpti(listChords, ScaleDictionary::getInstance()->getScalesByTypes(parametres->getlistAllowedHSscales()));
+            algo->setLimit(parametres->getLimit()-1);
             break;
         case 3:
             algo = new AlgoBrut(listChords, ScaleDictionary::getInstance()->getScalesByTypes(parametres->getlistAllowedHSscales()));

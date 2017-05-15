@@ -11,6 +11,8 @@
 #include <QVector>
 #include <QString>
 #include <QPushButton>
+#include <QSpinBox>
+#include <QLabel>
 #include <iostream>
 class ParametersDisplay : public QWidget
 {
@@ -34,13 +36,17 @@ private :
     QVBoxLayout *allowedScalesLayout;
     QVector<QCheckBox*> listScales;
 
+    QLabel *maxSolutionLabel;
+    QSpinBox *maxSolutionDisplayed;
+
     QPushButton *validateButton;
 
 public:
     ParametersDisplay();
-    void fillLists(QVector<QString> listHSChords, QVector<QString> listHSScales);
+    void fillLists(QVector<QString> listHSScales);
     int getParameter();
     int getAlgo();
+    int getLimit();
     QVector<QString> getlistAllowedHSscales();
 
 public slots:
