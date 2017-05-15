@@ -59,24 +59,38 @@ string scaleXML(Scale s){
 }
 
 //Create a QString XML Midi encoding for the chord c
-string chordXML(Chord c){
+string chordXML(Chord c) {
     string r;
+
     for(Note n : c.getNotes()){
-        r+=(string)("<note>\n<pitch>\n<step>"+note_To_String(n)+"</step>\n<octave>4</octave>\n</pitch>\n<duration>4</duration>\n<type>whole</type>\n</note>\n");
+        r += (string)("<note>\n<pitch>\n<step>"
+                      + note_To_String(n) +
+                      "</step>\n<octave>4</octave>\n</pitch>\n<duration>4</duration>\n<type>whole</type>\n</note>\n");
     }
+
     return r;
 }
 
 //Create and save a XML Midi file path.xml for v, one of the solutions found by the main algorithm.
-string exportMusicXML(vector<Scale*> v1,vector<Chord*> v2)
+string exportMusicXML(vector<Scale*> v1, vector<Chord*> v2)
 {
-    int i=1;
+    int i = 1;
     //XML Header
-    string content=(string)("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE score-partwise PUBLIC \"-//Recordare//DTD MusicXML 3.0 Partwise//EN\" \"http://www.musicxml.org/dtds/partwise.dtd\">\n<score-partwise version=\"3.0\">");
+    string content = (string)("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE score-partwise PUBLIC \"-//Recordare//DTD MusicXML 3.0 Partwise//EN\" \"http://www.musicxml.org/dtds/partwise.dtd\">\n<score-partwise version=\"3.0\">");
+
     //Part List
-    content+=(string)("\n<part-list>\n<score-part id=\"P"+to_string(1)+"\">\n<part-name>Part "+to_string(1)+"</part-name>\n</score-part><score-part id=\"P"+to_string(2)+"\">\n<part-name>Part "+to_string(2)+"</part-name>\n</score-part>\n</part-list>");
+    content += (string)("\n<part-list>\n" +
+                            "<score-part id=\"P" + to_string(1) + "\">\n" +
+                                "<part-name>Part " + to_string(1) + "</part-name>\n" +
+                            "</score-part>\n" +
+                            "<score-part id=\"P" + to_string(2) + "\">\n" +
+                                "<part-name>Part " + to_string(2) + "</part-name>\n" +
+                            "</score-part>\n" +
+                        "</part-list>");
+
     //XML Header for the scale part
-    content+=(string)("\n<part id=\"P"+to_string(1)+"\">");
+    content += (string)("\n<part id=\"P" + to_string(1) + "\">");
+
     //XML Header for each scale
     for(Scale* s : v1)
     {
@@ -87,6 +101,7 @@ string exportMusicXML(vector<Scale*> v1,vector<Chord*> v2)
 
     //XML Header for the chord part
     content+=(string)("\n<part id=\"P"+to_string(2)+"\">");
+
     //XML Header for each scale
     for(Chord* c : v2)
     {
@@ -96,5 +111,6 @@ string exportMusicXML(vector<Scale*> v1,vector<Chord*> v2)
     content+=(string)("\n</part>");
 
     content+="\n</score-partwise>";
+
     return content;
 }
