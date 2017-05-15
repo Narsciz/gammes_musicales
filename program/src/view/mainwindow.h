@@ -89,7 +89,7 @@ public:
     void saveFile(QString filePath, QString fileContent);
     void resizeEvent ( QResizeEvent * event );
     void fillComboBoxHS(QVector<QString> listHS);
-    void fillParametersLists(QVector<QString> listHSChords, QVector<QString> listHSScales);
+    void fillParametersLists(QVector<QString> listHSScales);
     void constructScaleFoundView(QVector<QVector<QString> > listFoundScales);
     ParametersDisplay *getParametersDisplay();
     void goToResultsInterface();

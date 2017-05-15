@@ -29,7 +29,7 @@ void ScalesListDisplay::constructScalesFoundList(QVector<QVector<QString> > list
 {
     for(int i=0; i< listFoundScales.size(); i++)
     {
-        this->listScales.push_back(new ScalesDisplay("Gamme " + QString::number(i+1), listFoundScales[i]));
+        this->listScales.push_back(new ScalesDisplay("Solution " + QString::number(i+1), listFoundScales[i]));
         this->listSaveButtons.push_back(new QPushButton("Enregistrer"));
         connect(listSaveButtons[i], SIGNAL(clicked()), this, SLOT(saveScaleSlot()));
         this->listExportButtons.push_back(new QPushButton("Exporter"));

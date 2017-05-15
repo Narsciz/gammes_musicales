@@ -130,7 +130,7 @@ void MainWindow::constructChoicesLayout()
       this->addButton = new QPushButton("Ajouter", this);
       QObject::connect(this->addButton, SIGNAL(clicked()), this, SLOT(slotAddButton()));
 
-      this->parametersButton = new QPushButton("Paramètres avancés");
+      this->parametersButton = new QPushButton("Paramètres de Calcul");
       QObject::connect(this->parametersButton, SIGNAL(clicked()), this, SLOT(slotParametersButton()));
 
       this->generateButton = new QPushButton("Générer");
@@ -253,14 +253,14 @@ void MainWindow::fillComboBoxHS(QVector<QString> listHS)
       }
   }
 
-void MainWindow::fillParametersLists(QVector<QString> listHSChords, QVector<QString> listHSScales)
+void MainWindow::fillParametersLists(QVector<QString> listHSScales)
   {
-      this->parametersWindow->fillLists(listHSChords, listHSScales);
+      this->parametersWindow->fillLists(listHSScales);
   }
 void MainWindow::constructScaleFoundView(QVector<QVector<QString> > listFoundScales)
   {
     this->sListDisplay->constructScalesFoundList(listFoundScales);
-    this->sListDisplay->setName(QString::number(listFoundScales.size()) + " Gammes Trouvées");
+    this->sListDisplay->setName(QString::number(listFoundScales.size()) + " Solutions Trouvées");
   }
 ParametersDisplay* MainWindow::getParametersDisplay()
   {

@@ -9,8 +9,8 @@ ParametersDisplay::ParametersDisplay() : QWidget()
 
     this->parametersBox = new QGroupBox("Paramètre de recherche");
     this->parametersLayout = new QHBoxLayout();
-    this->lessScale = new QRadioButton("Le moins de changement de gammes entre deux gammes consécutives");
-    this->lessNote = new QRadioButton("Le moins de changement de notes entre deux gammes consécutives");
+    this->lessScale = new QRadioButton("Le moins de changement de gammes");
+    this->lessNote = new QRadioButton("Le moins de changement de notes entre gammes consécutives");
     this->lessTotalScale = new QRadioButton("Le moins de gammes au total");
     this->lessScale->setChecked(true);
     this->parametersLayout->addWidget(this->lessScale);
@@ -32,6 +32,13 @@ ParametersDisplay::ParametersDisplay() : QWidget()
     this->algoLayout->addWidget(this->algoOptiv1);
     this->algoBox->setLayout(this->algoLayout);
 
+    this->maxSolutionLabel = new QLabel("Nombre de Solutions Affichées : ");
+    this->maxSolutionLabel->setHidden(true);
+    this->maxSolutionDisplayed = new QSpinBox();
+    this->maxSolutionDisplayed->setRange(1, 200);
+    this->maxSolutionDisplayed->setValue(200);
+    this->maxSolutionDisplayed->setHidden(true);
+
     this->allowedScalesBox = new QGroupBox("Gammes autorisées");
     this->allowedScalesLayout = new QVBoxLayout();
     this->allowedScalesLayout->setAlignment(Qt::AlignTop);
@@ -42,8 +49,10 @@ ParametersDisplay::ParametersDisplay() : QWidget()
 
     this->mainLayout->addWidget(parametersBox, 0, 0, 1, 3);
     this->mainLayout->addWidget(algoBox, 1, 0, 1, 3);
-    this->mainLayout->addWidget(allowedScalesBox, 2, 0, 1, 3);
-    this->mainLayout->addWidget(validateButton, 3, 1, 1, 1);
+    this->mainLayout->addWidget(maxSolutionLabel, 2, 0, 1, 1);
+    this->mainLayout->addWidget(maxSolutionDisplayed, 2, 1, 1, 1);
+    this->mainLayout->addWidget(allowedScalesBox, 3, 0, 1, 3);
+    this->mainLayout->addWidget(validateButton, 4, 1, 1, 1);
 
     this->setLayout(this->mainLayout);
     this->setWindowTitle("Paramètres");
@@ -51,12 +60,13 @@ ParametersDisplay::ParametersDisplay() : QWidget()
     this->setWindowFlags(Qt::WindowStaysOnTopHint);
 }
 
-void ParametersDisplay::fillLists(QVector<QString> listHSChords, QVector<QString> listHSScales)
+void ParametersDisplay::fillLists(QVector<QString> listHSScales)
 {
     for(int i = 0; i < listHSScales.size(); i++)
     {
         this->listScales.push_back(new QCheckBox(listHSScales[i]));
-        this->listScales.last()->setChecked(true);
+        if(this->listScales.last()->text() == "M" || this->listScales.last()->text() == "m")
+            this->listScales.last()->setChecked(true);
         this->allowedScalesLayout->addWidget(this->listScales.last());
     }
 }
@@ -83,6 +93,11 @@ int ParametersDisplay::getAlgo()
         res = 3;
     return res;
 }
+int ParametersDisplay::getLimit()
+{
+    return this->maxSolutionDisplayed->value();
+}
+
 QVector<QString> ParametersDisplay::getlistAllowedHSscales()
 {
 
@@ -106,9 +121,15 @@ void ParametersDisplay::totalScaleSlot()
         if(lessTotalScale->isChecked())
             lessScale->setChecked(true);
         lessTotalScale->setDisabled(true);
+        this->maxSolutionLabel->setHidden(false);
+        this->maxSolutionDisplayed->setHidden(false);
     }
     else
+    {
         lessTotalScale->setDisabled(false);
+        this->maxSolutionLabel->setHidden(true);
+        this->maxSolutionDisplayed->setHidden(true);
+    }
 }
 
 void ParametersDisplay::validateSlot()
