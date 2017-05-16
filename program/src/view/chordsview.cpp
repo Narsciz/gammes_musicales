@@ -16,8 +16,19 @@ ChordsView::ChordsView(QString chordName, bool isChord) : QFrame()
         this->setStyleSheet("border: 1px solid black; border-radius:15px;");
     }
 
-    Chord chord(chordName);
-    vector<Note> notesList = chord.getNotes();
+    CS chord;
+    vector<Note> notesList;
+
+    if(isChord)
+    {
+        chord = Chord(chordName);
+        notesList = chord.getNotes();
+    }
+    else
+    {
+        chord = Scale(chordName);
+        notesList = chord.getNotes();
+    }
     QVector<Note> sortedNotes = notesSort(notesList);
     QStringList debug = noteToString(sortedNotes);
 
@@ -455,6 +466,7 @@ void ChordsView::constructScalePictureDisplay(QStringList listNote)
 
     for(int i = 0; i<listNote.size(); i++)
     {
+        this->notesName->setText(this->notesName->text() + listNote[i] + " ");
         if(listNote[i] == "E")
         {
             this->picturesDisplay.push_back(new QLabel());

@@ -12,6 +12,8 @@ ScaleDisplay::ScaleDisplay(QString name) : QGroupBox()
     this->viewButton = new QPushButton();
     this->viewButton->setIcon(iconView);
     this->viewButton->setFixedSize(20, 20);
+    QObject::connect(this->viewButton, SIGNAL(pressed()), this, SLOT(slotOpenView()));
+    QObject::connect(this->viewButton, SIGNAL(released()), this, SLOT(slotCloseView()));
 
     this->scaleName = new QLabel(name);
     this->scaleName->setFixedSize(58, 37);
@@ -33,4 +35,14 @@ QString ScaleDisplay::getName()
 QString ScaleDisplay::getAlias()
 {
     return this->scaleAlias->text();
+}
+
+void ScaleDisplay::slotOpenView()
+{
+    scaleView = new ChordsView(scaleName->text(), false);
+    scaleView->show();
+}
+void ScaleDisplay::slotCloseView()
+{
+    scaleView->close();
 }

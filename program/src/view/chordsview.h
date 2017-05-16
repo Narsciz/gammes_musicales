@@ -12,6 +12,7 @@
 #include <QVBoxLayout>
 #include <QLabel>
 #include <QVector>
+#include <modele/cs.h>
 
 #include "modele/chord.h"
 
