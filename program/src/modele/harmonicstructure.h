@@ -19,6 +19,8 @@ public:
 
     std::vector<int> getIntervals();
     QString getName();
+    QString getAlias();
+
 };
 
 #endif // HARMONICSTRUCTURE_H

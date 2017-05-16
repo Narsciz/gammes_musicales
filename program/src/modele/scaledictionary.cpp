@@ -27,27 +27,18 @@ vector<Scale*> ScaleDictionary::getScalesByTypes(QVector<QString> hsScales)
 
 void ScaleDictionary::generateBaseScale()
 {
-    /*getInstance()->add(new HSScale("Aéolien",{2,1,2,2,1,2}));
-    getInstance()->add(new HSScale("Aélien(b5)",{2,1,2,1,2,2}));
-    getInstance()->add(new HSScale("Altéré superlocrien",{1,2,1,2,2}));
-    getInstance()->add(new HSScale("Arabe",{2,2,1,1,2}));
-    getInstance()->add(new HSScale("Bartock",{2,2,2,1,2,1}));
-    getInstance()->add(new HSScale("Blues(heptatonique)",{3,2,1,1,3,1}));
-    getInstance()->add(new HSScale("Demi-ton tons sans sixte",{1,2,1,2,1,3}));
-    getInstance()->add(new HSScale("Dorien",{2,1,2,2,2,1}));
-    getInstance()->add(new HSScale("Enigmatique",{1,3,2,2,2,1}));
-    getInstance()->add(new HSScale("Espagnole(première forme)",{1,3,2,2,2,1}));
-    getInstance()->add(new HSScale("Gitane",{1,3,1,2,2,1}));
-    getInstance()->add(new HSScale("Gypsy",{1,3,1,2,1,3}));
-    getInstance()->add(new HSScale("Hindou",{2,2,1,2,1,2}));*/
-    getInstance()->add(new HSScale("m",{2,1,2,2,1,3}, "Mineure harmonique"));
-    getInstance()->add(new HSScale("mm",{2,1,2,2,2,2}, "Mineure mélodique"));
-    getInstance()->add(new HSScale("M",{2,2,1,2,2,2}, "Majeure"));
-    getInstance()->add(new HSScale("Pm",{3, 2, 2, 3}, "Pentatonique mineure"));
+    /**/
+    getInstance()->add(new HSScale("mh", {2, 1, 2, 2, 1, 3}, "Mineure harmonique"));
+    getInstance()->add(new HSScale("mm", {2, 1, 2, 2, 2, 2}, "Mineure mélodique"));
+    getInstance()->add(new HSScale("M", {2, 2, 1, 2, 2, 2}, "Majeure"));
+    getInstance()->add(new HSScale("Pm", {3, 2, 2, 3}, "Pentatonique mineure"));
+    getInstance()->add(new HSScale("Pb", {3, 2, 1, 1, 3}, "Pentatonique blues"));
+    getInstance()->add(new HSScale("PM", {2, 2, 3, 2}, "Pentatonique majeure"));
+    getInstance()->add(new HSScale("Egpt", {2, 1, 3, 1, 1, 3}, "Egyptienne"));
+    getInstance()->add(new HSScale("Btk", {2, 2, 2, 1, 2, 1}, "Bartok"));
+    getInstance()->add(new HSScale("Ton", {2, 2, 2, 2, 2}, "Par ton"));
+    getInstance()->add(new HSScale("Dim", {1, 2, 1, 2, 1, 2, 1}, "Diminuee"));
 
-
-
-    //http://www.solfego.fr/toutes-les-gammes.htm
 }
 
 

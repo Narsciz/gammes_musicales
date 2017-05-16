@@ -20,6 +20,7 @@ public:
     std::vector<Note> getNotes();
 
     QString getName();
+    QString getAlias();
 
     Note getF();
     void setF(Note f2);

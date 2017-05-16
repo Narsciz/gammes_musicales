@@ -135,13 +135,13 @@ string generateScalePartMeasure(Scale* s, int measureNumber) {
             measureXML += generateScalePartNote(notesFromScale[index], true, "eighth", "1",
                                                 notesFromScale[index],
                                                 precedingNoteOctave,
-                                                s->getName().toStdString());
+                                                s->getAlias().toStdString());
         }
         else {
             measureXML += generateScalePartNote(notesFromScale[index], false, "eighth", "1",
                                                 precedingNote,
                                                 precedingNoteOctave,
-                                                s->getName().toStdString());
+                                                s->getAlias().toStdString());
         }
 
         precedingNote = notesFromScale[index];

@@ -13,3 +13,7 @@ vector<int> HarmonicStructure::getIntervals() {
 QString HarmonicStructure::getName(){
     return name;
 }
+
+QString HarmonicStructure::getAlias() {
+    return alias;
+}

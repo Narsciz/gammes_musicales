@@ -18,6 +18,11 @@ QString CS::getName() {
 
 }
 
+QString CS::getAlias() {
+
+    return noteToString(f) + " " + hs->getAlias();
+}
+
 vector<Note> CS::getNotes(){
 
     vector<Note> n;
