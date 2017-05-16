@@ -25,9 +25,11 @@ Chord::Chord(QString name){
 vector<Scale*> Chord::candidatesScales()
 {
     vector<Scale*> res;
-    vector<Scale*> searching_set=ScaleDictionary::getInstance()->getAllScales();
-    for (size_t i=0;i<searching_set.size();i++)
+    vector<Scale*> searching_set = ScaleDictionary::getInstance()->getAllScales();
+
+    for (size_t i = 0; i < searching_set.size(); i++)
         if (this->isContainedIn(searching_set[i]))
             res.push_back(searching_set[i]);
+
     return res;
 }

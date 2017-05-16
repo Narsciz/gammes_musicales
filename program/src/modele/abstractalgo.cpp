@@ -32,7 +32,9 @@ void AbstractAlgo::filterAllowedChordsInK()
             if (isScaleInScales(KpartiteGraph[i][j], allowedScales))
                 ligne.push_back(KpartiteGraph[i][j]);
 
-        filteredKpartiteGraph.push_back(ligne);
+        if (ligne.size() > 0)
+            filteredKpartiteGraph.push_back(ligne);
+
         ligne.clear();
     }
 

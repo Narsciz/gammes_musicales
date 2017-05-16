@@ -52,6 +52,7 @@ void ChordDictionary::generateBaseChords()
     getInstance()->add(new HSChord("7(b9)",{1,3,3,3}));
     getInstance()->add(new HSChord("7(b5)",{4,2,4}));
     getInstance()->add(new HSChord("7(#5)",{4,4,2}));
+    getInstance()->add(new HSChord("full", {1, 1, 1, 1, 1, 1, 1, 1, 1, 1}));
 
 }
 

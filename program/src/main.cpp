@@ -9,6 +9,7 @@
 #include "modele/algobrutomega.h"
 #include "modele/algo.h"
 #include "test/testfunctions.h"
+#include "modele/export.h"
 
 using namespace std;
 
@@ -35,6 +36,16 @@ int main(int argc, char *argv[])
 
     Ut controler(window);
     window->show();
+
+//    ScaleDictionary::getInstance()->generateBaseScale();
+//    vector<Scale*> scaleVector;
+
+//    scaleVector.push_back(new Scale("C:M"));
+//    scaleVector.push_back(new Scale("C:M"));
+//    scaleVector.push_back(new Scale("C:M"));
+//    scaleVector.push_back(new Scale("C:M"));
+
+//    generateScalePart(scaleVector);
 
     return app.exec();
 }

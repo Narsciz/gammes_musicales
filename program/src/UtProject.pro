@@ -41,6 +41,7 @@ SOURCES += main.cpp\
     view/statsdisplay.cpp \
     view/chordsview.cpp \
     view/addchordsscalesview.cpp
+    modele/export.cpp
 
 HEADERS  += view/mainwindow.h \
     modele/chord.h \
@@ -70,6 +71,7 @@ HEADERS  += view/mainwindow.h \
     view/statsdisplay.h \
     view/chordsview.h \
     view/addchordsscalesview.h
+    modele/export.h
 
 FORMS  += view/mainwindow.ui
 

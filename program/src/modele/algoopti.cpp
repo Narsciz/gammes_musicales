@@ -4,7 +4,11 @@ using namespace std;
 
 AlgoOpti::AlgoOpti(std::vector<Chord*> SA, std::vector<Scale*> AS) : AbstractAlgo(SA,AS)
 {
-    GAKO = KpartitesToGAKO(filteredKpartiteGraph);
+    // Si le filtrage a laisse un graphe non vide, on genere le GAKO
+    // Sinon on laisse un GAKO vide (sans sommet entree et sortie)
+    if (filteredKpartiteGraph.size() > 0)
+        GAKO = KpartitesToGAKO(filteredKpartiteGraph);
+
 }
 
 void AlgoOpti::findLeastsConsecutivesNotesChanges()
@@ -14,8 +18,12 @@ void AlgoOpti::findLeastsConsecutivesNotesChanges()
     calculatePCCs("symetrical_difference");
     results.clear();
 
+
     vector<Scale*> vide;
-    generateSolutions(GAKO.back()[0], vide);
+
+    // Si le GAKO n'est pas vide (aucune solution)
+    if (GAKO.size() > 0)
+        generateSolutions(GAKO.back()[0], vide);
 
     double timeTaken = (double)(clock() - tStart)/CLOCKS_PER_SEC;
     QFile file("../stats/noteStats.txt");
@@ -35,8 +43,12 @@ void AlgoOpti::findLeastsConsecutivesScalesChanges()
 
     calculatePCCs("binary");
     results.clear();
+
     vector<Scale*> vide;
-    generateSolutions(GAKO.back().back(),vide);
+
+    // Si le GAKO n'est pas vide (aucune solution)
+    if (GAKO.size() > 0)
+        generateSolutions(GAKO.back().back(),vide);
 
     double timeTaken = (double)(clock() - tStart)/CLOCKS_PER_SEC;
     QFile file("../stats/scaleStats.txt");
@@ -60,7 +72,7 @@ vector<Scale*> reverse(vector<Scale*> v)
 
 void AlgoOpti::generateSolutions(Node * currentNode, vector<Scale*> solution)
 {
-    if (results.size() > limit)
+    if ((int)results.size() > limit)
         return;
 
     if (currentNode->predecessors.empty())
@@ -70,9 +82,7 @@ void AlgoOpti::generateSolutions(Node * currentNode, vector<Scale*> solution)
         results.push_back(solution);
     }
     else
-    {
-
-        // cout << "Pushed scale = " << ((currentNode->g != NULL) ? currentNode->g->getName().toStdString() : "NULL") << endl << flush;
+    {       
         solution.push_back(currentNode->g);
 
         for (size_t i = 0; i < currentNode->predecessors.size(); i++)

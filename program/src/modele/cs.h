@@ -5,11 +5,14 @@
 #include <string>
 #include <QStringList>
 
+
 class CS
 {
+
 protected:
     Note f;
     HarmonicStructure *hs;
+
 public:
     CS(){}
 
@@ -17,6 +20,7 @@ public:
     std::vector<Note> getNotes();
 
     QString getName();
+    QString getAlias();
 
     Note getF();
     void setF(Note f2);
@@ -26,11 +30,12 @@ public:
     bool ContainsNote(Note,std::vector<Note>);
     bool isContainedIn(CS*);
 
-    Note stringToNote(QString s);
-    QString noteToString(Note n,bool);
-    QString noteToString(Note n);
-    bool equals(CS*); // comparaison entre 2 gammes/accords, on comparera seulement les noms de HS et de la fondamentale dans un souci de performance, donc il faut faire gaffe à ce qu'il y ait jamais deux structures harmoniques identiques avec des noms différents, et jamais deux HS différentes avec un même nom (faudra sûrement géré ça dans les dicos)
-    bool sameNotes(CS*); //bon, du coup j'ai mis cette fonction aussi qui compare les notes plutôt, moins performant, mais on est sûr de les comparer correctement
+    static Note stringToNote(QString s);
+    static QString noteToString(Note n);
+
+    bool equals(CS*);
+    bool sameNotes(CS*);
+
 };
 
 #endif // CS_H
