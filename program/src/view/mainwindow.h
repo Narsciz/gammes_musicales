@@ -21,6 +21,7 @@
 #include <QFile>
 #include <QSpacerItem>
 #include <QTextStream>
+#include <view/addchordsscalesview.h>
 #include "view/parametersdisplay.h"
 using namespace std;
 
@@ -104,10 +105,11 @@ public slots :
     void slotImportFile();
     void slotSaveFile();
     void slotCloseFile();
-    void slotDebugTestFile();
     void slotSaveScale(QVector<QString> listScale);
     void slotExportScale(QVector<QString> listScale);
     void slotStats();
+    void slotAddChord();
+    void slotAddScale();
 
 
 signals :

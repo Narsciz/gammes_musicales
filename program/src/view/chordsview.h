@@ -18,18 +18,23 @@
 class ChordsView : public QFrame
 {
 private:
-    QGridLayout *mainLayout;
+    QVBoxLayout *mainLayout;
 
     QLabel *name;
     QFrame *line;
     QLabel *pictureDisplayBase;
+    QLabel *dieseBase;
     QLabel *notesName;
 
+    QGridLayout *picturesDisplayLayout;
     QVector<QLabel*> picturesDisplay;
 
+    QLabel *packerLabel;
 public:
-    ChordsView(QString chordName);
-    void constructPictureDisplay(QStringList listNote);
+    ChordsView(QString chordName, bool isChord);
+    ChordsView(QString name, vector<Note> notesList, bool isChord);
+    void constructChordPictureDisplay(QStringList listNote);
+    void constructScalePictureDisplay(QStringList listNote);
     QVector<Note> notesSort(vector<Note> notesList);
     QStringList noteToString(QVector<Note> notesList);
 };

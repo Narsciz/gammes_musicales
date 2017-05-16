@@ -39,7 +39,8 @@ SOURCES += main.cpp\
     modele/algobrutomega.cpp \
     test/testfunctions.cpp \
     view/statsdisplay.cpp \
-    view/chordsview.cpp
+    view/chordsview.cpp \
+    view/addchordsscalesview.cpp
 
 HEADERS  += view/mainwindow.h \
     modele/chord.h \
@@ -67,7 +68,8 @@ HEADERS  += view/mainwindow.h \
     modele/algobrutomega.h \
     test/testfunctions.h \
     view/statsdisplay.h \
-    view/chordsview.h
+    view/chordsview.h \
+    view/addchordsscalesview.h
 
 FORMS  += view/mainwindow.ui
 

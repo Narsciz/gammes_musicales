@@ -1,14 +1,15 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
     this->setWindowTitle("Ut");
     this->setMinimumSize(540, 480);
-//    QIcon icon("../assets/pictures/cle.png");
-//    this->setWindowIcon(icon);
+    QIcon icon("../assets/pictures/cle.png");
+    this->setWindowIcon(icon);
 
     this->mainLayout = new QGridLayout();
     this->ui->centralWidget->setLayout(this->mainLayout);
@@ -42,21 +43,19 @@ void MainWindow::constructMenuBar()
 
      QMenu *chords = menuBar->addMenu("Accords");
      QAction *addChords = new QAction("Ajouter", menuBar);
+     connect(addChords, SIGNAL(triggered(bool)), this, SLOT(slotAddChord()));
      QAction *deleteChords = new QAction("Supprimer", menuBar);
      chords->addAction(addChords);
      chords->addAction(deleteChords);
 
      QMenu *scales = menuBar->addMenu("Gammes");
      QAction *addScales = new QAction("Ajouter", menuBar);
+     connect(addScales, SIGNAL(triggered(bool)), this, SLOT(slotAddScale()));
      QAction *deleteScales = new QAction("Supprimer", menuBar);
      scales->addAction(addScales);
      scales->addAction(deleteScales);
 
      QMenu *options = menuBar->addMenu("Options");
-
-//     QAction *debugTestSize = menuBar->addAction("DebugTestSize");
-//     connect(debugTestSize, SIGNAL(triggered(bool)), this, SLOT(slotDebugTestFile()));
-
 
      QAction *stats = menuBar->addAction("Statistiques");
      connect(stats, SIGNAL(triggered(bool)), this, SLOT(slotStats()));
@@ -371,29 +370,6 @@ void MainWindow::slotCloseFile()
   {
     this->close();
   }
-void MainWindow::slotDebugTestFile()
-{
-    int top, bottom, left, right;
-    this->getContentsMargins(&left, &top, &right, &bottom);
-    cout<<"MainWindowContentsMargins : top = "<<top<<", bottom = "<<bottom<<", left = "<<left<<", right = "<<right<<endl;
-    QSize size = this->size();
-    cout<<"MainWindowSize : width = "<<size.width()<<", heigth = "<<size.height()<<endl;
-
-    size = this->ui->centralWidget->size();
-    cout<<"CentralWidget : width = "<<size.width()<<", heigth = "<<size.height()<<endl;
-
-    this->cListDisplay->getContentsMargins(&left, &top, &right, &bottom);
-    cout<<"ChordListDisplayContentsMargins : top = "<<top<<", bottom = "<<bottom<<", left = "<<left<<", right = "<<right<<endl;
-    size = this->cListDisplay->size();
-    cout<<"ChordListDisplaySize : width = "<<size.width()<<", heigth = "<<size.height()<<endl;
-
-    this->choicesDisplay->getContentsMargins(&left, &top, &right, &bottom);
-    cout<<"choicesDisplayContentsMargins : top = "<<top<<", bottom = "<<bottom<<", left = "<<left<<", right = "<<right<<endl;
-    size = this->choicesDisplay->size();
-    cout<<"choicesDisplaySize : width = "<<size.width()<<", heigth = "<<size.height()<<endl;
-
-    cout<<"-----------------------------------------------------------------------"<<endl;
-}
 void MainWindow::slotSaveScale(QVector<QString> listScale)
 {
    emit SaveScaleSignal(this->cListDisplay->getListChordsName(), listScale);
@@ -407,4 +383,14 @@ void MainWindow::slotStats()
 {
     StatsDisplay *stats = new StatsDisplay();
     stats->show();
+}
+void MainWindow::slotAddChord()
+{
+    AddChordsScalesView *addChordView = new AddChordsScalesView(true);
+    addChordView->show();
+}
+void MainWindow::slotAddScale()
+{
+    AddChordsScalesView *addScaleView = new AddChordsScalesView(false);
+    addScaleView->show();
 }
