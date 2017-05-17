@@ -23,6 +23,11 @@ private :
 
     QVBoxLayout *mainLayout;
 
+    QVector<QCheckBox*> listCheckBox;
+
+    QLabel *lineEditFullNameLabel;
+    QLineEdit *fullNameLineEdit;
+
     QLabel *lineEditLabel;
     QLineEdit *lineEdit;
 
@@ -58,6 +63,9 @@ public:
     Note getFundamental();
     vector<Note> getNotesList();
     Note convertIntToNote(int i);
+    vector<int> getHS();
+    QString getName();
+    QString getAlias();
 
 public slots:
     void checkedSlot();

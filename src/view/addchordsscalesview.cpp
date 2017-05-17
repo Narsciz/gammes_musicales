@@ -8,36 +8,61 @@ AddChordsScalesView::AddChordsScalesView(bool isChord)
 
     this->mainLayout = new QVBoxLayout();
 
-    this->lineEditLabel = new QLabel("Entrez le nom de l'accord.");
+    if(isChord)
+    {
+        this->lineEditLabel = new QLabel("Entrez le nom de l'accord (Maximum 5 charactères).");
+
+    }
+    else
+    {
+        this->lineEditFullNameLabel = new QLabel("Entrez le nom complet de la gamme");
+        this->fullNameLineEdit = new QLineEdit();
+        this->mainLayout->addWidget(this->lineEditFullNameLabel);
+        this->mainLayout->addWidget(this->fullNameLineEdit);
+        this->lineEditLabel = new QLabel("Entrez l'abbréviation de la gamme (Maximum 5 caractères)." );
+        connect(this->fullNameLineEdit, SIGNAL(textChanged(QString)), this, SLOT(checkedSlot()));
+    }
     this->lineEdit = new QLineEdit();
     this->mainLayout->addWidget(this->lineEditLabel);
     this->mainLayout->addWidget(this->lineEdit);
     connect(this->lineEdit, SIGNAL(textChanged(QString)), this, SLOT(checkedSlot()));
 
+
     this->intervalleBox = new QGroupBox("Intervalles");
     this->intervalleLayout = new QGridLayout();
     this->seconde_m = new QCheckBox("Seconde Mineur (1/2 ton)");
     connect(this->seconde_m, SIGNAL(clicked(bool)), this, SLOT(checkedSlot()));
+    listCheckBox.push_back(seconde_m);
     this->seconde_M = new QCheckBox("Seconde Majeur (1 ton)");
     connect(this->seconde_M, SIGNAL(clicked(bool)), this, SLOT(checkedSlot()));
+    listCheckBox.push_back(seconde_M);
     this->tierce_m = new QCheckBox("Tierce Mineur (1 ton + 1/2 ton)");
     connect(this->tierce_m, SIGNAL(clicked(bool)), this, SLOT(checkedSlot()));
+    listCheckBox.push_back(tierce_m);
     this->tierce_M = new QCheckBox("Tierce Majeur (2 tons)");
     connect(this->tierce_M, SIGNAL(clicked(bool)), this, SLOT(checkedSlot()));
+    listCheckBox.push_back(tierce_M);
     this->quarte = new QCheckBox("Quarte Juste (2 tons + 1/2 ton)");
     connect(this->quarte, SIGNAL(clicked(bool)), this, SLOT(checkedSlot()));
+    listCheckBox.push_back(quarte);
     this->quarte_a = new QCheckBox("Quarte Augmenté (3 tons)");
     connect(this->quarte_a, SIGNAL(clicked(bool)), this, SLOT(checkedSlot()));
+    listCheckBox.push_back(quarte_a);
     this->quinte = new QCheckBox("Quinte Juste (3 tons + 1/2 ton)");
     connect(this->quinte, SIGNAL(clicked(bool)), this, SLOT(checkedSlot()));
+    listCheckBox.push_back(quinte);
     this->sixte_m = new QCheckBox("Sixte Mineur (4 tons)");
     connect(this->sixte_m, SIGNAL(clicked(bool)), this, SLOT(checkedSlot()));
+    listCheckBox.push_back(sixte_m);
     this->sixte_M = new QCheckBox("Sixte Majeur (4 tons + 1/2 ton)");
     connect(this->sixte_M, SIGNAL(clicked(bool)), this, SLOT(checkedSlot()));
+    listCheckBox.push_back(sixte_M);
     this->septieme_m = new QCheckBox("Septieme Mineur (5 tons)");
     connect(this->septieme_m, SIGNAL(clicked(bool)), this, SLOT(checkedSlot()));
+    listCheckBox.push_back(septieme_m);
     this->septieme_M = new QCheckBox("Septieme Majeur (5 tons + 1/2 ton)");
     connect(this->septieme_M, SIGNAL(clicked(bool)), this, SLOT(checkedSlot()));
+    listCheckBox.push_back(septieme_M);
     this->intervalleLayout->addWidget(seconde_m, 0, 0, 1, 1);
     this->intervalleLayout->addWidget(seconde_M, 1, 0, 1, 1);
     this->intervalleLayout->addWidget(tierce_m, 2, 0, 1, 1);
@@ -170,6 +195,35 @@ vector<Note> AddChordsScalesView::getNotesList()
     }
     return res;
 }
+vector<int> AddChordsScalesView::getHS()
+{
+    vector<int> res;
+    int intervalle = 1;
+    for(int i = 0; i<listCheckBox.size(); i++)
+    {
+        if(listCheckBox[i]->isChecked())
+        {
+            res.push_back(intervalle);
+            intervalle = 1;
+        }
+        else
+        {
+            intervalle++;
+        }
+    }
+    return res;
+}
+
+QString AddChordsScalesView::getName()
+{
+    return this->lineEdit->text();
+}
+
+QString AddChordsScalesView::getAlias()
+{
+    if(!isChord)
+        return this->fullNameLineEdit->text();
+}
 
 void AddChordsScalesView::checkedSlot()
 {
@@ -178,6 +232,10 @@ void AddChordsScalesView::checkedSlot()
 
     delete this->exempleDisplay;
 
-    this->exempleDisplay = new ChordsView(this->fundamentalExemple->currentText() + " " + this->lineEdit->text(), notesList, this->isChord);
+    if(isChord)
+        this->exempleDisplay = new ChordsView(this->fundamentalExemple->currentText() + " " + this->lineEdit->text(), notesList, this->isChord);
+    else
+        this->exempleDisplay = new ChordsView(this->fundamentalExemple->currentText() + " " + this->fullNameLineEdit->text(), notesList, this->isChord);
+
     this->mainLayout->insertWidget(this->mainLayout->count()-1, exempleDisplay, Qt::AlignHCenter);
 }
