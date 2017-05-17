@@ -34,6 +34,12 @@ void AbstractAlgo::filterAllowedChordsInK()
 
         if (ligne.size() > 0)
             filteredKpartiteGraph.push_back(ligne);
+        else {
+            //si un accord n'a aucune gamme candidate dans le graphe filtré,
+            //il n'y a pas de suite de gamme solution, donc on renvoi un graphe vide.
+            filteredKpartiteGraph.clear();
+            return;
+        }
 
         ligne.clear();
     }

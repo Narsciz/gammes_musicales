@@ -31,5 +31,7 @@ vector<Scale*> Chord::candidatesScales()
         if (this->isContainedIn(searching_set[i]))
             res.push_back(searching_set[i]);
 
+
+
     return res;
 }

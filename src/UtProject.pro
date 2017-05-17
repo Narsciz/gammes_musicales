@@ -40,7 +40,8 @@ SOURCES += main.cpp\
     test/testfunctions.cpp \
     view/statsdisplay.cpp \
     view/chordsview.cpp \
-    view/addchordsscalesview.cpp
+    view/addchordsscalesview.cpp \
+    view/deletechordsscalesview.cpp
     modele/export.cpp
 
 HEADERS  += view/mainwindow.h \
@@ -70,7 +71,8 @@ HEADERS  += view/mainwindow.h \
     test/testfunctions.h \
     view/statsdisplay.h \
     view/chordsview.h \
-    view/addchordsscalesview.h
+    view/addchordsscalesview.h \
+    view/deletechordsscalesview.h
     modele/export.h
 
 FORMS  += view/mainwindow.ui
