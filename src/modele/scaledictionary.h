@@ -6,12 +6,14 @@
 #include "modele/scale.h"
 #include <QVector>
 #include <iostream>
+#include <QFile>
 
 class ScaleDictionary
 {
 private:
     static ScaleDictionary* INSTANCE;
     std::vector<HSScale*> scales;
+    std::vector<HSScale*> customScales;
 
     ScaleDictionary();
 
@@ -22,9 +24,25 @@ public:
     HSScale* getHSbyName(QString);
     bool contains(HSScale*);
     void add(HSScale*);
+    void addCustom(HSScale*);
+    void removeCustom(HSScale*);
+
     std::vector<Scale*> getAllScales();
+    std::vector<Scale*> getBaseScales();
+    std::vector<Scale*> getCustomScales();
+
     void generateBaseScale();
+    void generateCustomScale();
+
     QVector<QString> getHSnames();
+    QVector<QString> getCustomHSnames();
+    QVector<QString> getBaseHSnames();
+
+    QVector<QString> getHSalias();
+    QVector<QString> getCustomHSalias();
+    QVector<QString> getBaseHSalias();
+
+
 
 };
 
