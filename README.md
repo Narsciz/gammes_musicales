@@ -14,8 +14,8 @@ Architecture du dépôt :
 - runnable : contient les executables pour les OS windows et linux.
 
 Execution sur Windows (marche sur Windows 10, Windows 7 pas encore tester) :
-
-- Aller dans le dossier runnable/windows/bin/ ou ajouter le chemin vers /path/to/repo/runnable/windows/bin au PATH.
+- Télécharger le dépôt Git (Download ZIP sur la page GitHub) et le décompresser à l'endroit de votre choix.
+- Aller dans le dossier /path/to/repo/runnable/windows/bin/ ou ajouter le chemin vers /path/to/repo/runnable/windows/bin au PATH.
 - Lancer le fichier UtProject.exe :
   * ligne de commande : >> START UtProject.exe
   * explorer Windows : double-clic sur UtProject.exe
