@@ -1,4 +1,10 @@
-# gammes_musicales
+UT PROJECT
+
+Description :
+
+Le logiciel UtProject permet à partir d'une grille d'accords de calculer une suite de gammes permettant de jouer sur ces accords.
+A chaque accord de la grille est associé une gamme, tel que les notes de l'accord sont inclues dans les notes de la gamme.
+On peut ainsi aisément profiler un solo, imaginer des mélodies, ou orienter une harmonie vis à vis de notre grille d'accords et de la suite de gammes générée par le logiciel.
 
 Architecture du dépôt :
 
@@ -7,13 +13,13 @@ Architecture du dépôt :
 - stats : fichiers utilisés pour l'affichage des statistiques de performance.
 - runnable : contient les executables pour les OS windows et linux.
 
-Execution sur Windows (version 10) :
+Execution sur Windows (marche sur Windows 10, Windows 7 pas encore tester) :
 
-- Aller dans le dossier runnable/windows/release/
+- Aller dans le dossier runnable/windows/bin/ ou ajouter le chemin vers /path/to/repo/runnable/windows/bin au PATH.
 - Lancer le fichier UtProject.exe :
   * ligne de commande : >> START UtProject.exe
   * explorer Windows : double-clic sur UtProject.exe
   
-  Execution sur Linux :
+  Execution sur Linux : NYI
   
   
