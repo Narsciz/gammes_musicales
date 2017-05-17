@@ -1,5 +1,3 @@
-/program/build*
-/Logiciel
-/Logiciel/*
-/program/src/UtProject.pro.*
-/program/assets/exports/*~
+/build*
+/src/UtProject.pro.*
+/assets/exports/*~
