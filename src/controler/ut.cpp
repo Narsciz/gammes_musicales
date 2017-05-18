@@ -14,8 +14,8 @@ Ut::Ut(MainWindow *w)
     QObject::connect(this->w, SIGNAL(SaveScaleSignal(QVector<QString>,QVector<QString>)), this, SLOT(SaveScaleSlot(QVector<QString>,QVector<QString>)));
     QObject::connect(this->w, SIGNAL(ExportScaleSignal(QVector<QString>,QVector<QString>)), this, SLOT(ExportScaleSlot(QVector<QString>,QVector<QString>)));
     QObject::connect(this,SIGNAL(displayResultsSignal()),this,SLOT(displayResultsSlot()));
-
-
+    QObject::connect(this->w, SIGNAL(createChordSignal(QString,vector<int>)), this, SLOT(createChordSlot(QString,vector<int>)));
+    QObject::connect(this->w, SIGNAL(createScaleSignal(QString,vector<int>)), this, SLOT(createScaleSlot(QString,vector<int>)));
 
     w->fillComboBoxHS(ChordDictionary::getInstance()->getHSnames());
     w->fillParametersLists(ScaleDictionary::getInstance()->getHSnames());
@@ -242,3 +242,12 @@ void Ut::ExportScaleSlot(QVector<QString> listChordsName, QVector<QString> listS
     this->w->saveFile(path, content);
 }
 
+void Ut::createChordSlot(QString name, vector<int> hs)
+{
+
+}
+
+void Ut::createScaleSlot(QString name, vector<int> hs, QString alias)
+{
+
+}

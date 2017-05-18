@@ -100,8 +100,15 @@ AddChordsScalesView::AddChordsScalesView(bool isChord)
     this->exempleDisplay = new ChordsView(this->fundamentalExemple->currentText() + " " + this->lineEdit->text(), notesList, isChord);
     this->mainLayout->addWidget(exempleDisplay);
 
+    this->buttonLayout = new QHBoxLayout();
     this->createButton = new QPushButton("Créer");
-    this->mainLayout->addWidget(createButton);
+    this->returnButton = new QPushButton("Annuler");
+    this->buttonLayout->addWidget(createButton);
+    connect(createButton, SIGNAL(clicked(bool)), this, SLOT(createSlot()));
+    this->buttonLayout->addWidget(returnButton);
+    connect(returnButton, SIGNAL(clicked(bool)), this, SLOT(close()));
+
+    this->mainLayout->addLayout(buttonLayout);
 
     this->setLayout(this->mainLayout);
 }
@@ -238,4 +245,11 @@ void AddChordsScalesView::checkedSlot()
         this->exempleDisplay = new ChordsView(this->fundamentalExemple->currentText() + " " + this->fullNameLineEdit->text(), notesList, this->isChord);
 
     this->mainLayout->insertWidget(this->mainLayout->count()-1, exempleDisplay, Qt::AlignHCenter);
+}
+void AddChordsScalesView::createSlot()
+{
+    if(isChord)
+        emit createChordSignal(this->getName() ,this->getHS());
+    else
+        emit createScaleSignal(this->getName() ,this->getHS(), this->getAlias());
 }

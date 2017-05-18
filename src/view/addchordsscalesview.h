@@ -14,6 +14,7 @@
 #include <vector>
 #include <QLineEdit>
 #include <QPushButton>
+#include <QHBoxLayout>
 
 class AddChordsScalesView : public QWidget
 {
@@ -57,7 +58,9 @@ private :
 
     vector<Note> notesList;
 
+    QHBoxLayout *buttonLayout;
     QPushButton *createButton;
+    QPushButton *returnButton;
 public:
     AddChordsScalesView(bool isChord);
     Note getFundamental();
@@ -69,6 +72,11 @@ public:
 
 public slots:
     void checkedSlot();
+    void createSlot();
+
+signals:
+    void createChordSignal(QString name, vector<int> hs);
+    void createScaleSignal(QString name, vector<int> hs, QString alias);
 };
 
 #endif // ADDCHORDSSCALESVIEW_H

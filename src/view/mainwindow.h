@@ -110,6 +110,8 @@ public slots :
     void slotStats();
     void slotAddChord();
     void slotAddScale();
+    void slotCreateChord(QString name, vector<int> hs);
+    void slotCreateScale(QString name, vector<int> hs, QString alias);
 
 
 signals :
@@ -117,6 +119,8 @@ signals :
     void generateSignal(QVector<QString> listChords);
     void SaveScaleSignal(QVector<QString> listChords, QVector<QString> listScale);
     void ExportScaleSignal(QVector<QString> listChords, QVector<QString> listScale);
+    void createChordSignal(QString name, vector<int> hs);
+    void createScaleSignal(QString name, vector<int> hs, QString alias);
 };
 
 #endif // MAINWINDOW_H

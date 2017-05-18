@@ -286,7 +286,6 @@ void MainWindow::slotGenerateButton()
           this->returnButton->setVisible(true);
           this->reinitializeButton->setDisabled(true);
           this->cListDisplay->disableDeletingChords();
-          this->sListDisplay->setTitle("Calcul des solutions en cours");
           emit generateSignal(cListDisplay->getListChordsName());
       }
       else

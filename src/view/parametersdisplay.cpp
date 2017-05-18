@@ -39,20 +39,30 @@ ParametersDisplay::ParametersDisplay() : QWidget()
     this->maxSolutionDisplayed->setValue(200);
     this->maxSolutionDisplayed->setHidden(true);
 
-    this->allowedScalesBox = new QGroupBox("Gammes autorisées");
+    this->allowedScalesBox = new QGroupBox("Gammes de bases autorisées");
     this->allowedScalesLayout = new QVBoxLayout();
     this->allowedScalesLayout->setAlignment(Qt::AlignTop);
     this->allowedScalesBox->setLayout(this->allowedScalesLayout);
+    this->allChecked = new QCheckBox("Tout cocher");
+
+    this->allowedCustomScalesBox = new QGroupBox("Gammes personnalisées autorisées");
+    this->allowedCustomScalesLayout = new QVBoxLayout();
+    this->allowedCustomScalesLayout->setAlignment(Qt::AlignTop);
+    this->allowedCustomScalesBox->setLayout(this->allowedCustomScalesLayout);
+    this->allCustomChecked = new QCheckBox("Tout cocher");
 
     this->validateButton = new QPushButton("Valider");
     connect(validateButton, SIGNAL(clicked(bool)), this, SLOT(validateSlot()));
 
-    this->mainLayout->addWidget(parametersBox, 0, 0, 1, 3);
-    this->mainLayout->addWidget(algoBox, 1, 0, 1, 3);
+    this->mainLayout->addWidget(parametersBox, 0, 0, 1, 2);
+    this->mainLayout->addWidget(algoBox, 1, 0, 1, 2);
     this->mainLayout->addWidget(maxSolutionLabel, 2, 0, 1, 1);
     this->mainLayout->addWidget(maxSolutionDisplayed, 2, 1, 1, 1);
-    this->mainLayout->addWidget(allowedScalesBox, 3, 0, 1, 3);
-    this->mainLayout->addWidget(validateButton, 4, 1, 1, 1);
+    this->mainLayout->addWidget(allowedScalesBox, 3, 0, 1, 1);
+    this->mainLayout->addWidget(allowedCustomScalesBox, 3, 1, 1, 1);
+    this->mainLayout->addWidget(allChecked, 4, 0, 1, 1);
+    this->mainLayout->addWidget(allCustomChecked, 4, 1, 1, 1);
+    this->mainLayout->addWidget(validateButton, 5, 0, 1, 2);
 
     this->setLayout(this->mainLayout);
     this->setWindowTitle("Paramètres");

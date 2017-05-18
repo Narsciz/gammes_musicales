@@ -34,7 +34,15 @@ private :
 
     QGroupBox *allowedScalesBox;
     QVBoxLayout *allowedScalesLayout;
+    QVector<QString> *listScalesName;
     QVector<QCheckBox*> listScales;
+    QCheckBox *allChecked;
+
+    QGroupBox *allowedCustomScalesBox;
+    QVBoxLayout *allowedCustomScalesLayout;
+    QVector<QString> *listCustomScalesName;
+    QVector<QCheckBox*> listCustomScales;
+    QCheckBox *allCustomChecked;
 
     QLabel *maxSolutionLabel;
     QSpinBox *maxSolutionDisplayed;
