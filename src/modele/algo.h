@@ -9,7 +9,6 @@
 #include <vector>
 #include <limits.h>
 
-
 std::vector<std::vector<Scale*> > KpartitesScales(std::vector<Chord*> SA);
 std::vector<std::vector<Node*> >ScaleToGraph(std::vector<std::vector<Scale*> > Kpartite);
 bool isNoteInNotes(Note n,std::vector<Note> s);

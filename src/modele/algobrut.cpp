@@ -9,69 +9,82 @@ AlgoBrut::AlgoBrut(vector<Chord*> SA,vector<Scale*> AS):AbstractAlgo(SA,AS)
 
 void AlgoBrut::generateSolsRec(int index, vector<Scale*> solutionPossible)
 {
-    if ((int)filteredKpartiteGraph.size()>0){
-        if (index >= (int)filteredKpartiteGraph.size())
-           possiblesSolutions.push_back(solutionPossible);
+    // Si le graphe k-parties filtre n'est pas vide
+    if ((int)filteredKpartiteGraph.size() > 0) {
+
+        if (index >= (int)filteredKpartiteGraph.size()) {
+            possiblesSolutions.push_back(solutionPossible);
+        }
         else
         {
+            vector<Scale*> sol;
 
             for (size_t i = 0; i < filteredKpartiteGraph[index].size(); i++)
             {
-                vector<Scale*> sol = solutionPossible;
+                sol = solutionPossible;
                 sol.push_back(filteredKpartiteGraph[index][i]);
 
                 generateSolsRec(index + 1, sol);
 
-                /***plus performant mais plus moche***
-                solutionPossible.push_back(filteredKpartiteGraph[index][i]);
-                generateSolsRec(index + 1, solutionPossible);
-                solutionPossible.pop_back();
-                **************************************/
+                // plus performant mais plus moche
+//                solutionPossible.push_back(filteredKpartiteGraph[index][i]);
+//                generateSolsRec(index + 1, solutionPossible);
+//                solutionPossible.pop_back();
+
             }
         }
     }
+
 }
 
 
-void AlgoBrut::generatePossiblesSolutions(){
+void AlgoBrut::generatePossiblesSolutions()
+{
     possiblesSolutions.clear();
+
     vector<Scale*> vide;
-    generateSolsRec(0,vide);
+    generateSolsRec(0, vide);
 }
 
-vector<vector<Scale*> > AlgoBrut::getSols(){return possiblesSolutions;}
+vector<vector<Scale*> > AlgoBrut::getSols(){
+    return possiblesSolutions;
+}
 
 void AlgoBrut::findLeastsConsecutivesNotesChanges()
 {
     clock_t tStart = clock();
 
+
     generatePossiblesSolutions();
+
     results.clear();
 
     vector<int> values;
     int value;
 
 
-    for (size_t i=0; i<possiblesSolutions.size();i++)//on remplit le tableau values
+    // on remplit le tableau values
+    for (size_t i = 0; i < possiblesSolutions.size(); i++)
     {
         value = 0;
 
-        //on fait la somme des differences symétriques de notes entre chaque couple de gammes consécutives
-        for (size_t j = 0; j<possiblesSolutions[i].size()-1;j++)
-            value += possiblesSolutions[i][j]->notesDifferencesWithScale(possiblesSolutions[i][j+1]);
+        // on fait la somme des differences symétriques de notes entre chaque couple de gammes consécutives
+        for (size_t j = 0; j < possiblesSolutions[i].size() - 1; j++)
+            value += possiblesSolutions[i][j]->notesDifferencesWithScale(possiblesSolutions[i][j + 1]);
+
         values.push_back(value);
     }
 
-    int minValue=10000000;
-    for (size_t i=0;i<values.size();i++)//on cherche la plus petite valeur possible
-        minValue=min(values[i],minValue);
+    //on cherche la plus petite valeur possible
+    int minValue = INT_MAX;
+    for (size_t i = 0; i < values.size(); i++)
+        minValue = min(values[i], minValue);
 
-    //vector<vector<Scale*> >res;
-    for (size_t i=0;i<values.size();i++)//on ajoute dans le résultat retour toutes les occurences de la contrainte optimisée
-        if (values[i]==minValue)
+    // on ajoute dans le résultat retour toutes les occurences de la contrainte optimisée
+    for (size_t i = 0; i < values.size(); i++)
+        if (values[i] == minValue)
             results.push_back(possiblesSolutions[i]);
-
-//    soluces=res;
+        else possiblesSolutions[i].clear();
 
     double timeTaken = (double)(clock() - tStart)/CLOCKS_PER_SEC;
     QFile file("../stats/noteStats.txt");
@@ -81,6 +94,7 @@ void AlgoBrut::findLeastsConsecutivesNotesChanges()
         out << ";1|" << data.size() << "|" << timeTaken;
     }
     file.close();
+
 }
 
 void AlgoBrut::findLeastsConsecutivesScalesChanges()

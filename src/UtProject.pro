@@ -8,10 +8,15 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
+
+QMAKE_LFLAGS_WINDOWS += -Wl,--stack,32000000000000
 QMAKE_CXXFLAGS += -std=c++0x
+LIB += -Wl,--stack,4194304000000000
+
 TARGET = UtProject
 TEMPLATE = app
 CONFIG += console
+CONFIG += declarative_debug
 
 SOURCES += main.cpp\
         view/mainwindow.cpp \
@@ -41,7 +46,7 @@ SOURCES += main.cpp\
     view/statsdisplay.cpp \
     view/chordsview.cpp \
     view/addchordsscalesview.cpp \
-    view/deletechordsscalesview.cpp
+    view/deletechordsscalesview.cpp \
     modele/export.cpp
 
 HEADERS  += view/mainwindow.h \
@@ -72,7 +77,7 @@ HEADERS  += view/mainwindow.h \
     view/statsdisplay.h \
     view/chordsview.h \
     view/addchordsscalesview.h \
-    view/deletechordsscalesview.h
+    view/deletechordsscalesview.h \
     modele/export.h
 
 FORMS  += view/mainwindow.ui

@@ -15,6 +15,7 @@ protected:
 public:
     AlgoBrutOmega(){}
     AlgoBrutOmega(std::vector<Chord*>,std::vector<Scale*>);
+    ~AlgoBrutOmega(){};
 
     void generateSolsRec(int,std::vector<Scale*>,int,int);
 
