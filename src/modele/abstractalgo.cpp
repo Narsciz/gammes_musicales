@@ -8,6 +8,8 @@ AbstractAlgo::AbstractAlgo(std::vector<Chord*> data, std::vector<Scale*> allowed
     this->allowedScales = allowedScales;
     KpartiteGraph = KpartitesScales(data);
     filterAllowedChordsInK();
+
+    KpartiteGraph.clear();
 }
 
 std::vector<std::vector<Scale*> > AbstractAlgo::getResults()
@@ -36,7 +38,7 @@ void AbstractAlgo::filterAllowedChordsInK()
             filteredKpartiteGraph.push_back(ligne);
         else {
             //si un accord n'a aucune gamme candidate dans le graphe filtré,
-            //il n'y a pas de suite de gamme solution, donc on renvoi un graphe vide.
+            //il n'y a pas de suite de gammes solution, donc on renvoi un graphe vide.
             filteredKpartiteGraph.clear();
             return;
         }

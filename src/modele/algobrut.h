@@ -15,9 +15,11 @@ class AlgoBrut : public AbstractAlgo
 {
 protected:
     std::vector<std::vector<Scale*> > possiblesSolutions;
+
 public:
     AlgoBrut(){}
     AlgoBrut(std::vector<Chord*>,std::vector<Scale*>);
+    ~AlgoBrut(){};
 
     //ça c'est l'algo brut en dessous v
     std::vector<std::vector<Scale*> > getSols();

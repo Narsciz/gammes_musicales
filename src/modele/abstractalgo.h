@@ -20,6 +20,7 @@ protected :
 public:
     AbstractAlgo(){}
     AbstractAlgo(std::vector<Chord*> data, std::vector<Scale*> allowedScales);
+    virtual ~AbstractAlgo(){};
 
     virtual void setLimit(int){ std::cout << "setLimit from abstractAlgo" << std::endl;}
 

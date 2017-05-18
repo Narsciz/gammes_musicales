@@ -15,8 +15,6 @@ Ut::Ut(MainWindow *w)
     QObject::connect(this->w, SIGNAL(ExportScaleSignal(QVector<QString>,QVector<QString>)), this, SLOT(ExportScaleSlot(QVector<QString>,QVector<QString>)));
     QObject::connect(this,SIGNAL(displayResultsSignal()),this,SLOT(displayResultsSlot()));
 
-
-
     w->fillComboBoxHS(ChordDictionary::getInstance()->getHSnames());
     w->fillParametersLists(ScaleDictionary::getInstance()->getHSnames());
 }
@@ -26,6 +24,7 @@ void Ut::displayResultsSlot()
 {
     w->goToResultsInterface();
     w->constructScaleFoundView(convertScaleToString(algo->getResults()));
+    delete algo;
 }
 
 
@@ -146,11 +145,15 @@ QString Ut::SaveScale(QVector<QString> listChords, QVector<QString> listScale)
 
 void Ut::join()
 {
+
     if (algoThread.joinable())
         algoThread.join();
     else return;
+
     emit displayResultsSignal();
+
 }
+
 void Ut::generateSlot(QVector<QString> listChordsName)
 {
     try
@@ -166,7 +169,7 @@ void Ut::generateSlot(QVector<QString> listChordsName)
             break;
         case 2:
             algo = new AlgoOpti(listChords, ScaleDictionary::getInstance()->getScalesByTypes(parametres->getlistAllowedHSscales()));
-            algo->setLimit(parametres->getLimit()-1);
+            algo->setLimit(parametres->getLimit() - 1);
             break;
         case 3:
             algo = new AlgoBrut(listChords, ScaleDictionary::getInstance()->getScalesByTypes(parametres->getlistAllowedHSscales()));
@@ -208,12 +211,14 @@ void Ut::generateSlot(QVector<QString> listChordsName)
         std::thread(&Ut::join, ut).detach();
 
         w->constructScaleFoundView(convertScaleToString(algo->getResults()));
+
     }
     // Exception levee quand un accord est mal ecrit (B7 au lieu de B:7 par exemple)
     catch(out_of_range out_of_range_exception)
     {
         cout << out_of_range_exception.what() << endl;
     }
+
 }
 
 void Ut::SaveScaleSlot(QVector<QString> listChords, QVector<QString> listScale)

@@ -111,19 +111,19 @@ Note AddChordsScalesView::getFundamental()
     int choice = fundamentalExemple->currentIndex();
     switch(choice)
     {
-        case 0: return Note::C;
-        case 1: return Note::Csharp;
-        case 2: return Note::D;
-        case 3: return Note::Dsharp;
-        case 4: return Note::E;
-        case 5: return Note::F;
-        case 6: return Note::Fsharp;
-        case 7: return Note::G;
-        case 8: return Note::Gsharp;
-        case 9: return Note::A;
-        case 10: return Note::Asharp;
-        case 11: return Note::B;
-        default: return END_OF_LIST;
+    case 0: return Note::C;
+    case 1: return Note::Csharp;
+    case 2: return Note::D;
+    case 3: return Note::Dsharp;
+    case 4: return Note::E;
+    case 5: return Note::F;
+    case 6: return Note::Fsharp;
+    case 7: return Note::G;
+    case 8: return Note::Gsharp;
+    case 9: return Note::A;
+    case 10: return Note::Asharp;
+    case 11: return Note::B;
+    default: return END_OF_LIST;
     }
 }
 Note AddChordsScalesView::convertIntToNote(int i)
@@ -151,47 +151,47 @@ vector<Note> AddChordsScalesView::getNotesList()
     res.push_back(getFundamental());
     if(this->seconde_m->isChecked())
     {
-            res.push_back(convertIntToNote(getFundamental()+1));
+        res.push_back(convertIntToNote(getFundamental()+1));
     }
     if(this->seconde_M->isChecked())
     {
-            res.push_back(convertIntToNote(getFundamental()+2));
+        res.push_back(convertIntToNote(getFundamental()+2));
     }
     if(this->tierce_m->isChecked())
     {
-            res.push_back(convertIntToNote(getFundamental()+3));
+        res.push_back(convertIntToNote(getFundamental()+3));
     }
     if(this->tierce_M->isChecked())
     {
-            res.push_back(convertIntToNote(getFundamental()+4));
+        res.push_back(convertIntToNote(getFundamental()+4));
     }
     if(this->quarte->isChecked())
     {
-            res.push_back(convertIntToNote(getFundamental()+5));
+        res.push_back(convertIntToNote(getFundamental()+5));
     }
     if(this->quarte_a->isChecked())
     {
-            res.push_back(convertIntToNote(getFundamental()+6));
+        res.push_back(convertIntToNote(getFundamental()+6));
     }
     if(this->quinte->isChecked())
     {
-            res.push_back(convertIntToNote(getFundamental()+7));
+        res.push_back(convertIntToNote(getFundamental()+7));
     }
     if(this->sixte_m->isChecked())
     {
-            res.push_back(convertIntToNote(getFundamental()+8));
+        res.push_back(convertIntToNote(getFundamental()+8));
     }
     if(this->sixte_M->isChecked())
     {
-            res.push_back(convertIntToNote(getFundamental()+9));
+        res.push_back(convertIntToNote(getFundamental()+9));
     }
     if(this->septieme_m->isChecked())
     {
-            res.push_back(convertIntToNote(getFundamental()+10));
+        res.push_back(convertIntToNote(getFundamental()+10));
     }
     if(this->septieme_M->isChecked())
     {
-            res.push_back(convertIntToNote(getFundamental()+11));
+        res.push_back(convertIntToNote(getFundamental()+11));
     }
     return res;
 }
