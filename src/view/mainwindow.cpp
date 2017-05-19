@@ -263,10 +263,10 @@ void MainWindow::fillParametersLists(QVector<QString> listHSScales, QVector<QStr
     this->parametersWindow->fillLists(listHSScales, listHSCustomScales);
 }
 
-void MainWindow::constructScaleFoundView(QVector<QVector<QString> > listFoundScales)
+void MainWindow::constructScaleFoundView(QVector<QVector<QString> > listFoundScales, QString msg)
 {
     this->sListDisplay->constructScalesFoundList(listFoundScales);
-    this->sListDisplay->setName(QString::number(listFoundScales.size()) + " Solutions Trouvées");
+    this->sListDisplay->setName(msg);
 }
 
 ParametersDisplay* MainWindow::getParametersDisplay()

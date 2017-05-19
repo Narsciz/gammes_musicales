@@ -94,7 +94,7 @@ public:
     void resizeEvent ( QResizeEvent * event );
     void fillComboBoxHS(QVector<QString> listHS);
     void fillParametersLists(QVector<QString> listHSScales, QVector<QString> listHSCustomScales);
-    void constructScaleFoundView(QVector<QVector<QString> > listFoundScales);
+    void constructScaleFoundView(QVector<QVector<QString> > listFoundScales, QString msg);
     ParametersDisplay *getParametersDisplay();
     void goToResultsInterface();
 
