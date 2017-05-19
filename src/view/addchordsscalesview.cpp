@@ -11,7 +11,6 @@ AddChordsScalesView::AddChordsScalesView(bool isChord)
     if(isChord)
     {
         this->lineEditLabel = new QLabel("Entrez le nom de l'accord (Maximum 5 charactères).");
-
     }
     else
     {
@@ -23,6 +22,7 @@ AddChordsScalesView::AddChordsScalesView(bool isChord)
         connect(this->fullNameLineEdit, SIGNAL(textChanged(QString)), this, SLOT(checkedSlot()));
     }
     this->lineEdit = new QLineEdit();
+    this->lineEdit->setMaxLength(5);
     this->mainLayout->addWidget(this->lineEditLabel);
     this->mainLayout->addWidget(this->lineEdit);
     connect(this->lineEdit, SIGNAL(textChanged(QString)), this, SLOT(checkedSlot()));
@@ -248,8 +248,33 @@ void AddChordsScalesView::checkedSlot()
 }
 void AddChordsScalesView::createSlot()
 {
-    if(isChord)
-        emit createChordSignal(this->getName() ,this->getHS());
+    if(getName().size()>0)
+    {
+        if(getHS().size()>0)
+        {
+            if(isChord)
+            {
+                emit createChordSignal(this->getName() ,this->getHS());
+                QMessageBox::information(this, "Accord créé", "Votre accord " + this->getName() + " a été créé et ajouter à la liste.");
+                this->close();
+            }
+            else
+            {
+                if(getAlias().size()>0)
+                {
+                    emit createScaleSignal(this->getName() ,this->getHS(), this->getAlias());
+                    QMessageBox::information(this, "Gamme créée", "Votre gamme " + this->getAlias() + " a été créé avec succès.");
+                    this->close();
+                }
+                else
+                    QMessageBox::warning(this, "Aucun nom complet", "Veuillez entrer un nom complet");
+            }
+        }
+        else
+            QMessageBox::warning(this, "Accord non conforme", "Une structure harmonique doit être composé d'au moins 2 notes.");
+    }
     else
-        emit createScaleSignal(this->getName() ,this->getHS(), this->getAlias());
+    {
+        QMessageBox::warning(this, "Aucun nom", "Veuillez entrer un nom raccourci");
+    }
 }

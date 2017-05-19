@@ -15,6 +15,7 @@
 #include <QLineEdit>
 #include <QPushButton>
 #include <QHBoxLayout>
+#include <QMessageBox>
 
 class AddChordsScalesView : public QWidget
 {

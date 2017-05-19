@@ -51,7 +51,7 @@ private :
 
 public:
     ParametersDisplay();
-    void fillLists(QVector<QString> listHSScales);
+    void fillLists(QVector<QString> listHSScales, QVector<QString> listHSCustomScales);
     int getParameter();
     int getAlgo();
     int getLimit();
@@ -60,6 +60,8 @@ public:
 public slots:
    void totalScaleSlot();
    void validateSlot();
+   void AllCheckedSlot();
+   void CustomAllCheckedSlot();
 };
 
 #endif // PARAMETERSDISPLAY_H

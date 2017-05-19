@@ -44,12 +44,14 @@ ParametersDisplay::ParametersDisplay() : QWidget()
     this->allowedScalesLayout->setAlignment(Qt::AlignTop);
     this->allowedScalesBox->setLayout(this->allowedScalesLayout);
     this->allChecked = new QCheckBox("Tout cocher");
+    connect(this->allChecked, SIGNAL(toggled(bool)), this, SLOT(AllCheckedSlot()));
 
     this->allowedCustomScalesBox = new QGroupBox("Gammes personnalisées autorisées");
     this->allowedCustomScalesLayout = new QVBoxLayout();
     this->allowedCustomScalesLayout->setAlignment(Qt::AlignTop);
     this->allowedCustomScalesBox->setLayout(this->allowedCustomScalesLayout);
     this->allCustomChecked = new QCheckBox("Tout cocher");
+    connect(this->allCustomChecked, SIGNAL(toggled(bool)), this, SLOT(CustomAllCheckedSlot()));
 
     this->validateButton = new QPushButton("Valider");
     connect(validateButton, SIGNAL(clicked(bool)), this, SLOT(validateSlot()));
@@ -70,14 +72,19 @@ ParametersDisplay::ParametersDisplay() : QWidget()
     this->setWindowFlags(Qt::WindowStaysOnTopHint);
 }
 
-void ParametersDisplay::fillLists(QVector<QString> listHSScales)
+void ParametersDisplay::fillLists(QVector<QString> listHSScales, QVector<QString> listHSCustomScales)
 {
     for(int i = 0; i < listHSScales.size(); i++)
     {
         this->listScales.push_back(new QCheckBox(listHSScales[i]));
-        if(this->listScales.last()->text() == "M" || this->listScales.last()->text() == "m")
+        if(this->listScales.last()->text() == "M" || this->listScales.last()->text() == "mh")
             this->listScales.last()->setChecked(true);
         this->allowedScalesLayout->addWidget(this->listScales.last());
+    }
+    for(int i = 0; i < listHSCustomScales.size(); i++)
+    {
+        this->listCustomScales.push_back(new QCheckBox(listHSCustomScales[i]));
+        this->allowedCustomScalesLayout->addWidget(this->listCustomScales.last());
     }
 }
 
@@ -110,14 +117,19 @@ int ParametersDisplay::getLimit()
 
 QVector<QString> ParametersDisplay::getlistAllowedHSscales()
 {
-
-
     QVector<QString> res;
     for(int i = 0; i<this->listScales.size(); i++)
     {
-        if(listScales[i]->isChecked()){
+        if(listScales[i]->isChecked())
+        {
             res.push_back(listScales[i]->text());
-//            cout << listScales[i]->text().toStdString() << endl;
+        }
+    }
+    for(int i = 0; i<this->listCustomScales.size(); i++)
+    {
+        if(listCustomScales[i]->isChecked())
+        {
+            res.push_back(listCustomScales[i]->text());
         }
     }
 
@@ -145,4 +157,25 @@ void ParametersDisplay::totalScaleSlot()
 void ParametersDisplay::validateSlot()
 {
     this->close();
+}
+void ParametersDisplay::AllCheckedSlot()
+{
+    for(int i=0; i<this->listScales.size(); i++)
+    {
+        if(this->allChecked->isChecked())
+            this->listScales[i]->setChecked(true);
+        else
+            this->listScales[i]->setChecked(false);
+    }
+}
+
+void ParametersDisplay::CustomAllCheckedSlot()
+{
+    for(int i=0; i<this->listCustomScales.size(); i++)
+    {
+        if(this->allCustomChecked->isChecked())
+            this->listCustomScales[i]->setChecked(true);
+        else
+            this->listCustomScales[i]->setChecked(false);
+    }
 }

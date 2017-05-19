@@ -45,6 +45,7 @@ void MainWindow::constructMenuBar()
     QAction *addChords = new QAction("Ajouter", menuBar);
     connect(addChords, SIGNAL(triggered(bool)), this, SLOT(slotAddChord()));
     QAction *deleteChords = new QAction("Supprimer", menuBar);
+    connect(deleteChords, SIGNAL(triggered(bool)), this, SLOT(slotDeleteChordView()));
     chords->addAction(addChords);
     chords->addAction(deleteChords);
 
@@ -52,6 +53,8 @@ void MainWindow::constructMenuBar()
     QAction *addScales = new QAction("Ajouter", menuBar);
     connect(addScales, SIGNAL(triggered(bool)), this, SLOT(slotAddScale()));
     QAction *deleteScales = new QAction("Supprimer", menuBar);
+    connect(deleteScales, SIGNAL(triggered(bool)), this, SLOT(slotDeleteScaleView()));
+
     scales->addAction(addScales);
     scales->addAction(deleteScales);
 
@@ -254,9 +257,9 @@ void MainWindow::fillComboBoxHS(QVector<QString> listHS)
     }
 }
 
-void MainWindow::fillParametersLists(QVector<QString> listHSScales)
+void MainWindow::fillParametersLists(QVector<QString> listHSScales, QVector<QString> listHSCustomScales)
 {
-    this->parametersWindow->fillLists(listHSScales);
+    this->parametersWindow->fillLists(listHSScales, listHSCustomScales);
 }
 
 void MainWindow::constructScaleFoundView(QVector<QVector<QString> > listFoundScales)
@@ -346,7 +349,6 @@ void MainWindow::slotImportFile()
     else
     {
         QMessageBox::warning(this, "Fichier erroné", "Le fichier que vous avez sélectionné n'est pas au bon format. Il peut s'agir de l'extension (.txt) ou bien de la convention lors de la rédaction de vos accords qui n'a pas été respéctée. Veuillez vérifier votre fichier et recommencer.\nPour plus d'informations sur la façon de rédiger vos accords, veuillez vous référer à l'aide.");
-
     }
 }
 void MainWindow::slotSaveFile()
@@ -399,6 +401,17 @@ void MainWindow::slotAddScale()
     AddChordsScalesView *addScaleView = new AddChordsScalesView(false);
     addScaleView->show();
     connect(addScaleView, SIGNAL(createScaleSignal(QString,vector<int>)), this, SLOT(slotCreateScale(QString,vector<int>)));
+}
+void MainWindow::slotDeleteChordView()
+{
+    DeleteChordsScalesView *addScaleView = new DeleteChordsScalesView(true);
+    addScaleView->show();
+}
+
+void MainWindow::slotDeleteScaleView()
+{
+    DeleteChordsScalesView *addScaleView = new DeleteChordsScalesView(false);
+    addScaleView->show();
 }
 
 void MainWindow::slotCreateChord(QString name, vector<int> hs)

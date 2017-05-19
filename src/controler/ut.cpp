@@ -15,10 +15,10 @@ Ut::Ut(MainWindow *w)
     QObject::connect(this->w, SIGNAL(ExportScaleSignal(QVector<QString>,QVector<QString>)), this, SLOT(ExportScaleSlot(QVector<QString>,QVector<QString>)));
     QObject::connect(this,SIGNAL(displayResultsSignal()),this,SLOT(displayResultsSlot()));
     QObject::connect(this->w, SIGNAL(createChordSignal(QString,vector<int>)), this, SLOT(createChordSlot(QString,vector<int>)));
-    QObject::connect(this->w, SIGNAL(createScaleSignal(QString,vector<int>)), this, SLOT(createScaleSlot(QString,vector<int>)));
+    QObject::connect(this->w, SIGNAL(createScaleSignal(QString,vector<int>, QString)), this, SLOT(createScaleSlot(QString,vector<int>,QString)));
 
     w->fillComboBoxHS(ChordDictionary::getInstance()->getHSnames());
-    w->fillParametersLists(ScaleDictionary::getInstance()->getHSnames());
+    w->fillParametersLists(ScaleDictionary::getInstance()->getBaseHSnames(), ScaleDictionary::getInstance()->getCustomHSnames());
 }
 
 
@@ -251,10 +251,13 @@ void Ut::ExportScaleSlot(QVector<QString> listChordsName, QVector<QString> listS
 
 void Ut::createChordSlot(QString name, vector<int> hs)
 {
-
+    ChordDictionary::getInstance()->addCustom(new HSChord(name, hs));
+    QVector<QString> newChord;
+    newChord.push_back(name);
+    this->w->fillComboBoxHS(newChord);
 }
 
 void Ut::createScaleSlot(QString name, vector<int> hs, QString alias)
 {
-
+    ScaleDictionary::getInstance()->addCustom(new HSScale(name, hs, alias));
 }

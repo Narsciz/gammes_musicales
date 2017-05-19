@@ -23,6 +23,7 @@
 #include <QTextStream>
 #include <view/addchordsscalesview.h>
 #include "view/parametersdisplay.h"
+#include "view/deletechordsscalesview.h"
 using namespace std;
 
 #include <QVector>
@@ -90,7 +91,7 @@ public:
     void saveFile(QString filePath, QString fileContent);
     void resizeEvent ( QResizeEvent * event );
     void fillComboBoxHS(QVector<QString> listHS);
-    void fillParametersLists(QVector<QString> listHSScales);
+    void fillParametersLists(QVector<QString> listHSScales, QVector<QString> listHSCustomScales);
     void constructScaleFoundView(QVector<QVector<QString> > listFoundScales);
     ParametersDisplay *getParametersDisplay();
     void goToResultsInterface();
@@ -110,6 +111,8 @@ public slots :
     void slotStats();
     void slotAddChord();
     void slotAddScale();
+    void slotDeleteChordView();
+    void slotDeleteScaleView();
     void slotCreateChord(QString name, vector<int> hs);
     void slotCreateScale(QString name, vector<int> hs, QString alias);
 
