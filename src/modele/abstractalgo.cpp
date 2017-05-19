@@ -12,6 +12,11 @@ AbstractAlgo::AbstractAlgo(std::vector<Chord*> data, std::vector<Scale*> allowed
     KpartiteGraph.clear();
 }
 
+void AbstractAlgo::setLimit(int l)
+{
+    resultsToDisplay = l;
+}
+
 std::vector<std::vector<Scale*> > AbstractAlgo::getResults()
 {
     return this->results;

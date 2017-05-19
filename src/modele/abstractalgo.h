@@ -16,13 +16,14 @@ protected :
     std::vector<std::vector<Scale*> > results;
     std::vector<std::vector<Scale*> > KpartiteGraph;
     std::vector<std::vector<Scale*> > filteredKpartiteGraph;
+    int resultsToDisplay = 2;
 
 public:
     AbstractAlgo(){}
     AbstractAlgo(std::vector<Chord*> data, std::vector<Scale*> allowedScales);
     virtual ~AbstractAlgo(){};
 
-    virtual void setLimit(int){ std::cout << "setLimit from abstractAlgo" << std::endl;}
+    virtual void setLimit(int);
 
     void callConsecutivesNotesChangesInThread(std::thread&);
     void callConsecutivesScalesChangesInThread(std::thread&);

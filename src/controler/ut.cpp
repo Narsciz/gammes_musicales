@@ -168,13 +168,15 @@ void Ut::generateSlot(QVector<QString> listChordsName)
         {
         case 1:
             algo = new AlgoBrutOmega(listChords, ScaleDictionary::getInstance()->getScalesByTypes(parametres->getlistAllowedHSscales()));
+            algo->setLimit(parametres->getLimit());
             break;
         case 2:
             algo = new AlgoOpti(listChords, ScaleDictionary::getInstance()->getScalesByTypes(parametres->getlistAllowedHSscales()));
-            algo->setLimit(parametres->getLimit() - 1);
+            algo->setLimit(parametres->getLimit());
             break;
         case 3:
             algo = new AlgoBrut(listChords, ScaleDictionary::getInstance()->getScalesByTypes(parametres->getlistAllowedHSscales()));
+            algo->setLimit(parametres->getLimit());
             break;
         }
 

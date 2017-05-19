@@ -52,8 +52,8 @@ vector<vector<Scale*> > AlgoBrut::getSols(){
 
 void AlgoBrut::findLeastsConsecutivesNotesChanges()
 {
-    clock_t tStart = clock();
 
+    clock_t tStart = clock();
 
     generatePossiblesSolutions();
 
@@ -61,7 +61,6 @@ void AlgoBrut::findLeastsConsecutivesNotesChanges()
 
     vector<int> values;
     int value;
-
 
     // on remplit le tableau values
     for (size_t i = 0; i < possiblesSolutions.size(); i++)
@@ -81,10 +80,16 @@ void AlgoBrut::findLeastsConsecutivesNotesChanges()
         minValue = min(values[i], minValue);
 
     // on ajoute dans le résultat retour toutes les occurences de la contrainte optimisée
-    for (size_t i = 0; i < values.size(); i++)
-        if (values[i] == minValue)
+    for (size_t i = 0; i < values.size(); i++) {
+
+        // Si on a le compte de resultats a afficher
+        if (results.size() >= resultsToDisplay)
+        {
+            break;
+        }
+        else if (values[i] == minValue)
             results.push_back(possiblesSolutions[i]);
-        else possiblesSolutions[i].clear();
+    }
 
     double timeTaken = (double)(clock() - tStart)/CLOCKS_PER_SEC;
     QFile file("../stats/noteStats.txt");
@@ -120,11 +125,13 @@ void AlgoBrut::findLeastsConsecutivesScalesChanges()
         minValue=min(minValue,values[i]);
 
     //vector<vector<Scale*> > res;
-    for (size_t i=0;i<values.size();i++)
-        if (values[i]==minValue)
+    for (size_t i=0;i<values.size();i++) {
+        // Si on a le compte de resultats a afficher
+        if (results.size() >= resultsToDisplay)
+            break;
+        else if (values[i]==minValue)
             results.push_back(possiblesSolutions[i]);
-
-    //return res;
+    }
 
     double timeTaken = (double)(clock() - tStart)/CLOCKS_PER_SEC;
     QFile file("../stats/scaleStats.txt");
@@ -161,11 +168,13 @@ void AlgoBrut::findLeastsTotalScales()
         minValue=min(minValue,values[i]);
 
     //vector<vector<Scale*> > res;
-    for (size_t i=0;i<values.size();i++)
-        if (values[i]==minValue)
+    for (size_t i=0;i<values.size();i++) {
+        // Si on a le compte de resultats a afficher
+        if (results.size() >= resultsToDisplay)
+            break;
+        else if (values[i]==minValue)
             results.push_back(possiblesSolutions[i]);
-
-    //return res;
+    }
 
     double timeTaken = (double)(clock() - tStart)/CLOCKS_PER_SEC;
     QFile file("../stats/totalScaleStats.txt");

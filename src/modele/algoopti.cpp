@@ -72,7 +72,7 @@ vector<Scale*> reverse(vector<Scale*> v)
 
 void AlgoOpti::generateSolutions(Node * currentNode, vector<Scale*> solution)
 {
-    if ((int)results.size() > limit)
+    if ((int)results.size() > resultsToDisplay)
         return;
 
     if (currentNode->predecessors.empty())
@@ -88,11 +88,6 @@ void AlgoOpti::generateSolutions(Node * currentNode, vector<Scale*> solution)
         for (size_t i = 0; i < currentNode->predecessors.size(); i++)
             generateSolutions(currentNode->predecessors[i], solution);
     }
-}
-
-void AlgoOpti::setLimit(int l)
-{
-    limit = l;
 }
 
 void AlgoOpti::calculatePCCs(string ponderation)

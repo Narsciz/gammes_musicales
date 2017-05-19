@@ -33,11 +33,10 @@ ParametersDisplay::ParametersDisplay() : QWidget()
     this->algoBox->setLayout(this->algoLayout);
 
     this->maxSolutionLabel = new QLabel("Nombre de Solutions Affichées : ");
-    this->maxSolutionLabel->setHidden(true);
     this->maxSolutionDisplayed = new QSpinBox();
     this->maxSolutionDisplayed->setRange(1, 200);
     this->maxSolutionDisplayed->setValue(200);
-    this->maxSolutionDisplayed->setHidden(true);
+    this->maxSolutionDisplayed->setHidden(false);
 
     this->allowedScalesBox = new QGroupBox("Gammes de bases autorisées");
     this->allowedScalesLayout = new QVBoxLayout();
@@ -143,14 +142,10 @@ void ParametersDisplay::totalScaleSlot()
         if(lessTotalScale->isChecked())
             lessScale->setChecked(true);
         lessTotalScale->setDisabled(true);
-        this->maxSolutionLabel->setHidden(false);
-        this->maxSolutionDisplayed->setHidden(false);
     }
     else
     {
         lessTotalScale->setDisabled(false);
-        this->maxSolutionLabel->setHidden(true);
-        this->maxSolutionDisplayed->setHidden(true);
     }
 }
 

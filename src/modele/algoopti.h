@@ -15,14 +15,12 @@ class AlgoOpti : public AbstractAlgo
 {
 protected:
     std::vector<std::vector<Node*> > GAKO;
-    int limit = 200;
 
 public:
     AlgoOpti(){}
     AlgoOpti(std::vector<Chord*> data, std::vector<Scale*> allowedScales);
     ~AlgoOpti(){};
 
-    void setLimit(int);
     static std::vector<std::vector<Node*> > KpartitesToGAKO(std::vector<std::vector<Scale*> >);
     void findLeastsConsecutivesNotesChanges();
     void findLeastsConsecutivesScalesChanges();

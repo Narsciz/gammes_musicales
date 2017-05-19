@@ -1,6 +1,6 @@
 #include "algobrutomega.h"
 
-AlgoBrutOmega::AlgoBrutOmega(vector<Chord*> SA,vector<Scale*> AS):AlgoBrut(SA,AS)
+AlgoBrutOmega::AlgoBrutOmega(vector<Chord*> SA, vector<Scale*> AS) : AlgoBrut(SA,AS)
 {
 
 }
@@ -12,7 +12,7 @@ void AlgoBrutOmega::generateSolsRec(int index,vector<Scale*> solutionPossible,in
     if (filteredKpartiteGraph.size() > 0) {
 
         if (index >= (int)filteredKpartiteGraph.size()){
-            minOmega = min(minOmega,omega);
+            minOmega = min(minOmega, omega);
             if (omega <= minOmega){
                 omegas.push_back(omega);
 
@@ -25,19 +25,22 @@ void AlgoBrutOmega::generateSolsRec(int index,vector<Scale*> solutionPossible,in
             {
                 int value = 0;
 
-                if (constraint == 0){//LeastsConsecutivesNotesChanges
+                // LeastsConsecutivesNotesChanges
+                if (constraint == 0){
                     if (solutionPossible.size() == 0)
                         value = 0;
                     else value = solutionPossible.back()->notesDifferencesWithScale(filteredKpartiteGraph[index][i]);
                 }
-                else if (constraint == 1){//LeastsConsecutivesScalesChanges
-                    if (solutionPossible.size()==0)
+                // LeastsConsecutivesScalesChanges
+                else if (constraint == 1){
+                    if (solutionPossible.size() == 0)
                         value = 0;
                     else if (solutionPossible.back()->equals(filteredKpartiteGraph[index][i]))
                         value = 0;
                     else value = 1;
                 }
-                else if (constraint == 2){//LeastsTotalScales
+                //LeastsTotalScales
+                else if (constraint == 2){
                     if (solutionPossible.size() == 0)
                         value = 1;
                     else if (isScaleInScales(filteredKpartiteGraph[index][i],solutionPossible))
@@ -45,10 +48,10 @@ void AlgoBrutOmega::generateSolsRec(int index,vector<Scale*> solutionPossible,in
                     else value = 1;
                 }
 
-                if ((omega+value) <= minOmega){
-                    vector<Scale*> sol=solutionPossible;
+                if ((omega + value) <= minOmega){
+                    vector<Scale*> sol = solutionPossible;
                     sol.push_back(filteredKpartiteGraph[index][i]);
-                    generateSolsRec(index+1,sol,omega+value,constraint);
+                    generateSolsRec(index + 1, sol, omega + value, constraint);
                 }
 
                 /***plus performant mais plus moche***
@@ -65,13 +68,19 @@ void AlgoBrutOmega::findLeastsConsecutivesNotesChanges(){
 
     clock_t tStart = clock();
 
+    // Remise a zero des vector de solutions possibles et vraies solutions
     possiblesSolutions.clear();
+    results.clear();
+
     vector<Scale*> vide;
-    minOmega=10000000;
-    generateSolsRec(0,vide,0,0);
+    minOmega = INT_MAX;
+
+    generateSolsRec(0, vide, 0, 0);
     filterPossiblesSolutions();
-    minOmega=10000000;
-    results=possiblesSolutions;
+
+    minOmega = INT_MAX;
+    for (size_t i = 0; i < resultsToDisplay; i++)
+        results.push_back(possiblesSolutions[i]);
 
     double timeTaken = (double)(clock() - tStart)/CLOCKS_PER_SEC;
     QFile file("../stats/noteStats.txt");
@@ -86,14 +95,18 @@ void AlgoBrutOmega::findLeastsConsecutivesNotesChanges(){
 void AlgoBrutOmega::findLeastsConsecutivesScalesChanges(){
 
     clock_t tStart = clock();
-
     possiblesSolutions.clear();
+    results.clear();
+
     vector<Scale*> vide;
-    minOmega=10000000;
-    generateSolsRec(0,vide,0,1);
+    minOmega = INT_MAX;
+
+    generateSolsRec(0, vide, 0, 1);
     filterPossiblesSolutions();
-    minOmega=10000000;
-    results=possiblesSolutions;
+
+    minOmega = INT_MAX;
+    for (size_t i = 0; i < resultsToDisplay; i++)
+        results.push_back(possiblesSolutions[i]);
 
     double timeTaken = (double)(clock() - tStart)/CLOCKS_PER_SEC;
     QFile file("../stats/scaleStats.txt");
@@ -108,14 +121,18 @@ void AlgoBrutOmega::findLeastsConsecutivesScalesChanges(){
 void AlgoBrutOmega::findLeastsTotalScales(){
 
     clock_t tStart = clock();
-
     possiblesSolutions.clear();
+    results.clear();
+
     vector<Scale*> vide;
-    minOmega=10000000;
-    generateSolsRec(0,vide,0,2);
+    minOmega = INT_MAX;
+
+    generateSolsRec(0, vide, 0, 2);
     filterPossiblesSolutions();
-    minOmega=10000000;
-    results=possiblesSolutions;
+
+    minOmega = INT_MAX;
+    for (size_t i = 0; i < resultsToDisplay; i++)
+        results.push_back(possiblesSolutions[i]);
 
     double timeTaken = (double)(clock() - tStart)/CLOCKS_PER_SEC;
     QFile file("../stats/totalScaleStats.txt");
@@ -135,9 +152,10 @@ void AlgoBrutOmega::filterPossiblesSolutions() {
 
         if ((int)possiblesSolutions.size() != (int)omegas.size())
             return;
+
         vector<vector<Scale*> > filteredPossiblesSolutions;
-        for (size_t i=0;i<omegas.size();i++){
-            if (omegas[i]<=minOmega)
+        for (size_t i = 0; i < omegas.size(); i++){
+            if (omegas[i] <= minOmega)
                 filteredPossiblesSolutions.push_back(possiblesSolutions[i]);
         }
 
