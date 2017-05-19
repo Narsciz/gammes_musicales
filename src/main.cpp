@@ -5,12 +5,12 @@
 #include <QMenu>
 #include <iostream>
 #include <QDebug>
-#include<QStyleFactory>
+#include <QStyleFactory>
 #include "modele/algobrutomega.h"
 #include "modele/algo.h"
 #include "test/testfunctions.h"
 #include "modele/export.h"
-#include <windows.h>
+//#include <windows.h>
 
 using namespace std;
 
@@ -30,6 +30,7 @@ int main(int argc, char *argv[])
 
 //    cout << "TEST ALGO OPTIMISE" << endl << endl << flush;
 //    testAlgo("optimise", "consecutivesNotes", 2);
+
 
     QApplication app(argc, argv);
 

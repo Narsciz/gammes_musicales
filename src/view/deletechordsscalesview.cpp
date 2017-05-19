@@ -13,6 +13,7 @@ DeleteChordsScalesView::DeleteChordsScalesView(bool isChord, QWidget *parent) : 
     constructLayouts();
 
     this->returnButton = new QPushButton("Retour");
+    connect(returnButton, SIGNAL(pressed()), this, SLOT(close()));
 
     this->mainLayout->addLayout(namesLayout, 0, 0, 1, 1);
     this->mainLayout->addLayout(viewLayout, 0, 1, 1, 1);
@@ -74,9 +75,6 @@ void DeleteChordsScalesView::openViewSlot()
     cout<<"i = "<<i<<endl<<flush;
     if(isChord)
     {
-        cout<<"enter if with isChord true"<<endl<<flush
-           <<"Create chord for chordView"<<endl<<flush
-          <<"     HSNames[i] = "<<HSNames[i]->text().toStdString()<<endl<<flush;
         chordView = new ChordsView(HSNames[i]->text(), isChord);
     }
     else
@@ -91,5 +89,16 @@ void DeleteChordsScalesView::closeViewSlot()
 
 void DeleteChordsScalesView::deleteSlot()
 {
+    QPushButton* temp = (QPushButton *)sender();
+    int i = HSDelete.indexOf(temp);
 
+    if(isChord)
+        emit deleteChordSignal(ChordDictionary::getInstance()->getHSbyName(HSNames[i]->text()));
+    else
+        emit deleteScaleSignal(ScaleDictionary::getInstance()->getHSbyName(ScaleName[i]));
+
+    this->HSNames.remove(i);
+    this->HSDelete.remove(i);
+    this->HSView.remove(i);
 }
+

@@ -251,6 +251,7 @@ void MainWindow::saveFile(QString filePath, QString fileContent)
 }
 void MainWindow::fillComboBoxHS(QVector<QString> listHS)
 {
+    this->hsComboBox->clear();
     for(int i = 0; i<listHS.size(); i++)
     {
         this->hsComboBox->addItem(listHS[i]);
@@ -259,7 +260,9 @@ void MainWindow::fillComboBoxHS(QVector<QString> listHS)
 
 void MainWindow::fillParametersLists(QVector<QString> listHSScales, QVector<QString> listHSCustomScales)
 {
+    cout<<"beginning fillparameters list"<<endl<<flush;
     this->parametersWindow->fillLists(listHSScales, listHSCustomScales);
+    cout<<"fillparameterslist ended"<<endl<<flush;
 }
 
 void MainWindow::constructScaleFoundView(QVector<QVector<QString> > listFoundScales)
@@ -404,14 +407,16 @@ void MainWindow::slotAddScale()
 }
 void MainWindow::slotDeleteChordView()
 {
-    DeleteChordsScalesView *addScaleView = new DeleteChordsScalesView(true);
-    addScaleView->show();
+    DeleteChordsScalesView *deleteChordView = new DeleteChordsScalesView(true);
+    deleteChordView->show();
+    connect(deleteChordView, SIGNAL(deleteChordSignal(HSChord*)), this, SLOT(slotDeleteChord(HSChord*)));
 }
 
 void MainWindow::slotDeleteScaleView()
 {
-    DeleteChordsScalesView *addScaleView = new DeleteChordsScalesView(false);
-    addScaleView->show();
+    DeleteChordsScalesView *deleteScaleView = new DeleteChordsScalesView(false);
+    deleteScaleView->show();
+    connect(deleteScaleView, SIGNAL(deleteScaleSignal(HSScale*)), this, SLOT(slotDeleteScale(HSScale*)));
 }
 
 void MainWindow::slotCreateChord(QString name, vector<int> hs)
@@ -425,3 +430,12 @@ void MainWindow::slotCreateScale(QString name, vector<int> hs, QString alias)
 }
 
 
+void MainWindow::slotDeleteScale(HSScale* hs)
+{
+    emit deleteScaleSignal(hs);
+}
+
+void MainWindow::slotDeleteChord(HSChord* hs)
+{
+    emit deleteChordSignal(hs);
+}

@@ -74,6 +74,9 @@ ParametersDisplay::ParametersDisplay() : QWidget()
 
 void ParametersDisplay::fillLists(QVector<QString> listHSScales, QVector<QString> listHSCustomScales)
 {
+    this->listScales.clear();
+    this->listScalesName.clear();
+
     for(int i = 0; i < listHSScales.size(); i++)
     {
         this->listScales.push_back(new QCheckBox(listHSScales[i]));
@@ -81,11 +84,14 @@ void ParametersDisplay::fillLists(QVector<QString> listHSScales, QVector<QString
             this->listScales.last()->setChecked(true);
         this->allowedScalesLayout->addWidget(this->listScales.last());
     }
+    this->listCustomScales.clear();
+    this->listCustomScalesName.clear();
     for(int i = 0; i < listHSCustomScales.size(); i++)
     {
         this->listCustomScales.push_back(new QCheckBox(listHSCustomScales[i]));
         this->allowedCustomScalesLayout->addWidget(this->listCustomScales.last());
     }
+    cout<<"     quitting filllists"<<endl<<flush;
 }
 
 int ParametersDisplay::getParameter()
