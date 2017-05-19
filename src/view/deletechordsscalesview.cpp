@@ -65,6 +65,7 @@ void DeleteChordsScalesView::constructDeleteLayout()
     {
         this->HSDelete.push_back(new QPushButton("Supprimer"));
         this->deleteLayout->addWidget(HSDelete.last());
+        connect(HSDelete.last(), SIGNAL(clicked(bool)), this, SLOT(deleteSlot()));
     }
 }
 
@@ -75,10 +76,10 @@ void DeleteChordsScalesView::openViewSlot()
     cout<<"i = "<<i<<endl<<flush;
     if(isChord)
     {
-        chordView = new ChordsView(HSNames[i]->text(), isChord);
+        chordView = new ChordsView("C:"+HSNames[i]->text(), isChord);
     }
     else
-        chordView = new ChordsView(ScaleName[i], isChord);
+        chordView = new ChordsView("C:"+ScaleName[i], isChord);
     chordView->show();
 }
 

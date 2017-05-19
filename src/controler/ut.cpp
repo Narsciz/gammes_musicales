@@ -255,25 +255,26 @@ void Ut::ExportScaleSlot(QVector<QString> listChordsName, QVector<QString> listS
 void Ut::createChordSlot(QString name, vector<int> hs)
 {
     ChordDictionary::getInstance()->addCustom(new HSChord(name, hs));
-     w->fillComboBoxHS(ChordDictionary::getInstance()->getHSnames());
+    w->fillComboBoxHS(ChordDictionary::getInstance()->getHSnames());
 }
 
 void Ut::createScaleSlot(QString name, vector<int> hs, QString alias)
 {
     ScaleDictionary::getInstance()->addCustom(new HSScale(name, hs, alias));
     this->w->slotReturnButton();
-     w->fillParametersLists(ScaleDictionary::getInstance()->getBaseHSnames(), ScaleDictionary::getInstance()->getCustomHSnames());
+    w->fillParametersLists(ScaleDictionary::getInstance()->getBaseHSnames(), ScaleDictionary::getInstance()->getCustomHSnames());
 }
 
 void Ut::deleteChordSlot(HSChord* hs)
 {
-    w->fillComboBoxHS(ChordDictionary::getInstance()->getHSnames());
     ChordDictionary::getInstance()->removeCustom(hs);
+    w->fillComboBoxHS(ChordDictionary::getInstance()->getHSnames());
 }
 
 void Ut::deleteScaleSlot(HSScale* hs)
 {
-    this->w->slotReturnButton();
-     w->fillParametersLists(ScaleDictionary::getInstance()->getBaseHSnames(), ScaleDictionary::getInstance()->getCustomHSnames());
     ScaleDictionary::getInstance()->removeCustom(hs);
+    this->w->slotReturnButton();
+    w->fillParametersLists(ScaleDictionary::getInstance()->getBaseHSnames(), ScaleDictionary::getInstance()->getCustomHSnames());
+
 }

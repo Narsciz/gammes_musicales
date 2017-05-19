@@ -260,9 +260,7 @@ void MainWindow::fillComboBoxHS(QVector<QString> listHS)
 
 void MainWindow::fillParametersLists(QVector<QString> listHSScales, QVector<QString> listHSCustomScales)
 {
-    cout<<"beginning fillparameters list"<<endl<<flush;
     this->parametersWindow->fillLists(listHSScales, listHSCustomScales);
-    cout<<"fillparameterslist ended"<<endl<<flush;
 }
 
 void MainWindow::constructScaleFoundView(QVector<QVector<QString> > listFoundScales)
@@ -403,7 +401,7 @@ void MainWindow::slotAddScale()
 {
     AddChordsScalesView *addScaleView = new AddChordsScalesView(false);
     addScaleView->show();
-    connect(addScaleView, SIGNAL(createScaleSignal(QString,vector<int>)), this, SLOT(slotCreateScale(QString,vector<int>)));
+    connect(addScaleView, SIGNAL(createScaleSignal(QString,vector<int>,QString)), this, SLOT(slotCreateScale(QString,vector<int>,QString)));
 }
 void MainWindow::slotDeleteChordView()
 {

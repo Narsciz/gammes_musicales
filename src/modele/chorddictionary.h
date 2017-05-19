@@ -5,6 +5,7 @@
 #include "hschord.h"
 #include <QVector>
 #include <QFile>
+#include <QTextStream>
 
 class Chord;
 class ChordDictionary
@@ -39,6 +40,8 @@ public:
     QVector<QString> getHSnames();
     QVector<QString> getBaseHSnames();
     QVector<QString> getCustomHSnames();
+
+    void fillCustomTextFile();
 
 
 

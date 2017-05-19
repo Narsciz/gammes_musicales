@@ -56,6 +56,7 @@ public:
     int getAlgo();
     int getLimit();
     QVector<QString> getlistAllowedHSscales();
+    void clearLayout(QLayout *layout, bool deleteWidgets = true);
 
 public slots:
    void totalScaleSlot();

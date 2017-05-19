@@ -17,3 +17,16 @@ QString HarmonicStructure::getName(){
 QString HarmonicStructure::getAlias() {
     return alias;
 }
+
+QString HarmonicStructure::getSerial()
+{
+    QString res="";
+    for (size_t i=0;i<intervals.size();i++)
+    {
+        res += QString::number(intervals[i]);
+        if (intervals.size()-1!=i)
+            res+=",";
+    }
+    return res;
+
+}
