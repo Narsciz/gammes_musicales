@@ -24,6 +24,8 @@
 #include <view/addchordsscalesview.h>
 #include "view/parametersdisplay.h"
 #include "view/deletechordsscalesview.h"
+#include <modele/hschord.h>
+#include <modele/hsscale.h>
 using namespace std;
 
 #include <QVector>
@@ -115,6 +117,8 @@ public slots :
     void slotDeleteScaleView();
     void slotCreateChord(QString name, vector<int> hs);
     void slotCreateScale(QString name, vector<int> hs, QString alias);
+    void slotDeleteScale(HSScale* hs);
+    void slotDeleteChord(HSChord* hs);
 
 
 signals :
@@ -124,6 +128,8 @@ signals :
     void ExportScaleSignal(QVector<QString> listChords, QVector<QString> listScale);
     void createChordSignal(QString name, vector<int> hs);
     void createScaleSignal(QString name, vector<int> hs, QString alias);
+    void deleteChordSignal(HSChord* hs);
+    void deleteScaleSignal(HSScale* hs);
 };
 
 #endif // MAINWINDOW_H

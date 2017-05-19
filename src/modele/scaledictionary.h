@@ -7,6 +7,7 @@
 #include <QVector>
 #include <iostream>
 #include <QFile>
+#include <QTextStream>
 
 class ScaleDictionary
 {
@@ -42,7 +43,7 @@ public:
     QVector<QString> getCustomHSalias();
     QVector<QString> getBaseHSalias();
 
-
+    void fillCustomTextFile();
 
 };
 

@@ -96,6 +96,7 @@ void ChordDictionary::generateCustomChords()
 
         addCustom(new HSChord(currentCustomChord[0],intervals));
     }
+    file.close();
 
 }
 
@@ -174,22 +175,46 @@ std::vector<Chord*> ChordDictionary::getCustomChords()
 
 void ChordDictionary::add(HSChord *h)
 {
-    if (!contains(h))
+    if (!contains(h)){
         chords.push_back(h);
+    }
+
 }
 
 
 void ChordDictionary::addCustom(HSChord *h)
 {
     if (!contains(h))
-        customChords.push_back(h);
+    {
+       customChords.push_back(h);
+       QFile::remove("../assets/custom/customChords");
+       fillCustomTextFile();
+    }
+}
+
+void ChordDictionary::fillCustomTextFile()
+{
+    QFile file("../assets/custom/customChords");
+    if(file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text))
+    {
+        for (size_t i=0;i<customChords.size();i++)
+        {
+            QTextStream out(&file);
+            out << ";"<<customChords[i]->getName() << "|" << customChords[i]->getSerial();
+        }
+    }
+    file.close();
 }
 
 void ChordDictionary::removeCustom(HSChord *h)
 {
     for (size_t i = 0; i<customChords.size(); i++)
         if (customChords[i]==h)
+        {
+            QFile::remove("../assets/custom/customChords");
             customChords.erase(customChords.begin()+i);
+            fillCustomTextFile();
+        }
 }
 
 ChordDictionary* ChordDictionary::INSTANCE = NULL;

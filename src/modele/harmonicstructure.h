@@ -16,7 +16,7 @@ private:
 public:
     HarmonicStructure();
     HarmonicStructure(QString,std::vector<int>,QString al="");
-
+    QString getSerial();
     std::vector<int> getIntervals();
     QString getName();
     QString getAlias();

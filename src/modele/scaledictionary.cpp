@@ -75,7 +75,7 @@ void ScaleDictionary::generateCustomScale()
 
         addCustom(new HSScale(currentCustomScale[0],intervals,currentCustomScale[2]));
     }
-
+    file.close();
 }
 
 HSScale* ScaleDictionary::getHSbyName(QString s)
@@ -196,15 +196,39 @@ void ScaleDictionary::add(HSScale *h)
 
 void ScaleDictionary::addCustom(HSScale *h)
 {
+    cout<<"addcustom"<<endl;
     if (!contains(h))
+    {
+        QFile::remove("../assets/custom/customScales");
         customScales.push_back(h);
+        fillCustomTextFile();
+    }
+}
+
+void ScaleDictionary::fillCustomTextFile()
+{
+    QFile file("../assets/custom/customScales");
+    if(file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text))
+    {
+        for (size_t i=0;i<customScales.size();i++)
+        {
+            QTextStream out(&file);
+            out << ";"<<customScales[i]->getName() << "|" << customScales[i]->getSerial() <<
+                   "|" << customScales[i]->getAlias() ;
+        }
+    }
+    file.close();
 }
 
 void ScaleDictionary::removeCustom(HSScale *h)
 {
     for (size_t i = 0; i<customScales.size(); i++)
         if (customScales[i]==h)
+        {
             customScales.erase(customScales.begin()+i);
+            QFile::remove("../assets/custom/customScales");
+            fillCustomTextFile();
+        }
 }
 
 

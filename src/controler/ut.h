@@ -43,6 +43,8 @@ public slots:
     void ExportScaleSlot(QVector<QString> listChords, QVector<QString> listScale);
     void createChordSlot(QString name, vector<int> hs);
     void createScaleSlot(QString name, vector<int> hs, QString alias);
+    void deleteChordSlot(HSChord* hs);
+    void deleteScaleSlot(HSScale* hs);
 
 signals:
     void displayResultsSignal();

@@ -73,6 +73,10 @@ ParametersDisplay::ParametersDisplay() : QWidget()
 
 void ParametersDisplay::fillLists(QVector<QString> listHSScales, QVector<QString> listHSCustomScales)
 {
+    clearLayout(this->allowedScalesLayout);
+    this->listScales.clear();
+    this->listScalesName.clear();
+
     for(int i = 0; i < listHSScales.size(); i++)
     {
         this->listScales.push_back(new QCheckBox(listHSScales[i]));
@@ -80,11 +84,15 @@ void ParametersDisplay::fillLists(QVector<QString> listHSScales, QVector<QString
             this->listScales.last()->setChecked(true);
         this->allowedScalesLayout->addWidget(this->listScales.last());
     }
+    clearLayout(this->allowedCustomScalesLayout);
+    this->listCustomScales.clear();
+    this->listCustomScalesName.clear();
     for(int i = 0; i < listHSCustomScales.size(); i++)
     {
         this->listCustomScales.push_back(new QCheckBox(listHSCustomScales[i]));
         this->allowedCustomScalesLayout->addWidget(this->listCustomScales.last());
     }
+    //this->allowedCustomScalesLayout->update();
 }
 
 int ParametersDisplay::getParameter()
@@ -133,6 +141,21 @@ QVector<QString> ParametersDisplay::getlistAllowedHSscales()
     }
 
     return res;
+}
+
+void ParametersDisplay::clearLayout(QLayout *layout, bool deleteWidgets)
+{
+    while (QLayoutItem* item = layout->takeAt(0))
+    {
+        if (deleteWidgets)
+        {
+            if (QWidget* widget = item->widget())
+                delete widget;
+        }
+        if (QLayout* childLayout = item->layout())
+            clearLayout(childLayout, deleteWidgets);
+        delete item;
+    }
 }
 
 void ParametersDisplay::totalScaleSlot()

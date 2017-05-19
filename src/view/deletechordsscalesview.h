@@ -12,6 +12,8 @@
 #include <view/chordsview.h>
 #include <modele/chord.h>
 #include <modele/scale.h>
+#include <modele/hschord.h>
+#include <modele/hsscale.h>
 
 class DeleteChordsScalesView : public QWidget
 {
@@ -43,12 +45,14 @@ public:
     void constructDeleteLayout();
     void constructLayouts();
 
-signals:
-
 public slots:
     void openViewSlot();
     void closeViewSlot();
     void deleteSlot();
+
+signals:
+    void deleteScaleSignal(HSScale* hs);
+    void deleteChordSignal(HSChord* hs);
 };
 
 #endif // DELETECHORDSSCALESVIEW_H
