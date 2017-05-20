@@ -35,7 +35,7 @@ ChordsView::ChordsView(QString chordName, bool isChord) : QFrame()
     if(isChord)
         this->name = new QLabel("Accord " + chord.getName());
     else
-        this->name = new QLabel("Gamme " + chord.getName());
+        this->name = new QLabel("Gamme " + chord.getAlias());
     this->name->setStyleSheet("border: 0px solid black;");
     this->name->setAlignment(Qt::AlignHCenter);
     this->name->setFixedHeight(15);
@@ -718,3 +718,4 @@ QStringList ChordsView::noteToString(QVector<Note> notesList)
     }
     return res;
 }
+

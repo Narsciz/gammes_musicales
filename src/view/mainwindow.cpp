@@ -258,9 +258,9 @@ void MainWindow::fillComboBoxHS(QVector<QString> listHS)
     }
 }
 
-void MainWindow::fillParametersLists(QVector<QString> listHSScales, QVector<QString> listHSCustomScales)
+void MainWindow::fillParametersLists(QVector<QString> listHSScales, QVector<QString> listAlias, QVector<QString> listHSCustomScales, QVector<QString> listCustomAlias)
 {
-    this->parametersWindow->fillLists(listHSScales, listHSCustomScales);
+    this->parametersWindow->fillLists(listHSScales, listAlias, listHSCustomScales, listCustomAlias);
 }
 
 void MainWindow::constructScaleFoundView(QVector<QVector<QString> > listFoundScales)
@@ -278,6 +278,11 @@ void MainWindow::resizeEvent ( QResizeEvent * event )
 {
     this->cListDisplay->refresh();
     this->sListDisplay->refresh();
+}
+
+void MainWindow::removeDeletedChords(HSChord *hs)
+{
+    this->cListDisplay->removeChordByHs(hs);
 }
 
 void MainWindow::slotAddButton() //Ajoute lors de l'appuie sur le bouton "Ajouter", les choix d'accords courant au layout d'accords

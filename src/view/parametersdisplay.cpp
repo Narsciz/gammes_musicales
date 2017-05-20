@@ -71,28 +71,30 @@ ParametersDisplay::ParametersDisplay() : QWidget()
     this->setWindowFlags(Qt::WindowStaysOnTopHint);
 }
 
-void ParametersDisplay::fillLists(QVector<QString> listHSScales, QVector<QString> listHSCustomScales)
+void ParametersDisplay::fillLists(QVector<QString> listHSScales, QVector<QString> listAlias, QVector<QString> listHSCustomScales, QVector<QString> listCustomAlias)
 {
     clearLayout(this->allowedScalesLayout);
     this->listScales.clear();
     this->listScalesName.clear();
+    this->listScalesName = listHSScales;
 
     for(int i = 0; i < listHSScales.size(); i++)
     {
-        this->listScales.push_back(new QCheckBox(listHSScales[i]));
-        if(this->listScales.last()->text() == "M" || this->listScales.last()->text() == "mh")
+        this->listScales.push_back(new QCheckBox(listAlias[i]));
+        if(this->listScales.last()->text() == "Majeure" || this->listScales.last()->text() == "Mineure harmonique")
             this->listScales.last()->setChecked(true);
         this->allowedScalesLayout->addWidget(this->listScales.last());
     }
+
     clearLayout(this->allowedCustomScalesLayout);
     this->listCustomScales.clear();
     this->listCustomScalesName.clear();
+    this->listCustomScalesName = listHSCustomScales;
     for(int i = 0; i < listHSCustomScales.size(); i++)
     {
-        this->listCustomScales.push_back(new QCheckBox(listHSCustomScales[i]));
+        this->listCustomScales.push_back(new QCheckBox(listCustomAlias[i]));
         this->allowedCustomScalesLayout->addWidget(this->listCustomScales.last());
     }
-    //this->allowedCustomScalesLayout->update();
 }
 
 int ParametersDisplay::getParameter()
@@ -129,14 +131,14 @@ QVector<QString> ParametersDisplay::getlistAllowedHSscales()
     {
         if(listScales[i]->isChecked())
         {
-            res.push_back(listScales[i]->text());
+            res.push_back(listScalesName[i]);
         }
     }
     for(int i = 0; i<this->listCustomScales.size(); i++)
     {
         if(listCustomScales[i]->isChecked())
         {
-            res.push_back(listCustomScales[i]->text());
+            res.push_back(listCustomScalesName[i]);
         }
     }
 

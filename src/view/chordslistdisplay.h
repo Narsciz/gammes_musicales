@@ -8,11 +8,12 @@
 #include <QScrollArea>
 #include <QScrollBar>
 #include <QVBoxLayout>
+#include <modele/hschord.h>
+#include <typeinfo>
 
 #include <QWidget>
-
-//temp
 #include <iostream>
+
 using namespace std;
 
 #include "chorddisplay.h"
@@ -45,7 +46,7 @@ public:
     void refresh();
     void enableDeletingChords();
     void disableDeletingChords();
-
+    void removeChordByHs(HSChord *hs);
 public slots:
     void slotDeleteChord(ChordDisplay *cd);
 };

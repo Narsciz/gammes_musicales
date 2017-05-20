@@ -40,6 +40,7 @@ private:
 public:
     DeleteChordsScalesView(bool isChord, QWidget *parent = 0);
 
+    void clearLayout(QLayout *layout, bool deleteWidgets);
     void constructNameLayout();
     void constructViewLayout();
     void constructDeleteLayout();

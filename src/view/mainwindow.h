@@ -26,6 +26,7 @@
 #include "view/deletechordsscalesview.h"
 #include <modele/hschord.h>
 #include <modele/hsscale.h>
+#include <modele/hschord.h>
 using namespace std;
 
 #include <QVector>
@@ -93,10 +94,11 @@ public:
     void saveFile(QString filePath, QString fileContent);
     void resizeEvent ( QResizeEvent * event );
     void fillComboBoxHS(QVector<QString> listHS);
-    void fillParametersLists(QVector<QString> listHSScales, QVector<QString> listHSCustomScales);
+    void fillParametersLists(QVector<QString> listHSScales, QVector<QString> listAlias, QVector<QString> listHSCustomScales, QVector<QString> listCustomAlias);
     void constructScaleFoundView(QVector<QVector<QString> > listFoundScales);
     ParametersDisplay *getParametersDisplay();
     void goToResultsInterface();
+    void removeDeletedChords(HSChord *hs);
 
 public slots :
     void slotAddButton();

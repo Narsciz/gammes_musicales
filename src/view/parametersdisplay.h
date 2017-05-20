@@ -51,7 +51,7 @@ private :
 
 public:
     ParametersDisplay();
-    void fillLists(QVector<QString> listHSScales, QVector<QString> listHSCustomScales);
+    void fillLists(QVector<QString> listHSScales, QVector<QString> listAlias, QVector<QString> listHSCustomScales, QVector<QString> listCustomAlias);
     int getParameter();
     int getAlgo();
     int getLimit();

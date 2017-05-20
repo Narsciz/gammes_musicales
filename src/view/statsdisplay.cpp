@@ -27,9 +27,35 @@ StatsDisplay::StatsDisplay()
 
     this->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Maximum);
 
-    createScaleTab();
-    createNoteTab();
-    createTotalScaleTab();
+    try
+    {createScaleTab();}
+    catch(...)
+    {
+        QFile::remove("../stats/scaleStats.txt");
+        QFile file("../stats/scaleStats.txt");
+        if (!file.open(QIODevice::WriteOnly | QIODevice::Text));
+        QMessageBox::warning(this, "Fichier corrompu", "Le fichier scaleStats.txt était corrompu et a été recréé");
+    }
+
+    try
+    {createNoteTab();}
+    catch(...)
+    {
+        QFile::remove("../stats/noteStats.txt");
+        QFile file("../stats/noteStats.txt");
+        if (!file.open(QIODevice::WriteOnly | QIODevice::Text));
+        QMessageBox::warning(this, "Fichier corrompu", "Le fichier noteStats.txt était corrompu et a été recréé");
+    }
+
+    try
+    {createTotalScaleTab();}
+    catch(...)
+    {
+        QFile::remove("../stats/totalScaleStats.txt");
+        QFile file("../stats/totalScaleStats.txt");
+        if (!file.open(QIODevice::WriteOnly | QIODevice::Text));
+        QMessageBox::warning(this, "Fichier corrompu", "Le fichier totalScaleStats.txt était corrompu et a été recréé");
+    }
 }
 
 

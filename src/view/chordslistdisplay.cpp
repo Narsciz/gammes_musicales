@@ -74,7 +74,10 @@ void ChordsListDisplay::refresh()
         k++;
         i++;
     }
+    this->repaint();
 }
+
+
 void ChordsListDisplay::enableDeletingChords()
 {
     for(int i=0; i<this->listChords.size(); i++)
@@ -94,4 +97,23 @@ void ChordsListDisplay::slotDeleteChord(ChordDisplay *cd)
 {
     this->listChords.removeOne(cd);
     refresh();
+}
+
+void ChordsListDisplay::removeChordByHs(HSChord *hs)
+{
+    for(int i = 0; i<listChords.size(); i++)
+    {
+        QStringList temp = listChords[i]->getName().split(":");
+        cout<<"temp[0] = "<<temp[0].toStdString()<<", temp[1] = "<<temp[1].toStdString()<<endl;
+        cout<<"hs.getName()"<<hs->getName().toStdString()<<endl;
+        if(temp[1] == hs->getName())
+        {
+            ChordDisplay *temp = listChords[i];
+            listChords.remove(i);
+            delete temp;
+            i--;
+        }
+    }
+    refresh();
+
 }
