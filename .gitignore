@@ -1,3 +1,4 @@
 /build*
 /src/UtProject.pro.*
 /assets/exports/*~
+/assets/plots

@@ -35,6 +35,14 @@ void AlgoOpti::findLeastsConsecutivesNotesChanges()
     }
 
     file.close();
+
+    QFile pgfPlotsRecording("../assets/plots/algo_opti.dat");
+    if(pgfPlotsRecording.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text))
+    {
+        QTextStream out(&pgfPlotsRecording);
+        out << data.size() << " " << timeTaken << endl;
+    }
+    pgfPlotsRecording.close();
 }
 
 void AlgoOpti::findLeastsConsecutivesScalesChanges()
@@ -59,6 +67,14 @@ void AlgoOpti::findLeastsConsecutivesScalesChanges()
         out << ";3|" << data.size() << "|" << timeTaken;
     }
     file.close();
+
+    QFile pgfPlotsRecording("../assets/plots/algo_opti.dat");
+    if(pgfPlotsRecording.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text))
+    {
+        QTextStream out(&pgfPlotsRecording);
+        out << data.size() << " " << timeTaken << endl;
+    }
+    pgfPlotsRecording.close();
 }
 
 vector<Scale*> reverse(vector<Scale*> v)
