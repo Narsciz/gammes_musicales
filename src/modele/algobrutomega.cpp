@@ -90,6 +90,14 @@ void AlgoBrutOmega::findLeastsConsecutivesNotesChanges(){
         out << ";2|" << data.size() << "|" << timeTaken;
     }
     file.close();
+
+    QFile pgfPlotsRecording("../assets/plots/algo_brut_omega.dat");
+    if(pgfPlotsRecording.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text))
+    {
+        QTextStream out(&pgfPlotsRecording);
+        out << data.size() << " " << timeTaken << endl;
+    }
+    pgfPlotsRecording.close();
 }
 
 void AlgoBrutOmega::findLeastsConsecutivesScalesChanges(){
@@ -116,6 +124,14 @@ void AlgoBrutOmega::findLeastsConsecutivesScalesChanges(){
         out << ";2|" << data.size() << "|" << timeTaken;
     }
     file.close();
+
+    QFile pgfPlotsRecording("../assets/plots/algo_brut_omega.dat");
+    if(pgfPlotsRecording.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text))
+    {
+        QTextStream out(&pgfPlotsRecording);
+        out << data.size() << " " << timeTaken << endl;
+    }
+    pgfPlotsRecording.close();
 }
 
 void AlgoBrutOmega::findLeastsTotalScales(){
@@ -142,6 +158,14 @@ void AlgoBrutOmega::findLeastsTotalScales(){
         out << ";2|" << data.size() << "|" << timeTaken;
     }
     file.close();
+
+    QFile pgfPlotsRecording("../assets/plots/algo_brut_omega.dat");
+    if(pgfPlotsRecording.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text))
+    {
+        QTextStream out(&pgfPlotsRecording);
+        out << data.size() << " " << timeTaken << endl;
+    }
+    pgfPlotsRecording.close();
 }
 
 
