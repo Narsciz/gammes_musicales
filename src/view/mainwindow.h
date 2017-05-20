@@ -95,7 +95,7 @@ public:
     void resizeEvent ( QResizeEvent * event );
     void fillComboBoxHS(QVector<QString> listHS);
     void fillParametersLists(QVector<QString> listHSScales, QVector<QString> listAlias, QVector<QString> listHSCustomScales, QVector<QString> listCustomAlias);
-    void constructScaleFoundView(QVector<QVector<QString> > listFoundScales);
+    void constructScaleFoundView(QVector<QVector<QString> > listFoundScales, QString msg);
     ParametersDisplay *getParametersDisplay();
     void goToResultsInterface();
     void removeDeletedChords(HSChord *hs);

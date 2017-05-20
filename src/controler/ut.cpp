@@ -27,7 +27,9 @@ Ut::Ut(MainWindow *w)
 void Ut::displayResultsSlot()
 {
     w->goToResultsInterface();
-    w->constructScaleFoundView(convertScaleToString(algo->getResults()));
+    w->constructScaleFoundView(convertScaleToString(algo->getResults()),
+                               QString::number(algo->getResults().size()) + QString(" Solutions Trouvées"));
+
     delete algo;
 }
 
@@ -216,7 +218,7 @@ void Ut::generateSlot(QVector<QString> listChordsName)
 
         std::thread(&Ut::join, ut).detach();
 
-        w->constructScaleFoundView(convertScaleToString(algo->getResults()));
+        w->constructScaleFoundView(convertScaleToString(algo->getResults()), "Calcul en cours...");
 
     }
     // Exception levee quand un accord est mal ecrit (B7 au lieu de B:7 par exemple)

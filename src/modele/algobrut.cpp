@@ -9,6 +9,7 @@ AlgoBrut::AlgoBrut(vector<Chord*> SA,vector<Scale*> AS):AbstractAlgo(SA,AS)
 
 void AlgoBrut::generateSolsRec(int index, vector<Scale*> solutionPossible)
 {
+
     // Si le graphe k-parties filtre n'est pas vide
     if ((int)filteredKpartiteGraph.size() > 0) {
 
@@ -27,10 +28,9 @@ void AlgoBrut::generateSolsRec(int index, vector<Scale*> solutionPossible)
                 generateSolsRec(index + 1, sol);
 
                 // plus performant mais plus moche
-//                solutionPossible.push_back(filteredKpartiteGraph[index][i]);
-//                generateSolsRec(index + 1, solutionPossible);
-//                solutionPossible.pop_back();
-
+                //                solutionPossible.push_back(filteredKpartiteGraph[index][i]);
+                //                generateSolsRec(index + 1, solutionPossible);
+                //                solutionPossible.pop_back();
             }
         }
     }
