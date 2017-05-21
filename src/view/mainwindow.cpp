@@ -6,7 +6,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
 {
     ui->setupUi(this);
 
-    this->setWindowTitle("Ut");
+    this->setWindowTitle("Ut " UT_VERSION);
     this->setMinimumSize(540, 480);
     QIcon icon("../assets/pictures/cle.png");
     this->setWindowIcon(icon);

@@ -36,6 +36,9 @@ using namespace std;
 #include "scaleslistdisplay.h"
 
 #include <thread>
+
+#define UT_VERSION "1.3"
+
 namespace Ui {
 class MainWindow;
 }
