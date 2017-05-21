@@ -1,22 +1,28 @@
 #ifndef ADDCHORDSSCALESVIEW_H
 #define ADDCHORDSSCALESVIEW_H
 
-#include <QWidget>
-#include <QCheckBox>
-#include <QGridLayout>
-#include <QVBoxLayout>
-#include <view/chordsview.h>
-#include <QComboBox>
-#include <QGroupBox>
-#include <QLabel>
-#include <QStringList>
-#include "modele/note.h"
+//Bibliotheques c++
 #include <vector>
-#include <QLineEdit>
-#include <QPushButton>
-#include <QHBoxLayout>
-#include <QMessageBox>
 
+//Bibliotheques Qt
+#include <QCheckBox>
+#include <QComboBox>
+#include <QGridLayout>
+#include <QGroupBox>
+#include <QHBoxLayout>
+#include <QLabel>
+#include <QLineEdit>
+#include <QMessageBox>
+#include <QPushButton>
+#include <QStringList>
+#include <QVBoxLayout>
+#include <QWidget>
+
+//Classes
+#include "modele/note.h"
+#include "view/chordsview.h"
+
+//fenêtre permettant d'ajouter de nouveaux accords si le constructeur est appelé avec true, et de nouvelles gammes si il est appelé avec false.
 class AddChordsScalesView : public QWidget
 {
     Q_OBJECT

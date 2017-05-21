@@ -1,24 +1,27 @@
 #ifndef CHORDSDISPLAYLAYOUT_H
 #define CHORDSDISPLAYLAYOUT_H
 
-#include <QGroupBox>
-#include <QGridLayout>
-#include <QVector>
-#include <QString>
-#include <QScrollArea>
-#include <QScrollBar>
-#include <QVBoxLayout>
-#include <modele/hschord.h>
+//Bibliotheques c++
+#include <iostream>
 #include <typeinfo>
 
+//Bibliotheques Qt
+#include <QGroupBox>
+#include <QGridLayout>
+#include <QScrollArea>
+#include <QScrollBar>
+#include <QString>
+#include <QVBoxLayout>
+#include <QVector>
 #include <QWidget>
-#include <iostream>
+
+//Classes
+#include "modele/hschord.h"
+#include "view/chorddisplay.h"
 
 using namespace std;
 
-#include "chorddisplay.h"
-
-//Layout affichant les accords choisit par l'utilisateur
+//Box affichant les accords choisit par l'utilisateur
 class ChordsListDisplay : public QGroupBox
 {
     Q_OBJECT

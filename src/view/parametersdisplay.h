@@ -1,19 +1,24 @@
 #ifndef PARAMETERSDISPLAY_H
 #define PARAMETERSDISPLAY_H
 
+//Bibliotheques c++
+#include <iostream>
+
+//Bibliotheques Qt
+#include <QCheckBox>
 #include <QGridLayout>
-#include <QRadioButton>
 #include <QGroupBox>
 #include <QHBoxLayout>
-#include <QVBoxLayout>
-#include <QWidget>
-#include <QCheckBox>
-#include <QVector>
-#include <QString>
-#include <QPushButton>
-#include <QSpinBox>
 #include <QLabel>
-#include <iostream>
+#include <QPushButton>
+#include <QRadioButton>
+#include <QSpinBox>
+#include <QString>
+#include <QVBoxLayout>
+#include <QVector>
+#include <QWidget>
+
+//fenêtre permettant à l'utilisateur de choisir les parametres de calculs qui seront utilisés
 class ParametersDisplay : public QWidget
 {
     Q_OBJECT

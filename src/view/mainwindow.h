@@ -1,6 +1,16 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#define UT_VERSION "1.3"
+
+//Bibliotheques c++
+#include <iostream>
+#include <thread>
+
+//Bibliotheques Qt
+#include <QFile>
+#include <QSpacerItem>
+#include <QTextStream>
 #include <QMainWindow>
 #include <QMenu>
 #include <QAction>
@@ -17,28 +27,21 @@
 #include <QString>
 #include <QFileDialog>
 #include <QApplication>
-#include <iostream>
-#include <QFile>
-#include <QSpacerItem>
-#include <QTextStream>
-#include <view/addchordsscalesview.h>
-#include "view/parametersdisplay.h"
-#include "view/deletechordsscalesview.h"
-#include <modele/hschord.h>
-#include <modele/hsscale.h>
-#include <modele/hschord.h>
-using namespace std;
-
 #include <QVector>
 
-#include "chordslistdisplay.h"
+//Classes
+#include "modele/hschord.h"
+#include "modele/hsscale.h"
+#include "view/addchordsscalesview.h"
+#include "view/chordslistdisplay.h"
+#include "view/deletechordsscalesview.h"
+#include "view/scaleslistdisplay.h"
 #include "view/statsdisplay.h"
-#include "scaleslistdisplay.h"
+#include "view/parametersdisplay.h"
 
-#include <thread>
+using namespace std;
 
-#define UT_VERSION "1.3"
-
+//Fenêtre principal du programme, affichée en permanence
 namespace Ui {
 class MainWindow;
 }

@@ -1,11 +1,16 @@
 #ifndef CHORDDICTIONARY_H
 #define CHORDDICTIONARY_H
 
+//Bibliotheques c++
 #include <vector>
-#include "hschord.h"
-#include <QVector>
+
+//Bibliotheques Qt
 #include <QFile>
 #include <QTextStream>
+#include <QVector>
+
+//Classes
+#include "modele/hschord.h"
 
 class Chord;
 class ChordDictionary

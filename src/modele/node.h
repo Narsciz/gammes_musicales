@@ -1,9 +1,12 @@
 #ifndef NODE_H
 #define NODE_H
 
-#include <vector>
-#include "scale.h"
+//Bibliotheques c++
 #include <iostream>
+#include <vector>
+
+//Classes
+#include "modele/scale.h"
 
 class Node
 {

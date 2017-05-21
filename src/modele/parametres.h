@@ -1,9 +1,12 @@
 #ifndef PARAMETRES_H
 #define PARAMETRES_H
 
+//Bibliotheques Qt
+#include <QString>
+
+//Classes
 #include "modele/scale.h"
 #include "view/parametersdisplay.h"
-#include <QString>
 
 class Parametres
 {

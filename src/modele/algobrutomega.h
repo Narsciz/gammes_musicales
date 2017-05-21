@@ -1,11 +1,18 @@
 #ifndef ALGOBRUTOMEGA_H
 #define ALGOBRUTOMEGA_H
 
-#include "modele/algobrut.h"
-#include <time.h>
+//Bibliotheques c++
 #include <iomanip>
+#include <time.h>
+
+//Bibliotheques Qt
 #include <QFile>
 #include <QTextStream>
+
+//Classes
+#include "modele/algobrut.h"
+
+
 
 class AlgoBrutOmega : public AlgoBrut
 {

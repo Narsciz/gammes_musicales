@@ -1,6 +1,7 @@
 #ifndef TESTFUNCTIONS_H
 #define TESTFUNCTIONS_H
 
+//Classes
 #include "modele/algo.h"
 #include "modele/algobrutomega.h"
 #include "modele/algoopti.h"

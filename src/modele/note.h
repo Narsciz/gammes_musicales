@@ -1,8 +1,6 @@
 #ifndef NOTE
 #define NOTE
 
-
-
 enum Note
 {
     C=0,

@@ -1,14 +1,17 @@
 #ifndef ALGOOPTI_H
 #define ALGOOPTI_H
 
-#include "modele/abstractalgo.h"
-#include "modele/node.h"
-#include <time.h>
+//Bibliotheques c++
 #include <iomanip>
+#include <time.h>
+
+//Bibliotheques Qt
 #include <QFile>
 #include <QTextStream>
-#include <time.h>
-#include <iomanip>
+
+//Classes
+#include "modele/abstractalgo.h"
+#include "modele/node.h"
 #include "./test/testfunctions.h"
 
 class AlgoOpti : public AbstractAlgo

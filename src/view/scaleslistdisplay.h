@@ -1,21 +1,25 @@
 #ifndef SCALESDISPLAYLAYOUT_H
 #define SCALESDISPLAYLAYOUT_H
 
-#include <QGroupBox>
-#include <QGridLayout>
-#include <QPushButton>
-#include <QVector>
-#include <QString>
-#include <QScrollArea>
-#include <QWidget>
+//Bibliotheques c++
 #include <iostream>
+
+//Bibliotheques Qt
+#include <QGridLayout>
+#include <QGroupBox>
+#include <QPushButton>
+#include <QScrollArea>
 #include <QScrollBar>
+#include <QString>
+#include <QVector>
+#include <QWidget>
+
+//Classes
+#include "view/scalesdisplay.h"
 
 using namespace std;
 
-#include "scalesdisplay.h"
-
-//Layout affichant les gammes générées, "hidden" avant lancement de l'algorithme, "visible" après lancement
+//Box affichant les gammes générées, "hidden" avant lancement de l'algorithme, "visible" après lancement
 class ScalesListDisplay : public QGroupBox
 {
     Q_OBJECT

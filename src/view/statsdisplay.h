@@ -1,22 +1,26 @@
 #ifndef STATSDISPLAY_H
 #define STATSDISPLAY_H
 
-#include <QTabWidget>
-#include <QWidget>
-#include <QSizePolicy>
+//Bibliotheques c++
+#include <iostream>
+
+//Bibliotheques Qt
+#include <QFile>
 #include <QGridLayout>
-#include <QPushButton>
-#include <QTableWidget>
 #include <QLabel>
+#include <QMessageBox>
+#include <QPushButton>
+#include <QSizePolicy>
 #include <QString>
 #include <QStringList>
+#include <QTableWidget>
+#include <QTabWidget>
 #include <QVector>
-#include <QFile>
-#include <iostream>
-#include <QMessageBox>
+#include <QWidget>
 
 using namespace std;
 
+//Fenetre affichant les statistiques concernant les performances des différents algorithmes lors de leur lancement
 class StatsDisplay : public QWidget
 {
     Q_OBJECT

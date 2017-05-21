@@ -1,18 +1,20 @@
 #ifndef CHORDDISPLAY_H
 #define CHORDDISPLAY_H
 
+//Bibliotheques Qt
+#include <QGridLayout>
+#include <QGroupBox>
+#include <QIcon>
 #include <QLabel>
 #include <QPushButton>
-#include <QGroupBox>
-#include <QGridLayout>
-#include <QIcon>
+#include <QScreen>
 #include <QString>
 
-#include <QScreen>
-
-#include <modele/chord.h>
+//Classes
+#include "modele/chord.h"
 #include "view/chordsview.h"
 
+//Box affichant un accord
 class ChordDisplay : public QGroupBox
 {
     Q_OBJECT
