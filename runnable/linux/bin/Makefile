@@ -762,10 +762,10 @@ moc_predefs.h: /home/vincent/Qt/5.8/gcc_64/mkspecs/features/data/dummy.cpp
 compiler_moc_header_make_all: moc_mainwindow.cpp moc_scaleslistdisplay.cpp moc_chordslistdisplay.cpp moc_chorddisplay.cpp moc_scaledisplay.cpp moc_ut.cpp moc_parametersdisplay.cpp moc_statsdisplay.cpp moc_addchordsscalesview.cpp moc_deletechordsscalesview.cpp
 compiler_moc_header_clean:
 	-$(DEL_FILE) moc_mainwindow.cpp moc_scaleslistdisplay.cpp moc_chordslistdisplay.cpp moc_chorddisplay.cpp moc_scaledisplay.cpp moc_ut.cpp moc_parametersdisplay.cpp moc_statsdisplay.cpp moc_addchordsscalesview.cpp moc_deletechordsscalesview.cpp
-moc_mainwindow.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QMainWindow \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qmainwindow.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtguiglobal.h \
+moc_mainwindow.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfile.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiodevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qglobal.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig-bootstrapped.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig.h \
@@ -788,15 +788,10 @@ moc_mainwindow.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QMainWindow \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmutex.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnumeric.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qversiontagging.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtgui-config.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgets-config.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qwidget.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs_win.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearray.h \
@@ -818,50 +813,59 @@ moc_mainwindow.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QMainWindow \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvarlengtharray.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontainerfwd.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmargins.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QSpacerItem \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtgui-config.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qsizepolicy.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrect.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmargins.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsize.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QTextStream \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qtextstream.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlocale.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvariant.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmap.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qdebug.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhash.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qset.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qshareddata.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QMainWindow \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qmainwindow.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qwidget.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpaintdevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpalette.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcolor.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgb.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgba64.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qbrush.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qmatrix.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpolygon.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qregion.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qdatastream.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiodevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qline.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtransform.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpainterpath.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qimage.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixelformat.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixmap.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qshareddata.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhash.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfont.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontmetrics.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontinfo.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qsizepolicy.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcursor.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qkeysequence.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qevent.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvariant.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmap.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qdebug.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qtextstream.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlocale.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qset.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontiguouscache.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qurl.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qurlquery.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfile.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qvector2d.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtouchdevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtabwidget.h \
@@ -875,7 +879,6 @@ moc_mainwindow.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QMainWindow \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGridLayout \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgridlayout.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qboxlayout.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLayout \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QPushButton \
@@ -897,7 +900,6 @@ moc_mainwindow.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QMainWindow \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qabstractitemmodel.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlabel.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QSpacerItem \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGroupBox \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgroupbox.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QCoreApplication \
@@ -916,41 +918,33 @@ moc_mainwindow.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QMainWindow \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qguiapplication.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qinputmethod.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QTextStream \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
+		../src/modele/hschord.h \
+		../src/modele/harmonicstructure.h \
+		../src/modele/hsscale.h \
 		../src/view/addchordsscalesview.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QWidget \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QCheckBox \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qcheckbox.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QVBoxLayout \
-		../src/view/chordsview.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QFrame \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QPoint \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QPixmap \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
-		../src/modele/cs.h \
-		../src/modele/note.h \
-		../src/modele/harmonicstructure.h \
-		../src/modele/chord.h \
-		../src/modele/scale.h \
-		../src/modele/scaledictionary.h \
-		../src/modele/hsscale.h \
-		../src/modele/chorddictionary.h \
-		../src/modele/hschord.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QHBoxLayout \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLineEdit \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlineedit.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtextcursor.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtextformat.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpen.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtextoption.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QHBoxLayout \
-		../src/view/parametersdisplay.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QRadioButton \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qradiobutton.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QSpinBox \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qspinbox.h \
-		../src/view/deletechordsscalesview.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QWidget \
+		../src/modele/note.h \
+		../src/view/chordsview.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QFrame \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QPixmap \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QPoint \
+		../src/modele/chord.h \
+		../src/modele/chorddictionary.h \
+		../src/modele/cs.h \
+		../src/modele/scale.h \
+		../src/modele/scaledictionary.h \
 		../src/view/chordslistdisplay.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QScrollArea \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qscrollarea.h \
@@ -966,24 +960,30 @@ moc_mainwindow.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QMainWindow \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QSize \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QSizeF \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QTransform \
+		../src/view/deletechordsscalesview.h \
+		../src/view/scaleslistdisplay.h \
+		../src/view/scalesdisplay.h \
+		../src/view/scaledisplay.h \
 		../src/view/statsdisplay.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QTabWidget \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QSizePolicy \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QTableWidget \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtablewidget.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtableview.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractitemview.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qitemselectionmodel.h \
-		../src/view/scaleslistdisplay.h \
-		../src/view/scalesdisplay.h \
-		../src/view/scaledisplay.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QTabWidget \
+		../src/view/parametersdisplay.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QRadioButton \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qradiobutton.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QSpinBox \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qspinbox.h \
 		../src/view/mainwindow.h \
 		moc_predefs.h \
 		/home/vincent/Qt/5.8/gcc_64/bin/moc
 	/home/vincent/Qt/5.8/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/vincent/Qt/5.8/gcc_64/mkspecs/linux-g++ -I/home/vincent/Documents/Master_1/TER/gammes_musicales/src -I/home/vincent/Qt/5.8/gcc_64/include -I/home/vincent/Qt/5.8/gcc_64/include/QtWidgets -I/home/vincent/Qt/5.8/gcc_64/include/QtGui -I/home/vincent/Qt/5.8/gcc_64/include/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../src/view/mainwindow.h -o moc_mainwindow.cpp
 
-moc_scaleslistdisplay.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGroupBox \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgroupbox.h \
+moc_scaleslistdisplay.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGridLayout \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgridlayout.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtguiglobal.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qglobal.h \
@@ -1010,14 +1010,11 @@ moc_scaleslistdisplay.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGroupB
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qversiontagging.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtgui-config.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgets-config.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qframe.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qwidget.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs_win.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearray.h \
@@ -1039,11 +1036,17 @@ moc_scaleslistdisplay.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGroupB
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvarlengtharray.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontainerfwd.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmargins.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qsizepolicy.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrect.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmargins.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsize.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qwidget.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpaintdevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpalette.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcolor.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgb.h \
@@ -1068,7 +1071,6 @@ moc_scaleslistdisplay.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGroupB
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfont.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontmetrics.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontinfo.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qsizepolicy.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcursor.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qkeysequence.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qevent.h \
@@ -1085,46 +1087,44 @@ moc_scaleslistdisplay.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGroupB
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qvector2d.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtouchdevice.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGridLayout \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgridlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGroupBox \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgroupbox.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qframe.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QPushButton \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qpushbutton.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qicon.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QScrollArea \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qscrollarea.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QWidget \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QScrollBar \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qscrollbar.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractslider.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QWidget \
 		../src/view/scalesdisplay.h \
 		../src/view/scaledisplay.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QIcon \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlabel.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QIcon \
 		../src/view/chordsview.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QFrame \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QPoint \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QPixmap \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QPoint \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		../src/modele/chord.h \
+		../src/modele/chorddictionary.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QTextStream \
+		../src/modele/hschord.h \
+		../src/modele/harmonicstructure.h \
 		../src/modele/cs.h \
 		../src/modele/note.h \
-		../src/modele/harmonicstructure.h \
-		../src/modele/chord.h \
 		../src/modele/scale.h \
 		../src/modele/scaledictionary.h \
 		../src/modele/hsscale.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QTextStream \
-		../src/modele/chorddictionary.h \
-		../src/modele/hschord.h \
 		../src/view/scaleslistdisplay.h \
 		moc_predefs.h \
 		/home/vincent/Qt/5.8/gcc_64/bin/moc
@@ -1238,26 +1238,26 @@ moc_chordslistdisplay.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGroupB
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayout.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qboxlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QScrollArea \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qscrollarea.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QScrollBar \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qscrollbar.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractslider.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QWidget \
 		../src/modele/hschord.h \
 		../src/modele/harmonicstructure.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QWidget \
 		../src/view/chorddisplay.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QIcon \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qicon.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlabel.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QPushButton \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qpushbutton.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractbutton.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qicon.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QIcon \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QScreen \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qscreen.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QList \
@@ -1267,26 +1267,26 @@ moc_chordslistdisplay.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGroupB
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QSizeF \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QTransform \
 		../src/modele/chord.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
+		../src/modele/chorddictionary.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QTextStream \
 		../src/modele/cs.h \
 		../src/modele/note.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
 		../src/modele/scale.h \
 		../src/modele/scaledictionary.h \
 		../src/modele/hsscale.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QTextStream \
-		../src/modele/chorddictionary.h \
 		../src/view/chordsview.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QFrame \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QPoint \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QPixmap \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QPoint \
 		../src/view/chordslistdisplay.h \
 		moc_predefs.h \
 		/home/vincent/Qt/5.8/gcc_64/bin/moc
 	/home/vincent/Qt/5.8/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/vincent/Qt/5.8/gcc_64/mkspecs/linux-g++ -I/home/vincent/Documents/Master_1/TER/gammes_musicales/src -I/home/vincent/Qt/5.8/gcc_64/include -I/home/vincent/Qt/5.8/gcc_64/include/QtWidgets -I/home/vincent/Qt/5.8/gcc_64/include/QtGui -I/home/vincent/Qt/5.8/gcc_64/include/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../src/view/chordslistdisplay.h -o moc_chordslistdisplay.cpp
 
-moc_chorddisplay.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlabel.h \
+moc_chorddisplay.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGridLayout \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgridlayout.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtguiglobal.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qglobal.h \
@@ -1313,14 +1313,11 @@ moc_chorddisplay.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qversiontagging.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtgui-config.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgets-config.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qframe.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qwidget.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs_win.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearray.h \
@@ -1342,11 +1339,17 @@ moc_chorddisplay.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvarlengtharray.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontainerfwd.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmargins.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qsizepolicy.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrect.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmargins.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsize.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qwidget.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpaintdevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpalette.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcolor.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgb.h \
@@ -1371,7 +1374,6 @@ moc_chorddisplay.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfont.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontmetrics.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontinfo.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qsizepolicy.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcursor.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qkeysequence.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qevent.h \
@@ -1388,19 +1390,16 @@ moc_chorddisplay.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qvector2d.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtouchdevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGroupBox \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgroupbox.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qframe.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QIcon \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qicon.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlabel.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QPushButton \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qpushbutton.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractbutton.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qicon.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGroupBox \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgroupbox.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGridLayout \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgridlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qboxlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QIcon \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QScreen \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qscreen.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QList \
@@ -1409,31 +1408,32 @@ moc_chorddisplay.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QSize \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QSizeF \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QTransform \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
 		../src/modele/chord.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
+		../src/modele/chorddictionary.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QTextStream \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
+		../src/modele/hschord.h \
+		../src/modele/harmonicstructure.h \
 		../src/modele/cs.h \
 		../src/modele/note.h \
-		../src/modele/harmonicstructure.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
 		../src/modele/scale.h \
 		../src/modele/scaledictionary.h \
 		../src/modele/hsscale.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QTextStream \
-		../src/modele/chorddictionary.h \
-		../src/modele/hschord.h \
 		../src/view/chordsview.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QFrame \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QPoint \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QPixmap \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QPoint \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QVBoxLayout \
 		../src/view/chorddisplay.h \
 		moc_predefs.h \
 		/home/vincent/Qt/5.8/gcc_64/bin/moc
 	/home/vincent/Qt/5.8/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/vincent/Qt/5.8/gcc_64/mkspecs/linux-g++ -I/home/vincent/Documents/Master_1/TER/gammes_musicales/src -I/home/vincent/Qt/5.8/gcc_64/include -I/home/vincent/Qt/5.8/gcc_64/include/QtWidgets -I/home/vincent/Qt/5.8/gcc_64/include/QtGui -I/home/vincent/Qt/5.8/gcc_64/include/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../src/view/chorddisplay.h -o moc_chorddisplay.cpp
 
-moc_scaledisplay.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlabel.h \
+moc_scaledisplay.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGridLayout \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgridlayout.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtguiglobal.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qglobal.h \
@@ -1460,14 +1460,11 @@ moc_scaledisplay.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qversiontagging.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtgui-config.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgets-config.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qframe.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qwidget.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs_win.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearray.h \
@@ -1489,11 +1486,17 @@ moc_scaledisplay.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvarlengtharray.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontainerfwd.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmargins.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qsizepolicy.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrect.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmargins.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsize.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qwidget.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpaintdevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpalette.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcolor.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgb.h \
@@ -1518,7 +1521,6 @@ moc_scaledisplay.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfont.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontmetrics.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontinfo.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qsizepolicy.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcursor.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qkeysequence.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qevent.h \
@@ -1535,47 +1537,44 @@ moc_scaledisplay.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qvector2d.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtouchdevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGroupBox \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgroupbox.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qframe.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QIcon \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qicon.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlabel.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QPushButton \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qpushbutton.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractbutton.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qicon.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGroupBox \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgroupbox.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGridLayout \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgridlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qboxlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QIcon \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
 		../src/view/chordsview.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QFrame \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QPoint \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QPixmap \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QPoint \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QVBoxLayout \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
+		../src/modele/chord.h \
+		../src/modele/chorddictionary.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QTextStream \
+		../src/modele/hschord.h \
+		../src/modele/harmonicstructure.h \
 		../src/modele/cs.h \
 		../src/modele/note.h \
-		../src/modele/harmonicstructure.h \
-		../src/modele/chord.h \
 		../src/modele/scale.h \
 		../src/modele/scaledictionary.h \
 		../src/modele/hsscale.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QTextStream \
-		../src/modele/chorddictionary.h \
-		../src/modele/hschord.h \
 		../src/view/scaledisplay.h \
 		moc_predefs.h \
 		/home/vincent/Qt/5.8/gcc_64/bin/moc
 	/home/vincent/Qt/5.8/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/vincent/Qt/5.8/gcc_64/mkspecs/linux-g++ -I/home/vincent/Documents/Master_1/TER/gammes_musicales/src -I/home/vincent/Qt/5.8/gcc_64/include -I/home/vincent/Qt/5.8/gcc_64/include/QtWidgets -I/home/vincent/Qt/5.8/gcc_64/include/QtGui -I/home/vincent/Qt/5.8/gcc_64/include/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../src/view/scaledisplay.h -o moc_scaledisplay.cpp
 
-moc_ut.cpp: ../src/view/mainwindow.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QMainWindow \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qmainwindow.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtguiglobal.h \
+moc_ut.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtCore/QObject \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qglobal.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig-bootstrapped.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig.h \
@@ -1598,15 +1597,7 @@ moc_ut.cpp: ../src/view/mainwindow.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmutex.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnumeric.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qversiontagging.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtgui-config.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgets-config.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qwidget.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs_win.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearray.h \
@@ -1628,95 +1619,136 @@ moc_ut.cpp: ../src/view/mainwindow.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvarlengtharray.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontainerfwd.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmargins.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpaintdevice.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrect.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsize.h \
+		../src/modele/abstractalgo.h \
+		../src/modele/algo.h \
+		../src/modele/chord.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
+		../src/modele/chorddictionary.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfile.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiodevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QTextStream \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qtextstream.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlocale.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvariant.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmap.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qdebug.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhash.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpalette.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qset.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qshareddata.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
+		../src/modele/hschord.h \
+		../src/modele/harmonicstructure.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
+		../src/modele/cs.h \
+		../src/modele/note.h \
+		../src/modele/scale.h \
+		../src/modele/scaledictionary.h \
+		../src/modele/hsscale.h \
+		../src/modele/node.h \
+		../src/modele/algobrut.h \
+		../src/modele/algobrutomega.h \
+		../src/modele/algoopti.h \
+		../src/test/testfunctions.h \
+		../src/modele/parametres.h \
+		../src/view/parametersdisplay.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QCheckBox \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtgui-config.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qicon.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsize.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixmap.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrect.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmargins.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcolor.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgb.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgba64.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qbrush.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qimage.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixelformat.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtransform.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qmatrix.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpolygon.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qregion.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qdatastream.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiodevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qline.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtransform.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpainterpath.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qimage.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixelformat.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixmap.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qshareddata.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhash.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qkeysequence.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qwidget.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpalette.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qbrush.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfont.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontmetrics.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontinfo.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qsizepolicy.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcursor.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qkeysequence.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qevent.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvariant.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmap.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qdebug.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qtextstream.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlocale.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qset.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontiguouscache.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qurl.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qurlquery.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfile.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qvector2d.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtouchdevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGridLayout \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGroupBox \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgroupbox.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qframe.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlabel.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QPushButton \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QRadioButton \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qradiobutton.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QSpinBox \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qvalidator.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qregularexpression.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QWidget \
+		../src/view/mainwindow.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QSpacerItem \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QMainWindow \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qmainwindow.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qicon.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QMenu \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qmenu.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qaction.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qactiongroup.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QAction \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QIcon \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGridLayout \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgridlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qboxlayout.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLayout \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QPushButton \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QComboBox \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qcombobox.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qvalidator.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qregularexpression.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qslider.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractslider.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qstyle.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtabbar.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qframe.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlabel.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QSpacerItem \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGroupBox \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgroupbox.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QCoreApplication \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcoreapplication.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qeventloop.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QMessageBox \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qmessagebox.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qdialog.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QFileDialog \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qfiledialog.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qdir.h \
@@ -1726,41 +1758,17 @@ moc_ut.cpp: ../src/view/mainwindow.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qguiapplication.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qinputmethod.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QTextStream \
 		../src/view/addchordsscalesview.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QWidget \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QCheckBox \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qcheckbox.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QVBoxLayout \
-		../src/view/chordsview.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QFrame \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QPoint \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QPixmap \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
-		../src/modele/cs.h \
-		../src/modele/note.h \
-		../src/modele/harmonicstructure.h \
-		../src/modele/chord.h \
-		../src/modele/scale.h \
-		../src/modele/scaledictionary.h \
-		../src/modele/hsscale.h \
-		../src/modele/chorddictionary.h \
-		../src/modele/hschord.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLineEdit \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlineedit.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtextcursor.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtextformat.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpen.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtextoption.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QHBoxLayout \
-		../src/view/parametersdisplay.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QRadioButton \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qradiobutton.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QSpinBox \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qspinbox.h \
-		../src/view/deletechordsscalesview.h \
+		../src/view/chordsview.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QFrame \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QPixmap \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QPoint \
 		../src/view/chordslistdisplay.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QScrollArea \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qscrollarea.h \
@@ -1771,37 +1779,29 @@ moc_ut.cpp: ../src/view/mainwindow.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QScreen \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qscreen.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QList \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QObject \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QRect \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QSize \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QSizeF \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QTransform \
+		../src/view/deletechordsscalesview.h \
+		../src/view/scaleslistdisplay.h \
+		../src/view/scalesdisplay.h \
+		../src/view/scaledisplay.h \
 		../src/view/statsdisplay.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QTabWidget \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QSizePolicy \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QTableWidget \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtablewidget.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtableview.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractitemview.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qitemselectionmodel.h \
-		../src/view/scaleslistdisplay.h \
-		../src/view/scalesdisplay.h \
-		../src/view/scaledisplay.h \
-		../src/modele/algobrut.h \
-		../src/modele/algo.h \
-		../src/modele/node.h \
-		../src/modele/abstractalgo.h \
-		../src/modele/algoopti.h \
-		../src/test/testfunctions.h \
-		../src/modele/algobrutomega.h \
-		../src/modele/parametres.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QTabWidget \
 		../src/controler/ut.h \
 		moc_predefs.h \
 		/home/vincent/Qt/5.8/gcc_64/bin/moc
 	/home/vincent/Qt/5.8/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/vincent/Qt/5.8/gcc_64/mkspecs/linux-g++ -I/home/vincent/Documents/Master_1/TER/gammes_musicales/src -I/home/vincent/Qt/5.8/gcc_64/include -I/home/vincent/Qt/5.8/gcc_64/include/QtWidgets -I/home/vincent/Qt/5.8/gcc_64/include/QtGui -I/home/vincent/Qt/5.8/gcc_64/include/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../src/controler/ut.h -o moc_ut.cpp
 
-moc_parametersdisplay.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGridLayout \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgridlayout.h \
+moc_parametersdisplay.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QCheckBox \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qcheckbox.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtguiglobal.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qglobal.h \
@@ -1828,199 +1828,68 @@ moc_parametersdisplay.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGridLa
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qversiontagging.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtgui-config.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgets-config.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearray.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrefcount.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qarraydata.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringbuilder.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlist.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qalgorithms.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiterator.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhashfunctions.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpair.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearraylist.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringlist.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qregexp.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringmatcher.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcoreevent.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qscopedpointer.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmetatype.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvarlengtharray.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontainerfwd.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qsizepolicy.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrect.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmargins.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsize.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qboxlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qwidget.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs_win.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpaintdevice.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpalette.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcolor.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgb.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgba64.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qbrush.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qmatrix.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpolygon.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qregion.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qdatastream.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiodevice.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qline.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtransform.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpainterpath.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qimage.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixelformat.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixmap.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qshareddata.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhash.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfont.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontmetrics.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontinfo.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcursor.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qkeysequence.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qevent.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvariant.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmap.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qdebug.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qtextstream.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlocale.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qset.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontiguouscache.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qurl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qurlquery.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfile.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qvector2d.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtouchdevice.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QRadioButton \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qradiobutton.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qicon.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGroupBox \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgroupbox.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qframe.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QHBoxLayout \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QVBoxLayout \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QWidget \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QCheckBox \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qcheckbox.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QPushButton \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QSpinBox \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qspinbox.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qvalidator.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qregularexpression.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlabel.h \
-		../src/view/parametersdisplay.h \
-		moc_predefs.h \
-		/home/vincent/Qt/5.8/gcc_64/bin/moc
-	/home/vincent/Qt/5.8/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/vincent/Qt/5.8/gcc_64/mkspecs/linux-g++ -I/home/vincent/Documents/Master_1/TER/gammes_musicales/src -I/home/vincent/Qt/5.8/gcc_64/include -I/home/vincent/Qt/5.8/gcc_64/include/QtWidgets -I/home/vincent/Qt/5.8/gcc_64/include/QtGui -I/home/vincent/Qt/5.8/gcc_64/include/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../src/view/parametersdisplay.h -o moc_parametersdisplay.cpp
-
-moc_statsdisplay.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QTabWidget \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtguiglobal.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qglobal.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig-bootstrapped.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qtcore-config.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsystemdetection.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qprocessordetection.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcompilerdetection.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qtypeinfo.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsysinfo.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlogging.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qflags.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qtypetraits.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qatomic.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbasicatomic.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qatomic_bootstrap.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qgenericatomic.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qatomic_cxx11.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qatomic_msvc.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qglobalstatic.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmutex.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnumeric.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qversiontagging.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtgui-config.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgets-config.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qwidget.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsize.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs_win.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearray.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrefcount.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qarraydata.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringbuilder.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlist.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qalgorithms.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiterator.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrefcount.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qarraydata.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpair.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearray.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringbuilder.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringlist.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qregexp.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixmap.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrect.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmargins.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcolor.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgb.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgba64.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qshareddata.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhash.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcoreevent.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qscopedpointer.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmetatype.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvarlengtharray.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontainerfwd.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmargins.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpaintdevice.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrect.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsize.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpalette.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcolor.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgb.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgba64.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qbrush.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qimage.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixelformat.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtransform.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qmatrix.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpolygon.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qregion.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qdatastream.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiodevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qline.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtransform.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpainterpath.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qimage.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixelformat.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixmap.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qshareddata.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhash.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qkeysequence.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qwidget.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpalette.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qbrush.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfont.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontmetrics.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontinfo.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qsizepolicy.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcursor.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qkeysequence.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qevent.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvariant.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmap.h \
@@ -2035,23 +1904,159 @@ moc_statsdisplay.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QTabWidget \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qvector2d.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtouchdevice.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qicon.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QWidget \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QSizePolicy \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGridLayout \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgridlayout.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayout.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGroupBox \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgroupbox.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qframe.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlabel.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QPushButton \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QRadioButton \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qradiobutton.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QSpinBox \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qvalidator.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qregularexpression.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QWidget \
+		../src/view/parametersdisplay.h \
+		moc_predefs.h \
+		/home/vincent/Qt/5.8/gcc_64/bin/moc
+	/home/vincent/Qt/5.8/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/vincent/Qt/5.8/gcc_64/mkspecs/linux-g++ -I/home/vincent/Documents/Master_1/TER/gammes_musicales/src -I/home/vincent/Qt/5.8/gcc_64/include -I/home/vincent/Qt/5.8/gcc_64/include/QtWidgets -I/home/vincent/Qt/5.8/gcc_64/include/QtGui -I/home/vincent/Qt/5.8/gcc_64/include/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../src/view/parametersdisplay.h -o moc_parametersdisplay.cpp
+
+moc_statsdisplay.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfile.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiodevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qglobal.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qtcore-config.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsysinfo.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlogging.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qflags.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qtypetraits.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qatomic.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmutex.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnumeric.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qversiontagging.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearray.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrefcount.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qarraydata.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlist.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qalgorithms.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiterator.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpair.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringlist.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qregexp.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcoreevent.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmetatype.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject_impl.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGridLayout \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtgui-config.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrect.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmargins.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsize.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qwidget.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpalette.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcolor.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgb.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgba64.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qbrush.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qmatrix.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpolygon.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qregion.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qdatastream.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qline.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtransform.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpainterpath.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qimage.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixelformat.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixmap.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qshareddata.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhash.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfont.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontmetrics.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontinfo.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcursor.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qkeysequence.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qevent.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvariant.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmap.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qdebug.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qtextstream.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlocale.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qset.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qurl.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qurlquery.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qvector2d.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtouchdevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlabel.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qframe.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QMessageBox \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qmessagebox.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qdialog.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QPushButton \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qpushbutton.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qicon.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QSizePolicy \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QTableWidget \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtablewidget.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtableview.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractitemview.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qframe.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qabstractitemmodel.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qitemselectionmodel.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -2063,23 +2068,18 @@ moc_statsdisplay.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QTabWidget \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractslider.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qstyle.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtabbar.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtabwidget.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlabel.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QTabWidget \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QMessageBox \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qmessagebox.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qdialog.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QWidget \
 		../src/view/statsdisplay.h \
 		moc_predefs.h \
 		/home/vincent/Qt/5.8/gcc_64/bin/moc
 	/home/vincent/Qt/5.8/gcc_64/bin/moc $(DEFINES) --include ./moc_predefs.h -I/home/vincent/Qt/5.8/gcc_64/mkspecs/linux-g++ -I/home/vincent/Documents/Master_1/TER/gammes_musicales/src -I/home/vincent/Qt/5.8/gcc_64/include -I/home/vincent/Qt/5.8/gcc_64/include/QtWidgets -I/home/vincent/Qt/5.8/gcc_64/include/QtGui -I/home/vincent/Qt/5.8/gcc_64/include/QtCore -I. -I/usr/include/c++/5 -I/usr/include/x86_64-linux-gnu/c++/5 -I/usr/include/c++/5/backward -I/usr/lib/gcc/x86_64-linux-gnu/5/include -I/usr/local/include -I/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed -I/usr/include/x86_64-linux-gnu -I/usr/include ../src/view/statsdisplay.h -o moc_statsdisplay.cpp
 
-moc_addchordsscalesview.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QWidget \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qwidget.h \
+moc_addchordsscalesview.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QCheckBox \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qcheckbox.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtguiglobal.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qglobal.h \
@@ -2106,65 +2106,68 @@ moc_addchordsscalesview.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QWidg
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qversiontagging.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtgui-config.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgets-config.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qicon.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsize.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs_win.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearray.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrefcount.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qarraydata.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringbuilder.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlist.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qalgorithms.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiterator.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrefcount.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qarraydata.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpair.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearray.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringbuilder.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringlist.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qregexp.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixmap.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrect.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmargins.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcolor.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgb.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgba64.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qshareddata.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhash.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcoreevent.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qscopedpointer.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmetatype.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvarlengtharray.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontainerfwd.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmargins.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpaintdevice.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrect.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsize.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpalette.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcolor.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgb.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgba64.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qbrush.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qimage.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixelformat.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtransform.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qmatrix.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpolygon.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qregion.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qdatastream.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiodevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qline.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtransform.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpainterpath.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qimage.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixelformat.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixmap.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qshareddata.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhash.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qkeysequence.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qwidget.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpalette.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qbrush.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfont.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontmetrics.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontinfo.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qsizepolicy.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcursor.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qkeysequence.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qevent.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvariant.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmap.h \
@@ -2179,39 +2182,6 @@ moc_addchordsscalesview.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QWidg
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qvector2d.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtouchdevice.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QCheckBox \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qcheckbox.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractbutton.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qicon.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGridLayout \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgridlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qboxlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QVBoxLayout \
-		../src/view/chordsview.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QFrame \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qframe.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QPoint \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlabel.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGroupBox \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgroupbox.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QPixmap \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
-		../src/modele/cs.h \
-		../src/modele/note.h \
-		../src/modele/harmonicstructure.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
-		../src/modele/chord.h \
-		../src/modele/scale.h \
-		../src/modele/scaledictionary.h \
-		../src/modele/hsscale.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QTextStream \
-		../src/modele/chorddictionary.h \
-		../src/modele/hschord.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QComboBox \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qcombobox.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -2225,19 +2195,49 @@ moc_addchordsscalesview.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QWidg
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtabbar.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtabwidget.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qrubberband.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qframe.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGridLayout \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGroupBox \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgroupbox.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlabel.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLineEdit \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlineedit.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtextcursor.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtextformat.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpen.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtextoption.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QPushButton \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QHBoxLayout \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QMessageBox \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qmessagebox.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qdialog.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QPushButton \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QWidget \
+		../src/modele/note.h \
+		../src/view/chordsview.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QFrame \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QPixmap \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QPoint \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
+		../src/modele/chord.h \
+		../src/modele/chorddictionary.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QTextStream \
+		../src/modele/hschord.h \
+		../src/modele/harmonicstructure.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
+		../src/modele/cs.h \
+		../src/modele/scale.h \
+		../src/modele/scaledictionary.h \
+		../src/modele/hsscale.h \
 		../src/view/addchordsscalesview.h \
 		moc_predefs.h \
 		/home/vincent/Qt/5.8/gcc_64/bin/moc
@@ -2358,25 +2358,25 @@ moc_deletechordsscalesview.cpp: /home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QW
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qframe.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QVBoxLayout \
-		../src/modele/scaledictionary.h \
-		../src/modele/hsscale.h \
-		../src/modele/harmonicstructure.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
-		../src/modele/scale.h \
-		../src/modele/cs.h \
-		../src/modele/note.h \
+		../src/modele/chord.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
+		../src/modele/chorddictionary.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QTextStream \
-		../src/modele/chorddictionary.h \
 		../src/modele/hschord.h \
+		../src/modele/harmonicstructure.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
+		../src/modele/cs.h \
+		../src/modele/note.h \
+		../src/modele/scale.h \
+		../src/modele/scaledictionary.h \
+		../src/modele/hsscale.h \
 		../src/view/chordsview.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QFrame \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QPoint \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGroupBox \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgroupbox.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QPixmap \
-		../src/modele/chord.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QPoint \
 		../src/view/deletechordsscalesview.h \
 		moc_predefs.h \
 		/home/vincent/Qt/5.8/gcc_64/bin/moc
@@ -2402,10 +2402,10 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean compiler_ui
 ####### Compile
 
 main.o: ../src/main.cpp ../src/view/mainwindow.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QMainWindow \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qmainwindow.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfile.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiodevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qglobal.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig-bootstrapped.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig.h \
@@ -2428,15 +2428,10 @@ main.o: ../src/main.cpp ../src/view/mainwindow.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmutex.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnumeric.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qversiontagging.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtgui-config.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgets-config.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qwidget.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs_win.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearray.h \
@@ -2458,50 +2453,59 @@ main.o: ../src/main.cpp ../src/view/mainwindow.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvarlengtharray.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontainerfwd.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmargins.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QSpacerItem \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtgui-config.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qsizepolicy.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrect.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmargins.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsize.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QTextStream \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qtextstream.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlocale.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvariant.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmap.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qdebug.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhash.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qset.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qshareddata.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QMainWindow \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qmainwindow.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qwidget.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpaintdevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpalette.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcolor.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgb.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgba64.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qbrush.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qmatrix.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpolygon.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qregion.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qdatastream.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiodevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qline.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtransform.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpainterpath.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qimage.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixelformat.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixmap.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qshareddata.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhash.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfont.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontmetrics.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontinfo.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qsizepolicy.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcursor.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qkeysequence.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qevent.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvariant.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmap.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qdebug.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qtextstream.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlocale.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qset.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontiguouscache.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qurl.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qurlquery.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfile.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qvector2d.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtouchdevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtabwidget.h \
@@ -2515,7 +2519,6 @@ main.o: ../src/main.cpp ../src/view/mainwindow.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGridLayout \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgridlayout.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qboxlayout.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLayout \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QPushButton \
@@ -2537,7 +2540,6 @@ main.o: ../src/main.cpp ../src/view/mainwindow.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qabstractitemmodel.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlabel.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QSpacerItem \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGroupBox \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgroupbox.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QCoreApplication \
@@ -2556,41 +2558,33 @@ main.o: ../src/main.cpp ../src/view/mainwindow.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qguiapplication.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qinputmethod.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QTextStream \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
+		../src/modele/hschord.h \
+		../src/modele/harmonicstructure.h \
+		../src/modele/hsscale.h \
 		../src/view/addchordsscalesview.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QWidget \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QCheckBox \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qcheckbox.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QVBoxLayout \
-		../src/view/chordsview.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QFrame \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QPoint \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QPixmap \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
-		../src/modele/cs.h \
-		../src/modele/note.h \
-		../src/modele/harmonicstructure.h \
-		../src/modele/chord.h \
-		../src/modele/scale.h \
-		../src/modele/scaledictionary.h \
-		../src/modele/hsscale.h \
-		../src/modele/chorddictionary.h \
-		../src/modele/hschord.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QHBoxLayout \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLineEdit \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlineedit.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtextcursor.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtextformat.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpen.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtextoption.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QHBoxLayout \
-		../src/view/parametersdisplay.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QRadioButton \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qradiobutton.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QSpinBox \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qspinbox.h \
-		../src/view/deletechordsscalesview.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QWidget \
+		../src/modele/note.h \
+		../src/view/chordsview.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QFrame \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QPixmap \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QPoint \
+		../src/modele/chord.h \
+		../src/modele/chorddictionary.h \
+		../src/modele/cs.h \
+		../src/modele/scale.h \
+		../src/modele/scaledictionary.h \
 		../src/view/chordslistdisplay.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QScrollArea \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qscrollarea.h \
@@ -2606,25 +2600,31 @@ main.o: ../src/main.cpp ../src/view/mainwindow.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QSize \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QSizeF \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QTransform \
+		../src/view/deletechordsscalesview.h \
+		../src/view/scaleslistdisplay.h \
+		../src/view/scalesdisplay.h \
+		../src/view/scaledisplay.h \
 		../src/view/statsdisplay.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QTabWidget \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QSizePolicy \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QTableWidget \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtablewidget.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtableview.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractitemview.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qitemselectionmodel.h \
-		../src/view/scaleslistdisplay.h \
-		../src/view/scalesdisplay.h \
-		../src/view/scaledisplay.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QTabWidget \
+		../src/view/parametersdisplay.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QRadioButton \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qradiobutton.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QSpinBox \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qspinbox.h \
 		../src/controler/ut.h \
-		../src/modele/algobrut.h \
+		../src/modele/abstractalgo.h \
 		../src/modele/algo.h \
 		../src/modele/node.h \
-		../src/modele/abstractalgo.h \
+		../src/modele/algobrut.h \
+		../src/modele/algobrutomega.h \
 		../src/modele/algoopti.h \
 		../src/test/testfunctions.h \
-		../src/modele/algobrutomega.h \
 		../src/modele/parametres.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QMenuBar \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qmenubar.h \
@@ -2635,10 +2635,10 @@ main.o: ../src/main.cpp ../src/view/mainwindow.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../src/main.cpp
 
 mainwindow.o: ../src/view/mainwindow.cpp ../src/view/mainwindow.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QMainWindow \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qmainwindow.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfile.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiodevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qglobal.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig-bootstrapped.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig.h \
@@ -2661,15 +2661,10 @@ mainwindow.o: ../src/view/mainwindow.cpp ../src/view/mainwindow.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmutex.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnumeric.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qversiontagging.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtgui-config.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgets-config.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qwidget.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs_win.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearray.h \
@@ -2691,50 +2686,59 @@ mainwindow.o: ../src/view/mainwindow.cpp ../src/view/mainwindow.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvarlengtharray.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontainerfwd.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmargins.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QSpacerItem \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtgui-config.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qsizepolicy.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrect.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmargins.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsize.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QTextStream \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qtextstream.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlocale.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvariant.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmap.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qdebug.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhash.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qset.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qshareddata.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QMainWindow \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qmainwindow.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qwidget.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpaintdevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpalette.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcolor.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgb.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgba64.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qbrush.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qmatrix.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpolygon.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qregion.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qdatastream.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiodevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qline.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtransform.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpainterpath.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qimage.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixelformat.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixmap.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qshareddata.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhash.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfont.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontmetrics.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontinfo.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qsizepolicy.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcursor.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qkeysequence.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qevent.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvariant.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmap.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qdebug.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qtextstream.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlocale.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qset.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontiguouscache.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qurl.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qurlquery.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfile.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qvector2d.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtouchdevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtabwidget.h \
@@ -2748,7 +2752,6 @@ mainwindow.o: ../src/view/mainwindow.cpp ../src/view/mainwindow.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGridLayout \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgridlayout.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qboxlayout.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLayout \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QPushButton \
@@ -2770,7 +2773,6 @@ mainwindow.o: ../src/view/mainwindow.cpp ../src/view/mainwindow.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qabstractitemmodel.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlabel.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QSpacerItem \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGroupBox \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgroupbox.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QCoreApplication \
@@ -2789,41 +2791,33 @@ mainwindow.o: ../src/view/mainwindow.cpp ../src/view/mainwindow.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qguiapplication.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qinputmethod.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QTextStream \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
+		../src/modele/hschord.h \
+		../src/modele/harmonicstructure.h \
+		../src/modele/hsscale.h \
 		../src/view/addchordsscalesview.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QWidget \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QCheckBox \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qcheckbox.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QVBoxLayout \
-		../src/view/chordsview.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QFrame \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QPoint \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QPixmap \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
-		../src/modele/cs.h \
-		../src/modele/note.h \
-		../src/modele/harmonicstructure.h \
-		../src/modele/chord.h \
-		../src/modele/scale.h \
-		../src/modele/scaledictionary.h \
-		../src/modele/hsscale.h \
-		../src/modele/chorddictionary.h \
-		../src/modele/hschord.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QHBoxLayout \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLineEdit \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlineedit.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtextcursor.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtextformat.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpen.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtextoption.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QHBoxLayout \
-		../src/view/parametersdisplay.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QRadioButton \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qradiobutton.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QSpinBox \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qspinbox.h \
-		../src/view/deletechordsscalesview.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QWidget \
+		../src/modele/note.h \
+		../src/view/chordsview.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QFrame \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QPixmap \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QPoint \
+		../src/modele/chord.h \
+		../src/modele/chorddictionary.h \
+		../src/modele/cs.h \
+		../src/modele/scale.h \
+		../src/modele/scaledictionary.h \
 		../src/view/chordslistdisplay.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QScrollArea \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qscrollarea.h \
@@ -2839,27 +2833,31 @@ mainwindow.o: ../src/view/mainwindow.cpp ../src/view/mainwindow.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QSize \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QSizeF \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QTransform \
+		../src/view/deletechordsscalesview.h \
+		../src/view/scaleslistdisplay.h \
+		../src/view/scalesdisplay.h \
+		../src/view/scaledisplay.h \
 		../src/view/statsdisplay.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QTabWidget \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QSizePolicy \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QTableWidget \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtablewidget.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtableview.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractitemview.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qitemselectionmodel.h \
-		../src/view/scaleslistdisplay.h \
-		../src/view/scalesdisplay.h \
-		../src/view/scaledisplay.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QTabWidget \
+		../src/view/parametersdisplay.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QRadioButton \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qradiobutton.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QSpinBox \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qspinbox.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../src/view/mainwindow.cpp
 
 chord.o: ../src/modele/chord.cpp ../src/modele/chord.h \
-		../src/modele/cs.h \
-		../src/modele/note.h \
-		../src/modele/harmonicstructure.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringlist.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlist.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qalgorithms.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qglobal.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig-bootstrapped.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig.h \
@@ -2882,27 +2880,20 @@ chord.o: ../src/modele/chord.cpp ../src/modele/chord.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmutex.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnumeric.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qversiontagging.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearray.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrefcount.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qarraydata.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringbuilder.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringlist.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlist.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qalgorithms.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiterator.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrefcount.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qarraydata.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpair.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearray.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringbuilder.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qregexp.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringmatcher.h \
-		../src/modele/scale.h \
-		../src/modele/scaledictionary.h \
-		../src/modele/hsscale.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
+		../src/modele/chorddictionary.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfile.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
@@ -2923,19 +2914,25 @@ chord.o: ../src/modele/chord.cpp ../src/modele/chord.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmap.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qdebug.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhash.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qset.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontiguouscache.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qshareddata.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		../src/modele/chorddictionary.h \
-		../src/modele/hschord.h
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
+		../src/modele/hschord.h \
+		../src/modele/harmonicstructure.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
+		../src/modele/cs.h \
+		../src/modele/note.h \
+		../src/modele/scale.h \
+		../src/modele/scaledictionary.h \
+		../src/modele/hsscale.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o chord.o ../src/modele/chord.cpp
 
 scale.o: ../src/modele/scale.cpp ../src/modele/scale.h \
-		../src/modele/cs.h \
-		../src/modele/note.h \
-		../src/modele/harmonicstructure.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
@@ -2976,13 +2973,12 @@ scale.o: ../src/modele/scale.cpp ../src/modele/scale.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearraylist.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qregexp.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringmatcher.h \
+		../src/modele/cs.h \
+		../src/modele/harmonicstructure.h \
+		../src/modele/note.h \
 		../src/modele/algo.h \
 		../src/modele/chord.h \
-		../src/modele/scaledictionary.h \
-		../src/modele/hsscale.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
+		../src/modele/chorddictionary.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfile.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
@@ -3003,13 +2999,17 @@ scale.o: ../src/modele/scale.cpp ../src/modele/scale.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmap.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qdebug.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhash.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qset.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontiguouscache.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qshareddata.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		../src/modele/chorddictionary.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
 		../src/modele/hschord.h \
+		../src/modele/scaledictionary.h \
+		../src/modele/hsscale.h \
 		../src/modele/node.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o scale.o ../src/modele/scale.cpp
 
@@ -3115,11 +3115,10 @@ hsscale.o: ../src/modele/hsscale.cpp ../src/modele/hsscale.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o hsscale.o ../src/modele/hsscale.cpp
 
 chorddictionary.o: ../src/modele/chorddictionary.cpp ../src/modele/chorddictionary.h \
-		../src/modele/hschord.h \
-		../src/modele/harmonicstructure.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfile.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiodevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qglobal.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig-bootstrapped.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig.h \
@@ -3142,30 +3141,25 @@ chorddictionary.o: ../src/modele/chorddictionary.cpp ../src/modele/chorddictiona
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmutex.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnumeric.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qversiontagging.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearray.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrefcount.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qarraydata.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringbuilder.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlist.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qalgorithms.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiterator.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlist.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhashfunctions.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpair.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearraylist.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringlist.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qregexp.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringmatcher.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfile.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiodevice.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcoreevent.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qscopedpointer.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmetatype.h \
@@ -3179,26 +3173,31 @@ chorddictionary.o: ../src/modele/chorddictionary.cpp ../src/modele/chorddictiona
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmap.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qdebug.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhash.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qset.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontiguouscache.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qshareddata.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
+		../src/modele/hschord.h \
+		../src/modele/harmonicstructure.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
 		../src/modele/chord.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
 		../src/modele/cs.h \
 		../src/modele/note.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
 		../src/modele/scale.h \
 		../src/modele/scaledictionary.h \
 		../src/modele/hsscale.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o chorddictionary.o ../src/modele/chorddictionary.cpp
 
 scaledictionary.o: ../src/modele/scaledictionary.cpp ../src/modele/scaledictionary.h \
-		../src/modele/hsscale.h \
-		../src/modele/harmonicstructure.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfile.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiodevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qglobal.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig-bootstrapped.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig.h \
@@ -3221,110 +3220,25 @@ scaledictionary.o: ../src/modele/scaledictionary.cpp ../src/modele/scaledictiona
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmutex.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnumeric.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qversiontagging.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearray.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrefcount.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qarraydata.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringbuilder.h \
-		../src/modele/scale.h \
-		../src/modele/cs.h \
-		../src/modele/note.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringlist.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlist.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qalgorithms.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiterator.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhashfunctions.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpair.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearraylist.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qregexp.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringmatcher.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfile.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiodevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcoreevent.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qscopedpointer.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmetatype.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvarlengtharray.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontainerfwd.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QTextStream \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qtextstream.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlocale.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvariant.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmap.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qdebug.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhash.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qset.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontiguouscache.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qshareddata.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o scaledictionary.o ../src/modele/scaledictionary.cpp
-
-cs.o: ../src/modele/cs.cpp ../src/modele/cs.h \
-		../src/modele/note.h \
-		../src/modele/harmonicstructure.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qglobal.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig-bootstrapped.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qtcore-config.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsystemdetection.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qprocessordetection.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcompilerdetection.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qtypeinfo.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsysinfo.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlogging.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qflags.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qtypetraits.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qatomic.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbasicatomic.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qatomic_bootstrap.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qgenericatomic.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qatomic_cxx11.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qatomic_msvc.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qglobalstatic.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmutex.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnumeric.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qversiontagging.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearray.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrefcount.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qarraydata.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringbuilder.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringlist.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlist.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qalgorithms.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiterator.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhashfunctions.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpair.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringlist.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qregexp.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringmatcher.h \
-		../src/modele/scaledictionary.h \
-		../src/modele/hsscale.h \
-		../src/modele/scale.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfile.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiodevice.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcoreevent.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qscopedpointer.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmetatype.h \
@@ -3338,11 +3252,97 @@ cs.o: ../src/modele/cs.cpp ../src/modele/cs.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmap.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qdebug.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhash.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qset.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontiguouscache.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qshareddata.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
+		../src/modele/hsscale.h \
+		../src/modele/harmonicstructure.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
+		../src/modele/scale.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
+		../src/modele/cs.h \
+		../src/modele/note.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o scaledictionary.o ../src/modele/scaledictionary.cpp
+
+cs.o: ../src/modele/cs.cpp ../src/modele/cs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringlist.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlist.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qalgorithms.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qglobal.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qtcore-config.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsysinfo.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlogging.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qflags.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qtypetraits.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qatomic.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmutex.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnumeric.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qversiontagging.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiterator.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrefcount.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qarraydata.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpair.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearray.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qregexp.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringmatcher.h \
+		../src/modele/harmonicstructure.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
+		../src/modele/note.h \
+		../src/modele/scaledictionary.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfile.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiodevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcoreevent.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qscopedpointer.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmetatype.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvarlengtharray.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontainerfwd.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject_impl.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QTextStream \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qtextstream.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlocale.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvariant.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmap.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qdebug.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhash.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qset.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qshareddata.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
+		../src/modele/hsscale.h \
+		../src/modele/scale.h \
 		../src/modele/chorddictionary.h \
 		../src/modele/hschord.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o cs.o ../src/modele/cs.cpp
@@ -3456,26 +3456,26 @@ chordslistdisplay.o: ../src/view/chordslistdisplay.cpp ../src/view/chordslistdis
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayout.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qboxlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QScrollArea \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qscrollarea.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QScrollBar \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qscrollbar.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractslider.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QWidget \
 		../src/modele/hschord.h \
 		../src/modele/harmonicstructure.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QWidget \
 		../src/view/chorddisplay.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QIcon \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qicon.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlabel.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QPushButton \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qpushbutton.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractbutton.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qicon.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QIcon \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QScreen \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qscreen.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QList \
@@ -3485,24 +3485,24 @@ chordslistdisplay.o: ../src/view/chordslistdisplay.cpp ../src/view/chordslistdis
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QSizeF \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QTransform \
 		../src/modele/chord.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
+		../src/modele/chorddictionary.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QTextStream \
 		../src/modele/cs.h \
 		../src/modele/note.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
 		../src/modele/scale.h \
 		../src/modele/scaledictionary.h \
 		../src/modele/hsscale.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QTextStream \
-		../src/modele/chorddictionary.h \
 		../src/view/chordsview.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QFrame \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QPoint \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QPixmap
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QPixmap \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QPoint
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o chordslistdisplay.o ../src/view/chordslistdisplay.cpp
 
 scaleslistdisplay.o: ../src/view/scaleslistdisplay.cpp ../src/view/scaleslistdisplay.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGroupBox \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgroupbox.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGridLayout \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgridlayout.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtguiglobal.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qglobal.h \
@@ -3529,14 +3529,11 @@ scaleslistdisplay.o: ../src/view/scaleslistdisplay.cpp ../src/view/scaleslistdis
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qversiontagging.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtgui-config.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgets-config.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qframe.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qwidget.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs_win.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearray.h \
@@ -3558,11 +3555,17 @@ scaleslistdisplay.o: ../src/view/scaleslistdisplay.cpp ../src/view/scaleslistdis
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvarlengtharray.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontainerfwd.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmargins.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qsizepolicy.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrect.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmargins.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsize.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qwidget.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpaintdevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpalette.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcolor.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgb.h \
@@ -3587,7 +3590,6 @@ scaleslistdisplay.o: ../src/view/scaleslistdisplay.cpp ../src/view/scaleslistdis
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfont.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontmetrics.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontinfo.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qsizepolicy.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcursor.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qkeysequence.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qevent.h \
@@ -3604,51 +3606,49 @@ scaleslistdisplay.o: ../src/view/scaleslistdisplay.cpp ../src/view/scaleslistdis
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qvector2d.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtouchdevice.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGridLayout \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgridlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGroupBox \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgroupbox.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qframe.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QPushButton \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qpushbutton.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qicon.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QScrollArea \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qscrollarea.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QWidget \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QScrollBar \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qscrollbar.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractslider.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QWidget \
 		../src/view/scalesdisplay.h \
 		../src/view/scaledisplay.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QIcon \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlabel.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QIcon \
 		../src/view/chordsview.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QFrame \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QPoint \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QPixmap \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QPoint \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QVBoxLayout \
-		../src/modele/cs.h \
-		../src/modele/note.h \
-		../src/modele/harmonicstructure.h \
 		../src/modele/chord.h \
-		../src/modele/scale.h \
-		../src/modele/scaledictionary.h \
-		../src/modele/hsscale.h \
+		../src/modele/chorddictionary.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QTextStream \
-		../src/modele/chorddictionary.h \
-		../src/modele/hschord.h
+		../src/modele/hschord.h \
+		../src/modele/harmonicstructure.h \
+		../src/modele/cs.h \
+		../src/modele/note.h \
+		../src/modele/scale.h \
+		../src/modele/scaledictionary.h \
+		../src/modele/hsscale.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o scaleslistdisplay.o ../src/view/scaleslistdisplay.cpp
 
 chorddisplay.o: ../src/view/chorddisplay.cpp ../src/view/chorddisplay.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlabel.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGridLayout \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgridlayout.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtguiglobal.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qglobal.h \
@@ -3675,14 +3675,11 @@ chorddisplay.o: ../src/view/chorddisplay.cpp ../src/view/chorddisplay.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qversiontagging.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtgui-config.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgets-config.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qframe.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qwidget.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs_win.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearray.h \
@@ -3704,11 +3701,17 @@ chorddisplay.o: ../src/view/chorddisplay.cpp ../src/view/chorddisplay.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvarlengtharray.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontainerfwd.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmargins.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qsizepolicy.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrect.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmargins.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsize.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qwidget.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpaintdevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpalette.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcolor.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgb.h \
@@ -3733,7 +3736,6 @@ chorddisplay.o: ../src/view/chorddisplay.cpp ../src/view/chorddisplay.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfont.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontmetrics.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontinfo.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qsizepolicy.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcursor.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qkeysequence.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qevent.h \
@@ -3750,19 +3752,16 @@ chorddisplay.o: ../src/view/chorddisplay.cpp ../src/view/chorddisplay.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qvector2d.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtouchdevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGroupBox \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgroupbox.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qframe.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QIcon \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qicon.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlabel.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QPushButton \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qpushbutton.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractbutton.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qicon.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGroupBox \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgroupbox.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGridLayout \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgridlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qboxlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QIcon \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QScreen \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qscreen.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QList \
@@ -3771,29 +3770,30 @@ chorddisplay.o: ../src/view/chorddisplay.cpp ../src/view/chorddisplay.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QSize \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QSizeF \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QTransform \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
 		../src/modele/chord.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
+		../src/modele/chorddictionary.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QTextStream \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
+		../src/modele/hschord.h \
+		../src/modele/harmonicstructure.h \
 		../src/modele/cs.h \
 		../src/modele/note.h \
-		../src/modele/harmonicstructure.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
 		../src/modele/scale.h \
 		../src/modele/scaledictionary.h \
 		../src/modele/hsscale.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QTextStream \
-		../src/modele/chorddictionary.h \
-		../src/modele/hschord.h \
 		../src/view/chordsview.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QFrame \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QPoint \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QPixmap \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QPoint \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QVBoxLayout
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o chorddisplay.o ../src/view/chorddisplay.cpp
 
 scaledisplay.o: ../src/view/scaledisplay.cpp ../src/view/scaledisplay.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlabel.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGridLayout \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgridlayout.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtguiglobal.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qglobal.h \
@@ -3820,14 +3820,11 @@ scaledisplay.o: ../src/view/scaledisplay.cpp ../src/view/scaledisplay.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qversiontagging.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtgui-config.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgets-config.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qframe.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qwidget.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs_win.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearray.h \
@@ -3849,11 +3846,17 @@ scaledisplay.o: ../src/view/scaledisplay.cpp ../src/view/scaledisplay.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvarlengtharray.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontainerfwd.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmargins.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qsizepolicy.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrect.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmargins.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsize.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qwidget.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpaintdevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpalette.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcolor.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgb.h \
@@ -3878,7 +3881,6 @@ scaledisplay.o: ../src/view/scaledisplay.cpp ../src/view/scaledisplay.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfont.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontmetrics.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontinfo.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qsizepolicy.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcursor.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qkeysequence.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qevent.h \
@@ -3895,43 +3897,42 @@ scaledisplay.o: ../src/view/scaledisplay.cpp ../src/view/scaledisplay.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qvector2d.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtouchdevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGroupBox \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgroupbox.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qframe.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QIcon \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qicon.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlabel.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QPushButton \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qpushbutton.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractbutton.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qicon.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGroupBox \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgroupbox.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGridLayout \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgridlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qboxlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QIcon \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
 		../src/view/chordsview.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QFrame \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QPoint \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QPixmap \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QPoint \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QVBoxLayout \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
-		../src/modele/cs.h \
-		../src/modele/note.h \
-		../src/modele/harmonicstructure.h \
 		../src/modele/chord.h \
-		../src/modele/scale.h \
-		../src/modele/scaledictionary.h \
-		../src/modele/hsscale.h \
+		../src/modele/chorddictionary.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QTextStream \
-		../src/modele/chorddictionary.h \
-		../src/modele/hschord.h
+		../src/modele/hschord.h \
+		../src/modele/harmonicstructure.h \
+		../src/modele/cs.h \
+		../src/modele/note.h \
+		../src/modele/scale.h \
+		../src/modele/scaledictionary.h \
+		../src/modele/hsscale.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o scaledisplay.o ../src/view/scaledisplay.cpp
 
 scalesdisplay.o: ../src/view/scalesdisplay.cpp ../src/view/scalesdisplay.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qalgorithms.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGridLayout \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtguiglobal.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qglobal.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig-bootstrapped.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig.h \
@@ -3954,72 +3955,71 @@ scalesdisplay.o: ../src/view/scalesdisplay.cpp ../src/view/scalesdisplay.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmutex.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnumeric.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qversiontagging.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiterator.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlist.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtgui-config.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearray.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrefcount.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qarraydata.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlist.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qalgorithms.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiterator.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhashfunctions.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpair.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearraylist.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearray.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringbuilder.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringlist.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qregexp.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringmatcher.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QPushButton \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtguiglobal.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtgui-config.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgets-config.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractbutton.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qicon.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsize.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixmap.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpaintdevice.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs_win.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrect.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmargins.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcolor.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgb.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgba64.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qshareddata.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhash.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcoreevent.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qscopedpointer.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmetatype.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvarlengtharray.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontainerfwd.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qimage.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixelformat.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtransform.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrect.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmargins.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsize.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qwidget.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpalette.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcolor.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgb.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgba64.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qbrush.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qmatrix.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpolygon.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qregion.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qdatastream.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiodevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qline.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtransform.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpainterpath.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qkeysequence.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qwidget.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpalette.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qbrush.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qimage.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixelformat.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixmap.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qshareddata.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhash.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfont.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontmetrics.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontinfo.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qsizepolicy.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcursor.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qkeysequence.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qevent.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvariant.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmap.h \
@@ -4037,87 +4037,37 @@ scalesdisplay.o: ../src/view/scalesdisplay.cpp ../src/view/scalesdisplay.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGroupBox \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgroupbox.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qframe.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGridLayout \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgridlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QPushButton \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qicon.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
 		../src/view/scaledisplay.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QIcon \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlabel.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QIcon \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
 		../src/view/chordsview.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QFrame \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QPoint \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QPixmap \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QPoint \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QVBoxLayout \
-		../src/modele/cs.h \
-		../src/modele/note.h \
-		../src/modele/harmonicstructure.h \
 		../src/modele/chord.h \
-		../src/modele/scale.h \
-		../src/modele/scaledictionary.h \
-		../src/modele/hsscale.h \
+		../src/modele/chorddictionary.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QTextStream \
-		../src/modele/chorddictionary.h \
-		../src/modele/hschord.h
+		../src/modele/hschord.h \
+		../src/modele/harmonicstructure.h \
+		../src/modele/cs.h \
+		../src/modele/note.h \
+		../src/modele/scale.h \
+		../src/modele/scaledictionary.h \
+		../src/modele/hsscale.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o scalesdisplay.o ../src/view/scalesdisplay.cpp
 
 node.o: ../src/modele/node.cpp ../src/modele/node.h \
 		../src/modele/scale.h \
-		../src/modele/cs.h \
-		../src/modele/note.h \
-		../src/modele/harmonicstructure.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qglobal.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig-bootstrapped.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qtcore-config.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsystemdetection.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qprocessordetection.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcompilerdetection.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qtypeinfo.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsysinfo.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlogging.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qflags.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qtypetraits.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qatomic.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbasicatomic.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qatomic_bootstrap.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qgenericatomic.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qatomic_cxx11.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qatomic_msvc.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qglobalstatic.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmutex.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnumeric.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qversiontagging.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearray.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrefcount.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qarraydata.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringbuilder.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringlist.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlist.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qalgorithms.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiterator.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhashfunctions.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpair.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearraylist.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qregexp.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringmatcher.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o node.o ../src/modele/node.cpp
-
-algobrut.o: ../src/modele/algobrut.cpp ../src/modele/algobrut.h \
-		../src/modele/scale.h \
-		../src/modele/cs.h \
-		../src/modele/note.h \
-		../src/modele/harmonicstructure.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
@@ -4158,20 +4108,57 @@ algobrut.o: ../src/modele/algobrut.cpp ../src/modele/algobrut.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearraylist.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qregexp.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringmatcher.h \
-		../src/modele/algo.h \
-		../src/modele/chord.h \
-		../src/modele/scaledictionary.h \
-		../src/modele/hsscale.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
+		../src/modele/cs.h \
+		../src/modele/harmonicstructure.h \
+		../src/modele/note.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o node.o ../src/modele/node.cpp
+
+algobrut.o: ../src/modele/algobrut.cpp ../src/modele/algobrut.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfile.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiodevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qglobal.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qtcore-config.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsystemdetection.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qprocessordetection.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcompilerdetection.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qtypeinfo.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsysinfo.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlogging.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qflags.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qtypetraits.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qatomic.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbasicatomic.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qgenericatomic.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qatomic_cxx11.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qatomic_msvc.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qglobalstatic.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmutex.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnumeric.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qversiontagging.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearray.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrefcount.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qarraydata.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringbuilder.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlist.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qalgorithms.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiterator.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpair.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringlist.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qregexp.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringmatcher.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcoreevent.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qscopedpointer.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmetatype.h \
@@ -4185,25 +4172,36 @@ algobrut.o: ../src/modele/algobrut.cpp ../src/modele/algobrut.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmap.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qdebug.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhash.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qset.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontiguouscache.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qshareddata.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		../src/modele/abstractalgo.h \
+		../src/modele/algo.h \
+		../src/modele/chord.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
 		../src/modele/chorddictionary.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
 		../src/modele/hschord.h \
-		../src/modele/node.h \
-		../src/modele/abstractalgo.h
+		../src/modele/harmonicstructure.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
+		../src/modele/cs.h \
+		../src/modele/note.h \
+		../src/modele/scale.h \
+		../src/modele/scaledictionary.h \
+		../src/modele/hsscale.h \
+		../src/modele/node.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o algobrut.o ../src/modele/algobrut.cpp
 
 algo.o: ../src/modele/algo.cpp ../src/modele/algo.h \
 		../src/modele/chord.h \
-		../src/modele/cs.h \
-		../src/modele/note.h \
-		../src/modele/harmonicstructure.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringlist.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlist.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qalgorithms.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qglobal.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig-bootstrapped.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig.h \
@@ -4226,27 +4224,20 @@ algo.o: ../src/modele/algo.cpp ../src/modele/algo.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmutex.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnumeric.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qversiontagging.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearray.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrefcount.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qarraydata.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringbuilder.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringlist.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlist.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qalgorithms.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiterator.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrefcount.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qarraydata.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpair.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearray.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringbuilder.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qregexp.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringmatcher.h \
-		../src/modele/scale.h \
-		../src/modele/scaledictionary.h \
-		../src/modele/hsscale.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
+		../src/modele/chorddictionary.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfile.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
@@ -4267,22 +4258,30 @@ algo.o: ../src/modele/algo.cpp ../src/modele/algo.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmap.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qdebug.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhash.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qset.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontiguouscache.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qshareddata.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		../src/modele/chorddictionary.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
 		../src/modele/hschord.h \
+		../src/modele/harmonicstructure.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
+		../src/modele/cs.h \
+		../src/modele/note.h \
+		../src/modele/scale.h \
+		../src/modele/scaledictionary.h \
+		../src/modele/hsscale.h \
 		../src/modele/node.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o algo.o ../src/modele/algo.cpp
 
 ut.o: ../src/controler/ut.cpp ../src/controler/ut.h \
-		../src/view/mainwindow.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QMainWindow \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qmainwindow.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QObject \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qglobal.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig-bootstrapped.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig.h \
@@ -4305,15 +4304,7 @@ ut.o: ../src/controler/ut.cpp ../src/controler/ut.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmutex.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnumeric.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qversiontagging.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtgui-config.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgets-config.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qwidget.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs_win.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearray.h \
@@ -4335,95 +4326,136 @@ ut.o: ../src/controler/ut.cpp ../src/controler/ut.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvarlengtharray.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontainerfwd.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmargins.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpaintdevice.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrect.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsize.h \
+		../src/modele/abstractalgo.h \
+		../src/modele/algo.h \
+		../src/modele/chord.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
+		../src/modele/chorddictionary.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfile.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiodevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QTextStream \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qtextstream.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlocale.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvariant.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmap.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qdebug.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhash.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpalette.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qset.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontiguouscache.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qshareddata.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
+		../src/modele/hschord.h \
+		../src/modele/harmonicstructure.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
+		../src/modele/cs.h \
+		../src/modele/note.h \
+		../src/modele/scale.h \
+		../src/modele/scaledictionary.h \
+		../src/modele/hsscale.h \
+		../src/modele/node.h \
+		../src/modele/algobrut.h \
+		../src/modele/algobrutomega.h \
+		../src/modele/algoopti.h \
+		../src/test/testfunctions.h \
+		../src/modele/parametres.h \
+		../src/view/parametersdisplay.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QCheckBox \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qcheckbox.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtgui-config.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qicon.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsize.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixmap.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrect.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmargins.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcolor.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgb.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgba64.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qbrush.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qimage.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixelformat.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtransform.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qmatrix.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpolygon.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qregion.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qdatastream.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiodevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qline.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtransform.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpainterpath.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qimage.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixelformat.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixmap.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qshareddata.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhash.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qkeysequence.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qwidget.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpalette.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qbrush.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfont.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontmetrics.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontinfo.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qsizepolicy.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcursor.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qkeysequence.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qevent.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvariant.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmap.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qdebug.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qtextstream.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlocale.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qset.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontiguouscache.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qurl.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qurlquery.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfile.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qvector2d.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtouchdevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGridLayout \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGroupBox \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgroupbox.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qframe.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlabel.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QPushButton \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QRadioButton \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qradiobutton.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QSpinBox \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qspinbox.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qvalidator.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qregularexpression.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QWidget \
+		../src/view/mainwindow.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QSpacerItem \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QMainWindow \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qmainwindow.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qicon.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QMenu \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qmenu.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qaction.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qactiongroup.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QAction \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QIcon \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGridLayout \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgridlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qboxlayout.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLayout \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QPushButton \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractbutton.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QComboBox \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qcombobox.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qstyleoption.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qvalidator.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qregularexpression.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qslider.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractslider.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qstyle.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtabbar.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qframe.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qabstractitemmodel.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlabel.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QSpacerItem \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGroupBox \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgroupbox.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QCoreApplication \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcoreapplication.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qeventloop.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QMessageBox \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qmessagebox.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qdialog.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QFileDialog \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qfiledialog.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qdir.h \
@@ -4433,41 +4465,17 @@ ut.o: ../src/controler/ut.cpp ../src/controler/ut.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qdesktopwidget.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qguiapplication.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qinputmethod.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QTextStream \
 		../src/view/addchordsscalesview.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QWidget \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QCheckBox \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qcheckbox.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QVBoxLayout \
-		../src/view/chordsview.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QFrame \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QPoint \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QPixmap \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
-		../src/modele/cs.h \
-		../src/modele/note.h \
-		../src/modele/harmonicstructure.h \
-		../src/modele/chord.h \
-		../src/modele/scale.h \
-		../src/modele/scaledictionary.h \
-		../src/modele/hsscale.h \
-		../src/modele/chorddictionary.h \
-		../src/modele/hschord.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLineEdit \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlineedit.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtextcursor.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtextformat.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpen.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtextoption.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QHBoxLayout \
-		../src/view/parametersdisplay.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QRadioButton \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qradiobutton.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QSpinBox \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qspinbox.h \
-		../src/view/deletechordsscalesview.h \
+		../src/view/chordsview.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QFrame \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QPixmap \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QPoint \
 		../src/view/chordslistdisplay.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QScrollArea \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qscrollarea.h \
@@ -4478,37 +4486,29 @@ ut.o: ../src/controler/ut.cpp ../src/controler/ut.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QScreen \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qscreen.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QList \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QObject \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QRect \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QSize \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QSizeF \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QTransform \
+		../src/view/deletechordsscalesview.h \
+		../src/view/scaleslistdisplay.h \
+		../src/view/scalesdisplay.h \
+		../src/view/scaledisplay.h \
 		../src/view/statsdisplay.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QTabWidget \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QSizePolicy \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QTableWidget \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtablewidget.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtableview.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractitemview.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qitemselectionmodel.h \
-		../src/view/scaleslistdisplay.h \
-		../src/view/scalesdisplay.h \
-		../src/view/scaledisplay.h \
-		../src/modele/algobrut.h \
-		../src/modele/algo.h \
-		../src/modele/node.h \
-		../src/modele/abstractalgo.h \
-		../src/modele/algoopti.h \
-		../src/test/testfunctions.h \
-		../src/modele/algobrutomega.h \
-		../src/modele/parametres.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QTabWidget \
 		../src/modele/export.cpp \
 		../src/modele/export.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ut.o ../src/controler/ut.cpp
 
 parametersdisplay.o: ../src/view/parametersdisplay.cpp ../src/view/parametersdisplay.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGridLayout \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QCheckBox \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qcheckbox.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtguiglobal.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qglobal.h \
@@ -4535,69 +4535,68 @@ parametersdisplay.o: ../src/view/parametersdisplay.cpp ../src/view/parametersdis
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qversiontagging.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtgui-config.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgets-config.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qicon.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsize.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearray.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrefcount.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qarraydata.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringbuilder.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlist.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qalgorithms.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiterator.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrefcount.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qarraydata.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpair.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearray.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringbuilder.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringlist.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qregexp.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixmap.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrect.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmargins.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcolor.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgb.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgba64.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qshareddata.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhash.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcoreevent.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qscopedpointer.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmetatype.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvarlengtharray.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontainerfwd.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qsizepolicy.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrect.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmargins.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsize.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qboxlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qwidget.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs_win.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpaintdevice.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpalette.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcolor.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgb.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgba64.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qbrush.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qimage.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixelformat.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtransform.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qmatrix.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpolygon.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qregion.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qdatastream.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiodevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qline.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtransform.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpainterpath.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qimage.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixelformat.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixmap.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qshareddata.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhash.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qkeysequence.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qwidget.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpalette.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qbrush.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfont.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontmetrics.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontinfo.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qsizepolicy.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcursor.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qkeysequence.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qevent.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvariant.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmap.h \
@@ -4612,48 +4611,48 @@ parametersdisplay.o: ../src/view/parametersdisplay.cpp ../src/view/parametersdis
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qvector2d.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtouchdevice.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QRadioButton \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qradiobutton.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractbutton.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qicon.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGridLayout \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qboxlayout.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGroupBox \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgroupbox.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qframe.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QHBoxLayout \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QVBoxLayout \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QWidget \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QCheckBox \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qcheckbox.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlabel.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QPushButton \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QRadioButton \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qradiobutton.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QSpinBox \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qspinbox.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qvalidator.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qregularexpression.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlabel.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QWidget \
 		../src/modele/scaledictionary.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QTextStream \
 		../src/modele/hsscale.h \
 		../src/modele/harmonicstructure.h \
 		../src/modele/scale.h \
-		../src/modele/cs.h \
-		../src/modele/note.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QTextStream
+		../src/modele/cs.h \
+		../src/modele/note.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o parametersdisplay.o ../src/view/parametersdisplay.cpp
 
 abstractalgo.o: ../src/modele/abstractalgo.cpp ../src/modele/abstractalgo.h \
+		../src/modele/algo.h \
 		../src/modele/chord.h \
-		../src/modele/cs.h \
-		../src/modele/note.h \
-		../src/modele/harmonicstructure.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringlist.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlist.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qalgorithms.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qglobal.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig-bootstrapped.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig.h \
@@ -4676,27 +4675,20 @@ abstractalgo.o: ../src/modele/abstractalgo.cpp ../src/modele/abstractalgo.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmutex.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnumeric.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qversiontagging.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearray.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrefcount.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qarraydata.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringbuilder.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringlist.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlist.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qalgorithms.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiterator.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrefcount.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qarraydata.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpair.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearray.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringbuilder.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qregexp.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringmatcher.h \
-		../src/modele/scale.h \
-		../src/modele/scaledictionary.h \
-		../src/modele/hsscale.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
+		../src/modele/chorddictionary.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfile.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
@@ -4717,22 +4709,26 @@ abstractalgo.o: ../src/modele/abstractalgo.cpp ../src/modele/abstractalgo.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmap.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qdebug.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhash.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qset.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontiguouscache.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qshareddata.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		../src/modele/chorddictionary.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
 		../src/modele/hschord.h \
-		../src/modele/algo.h \
+		../src/modele/harmonicstructure.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
+		../src/modele/cs.h \
+		../src/modele/note.h \
+		../src/modele/scale.h \
+		../src/modele/scaledictionary.h \
+		../src/modele/hsscale.h \
 		../src/modele/node.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o abstractalgo.o ../src/modele/abstractalgo.cpp
 
 parametres.o: ../src/modele/parametres.cpp ../src/modele/parametres.h \
-		../src/modele/scale.h \
-		../src/modele/cs.h \
-		../src/modele/note.h \
-		../src/modele/harmonicstructure.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
@@ -4763,6 +4759,7 @@ parametres.o: ../src/modele/parametres.cpp ../src/modele/parametres.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qarraydata.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringbuilder.h \
+		../src/modele/scale.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringlist.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlist.h \
@@ -4773,60 +4770,62 @@ parametres.o: ../src/modele/parametres.cpp ../src/modele/parametres.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearraylist.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qregexp.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringmatcher.h \
+		../src/modele/cs.h \
+		../src/modele/harmonicstructure.h \
+		../src/modele/note.h \
 		../src/view/parametersdisplay.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGridLayout \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QCheckBox \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qcheckbox.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtguiglobal.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtgui-config.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgets-config.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qicon.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsize.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixmap.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrect.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmargins.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcolor.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgb.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgba64.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qshareddata.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhash.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcoreevent.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qscopedpointer.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmetatype.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvarlengtharray.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontainerfwd.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qsizepolicy.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrect.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmargins.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsize.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qboxlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qwidget.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs_win.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpaintdevice.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpalette.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcolor.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgb.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgba64.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qbrush.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qimage.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixelformat.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtransform.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qmatrix.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpolygon.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qregion.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qdatastream.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiodevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qline.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtransform.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpainterpath.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qimage.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixelformat.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixmap.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qshareddata.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhash.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qkeysequence.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qwidget.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpalette.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qbrush.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfont.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontmetrics.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontinfo.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qsizepolicy.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcursor.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qkeysequence.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qevent.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvariant.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmap.h \
@@ -4841,39 +4840,36 @@ parametres.o: ../src/modele/parametres.cpp ../src/modele/parametres.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qvector2d.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtouchdevice.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QRadioButton \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qradiobutton.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractbutton.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qicon.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGridLayout \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qboxlayout.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGroupBox \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgroupbox.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qframe.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QHBoxLayout \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QVBoxLayout \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QWidget \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QCheckBox \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qcheckbox.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlabel.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QPushButton \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QRadioButton \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qradiobutton.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QSpinBox \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qspinbox.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractspinbox.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qvalidator.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qregularexpression.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlabel.h
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o parametres.o ../src/modele/parametres.cpp
 
 algoopti.o: ../src/modele/algoopti.cpp ../src/modele/algoopti.h \
-		../src/modele/abstractalgo.h \
-		../src/modele/chord.h \
-		../src/modele/cs.h \
-		../src/modele/note.h \
-		../src/modele/harmonicstructure.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfile.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiodevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qglobal.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig-bootstrapped.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig.h \
@@ -4896,34 +4892,25 @@ algoopti.o: ../src/modele/algoopti.cpp ../src/modele/algoopti.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmutex.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnumeric.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qversiontagging.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearray.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrefcount.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qarraydata.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringbuilder.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringlist.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlist.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qalgorithms.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiterator.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhashfunctions.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpair.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringlist.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qregexp.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringmatcher.h \
-		../src/modele/scale.h \
-		../src/modele/scaledictionary.h \
-		../src/modele/hsscale.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfile.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiodevice.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcoreevent.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qscopedpointer.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmetatype.h \
@@ -4937,14 +4924,27 @@ algoopti.o: ../src/modele/algoopti.cpp ../src/modele/algoopti.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmap.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qdebug.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhash.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qset.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontiguouscache.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qshareddata.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		../src/modele/chorddictionary.h \
-		../src/modele/hschord.h \
+		../src/modele/abstractalgo.h \
 		../src/modele/algo.h \
+		../src/modele/chord.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
+		../src/modele/chorddictionary.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
+		../src/modele/hschord.h \
+		../src/modele/harmonicstructure.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
+		../src/modele/cs.h \
+		../src/modele/note.h \
+		../src/modele/scale.h \
+		../src/modele/scaledictionary.h \
+		../src/modele/hsscale.h \
 		../src/modele/node.h \
 		../src/test/testfunctions.h \
 		../src/modele/algobrutomega.h \
@@ -4952,14 +4952,10 @@ algoopti.o: ../src/modele/algoopti.cpp ../src/modele/algoopti.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o algoopti.o ../src/modele/algoopti.cpp
 
 algobrutomega.o: ../src/modele/algobrutomega.cpp ../src/modele/algobrutomega.h \
-		../src/modele/algobrut.h \
-		../src/modele/scale.h \
-		../src/modele/cs.h \
-		../src/modele/note.h \
-		../src/modele/harmonicstructure.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfile.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiodevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qglobal.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig-bootstrapped.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig.h \
@@ -4982,35 +4978,25 @@ algobrutomega.o: ../src/modele/algobrutomega.cpp ../src/modele/algobrutomega.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmutex.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnumeric.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qversiontagging.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearray.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrefcount.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qarraydata.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringbuilder.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringlist.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlist.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qalgorithms.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiterator.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhashfunctions.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpair.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringlist.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qregexp.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringmatcher.h \
-		../src/modele/algo.h \
-		../src/modele/chord.h \
-		../src/modele/scaledictionary.h \
-		../src/modele/hsscale.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfile.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiodevice.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcoreevent.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qscopedpointer.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmetatype.h \
@@ -5024,26 +5010,38 @@ algobrutomega.o: ../src/modele/algobrutomega.cpp ../src/modele/algobrutomega.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmap.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qdebug.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhash.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qset.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontiguouscache.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qshareddata.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		../src/modele/algobrut.h \
+		../src/modele/abstractalgo.h \
+		../src/modele/algo.h \
+		../src/modele/chord.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
 		../src/modele/chorddictionary.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
 		../src/modele/hschord.h \
-		../src/modele/node.h \
-		../src/modele/abstractalgo.h
+		../src/modele/harmonicstructure.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
+		../src/modele/cs.h \
+		../src/modele/note.h \
+		../src/modele/scale.h \
+		../src/modele/scaledictionary.h \
+		../src/modele/hsscale.h \
+		../src/modele/node.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o algobrutomega.o ../src/modele/algobrutomega.cpp
 
 testfunctions.o: ../src/test/testfunctions.cpp ../src/test/testfunctions.h \
 		../src/modele/algo.h \
 		../src/modele/chord.h \
-		../src/modele/cs.h \
-		../src/modele/note.h \
-		../src/modele/harmonicstructure.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringlist.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlist.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qalgorithms.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qglobal.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig-bootstrapped.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig.h \
@@ -5066,27 +5064,20 @@ testfunctions.o: ../src/test/testfunctions.cpp ../src/test/testfunctions.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmutex.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnumeric.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qversiontagging.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearray.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrefcount.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qarraydata.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringbuilder.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringlist.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlist.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qalgorithms.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiterator.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrefcount.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qarraydata.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpair.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearray.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringbuilder.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qregexp.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringmatcher.h \
-		../src/modele/scale.h \
-		../src/modele/scaledictionary.h \
-		../src/modele/hsscale.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
+		../src/modele/chorddictionary.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfile.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
@@ -5107,32 +5098,44 @@ testfunctions.o: ../src/test/testfunctions.cpp ../src/test/testfunctions.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmap.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qdebug.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhash.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qset.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontiguouscache.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qshareddata.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
-		../src/modele/chorddictionary.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
 		../src/modele/hschord.h \
+		../src/modele/harmonicstructure.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
+		../src/modele/cs.h \
+		../src/modele/note.h \
+		../src/modele/scale.h \
+		../src/modele/scaledictionary.h \
+		../src/modele/hsscale.h \
 		../src/modele/node.h \
 		../src/modele/algobrutomega.h \
 		../src/modele/algobrut.h \
 		../src/modele/abstractalgo.h \
 		../src/modele/algoopti.h \
 		../src/view/mainwindow.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QMainWindow \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qmainwindow.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QSpacerItem \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtguiglobal.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtgui-config.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qsizepolicy.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrect.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmargins.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsize.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QMainWindow \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qmainwindow.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qwidget.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs_win.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmargins.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpaintdevice.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrect.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsize.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpalette.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcolor.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgb.h \
@@ -5151,7 +5154,6 @@ testfunctions.o: ../src/test/testfunctions.cpp ../src/test/testfunctions.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfont.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontmetrics.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontinfo.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qsizepolicy.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcursor.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qkeysequence.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qevent.h \
@@ -5170,7 +5172,6 @@ testfunctions.o: ../src/test/testfunctions.cpp ../src/test/testfunctions.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGridLayout \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgridlayout.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qboxlayout.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLayout \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QPushButton \
@@ -5192,7 +5193,6 @@ testfunctions.o: ../src/test/testfunctions.cpp ../src/test/testfunctions.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qabstractitemmodel.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlabel.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QSpacerItem \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGroupBox \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgroupbox.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QCoreApplication \
@@ -5211,27 +5211,21 @@ testfunctions.o: ../src/test/testfunctions.cpp ../src/test/testfunctions.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qguiapplication.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qinputmethod.h \
 		../src/view/addchordsscalesview.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QWidget \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QCheckBox \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qcheckbox.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QVBoxLayout \
-		../src/view/chordsview.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QFrame \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QPoint \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QPixmap \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QHBoxLayout \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLineEdit \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlineedit.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtextcursor.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtextformat.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpen.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtextoption.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QHBoxLayout \
-		../src/view/parametersdisplay.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QRadioButton \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qradiobutton.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QSpinBox \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qspinbox.h \
-		../src/view/deletechordsscalesview.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QWidget \
+		../src/view/chordsview.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QFrame \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QPixmap \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QPoint \
 		../src/view/chordslistdisplay.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QScrollArea \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qscrollarea.h \
@@ -5247,24 +5241,30 @@ testfunctions.o: ../src/test/testfunctions.cpp ../src/test/testfunctions.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QSize \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QSizeF \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QTransform \
+		../src/view/deletechordsscalesview.h \
+		../src/view/scaleslistdisplay.h \
+		../src/view/scalesdisplay.h \
+		../src/view/scaledisplay.h \
 		../src/view/statsdisplay.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QTabWidget \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QSizePolicy \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QTableWidget \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtablewidget.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtableview.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractitemview.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qitemselectionmodel.h \
-		../src/view/scaleslistdisplay.h \
-		../src/view/scalesdisplay.h \
-		../src/view/scaledisplay.h
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QTabWidget \
+		../src/view/parametersdisplay.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QRadioButton \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qradiobutton.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QSpinBox \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qspinbox.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o testfunctions.o ../src/test/testfunctions.cpp
 
 statsdisplay.o: ../src/view/statsdisplay.cpp ../src/view/statsdisplay.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QTabWidget \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtabwidget.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfile.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiodevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qglobal.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig-bootstrapped.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qconfig.h \
@@ -5287,15 +5287,10 @@ statsdisplay.o: ../src/view/statsdisplay.cpp ../src/view/statsdisplay.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmutex.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnumeric.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qversiontagging.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtgui-config.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgets-config.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qwidget.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs_win.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearray.h \
@@ -5317,11 +5312,24 @@ statsdisplay.o: ../src/view/statsdisplay.cpp ../src/view/statsdisplay.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvarlengtharray.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontainerfwd.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmargins.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGridLayout \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtguiglobal.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtgui-config.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qsizepolicy.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrect.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmargins.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsize.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qwidget.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpaintdevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpalette.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcolor.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgb.h \
@@ -5332,7 +5340,6 @@ statsdisplay.o: ../src/view/statsdisplay.cpp ../src/view/statsdisplay.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpolygon.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qregion.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qdatastream.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiodevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qline.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtransform.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpainterpath.h \
@@ -5346,7 +5353,6 @@ statsdisplay.o: ../src/view/statsdisplay.cpp ../src/view/statsdisplay.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfont.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontmetrics.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontinfo.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qsizepolicy.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcursor.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qkeysequence.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qevent.h \
@@ -5359,27 +5365,26 @@ statsdisplay.o: ../src/view/statsdisplay.cpp ../src/view/statsdisplay.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontiguouscache.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qurl.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qurlquery.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfile.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qvector2d.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtouchdevice.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qicon.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QWidget \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QSizePolicy \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGridLayout \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgridlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlabel.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qframe.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QMessageBox \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qmessagebox.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qdialog.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QPushButton \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qpushbutton.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qicon.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QSizePolicy \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QTableWidget \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtablewidget.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtableview.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractitemview.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractscrollarea.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qframe.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qabstractitemmodel.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qitemselectionmodel.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -5391,16 +5396,11 @@ statsdisplay.o: ../src/view/statsdisplay.cpp ../src/view/statsdisplay.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractslider.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qstyle.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtabbar.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtabwidget.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qrubberband.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlabel.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QTabWidget \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QMessageBox \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qmessagebox.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qdialog.h
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QWidget
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o statsdisplay.o ../src/view/statsdisplay.cpp
 
 chordsview.o: ../src/view/chordsview.cpp ../src/view/chordsview.h \
@@ -5512,31 +5512,31 @@ chordsview.o: ../src/view/chordsview.cpp ../src/view/chordsview.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayout.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qboxlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QPoint \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlabel.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGroupBox \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgroupbox.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlabel.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QPixmap \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QPoint \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QVBoxLayout \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
-		../src/modele/cs.h \
-		../src/modele/note.h \
-		../src/modele/harmonicstructure.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
 		../src/modele/chord.h \
-		../src/modele/scale.h \
-		../src/modele/scaledictionary.h \
-		../src/modele/hsscale.h \
+		../src/modele/chorddictionary.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QTextStream \
-		../src/modele/chorddictionary.h \
-		../src/modele/hschord.h
+		../src/modele/hschord.h \
+		../src/modele/harmonicstructure.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
+		../src/modele/cs.h \
+		../src/modele/note.h \
+		../src/modele/scale.h \
+		../src/modele/scaledictionary.h \
+		../src/modele/hsscale.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o chordsview.o ../src/view/chordsview.cpp
 
 addchordsscalesview.o: ../src/view/addchordsscalesview.cpp ../src/view/addchordsscalesview.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QWidget \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qwidget.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QCheckBox \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qcheckbox.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtguiglobal.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qglobal.h \
@@ -5563,65 +5563,68 @@ addchordsscalesview.o: ../src/view/addchordsscalesview.cpp ../src/view/addchords
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qversiontagging.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtgui-config.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtwidgets-config.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractbutton.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qicon.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsize.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qnamespace.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs_win.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearray.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrefcount.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qarraydata.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringbuilder.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qlist.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qalgorithms.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiterator.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrefcount.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qarraydata.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhashfunctions.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qchar.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpair.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearraylist.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qbytearray.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstring.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringbuilder.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringlist.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qregexp.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qstringmatcher.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixmap.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpaintdevice.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qwindowdefs_win.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrect.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmargins.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcolor.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgb.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgba64.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qshareddata.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhash.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcoreevent.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qscopedpointer.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmetatype.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvarlengtharray.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qcontainerfwd.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qobject_impl.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmargins.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpaintdevice.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qrect.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsize.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qpoint.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpalette.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcolor.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgb.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qrgba64.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qbrush.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qimage.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixelformat.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtransform.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qmatrix.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpolygon.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvector.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qregion.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qdatastream.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qiodevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qline.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtransform.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpainterpath.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qimage.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixelformat.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpixmap.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qshareddata.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qhash.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qkeysequence.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qwidget.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpalette.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qbrush.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfont.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontmetrics.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qfontinfo.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qsizepolicy.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qcursor.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qkeysequence.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qevent.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qvariant.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qmap.h \
@@ -5636,39 +5639,6 @@ addchordsscalesview.o: ../src/view/addchordsscalesview.cpp ../src/view/addchords
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qfiledevice.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qvector2d.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtouchdevice.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QCheckBox \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qcheckbox.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractbutton.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qicon.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGridLayout \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgridlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qboxlayout.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QVBoxLayout \
-		../src/view/chordsview.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QFrame \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qframe.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QPoint \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlabel.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGroupBox \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgroupbox.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QPixmap \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
-		../src/modele/cs.h \
-		../src/modele/note.h \
-		../src/modele/harmonicstructure.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
-		../src/modele/chord.h \
-		../src/modele/scale.h \
-		../src/modele/scaledictionary.h \
-		../src/modele/hsscale.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QTextStream \
-		../src/modele/chorddictionary.h \
-		../src/modele/hschord.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QComboBox \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qcombobox.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
@@ -5682,19 +5652,49 @@ addchordsscalesview.o: ../src/view/addchordsscalesview.cpp ../src/view/addchords
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtabbar.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qtabwidget.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qrubberband.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qframe.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/qabstractitemmodel.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGridLayout \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgridlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlayoutitem.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qboxlayout.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGroupBox \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgroupbox.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QHBoxLayout \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLabel \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlabel.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QLineEdit \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qlineedit.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtextcursor.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtextformat.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qpen.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/qtextoption.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QPushButton \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qpushbutton.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QHBoxLayout \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QMessageBox \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qmessagebox.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qdialog.h
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qdialog.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QPushButton \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qpushbutton.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QVBoxLayout \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QWidget \
+		../src/modele/note.h \
+		../src/view/chordsview.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QFrame \
+		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QPixmap \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QPoint \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
+		../src/modele/chord.h \
+		../src/modele/chorddictionary.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QTextStream \
+		../src/modele/hschord.h \
+		../src/modele/harmonicstructure.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
+		../src/modele/cs.h \
+		../src/modele/scale.h \
+		../src/modele/scaledictionary.h \
+		../src/modele/hsscale.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o addchordsscalesview.o ../src/view/addchordsscalesview.cpp
 
 deletechordsscalesview.o: ../src/view/deletechordsscalesview.cpp ../src/view/deletechordsscalesview.h \
@@ -5813,25 +5813,25 @@ deletechordsscalesview.o: ../src/view/deletechordsscalesview.cpp ../src/view/del
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qframe.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QVector \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QVBoxLayout \
-		../src/modele/scaledictionary.h \
-		../src/modele/hsscale.h \
-		../src/modele/harmonicstructure.h \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
-		../src/modele/scale.h \
-		../src/modele/cs.h \
-		../src/modele/note.h \
+		../src/modele/chord.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QStringList \
+		../src/modele/chorddictionary.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QFile \
 		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QTextStream \
-		../src/modele/chorddictionary.h \
 		../src/modele/hschord.h \
+		../src/modele/harmonicstructure.h \
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QString \
+		../src/modele/cs.h \
+		../src/modele/note.h \
+		../src/modele/scale.h \
+		../src/modele/scaledictionary.h \
+		../src/modele/hsscale.h \
 		../src/view/chordsview.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QFrame \
-		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QPoint \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/QGroupBox \
 		/home/vincent/Qt/5.8/gcc_64/include/QtWidgets/qgroupbox.h \
 		/home/vincent/Qt/5.8/gcc_64/include/QtGui/QPixmap \
-		../src/modele/chord.h
+		/home/vincent/Qt/5.8/gcc_64/include/QtCore/QPoint
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o deletechordsscalesview.o ../src/view/deletechordsscalesview.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
