@@ -180,10 +180,12 @@ QString MainWindow::openExplorer(int i)
     this->explorer = new QFileDialog();
     QStringList fileNameTemp;
     QString fileName = "";
+
     switch (i) {
     case 1:
         this->explorer->setFileMode(QFileDialog::ExistingFile);
-    case 2:
+        break;
+    case 2:        
         this->explorer->setNameFilter(tr("Fichiers textes (*.txt)"));
         break;
     case 3:
@@ -206,21 +208,28 @@ QVector<QString> MainWindow::testFile(QString filePath)
 
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         fileContent = file.readAll();
+
+        // Suppression du caractere EOF sur linux
+        if (fileContent[fileContent.length() - 1] == '\n')
+            fileContent = fileContent.left(fileContent.length() - 1);
+
         file.close();
     }
 
     QStringList listChords = fileContent.split(' ');
     QVector<QString> res = listChords.toVector();
     vector<Chord*> chords;
+    Chord* testChord;
 
     int i = 0;
     while (i < res.size()) {
         try {
-            Chord* testChord = new Chord(res[i]);
+            testChord = new Chord(res[i]);
             testChord->getName();
         }
         catch (std::out_of_range) {
             res.clear();
+            cout << "Exception raised by " << testChord->getName().toStdString() << ", accord numero " << i << endl;
             break;
         }
 
