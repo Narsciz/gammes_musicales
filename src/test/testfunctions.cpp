@@ -6,6 +6,16 @@
 
 using namespace std;
 
+/**
+ * @brief testAlgo
+ *  Teste le bon fonctionnement d'un algorithme
+ * @param algoName
+ *  Type d'algorithme
+ * @param algoConstraint
+ *  Type de contrainte pour l'algo
+ * @param limit
+ *  Nombre de resultat limite
+ */
 void testAlgo(string algoName, string algoConstraint, int limit)
 {
     ChordDictionary::getInstance()->generateBaseChords();
@@ -14,41 +24,47 @@ void testAlgo(string algoName, string algoConstraint, int limit)
     vector<Chord*> allowedChords = ChordDictionary::getInstance()->getAllChords();
     vector<Scale*> allowedScales = ScaleDictionary::getInstance()->getAllScales();
 
-
     QVector<QString> chords = MainWindow::testFile("../assets/imports/RoundMidnight.txt");
 
-    for(int i = 0; i < chords.size(); i++)
+    for (int i = 0; i < chords.size(); i++)
         suiteAccords.push_back(new Chord(chords[i]));
 
-    cout << "Suite d'accords :" << endl << flush;
+    cout << "Suite d'accords :" << endl
+         << flush;
     for (size_t i = 0; i < suiteAccords.size(); i++)
         cout << suiteAccords[i]->getName().toStdString() << "|" << flush;
-    cout << endl << endl << flush;
+    cout << endl
+         << endl
+         << flush;
 
     clock_t tStart = clock();
-    AbstractAlgo *algo;
+    AbstractAlgo* algo;
 
     if (algoName == "brut")
         algo = new AlgoBrut(suiteAccords, ScaleDictionary::getInstance()->getAllScales());
     else if (algoName == "omega")
         algo = new AlgoBrutOmega(suiteAccords, ScaleDictionary::getInstance()->getAllScales());
-    else if (algoName == "optimise"){
+    else if (algoName == "optimise") {
         algo = new AlgoOpti(suiteAccords, ScaleDictionary::getInstance()->getAllScales());
         algo->setLimit(limit);
-    } else algo = new AlgoBrut(suiteAccords, ScaleDictionary::getInstance()->getAllScales());
+    }
+    else
+        algo = new AlgoBrut(suiteAccords, ScaleDictionary::getInstance()->getAllScales());
 
     vector<vector<Scale*> > filteredKpartiteGraph = algo->getFilteredKpartiteGraph();
 
-    cout << "Filtered Kpartite Graph : " << endl << flush;
-    for (size_t i = 0; i < filteredKpartiteGraph.size(); i++){
+    cout << "Filtered Kpartite Graph : " << endl
+         << flush;
+    for (size_t i = 0; i < filteredKpartiteGraph.size(); i++) {
         for (size_t j = 0; j < filteredKpartiteGraph[i].size(); j++)
             cout << filteredKpartiteGraph[i][j]->getName().toStdString() << "|" << flush;
-        cout << endl << flush;
+        cout << endl
+             << flush;
     }
-    cout << endl << flush;
+    cout << endl
+         << flush;
 
-    try
-    {
+    try {
         if (algoConstraint == "consecutivesNotes")
             algo->findLeastsConsecutivesNotesChanges();
         else if (algoConstraint == "consecutivesScales")
@@ -56,48 +72,57 @@ void testAlgo(string algoName, string algoConstraint, int limit)
         else if (algoConstraint == "totalScales")
             algo->findLeastsTotalScales();
     }
-    catch (std::bad_alloc& ba)
-    {
+    catch (std::bad_alloc& ba) {
         cout << "bad_alloc caught: " << ba.what() << '\n';
     }
 
     vector<vector<Scale*> > results = algo->getResults();
 
-    cout << "Solution :" << endl << flush;
-    for (size_t i = 0; i < results.size(); i++)
-    {
+    cout << "Solution :" << endl
+         << flush;
+    for (size_t i = 0; i < results.size(); i++) {
         QString ligne = "";
         for (size_t j = 0; j < results[i].size(); j++)
             ligne += "|" + results[i][j]->getName();
 
-        cout << ligne.toStdString() << endl << flush;
+        cout << ligne.toStdString() << endl
+             << flush;
     }
 
-    cout << endl << flush;
+    cout << endl
+         << flush;
 
     cout << "Time taken for " << algoName
          << ", " << algoConstraint << " : "
-         << setiosflags(ios::fixed) << setprecision(4) << (double)(clock() - tStart)/CLOCKS_PER_SEC << " secs."
-            << endl << flush;
-
+         << setiosflags(ios::fixed) << setprecision(4) << (double)(clock() - tStart) / CLOCKS_PER_SEC << " secs."
+         << endl
+         << flush;
 }
 
+/**
+ * @brief displayGAKO
+ *  Affiche un GAKO dans le terminal
+ * @param GAKO
+ */
 void displayGAKO(vector<vector<Node*> > GAKO)
 {
-    for (size_t i = 0; i < GAKO.size(); i++)
-    {
-        for (size_t j = 0; j < GAKO[i].size(); j++)
-        {
+    for (size_t i = 0; i < GAKO.size(); i++) {
+        for (size_t j = 0; j < GAKO[i].size(); j++) {
             if (GAKO[i][j]->getScale() != NULL)
                 GAKO[i][j]->display();
-            else cout << "sommet entree ou sortie" << flush;
+            else
+                cout << "sommet entree ou sortie" << flush;
             cout << "|" << flush;
         }
-        cout<<endl<<flush;
+        cout << endl
+             << flush;
     }
 }
 
-
+/**
+ * @brief testGAKO
+ *  Teste si le GAKO est correctement genere
+ */
 void testGAKO()
 {
 
@@ -106,24 +131,30 @@ void testGAKO()
     vector<Chord*> suiteAccords;
     vector<Chord*> allowedChords = ChordDictionary::getInstance()->getAllChords();
     vector<Scale*> allowedScales = ScaleDictionary::getInstance()->getAllScales();
-    allowedScales.pop_back();allowedScales.pop_back();allowedScales.pop_back();allowedScales.pop_back();allowedScales.pop_back();
+    allowedScales.pop_back();
+    allowedScales.pop_back();
+    allowedScales.pop_back();
+    allowedScales.pop_back();
+    allowedScales.pop_back();
 
-    for (int i=0;i<4;i++)
+    for (int i = 0; i < 4; i++)
         suiteAccords.push_back(allowedChords[i]);
 
-    cout<<"suite d'accords :"<<endl<<flush;
-    for (size_t i=0;i<suiteAccords.size();i++)
-        cout<<suiteAccords[i]->getName().toStdString()<<"|"<<flush;
-    cout<<endl<<flush;
+    cout << "suite d'accords :" << endl
+         << flush;
+    for (size_t i = 0; i < suiteAccords.size(); i++)
+        cout << suiteAccords[i]->getName().toStdString() << "|" << flush;
+    cout << endl
+         << flush;
 
-    cout<<"gammes autorisées"<<endl<<flush;
-    for (size_t i=0;i<allowedScales.size();i++)
-        cout<<allowedScales[i]->getName().toStdString()<<"|"<<flush;
-    cout<<endl<<flush;
+    cout << "gammes autorisées" << endl
+         << flush;
+    for (size_t i = 0; i < allowedScales.size(); i++)
+        cout << allowedScales[i]->getName().toStdString() << "|" << flush;
+    cout << endl
+         << flush;
 
-    cout<<"GAKO"<<endl<<flush;
+    cout << "GAKO" << endl
+         << flush;
     displayGAKO(AlgoOpti::KpartitesToGAKO(KpartitesScales(suiteAccords)));
-
 }
-
-

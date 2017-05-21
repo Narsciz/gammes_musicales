@@ -1,6 +1,7 @@
 #include "deletechordsscalesview.h"
 
-DeleteChordsScalesView::DeleteChordsScalesView(bool isChord, QWidget *parent) : QWidget(parent)
+DeleteChordsScalesView::DeleteChordsScalesView(bool isChord, QWidget* parent)
+    : QWidget(parent)
 {
     this->isChord = isChord;
 
@@ -8,16 +9,15 @@ DeleteChordsScalesView::DeleteChordsScalesView(bool isChord, QWidget *parent) : 
 
     this->mainLayout = new QGridLayout();
 
-    if(isChord)
-        if(ChordDictionary::getInstance()->getCustomHSnames().size()>0)
+    if (isChord)
+        if (ChordDictionary::getInstance()->getCustomHSnames().size() > 0)
             constructLayouts();
         else
             this->mainLayout->addWidget(new QLabel("Aucun accord personalisé"), 0, 0, 1, 3);
+    else if (ScaleDictionary::getInstance()->getCustomHSnames().size() > 0)
+        constructLayouts();
     else
-        if(ScaleDictionary::getInstance()->getCustomHSnames().size()>0)
-            constructLayouts();
-        else
-            this->mainLayout->addWidget(new QLabel("Aucune gamme personalisée"), 0, 0, 1, 3);
+        this->mainLayout->addWidget(new QLabel("Aucune gamme personalisée"), 0, 0, 1, 3);
 
     this->returnButton = new QPushButton("Retour");
     connect(returnButton, SIGNAL(pressed()), this, SLOT(close()));
@@ -27,12 +27,10 @@ DeleteChordsScalesView::DeleteChordsScalesView(bool isChord, QWidget *parent) : 
     this->setLayout(mainLayout);
 }
 
-void DeleteChordsScalesView::clearLayout(QLayout *layout, bool deleteWidgets = true)
+void DeleteChordsScalesView::clearLayout(QLayout* layout, bool deleteWidgets = true)
 {
-    while (QLayoutItem* item = layout->takeAt(0))
-    {
-        if (deleteWidgets)
-        {
+    while (QLayoutItem* item = layout->takeAt(0)) {
+        if (deleteWidgets) {
             if (QWidget* widget = item->widget())
                 delete widget;
         }
@@ -54,15 +52,13 @@ void DeleteChordsScalesView::constructNameLayout()
     this->namesLayout = new QVBoxLayout();
     this->HSNames.clear();
     QVector<QString> temp;
-    if(isChord)
+    if (isChord)
         temp = ChordDictionary::getInstance()->getCustomHSnames();
-    else
-    {
+    else {
         this->ScaleName = ScaleDictionary::getInstance()->getCustomHSnames();
         temp = ScaleDictionary::getInstance()->getCustomHSalias();
     }
-    for(int i=0; i<temp.size(); i++)
-    {
+    for (int i = 0; i < temp.size(); i++) {
         this->HSNames.push_back(new QLabel(temp[i]));
         this->namesLayout->addWidget(HSNames.last());
     }
@@ -73,8 +69,7 @@ void DeleteChordsScalesView::constructViewLayout()
 {
     this->viewLayout = new QVBoxLayout();
     this->HSView.clear();
-    for(int i=0; i<HSNames.size(); i++)
-    {
+    for (int i = 0; i < HSNames.size(); i++) {
         this->HSView.push_back(new QPushButton("Afficher"));
         this->viewLayout->addWidget(HSView.last());
         connect(HSView.last(), SIGNAL(pressed()), this, SLOT(openViewSlot()));
@@ -87,8 +82,7 @@ void DeleteChordsScalesView::constructDeleteLayout()
 {
     this->deleteLayout = new QVBoxLayout();
     this->HSDelete.clear();
-    for(int i=0; i<HSNames.size(); i++)
-    {
+    for (int i = 0; i < HSNames.size(); i++) {
         this->HSDelete.push_back(new QPushButton("Supprimer"));
         this->deleteLayout->addWidget(HSDelete.last());
         connect(HSDelete.last(), SIGNAL(clicked(bool)), this, SLOT(deleteSlot()));
@@ -98,15 +92,15 @@ void DeleteChordsScalesView::constructDeleteLayout()
 
 void DeleteChordsScalesView::openViewSlot()
 {
-    QPushButton* temp = (QPushButton *)sender();
+    QPushButton* temp = (QPushButton*)sender();
     int i = HSView.indexOf(temp);
-    cout<<"i = "<<i<<endl<<flush;
-    if(isChord)
-    {
-        chordView = new ChordsView("C:"+HSNames[i]->text(), isChord);
+    cout << "i = " << i << endl
+         << flush;
+    if (isChord) {
+        chordView = new ChordsView("C:" + HSNames[i]->text(), isChord);
     }
     else
-        chordView = new ChordsView("C:"+ScaleName[i], isChord);
+        chordView = new ChordsView("C:" + ScaleName[i], isChord);
     chordView->show();
 }
 
@@ -117,16 +111,15 @@ void DeleteChordsScalesView::closeViewSlot()
 
 void DeleteChordsScalesView::deleteSlot()
 {
-    QPushButton* temp = (QPushButton *)sender();
+    QPushButton* temp = (QPushButton*)sender();
     int i = HSDelete.indexOf(temp);
 
-    if(isChord)
+    if (isChord)
         this->mainLayout->addWidget(new QLabel("Aucun accord personalisé"), 0, 0, 1, 3);
     else
         this->mainLayout->addWidget(new QLabel("Aucune gamme personalisée"), 0, 0, 1, 3);
 
-
-    if(isChord)
+    if (isChord)
         emit deleteChordSignal(ChordDictionary::getInstance()->getHSbyName(HSNames[i]->text()));
     else
         emit deleteScaleSignal(ScaleDictionary::getInstance()->getHSbyName(ScaleName[i]));
@@ -136,4 +129,3 @@ void DeleteChordsScalesView::deleteSlot()
     clearLayout(deleteLayout);
     constructLayouts();
 }
-

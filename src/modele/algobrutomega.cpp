@@ -1,54 +1,68 @@
 #include "algobrutomega.h"
 
-AlgoBrutOmega::AlgoBrutOmega(vector<Chord*> SA, vector<Scale*> AS) : AlgoBrut(SA,AS)
+AlgoBrutOmega::AlgoBrutOmega(vector<Chord*> SA, vector<Scale*> AS)
+    : AlgoBrut(SA, AS)
 {
-
 }
 
-
-void AlgoBrutOmega::generateSolsRec(int index,vector<Scale*> solutionPossible,int omega,int constraint)
+/**
+ * @brief AlgoBrutOmega::generateSolsRec
+ *  Algorithme optimise recursif qui calcule toutes les combinaisons possibles
+ *  selon le graphe k-partie filtre (filteredKpartiteGraph) donnee
+ *  et les stocke dans le vector possiblesSolutions
+ * @param index
+ *  Colonne du graphe k-partie
+ * @param solutionPossible
+ *  Combinaison courante
+ * @param omega
+ *  Valeur de la combinaison courante selon une contrainte
+ * @param constraint
+ *  Type de la contrainte
+ */
+void AlgoBrutOmega::generateSolsRec(int index, vector<Scale*> solutionPossible, int omega, int constraint)
 {
     // si filteredKpartiteGraph n'est pas vide
     if (filteredKpartiteGraph.size() > 0) {
 
-        if (index >= (int)filteredKpartiteGraph.size()){
+        if (index >= (int)filteredKpartiteGraph.size()) {
             minOmega = min(minOmega, omega);
-            if (omega <= minOmega){
+            if (omega <= minOmega) {
                 omegas.push_back(omega);
 
                 possiblesSolutions.push_back(solutionPossible);
             }
         }
-        else
-        {
-            for (size_t i = 0; i < filteredKpartiteGraph[index].size(); i++)
-            {
+        else {
+            for (size_t i = 0; i < filteredKpartiteGraph[index].size(); i++) {
                 int value = 0;
 
                 // LeastsConsecutivesNotesChanges
-                if (constraint == 0){
+                if (constraint == 0) {
                     if (solutionPossible.size() == 0)
                         value = 0;
-                    else value = solutionPossible.back()->notesDifferencesWithScale(filteredKpartiteGraph[index][i]);
+                    else
+                        value = solutionPossible.back()->notesDifferencesWithScale(filteredKpartiteGraph[index][i]);
                 }
                 // LeastsConsecutivesScalesChanges
-                else if (constraint == 1){
+                else if (constraint == 1) {
                     if (solutionPossible.size() == 0)
                         value = 0;
                     else if (solutionPossible.back()->equals(filteredKpartiteGraph[index][i]))
                         value = 0;
-                    else value = 1;
+                    else
+                        value = 1;
                 }
                 //LeastsTotalScales
-                else if (constraint == 2){
+                else if (constraint == 2) {
                     if (solutionPossible.size() == 0)
                         value = 1;
-                    else if (isScaleInScales(filteredKpartiteGraph[index][i],solutionPossible))
+                    else if (isScaleInScales(filteredKpartiteGraph[index][i], solutionPossible))
                         value = 0;
-                    else value = 1;
+                    else
+                        value = 1;
                 }
 
-                if ((omega + value) <= minOmega){
+                if ((omega + value) <= minOmega) {
                     vector<Scale*> sol = solutionPossible;
                     sol.push_back(filteredKpartiteGraph[index][i]);
                     generateSolsRec(index + 1, sol, omega + value, constraint);
@@ -64,7 +78,14 @@ void AlgoBrutOmega::generateSolsRec(int index,vector<Scale*> solutionPossible,in
     }
 }
 
-void AlgoBrutOmega::findLeastsConsecutivesNotesChanges(){
+/**
+ * @brief AlgoBrutOmega::findLeastsConsecutivesNotesChanges
+ *  Contrainte de recherche des suites de gammes ayant le moins
+ *  de changement de notes entre gammes consecutives.
+ *  Les resultats sont stockes dans le vector results
+ */
+void AlgoBrutOmega::findLeastsConsecutivesNotesChanges()
+{
 
     clock_t tStart = clock();
 
@@ -82,25 +103,32 @@ void AlgoBrutOmega::findLeastsConsecutivesNotesChanges(){
     for (size_t i = 0; i < resultsToDisplay; i++)
         results.push_back(possiblesSolutions[i]);
 
-    double timeTaken = (double)(clock() - tStart)/CLOCKS_PER_SEC;
+    double timeTaken = (double)(clock() - tStart) / CLOCKS_PER_SEC;
+
+    /****** Remplissage du fichier texte qui servira aux statistiques des algoritmes ******/
     QFile file("../stats/noteStats.txt");
-    if(file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text))
-    {
+    if (file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text)) {
         QTextStream out(&file);
         out << ";2|" << data.size() << "|" << timeTaken;
     }
     file.close();
 
     QFile pgfPlotsRecording("../assets/plots/algo_brut_omega.dat");
-    if(pgfPlotsRecording.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text))
-    {
+    if (pgfPlotsRecording.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text)) {
         QTextStream out(&pgfPlotsRecording);
         out << data.size() << " " << timeTaken << endl;
     }
     pgfPlotsRecording.close();
 }
 
-void AlgoBrutOmega::findLeastsConsecutivesScalesChanges(){
+/**
+ * @brief AlgoBrutOmega::findLeastsConsecutivesScalesChanges
+ *  Contrainte de recherche des suites de gammes ayant le moins
+ *  de changement de gammes consecutives.
+ *  Les resultats sont stockes dans le vector results
+ */
+void AlgoBrutOmega::findLeastsConsecutivesScalesChanges()
+{
 
     clock_t tStart = clock();
     possiblesSolutions.clear();
@@ -116,25 +144,31 @@ void AlgoBrutOmega::findLeastsConsecutivesScalesChanges(){
     for (size_t i = 0; i < resultsToDisplay; i++)
         results.push_back(possiblesSolutions[i]);
 
-    double timeTaken = (double)(clock() - tStart)/CLOCKS_PER_SEC;
+    double timeTaken = (double)(clock() - tStart) / CLOCKS_PER_SEC;
+
+    /****** Remplissage du fichier texte qui servira aux statistiques des algoritmes ******/
     QFile file("../stats/scaleStats.txt");
-    if(file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text))
-    {
+    if (file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text)) {
         QTextStream out(&file);
         out << ";2|" << data.size() << "|" << timeTaken;
     }
     file.close();
 
     QFile pgfPlotsRecording("../assets/plots/algo_brut_omega.dat");
-    if(pgfPlotsRecording.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text))
-    {
+    if (pgfPlotsRecording.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text)) {
         QTextStream out(&pgfPlotsRecording);
         out << data.size() << " " << timeTaken << endl;
     }
     pgfPlotsRecording.close();
 }
 
-void AlgoBrutOmega::findLeastsTotalScales(){
+/**
+ * @brief AlgoBrutOmega::findLeastsTotalScales
+ *  Contrainte de recherche des suites de gammes ayant le moins de gammes
+ *  Les resultats sont stockes dans le vector results
+ */
+void AlgoBrutOmega::findLeastsTotalScales()
+{
 
     clock_t tStart = clock();
     possiblesSolutions.clear();
@@ -150,26 +184,30 @@ void AlgoBrutOmega::findLeastsTotalScales(){
     for (size_t i = 0; i < resultsToDisplay; i++)
         results.push_back(possiblesSolutions[i]);
 
-    double timeTaken = (double)(clock() - tStart)/CLOCKS_PER_SEC;
+    /****** Remplissage du fichier texte qui servira aux statistiques des algoritmes ******/
+    double timeTaken = (double)(clock() - tStart) / CLOCKS_PER_SEC;
     QFile file("../stats/totalScaleStats.txt");
-    if(file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text))
-    {
+    if (file.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text)) {
         QTextStream out(&file);
         out << ";2|" << data.size() << "|" << timeTaken;
     }
     file.close();
 
     QFile pgfPlotsRecording("../assets/plots/algo_brut_omega.dat");
-    if(pgfPlotsRecording.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text))
-    {
+    if (pgfPlotsRecording.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text)) {
         QTextStream out(&pgfPlotsRecording);
         out << data.size() << " " << timeTaken << endl;
     }
     pgfPlotsRecording.close();
 }
 
-
-void AlgoBrutOmega::filterPossiblesSolutions() {
+/**
+ * @brief AlgoBrutOmega::filterPossiblesSolutions
+ *  Filtrage des suites de gammes solutions dont la valeur
+ *  par rapport a une contrainte n'est pas minimale
+ */
+void AlgoBrutOmega::filterPossiblesSolutions()
+{
 
     // Si il existe des suites de gammes solutions
     if (possiblesSolutions.size() > 0) {
@@ -178,7 +216,7 @@ void AlgoBrutOmega::filterPossiblesSolutions() {
             return;
 
         vector<vector<Scale*> > filteredPossiblesSolutions;
-        for (size_t i = 0; i < omegas.size(); i++){
+        for (size_t i = 0; i < omegas.size(); i++) {
             if (omegas[i] <= minOmega)
                 filteredPossiblesSolutions.push_back(possiblesSolutions[i]);
         }
@@ -186,4 +224,3 @@ void AlgoBrutOmega::filterPossiblesSolutions() {
         possiblesSolutions = filteredPossiblesSolutions;
     }
 }
-

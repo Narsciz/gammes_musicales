@@ -27,22 +27,25 @@ std::vector<std::vector<Scale*> > AbstractAlgo::getFilteredKpartiteGraph()
     return filteredKpartiteGraph;
 }
 
-
+/**
+ * @brief AbstractAlgo::filterAllowedChordsInK
+ *  Filtre le graphe k-partie (KpartiteGraph)
+ *  selon les gammes autorisees entrees par l'utilisateur (allowedScales)
+ */
 void AbstractAlgo::filterAllowedChordsInK()
 {
     filteredKpartiteGraph.clear();
     vector<Scale*> ligne;
 
-    for (size_t i = 0; i < KpartiteGraph.size(); i++)
-    {
-        for (size_t j=0; j < KpartiteGraph[i].size(); j++)
+    for (size_t i = 0; i < KpartiteGraph.size(); i++) {
+        for (size_t j = 0; j < KpartiteGraph[i].size(); j++)
             if (isScaleInScales(KpartiteGraph[i][j], allowedScales))
                 ligne.push_back(KpartiteGraph[i][j]);
 
         if (ligne.size() > 0)
             filteredKpartiteGraph.push_back(ligne);
         else {
-            //si un accord n'a aucune gamme candidate dans le graphe filtré,
+            //si un accord n'a plus de gamme candidate dans le graphe filtré,
             //il n'y a pas de suite de gammes solution, donc on renvoi un graphe vide.
             filteredKpartiteGraph.clear();
             return;
@@ -50,7 +53,6 @@ void AbstractAlgo::filterAllowedChordsInK()
 
         ligne.clear();
     }
-
 }
 
 void AbstractAlgo::callConsecutivesNotesChangesInThread(std::thread& algoThread)

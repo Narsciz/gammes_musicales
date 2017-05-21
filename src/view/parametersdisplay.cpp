@@ -3,7 +3,8 @@
 
 using namespace std;
 
-ParametersDisplay::ParametersDisplay() : QWidget()
+ParametersDisplay::ParametersDisplay()
+    : QWidget()
 {
     this->mainLayout = new QGridLayout();
 
@@ -78,10 +79,9 @@ void ParametersDisplay::fillLists(QVector<QString> listHSScales, QVector<QString
     this->listScalesName.clear();
     this->listScalesName = listHSScales;
 
-    for(int i = 0; i < listHSScales.size(); i++)
-    {
+    for (int i = 0; i < listHSScales.size(); i++) {
         this->listScales.push_back(new QCheckBox(listAlias[i]));
-        if(this->listScales.last()->text() == "Majeure" || this->listScales.last()->text() == "Mineure harmonique")
+        if (this->listScales.last()->text() == "Majeure" || this->listScales.last()->text() == "Mineure harmonique")
             this->listScales.last()->setChecked(true);
         this->allowedScalesLayout->addWidget(this->listScales.last());
     }
@@ -90,8 +90,7 @@ void ParametersDisplay::fillLists(QVector<QString> listHSScales, QVector<QString
     this->listCustomScales.clear();
     this->listCustomScalesName.clear();
     this->listCustomScalesName = listHSCustomScales;
-    for(int i = 0; i < listHSCustomScales.size(); i++)
-    {
+    for (int i = 0; i < listHSCustomScales.size(); i++) {
         this->listCustomScales.push_back(new QCheckBox(listCustomAlias[i]));
         this->allowedCustomScalesLayout->addWidget(this->listCustomScales.last());
     }
@@ -100,22 +99,22 @@ void ParametersDisplay::fillLists(QVector<QString> listHSScales, QVector<QString
 int ParametersDisplay::getParameter()
 {
     int res;
-    if(lessScale->isChecked())
+    if (lessScale->isChecked())
         res = 1;
-    if(lessNote->isChecked())
+    if (lessNote->isChecked())
         res = 2;
-    if(lessTotalScale->isChecked())
+    if (lessTotalScale->isChecked())
         res = 3;
     return res;
 }
 int ParametersDisplay::getAlgo()
 {
     int res;
-    if(algoOmega->isChecked())
+    if (algoOmega->isChecked())
         res = 1;
-    if(algoOptiv1->isChecked())
+    if (algoOptiv1->isChecked())
         res = 2;
-    if(algoBrut->isChecked())
+    if (algoBrut->isChecked())
         res = 3;
     return res;
 }
@@ -127,17 +126,13 @@ int ParametersDisplay::getLimit()
 QVector<QString> ParametersDisplay::getlistAllowedHSscales()
 {
     QVector<QString> res;
-    for(int i = 0; i<this->listScales.size(); i++)
-    {
-        if(listScales[i]->isChecked())
-        {
+    for (int i = 0; i < this->listScales.size(); i++) {
+        if (listScales[i]->isChecked()) {
             res.push_back(listScalesName[i]);
         }
     }
-    for(int i = 0; i<this->listCustomScales.size(); i++)
-    {
-        if(listCustomScales[i]->isChecked())
-        {
+    for (int i = 0; i < this->listCustomScales.size(); i++) {
+        if (listCustomScales[i]->isChecked()) {
             res.push_back(listCustomScalesName[i]);
         }
     }
@@ -145,12 +140,10 @@ QVector<QString> ParametersDisplay::getlistAllowedHSscales()
     return res;
 }
 
-void ParametersDisplay::clearLayout(QLayout *layout, bool deleteWidgets)
+void ParametersDisplay::clearLayout(QLayout* layout, bool deleteWidgets)
 {
-    while (QLayoutItem* item = layout->takeAt(0))
-    {
-        if (deleteWidgets)
-        {
+    while (QLayoutItem* item = layout->takeAt(0)) {
+        if (deleteWidgets) {
             if (QWidget* widget = item->widget())
                 delete widget;
         }
@@ -162,14 +155,12 @@ void ParametersDisplay::clearLayout(QLayout *layout, bool deleteWidgets)
 
 void ParametersDisplay::totalScaleSlot()
 {
-    if(algoOptiv1->isChecked())
-    {
-        if(lessTotalScale->isChecked())
+    if (algoOptiv1->isChecked()) {
+        if (lessTotalScale->isChecked())
             lessScale->setChecked(true);
         lessTotalScale->setDisabled(true);
     }
-    else
-    {
+    else {
         lessTotalScale->setDisabled(false);
     }
 }
@@ -180,9 +171,8 @@ void ParametersDisplay::validateSlot()
 }
 void ParametersDisplay::AllCheckedSlot()
 {
-    for(int i=0; i<this->listScales.size(); i++)
-    {
-        if(this->allChecked->isChecked())
+    for (int i = 0; i < this->listScales.size(); i++) {
+        if (this->allChecked->isChecked())
             this->listScales[i]->setChecked(true);
         else
             this->listScales[i]->setChecked(false);
@@ -191,9 +181,8 @@ void ParametersDisplay::AllCheckedSlot()
 
 void ParametersDisplay::CustomAllCheckedSlot()
 {
-    for(int i=0; i<this->listCustomScales.size(); i++)
-    {
-        if(this->allCustomChecked->isChecked())
+    for (int i = 0; i < this->listCustomScales.size(); i++) {
+        if (this->allCustomChecked->isChecked())
             this->listCustomScales[i]->setChecked(true);
         else
             this->listCustomScales[i]->setChecked(false);
