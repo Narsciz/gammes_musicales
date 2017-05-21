@@ -1,8 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-
-MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow)
+MainWindow::MainWindow(QWidget* parent)
+    : QMainWindow(parent)
+    , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
@@ -25,34 +26,34 @@ MainWindow::~MainWindow()
 }
 void MainWindow::constructMenuBar()
 {
-    QMenuBar *menuBar = new QMenuBar();
+    QMenuBar* menuBar = new QMenuBar();
 
-    QMenu *file = menuBar->addMenu("Fichier");
-    QAction *newFile = new QAction("Nouveau", menuBar);
+    QMenu* file = menuBar->addMenu("Fichier");
+    QAction* newFile = new QAction("Nouveau", menuBar);
     connect(newFile, SIGNAL(triggered(bool)), this, SLOT(slotNewFile()));
-    QAction *importFile = new QAction("Importer", menuBar);
+    QAction* importFile = new QAction("Importer", menuBar);
     connect(importFile, SIGNAL(triggered(bool)), this, SLOT(slotImportFile()));
-    QAction *saveFile = new QAction("Enregistrer", menuBar);
+    QAction* saveFile = new QAction("Enregistrer", menuBar);
     connect(saveFile, SIGNAL(triggered(bool)), this, SLOT(slotSaveFile()));
-    QAction *closeFile = new QAction("Quitter", menuBar);
+    QAction* closeFile = new QAction("Quitter", menuBar);
     connect(closeFile, SIGNAL(triggered(bool)), this, SLOT(slotCloseFile()));
     file->addAction(newFile);
     file->addAction(importFile);
     file->addAction(saveFile);
     file->addAction(closeFile);
 
-    QMenu *chords = menuBar->addMenu("Accords");
-    QAction *addChords = new QAction("Ajouter", menuBar);
+    QMenu* chords = menuBar->addMenu("Accords");
+    QAction* addChords = new QAction("Ajouter", menuBar);
     connect(addChords, SIGNAL(triggered(bool)), this, SLOT(slotAddChord()));
-    QAction *deleteChords = new QAction("Supprimer", menuBar);
+    QAction* deleteChords = new QAction("Supprimer", menuBar);
     connect(deleteChords, SIGNAL(triggered(bool)), this, SLOT(slotDeleteChordView()));
     chords->addAction(addChords);
     chords->addAction(deleteChords);
 
-    QMenu *scales = menuBar->addMenu("Gammes");
-    QAction *addScales = new QAction("Ajouter", menuBar);
+    QMenu* scales = menuBar->addMenu("Gammes");
+    QAction* addScales = new QAction("Ajouter", menuBar);
     connect(addScales, SIGNAL(triggered(bool)), this, SLOT(slotAddScale()));
-    QAction *deleteScales = new QAction("Supprimer", menuBar);
+    QAction* deleteScales = new QAction("Supprimer", menuBar);
     connect(deleteScales, SIGNAL(triggered(bool)), this, SLOT(slotDeleteScaleView()));
 
     scales->addAction(addScales);
@@ -61,7 +62,7 @@ void MainWindow::constructMenuBar()
     // A decommenter le jour ou on implementera un onglet d'options du programme.
     //     QMenu *options = menuBar->addMenu("Options");
 
-    QAction *stats = menuBar->addAction("Statistiques");
+    QAction* stats = menuBar->addAction("Statistiques");
     connect(stats, SIGNAL(triggered(bool)), this, SLOT(slotStats()));
 
     this->setMenuBar(menuBar);
@@ -74,7 +75,6 @@ void MainWindow::constructLayout()
     constructChordsLayout();
     this->choicesDisplay = new QGroupBox();
     this->choicesLayout = new QGridLayout();
-
 
     this->choicesDisplay->setLayout(choicesLayout);
     constructChoicesLayout();
@@ -163,12 +163,10 @@ void MainWindow::constructScalesLayout()
     connect(this->sListDisplay, SIGNAL(exportScaleSignal(QVector<QString>)), this, SLOT(slotExportScale(QVector<QString>)));
 }
 
-void MainWindow::clearLayout(QLayout *layout, bool deleteWidgets = true)
+void MainWindow::clearLayout(QLayout* layout, bool deleteWidgets = true)
 {
-    while (QLayoutItem* item = layout->takeAt(0))
-    {
-        if (deleteWidgets)
-        {
+    while (QLayoutItem* item = layout->takeAt(0)) {
+        if (deleteWidgets) {
             if (QWidget* widget = item->widget())
                 delete widget;
         }
@@ -182,17 +180,18 @@ QString MainWindow::openExplorer(int i)
     this->explorer = new QFileDialog();
     QStringList fileNameTemp;
     QString fileName = "";
-    switch(i)
-    {
-    case 1: this->explorer->setFileMode(QFileDialog::ExistingFile);
-    case 2: this->explorer->setNameFilter(tr("Fichiers textes (*.txt)"));
+    switch (i) {
+    case 1:
+        this->explorer->setFileMode(QFileDialog::ExistingFile);
+    case 2:
+        this->explorer->setNameFilter(tr("Fichiers textes (*.txt)"));
         break;
-    case 3: this->explorer->setNameFilter(tr("Fichiers xml (*.xml)"));
+    case 3:
+        this->explorer->setNameFilter(tr("Fichiers xml (*.xml)"));
         break;
     }
 
-    if(this->explorer->exec())
-    {
+    if (this->explorer->exec()) {
         fileNameTemp = this->explorer->selectedFiles();
         fileName = fileNameTemp[0];
     }
@@ -205,8 +204,7 @@ QVector<QString> MainWindow::testFile(QString filePath)
     QString fileContent = "";
     QFile file(filePath);
 
-    if(file.open(QIODevice::ReadOnly | QIODevice::Text))
-    {
+    if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
         fileContent = file.readAll();
         file.close();
     }
@@ -216,15 +214,12 @@ QVector<QString> MainWindow::testFile(QString filePath)
     vector<Chord*> chords;
 
     int i = 0;
-    while(i < res.size())
-    {
-        try
-        {
+    while (i < res.size()) {
+        try {
             Chord* testChord = new Chord(res[i]);
             testChord->getName();
         }
-        catch(std::out_of_range)
-        {
+        catch (std::out_of_range) {
             res.clear();
             break;
         }
@@ -238,8 +233,7 @@ QVector<QString> MainWindow::testFile(QString filePath)
 void MainWindow::saveFile(QString filePath, QString fileContent)
 {
     QFile file(filePath);
-    if(file.open(QIODevice::WriteOnly | QIODevice::Text))
-    {
+    if (file.open(QIODevice::WriteOnly | QIODevice::Text)) {
         // Création d'un objet QTextStream à partir de notre objet QFile
         QTextStream flux(&file);
         // On choisit le codec correspondant au jeu de caractère que l'on souhaite ; ici, UTF-8
@@ -252,8 +246,7 @@ void MainWindow::saveFile(QString filePath, QString fileContent)
 void MainWindow::fillComboBoxHS(QVector<QString> listHS)
 {
     this->hsComboBox->clear();
-    for(int i = 0; i<listHS.size(); i++)
-    {
+    for (int i = 0; i < listHS.size(); i++) {
         this->hsComboBox->addItem(listHS[i]);
     }
 }
@@ -274,13 +267,13 @@ ParametersDisplay* MainWindow::getParametersDisplay()
     return this->parametersWindow;
 }
 
-void MainWindow::resizeEvent ( QResizeEvent * event )
+void MainWindow::resizeEvent(QResizeEvent* event)
 {
     this->cListDisplay->refresh();
     this->sListDisplay->refresh();
 }
 
-void MainWindow::removeDeletedChords(HSChord *hs)
+void MainWindow::removeDeletedChords(HSChord* hs)
 {
     this->cListDisplay->removeChordByHs(hs);
 }
@@ -291,8 +284,7 @@ void MainWindow::slotAddButton() //Ajoute lors de l'appuie sur le bouton "Ajoute
 }
 void MainWindow::slotGenerateButton()
 {
-    if(this->cListDisplay->getListChords().size()>0)
-    {
+    if (this->cListDisplay->getListChords().size() > 0) {
         this->sListDisplay->setVisible(true);
         this->choicesDisplay->setVisible(false);
         this->returnButton->setVisible(true);
@@ -300,8 +292,7 @@ void MainWindow::slotGenerateButton()
         this->cListDisplay->disableDeletingChords();
         emit generateSignal(cListDisplay->getListChordsName());
     }
-    else
-    {
+    else {
         QMessageBox::information(this, "Aucun accord spécifié", "Vous n'avez sélectionné aucun accord. Pour générer une suite de gamme, veuillez d'abord entrer une suite d'accord.");
     }
 }
@@ -345,15 +336,12 @@ void MainWindow::slotImportFile()
     QString filePath = openExplorer(1);
     QVector<QString> listChords = testFile(filePath);
 
-    if(listChords.size() != 0)
-    {
-        for(int i = 0; i < listChords.size(); i++)
-        {
+    if (listChords.size() != 0) {
+        for (int i = 0; i < listChords.size(); i++) {
             this->cListDisplay->addChord(listChords[i]);
         }
     }
-    else
-    {
+    else {
         QMessageBox::warning(this, "Fichier erroné", "Le fichier que vous avez sélectionné n'est pas au bon format. Il peut s'agir de l'extension (.txt) ou bien de la convention lors de la rédaction de vos accords qui n'a pas été respéctée. Veuillez vérifier votre fichier et recommencer.\nPour plus d'informations sur la façon de rédiger vos accords, veuillez vous référer à l'aide.");
     }
 }
@@ -362,16 +350,14 @@ void MainWindow::slotSaveFile()
     QString filePath = openExplorer(2);
 
     QStringList ext = filePath.split('.');
-    if(ext.last()!="txt")
+    if (ext.last() != "txt")
         filePath += ".txt";
 
     QVector<QString> listChordsName = this->cListDisplay->getListChordsName();
-    QString fileContent ="";
-    for(int i = 0; i<listChordsName.size(); i++)
-    {
+    QString fileContent = "";
+    for (int i = 0; i < listChordsName.size(); i++) {
         fileContent += listChordsName[i];
-        if(i != listChordsName.size()-1)
-        {
+        if (i != listChordsName.size() - 1) {
             fileContent += " ";
         }
     }
@@ -388,36 +374,37 @@ void MainWindow::slotSaveScale(QVector<QString> listScale)
 }
 void MainWindow::slotExportScale(QVector<QString> listScale)
 {
-    cout<<"Export Signal entered in MainWindow"<<endl<<flush;
+    cout << "Export Signal entered in MainWindow" << endl
+         << flush;
     emit ExportScaleSignal(this->cListDisplay->getListChordsName(), listScale);
 }
 void MainWindow::slotStats()
 {
-    StatsDisplay *stats = new StatsDisplay();
+    StatsDisplay* stats = new StatsDisplay();
     stats->show();
 }
 void MainWindow::slotAddChord()
 {
-    AddChordsScalesView *addChordView = new AddChordsScalesView(true);
+    AddChordsScalesView* addChordView = new AddChordsScalesView(true);
     addChordView->show();
-    connect(addChordView, SIGNAL(createChordSignal(QString,vector<int>)), this, SLOT(slotCreateChord(QString,vector<int>)));
+    connect(addChordView, SIGNAL(createChordSignal(QString, vector<int>)), this, SLOT(slotCreateChord(QString, vector<int>)));
 }
 void MainWindow::slotAddScale()
 {
-    AddChordsScalesView *addScaleView = new AddChordsScalesView(false);
+    AddChordsScalesView* addScaleView = new AddChordsScalesView(false);
     addScaleView->show();
-    connect(addScaleView, SIGNAL(createScaleSignal(QString,vector<int>,QString)), this, SLOT(slotCreateScale(QString,vector<int>,QString)));
+    connect(addScaleView, SIGNAL(createScaleSignal(QString, vector<int>, QString)), this, SLOT(slotCreateScale(QString, vector<int>, QString)));
 }
 void MainWindow::slotDeleteChordView()
 {
-    DeleteChordsScalesView *deleteChordView = new DeleteChordsScalesView(true);
+    DeleteChordsScalesView* deleteChordView = new DeleteChordsScalesView(true);
     deleteChordView->show();
     connect(deleteChordView, SIGNAL(deleteChordSignal(HSChord*)), this, SLOT(slotDeleteChord(HSChord*)));
 }
 
 void MainWindow::slotDeleteScaleView()
 {
-    DeleteChordsScalesView *deleteScaleView = new DeleteChordsScalesView(false);
+    DeleteChordsScalesView* deleteScaleView = new DeleteChordsScalesView(false);
     deleteScaleView->show();
     connect(deleteScaleView, SIGNAL(deleteScaleSignal(HSScale*)), this, SLOT(slotDeleteScale(HSScale*)));
 }
@@ -431,7 +418,6 @@ void MainWindow::slotCreateScale(QString name, vector<int> hs, QString alias)
 {
     emit createScaleSignal(name, hs, alias);
 }
-
 
 void MainWindow::slotDeleteScale(HSScale* hs)
 {

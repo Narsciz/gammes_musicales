@@ -15,27 +15,28 @@
 #include <thread>
 #include <QObject>
 
-
 class Ut : public QObject
 {
     Q_OBJECT
 
 private:
-    AbstractAlgo * algo = new AlgoBrut();
+    AbstractAlgo* algo = new AlgoBrut();
     std::thread algoThread;
     std::thread joinThread;
-    MainWindow *w;
-    ChordDictionary *cd;
-    //ScaleDictionary sd;
+    MainWindow* w;
 
 public:
-    Ut(MainWindow *w);
+    Ut(MainWindow* w);
+
     QVector<QVector<QString> > convertCStoView(std::vector<std::vector<Scale*> >);
     std::vector<Chord*> convertChordstoModel(QVector<QString> cs);
     std::vector<Scale*> convertScalestoModel(QVector<QString> cs);
+
     QString SaveScale(QVector<QString> listChords, QVector<QString> listScale);
-    QVector<QVector<QString>> convertScaleToString(std::vector<std::vector<Scale*>> scalesToConvert);
+    QVector<QVector<QString> > convertScaleToString(std::vector<std::vector<Scale*> > scalesToConvert);
+
     void join();
+
 public slots:
     void displayResultsSlot();
     void generateSlot(QVector<QString> listChords);

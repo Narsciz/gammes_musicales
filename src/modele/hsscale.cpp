@@ -1,7 +1,19 @@
 #include "hsscale.h"
 
-HSScale::HSScale(){
+/**
+ * @brief HSScale::HSScale
+ */
+HSScale::HSScale()
+{
 }
 
-HSScale::HSScale(QString n2, std::vector<int> i2, QString alias) : HarmonicStructure::HarmonicStructure(n2, i2, alias){
+/**
+ * @brief HSScale::HSScale
+ * @param n2
+ * @param i2
+ * @param alias
+ */
+HSScale::HSScale(QString n2, std::vector<int> i2, QString alias)
+    : HarmonicStructure::HarmonicStructure(n2, i2, alias)
+{
 }

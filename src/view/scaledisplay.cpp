@@ -1,6 +1,7 @@
 #include "scaledisplay.h"
 
-ScaleDisplay::ScaleDisplay(QString name) : QGroupBox()
+ScaleDisplay::ScaleDisplay(QString name)
+    : QGroupBox()
 {
     this->setFixedSize(60, 60);
     this->boxLayout = new QGridLayout();
@@ -17,7 +18,7 @@ ScaleDisplay::ScaleDisplay(QString name) : QGroupBox()
 
     this->scaleName = new QLabel(name);
     this->scaleName->setFixedSize(58, 37);
-    QFont f( "Arial", 10, QFont::Bold);
+    QFont f("Arial", 10, QFont::Bold);
     this->scaleName->setFont(f);
     this->scaleName->setAlignment(Qt::AlignCenter);
 

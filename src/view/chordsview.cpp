@@ -1,17 +1,16 @@
 #include "chordsview.h"
 
-ChordsView::ChordsView(QString chordName, bool isChord) : QFrame()
+ChordsView::ChordsView(QString chordName, bool isChord)
+    : QFrame()
 {
     this->setWindowFlags(Qt::ToolTip);
 
-    if(isChord)
-    {
+    if (isChord) {
         this->setFixedSize(250, 170);
         this->setContentsMargins(0, 0, 0, 0);
         this->setStyleSheet("border: 1px solid black; border-radius:15px;");
     }
-    else
-    {
+    else {
         this->setContentsMargins(0, 0, 0, 0);
         this->setStyleSheet("border: 1px solid black; border-radius:15px;");
     }
@@ -19,20 +18,18 @@ ChordsView::ChordsView(QString chordName, bool isChord) : QFrame()
     CS chord;
     vector<Note> notesList;
 
-    if(isChord)
-    {
+    if (isChord) {
         chord = Chord(chordName);
         notesList = chord.getNotes();
     }
-    else
-    {
+    else {
         chord = Scale(chordName);
         notesList = chord.getNotes();
     }
     QVector<Note> sortedNotes = notesSort(notesList);
     QStringList debug = noteToString(sortedNotes);
 
-    if(isChord)
+    if (isChord)
         this->name = new QLabel("Accord " + chord.getName());
     else
         this->name = new QLabel("Gamme " + chord.getAlias());
@@ -53,7 +50,7 @@ ChordsView::ChordsView(QString chordName, bool isChord) : QFrame()
     this->mainLayout->addWidget(this->line);
     this->mainLayout->addWidget(notesName);
 
-    if(isChord)
+    if (isChord)
         constructChordPictureDisplay(debug);
     else
         constructScalePictureDisplay(debug);
@@ -62,34 +59,31 @@ ChordsView::ChordsView(QString chordName, bool isChord) : QFrame()
 
     this->setLayout(this->mainLayout);
 
-    if(isChord)
-    {
+    if (isChord) {
         QPoint p = this->mapFromGlobal(QCursor::pos());
-        p.setX(p.x()-250);
-        p.setY(p.y()-170);
+        p.setX(p.x() - 250);
+        p.setY(p.y() - 170);
         this->move(p);
     }
-    else
-    {
+    else {
         QPoint p = this->mapFromGlobal(QCursor::pos());
-        p.setX(p.x()-this->width());
-        p.setY(p.y()-170);
+        p.setX(p.x() - this->width());
+        p.setY(p.y() - 170);
         this->move(p);
     }
 }
 
-ChordsView::ChordsView(QString name, vector<Note> notesList, bool isChord) : QFrame()
+ChordsView::ChordsView(QString name, vector<Note> notesList, bool isChord)
+    : QFrame()
 {
     this->setWindowFlags(Qt::ToolTip);
 
-    if(isChord)
-    {
+    if (isChord) {
         this->setFixedSize(250, 170);
         this->setContentsMargins(0, 0, 0, 0);
         this->setStyleSheet("border: 1px solid black; border-radius:15px;");
     }
-    else
-    {
+    else {
         this->setContentsMargins(0, 0, 0, 0);
         this->setStyleSheet("border: 1px solid black; border-radius:15px;");
     }
@@ -97,8 +91,7 @@ ChordsView::ChordsView(QString name, vector<Note> notesList, bool isChord) : QFr
     QVector<Note> sortedNotes = notesSort(notesList);
     QStringList debug = noteToString(sortedNotes);
 
-
-    if(isChord)
+    if (isChord)
         this->name = new QLabel("Accord " + name);
     else
         this->name = new QLabel("Gamme " + name);
@@ -119,7 +112,7 @@ ChordsView::ChordsView(QString name, vector<Note> notesList, bool isChord) : QFr
     this->mainLayout->addWidget(this->line);
     this->mainLayout->addWidget(notesName);
 
-    if(isChord)
+    if (isChord)
         constructChordPictureDisplay(debug);
     else
         constructScalePictureDisplay(debug);
@@ -128,18 +121,16 @@ ChordsView::ChordsView(QString name, vector<Note> notesList, bool isChord) : QFr
 
     this->setLayout(this->mainLayout);
 
-    if(isChord)
-    {
+    if (isChord) {
         QPoint p = this->mapFromGlobal(QCursor::pos());
-        p.setX(p.x()-250);
-        p.setY(p.y()-170);
+        p.setX(p.x() - 250);
+        p.setY(p.y() - 170);
         this->move(p);
     }
-    else
-    {
+    else {
         QPoint p = this->mapFromGlobal(QCursor::pos());
-        p.setX(p.x()-this->width());
-        p.setY(p.y()-170);
+        p.setX(p.x() - this->width());
+        p.setY(p.y() - 170);
         this->move(p);
     }
 }
@@ -156,44 +147,38 @@ void ChordsView::constructChordPictureDisplay(QStringList listNote)
     this->dieseBase->setStyleSheet("border: 0px solid black;");
     this->picturesDisplayLayout->addWidget(dieseBase, 0, 0, 1, 1);
 
-    cout<<"beginning for"<<endl<<flush;
-    for(int i = 0; i<listNote.size(); i++)
-    {
+    cout << "beginning for" << endl
+         << flush;
+    for (int i = 0; i < listNote.size(); i++) {
         this->notesName->setText(this->notesName->text() + listNote[i] + " ");
-        if(listNote[i] == "E")
-        {
+        if (listNote[i] == "E") {
             this->picturesDisplay.push_back(new QLabel());
             this->picturesDisplay.last()->setPixmap(QPixmap("../assets/pictures/notes/E.png"));
             this->picturesDisplay.last()->setStyleSheet("border: 0px solid black;");
             this->picturesDisplayLayout->addWidget(this->picturesDisplay.last(), 0, 1, 1, 1);
         }
-        else if(listNote[i] == "F" || listNote[i] == "F#")
-        {
-            if(i>0 && listNote[i-1] == "E")
-            {
+        else if (listNote[i] == "F" || listNote[i] == "F#") {
+            if (i > 0 && listNote[i - 1] == "E") {
                 this->picturesDisplay.push_back(new QLabel());
                 this->picturesDisplay.last()->setPixmap(QPixmap("../assets/pictures/notes/FBis.png"));
                 this->picturesDisplay.last()->setStyleSheet("border: 0px solid black;");
                 this->picturesDisplayLayout->addWidget(this->picturesDisplay.last(), 0, 1, 1, 1);
                 previousIsBis = true;
             }
-            else
-            {
+            else {
                 this->picturesDisplay.push_back(new QLabel());
                 this->picturesDisplay.last()->setPixmap(QPixmap("../assets/pictures/notes/F.png"));
                 this->picturesDisplay.last()->setStyleSheet("border: 0px solid black;");
                 this->picturesDisplayLayout->addWidget(this->picturesDisplay.last(), 0, 1, 1, 1);
                 previousIsBis = false;
             }
-            if(listNote[i] == "F#")
-            {
+            if (listNote[i] == "F#") {
                 this->picturesDisplay.push_back(new QLabel());
                 this->picturesDisplay.last()->setPixmap(QPixmap("../assets/pictures/notes/FDiese.png"));
                 this->picturesDisplay.last()->setStyleSheet("border: 0px solid black;");
                 this->picturesDisplayLayout->addWidget(this->picturesDisplay.last(), 0, 0, 1, 1);
 
-                if(i>0 && listNote[i-1] == "F")
-                {
+                if (i > 0 && listNote[i - 1] == "F") {
                     this->picturesDisplay.push_back(new QLabel());
                     this->picturesDisplay.last()->setPixmap(QPixmap("../assets/pictures/notes/FBecarre.png"));
                     this->picturesDisplay.last()->setStyleSheet("border: 0px solid black;");
@@ -207,20 +192,16 @@ void ChordsView::constructChordPictureDisplay(QStringList listNote)
                 }
             }
         }
-        else if(listNote[i] == "G" || listNote[i] == "G#")
-        {
-            if(i>0 && (listNote[i-1] == "F"||listNote[i-1] == "F#"))
-            {
-                if(i>1 && listNote[i-2] == "E" && previousIsBis)
-                {
+        else if (listNote[i] == "G" || listNote[i] == "G#") {
+            if (i > 0 && (listNote[i - 1] == "F" || listNote[i - 1] == "F#")) {
+                if (i > 1 && listNote[i - 2] == "E" && previousIsBis) {
                     this->picturesDisplay.push_back(new QLabel());
                     this->picturesDisplay.last()->setPixmap(QPixmap("../assets/pictures/notes/G.png"));
                     this->picturesDisplay.last()->setStyleSheet("border: 0px solid black;");
                     this->picturesDisplayLayout->addWidget(this->picturesDisplay.last(), 0, 1, 1, 1);
                     previousIsBis = false;
                 }
-                else
-                {
+                else {
                     this->picturesDisplay.push_back(new QLabel());
                     this->picturesDisplay.last()->setPixmap(QPixmap("../assets/pictures/notes/GBis.png"));
                     this->picturesDisplay.last()->setStyleSheet("border: 0px solid black;");
@@ -228,23 +209,20 @@ void ChordsView::constructChordPictureDisplay(QStringList listNote)
                     previousIsBis = true;
                 }
             }
-            else
-            {
+            else {
                 this->picturesDisplay.push_back(new QLabel());
                 this->picturesDisplay.last()->setPixmap(QPixmap("../assets/pictures/notes/G.png"));
                 this->picturesDisplay.last()->setStyleSheet("border: 0px solid black;");
                 this->picturesDisplayLayout->addWidget(this->picturesDisplay.last(), 0, 1, 1, 1);
                 previousIsBis = false;
             }
-            if(listNote[i] == "G#")
-            {
+            if (listNote[i] == "G#") {
                 this->picturesDisplay.push_back(new QLabel());
                 this->picturesDisplay.last()->setPixmap(QPixmap("../assets/pictures/notes/GDiese.png"));
                 this->picturesDisplay.last()->setStyleSheet("border: 0px solid black;");
                 this->picturesDisplayLayout->addWidget(this->picturesDisplay.last(), 0, 0, 1, 1);
 
-                if(i>0 && listNote[i-1] == "G")
-                {
+                if (i > 0 && listNote[i - 1] == "G") {
                     this->picturesDisplay.push_back(new QLabel());
                     this->picturesDisplay.last()->setPixmap(QPixmap("../assets/pictures/notes/GBecarre.png"));
                     this->picturesDisplay.last()->setStyleSheet("border: 0px solid black;");
@@ -258,20 +236,16 @@ void ChordsView::constructChordPictureDisplay(QStringList listNote)
                 }
             }
         }
-        else if(listNote[i] == "A" || listNote[i] == "A#")
-        {
-            if(i>0 && (listNote[i-1] == "G"||listNote[i-1] == "G#"))
-            {
-                if(i>1 && previousIsBis && (listNote[i-2] == "F" || listNote[i-2] == "F#"))
-                {
+        else if (listNote[i] == "A" || listNote[i] == "A#") {
+            if (i > 0 && (listNote[i - 1] == "G" || listNote[i - 1] == "G#")) {
+                if (i > 1 && previousIsBis && (listNote[i - 2] == "F" || listNote[i - 2] == "F#")) {
                     this->picturesDisplay.push_back(new QLabel());
                     this->picturesDisplay.last()->setPixmap(QPixmap("../assets/pictures/notes/A.png"));
                     this->picturesDisplay.last()->setStyleSheet("border: 0px solid black;");
                     this->picturesDisplayLayout->addWidget(this->picturesDisplay.last(), 0, 1, 1, 1);
                     previousIsBis = false;
                 }
-                else
-                {
+                else {
                     this->picturesDisplay.push_back(new QLabel());
                     this->picturesDisplay.last()->setPixmap(QPixmap("../assets/pictures/notes/ABis.png"));
                     this->picturesDisplay.last()->setStyleSheet("border: 0px solid black;");
@@ -279,23 +253,20 @@ void ChordsView::constructChordPictureDisplay(QStringList listNote)
                     previousIsBis = true;
                 }
             }
-            else
-            {
+            else {
                 this->picturesDisplay.push_back(new QLabel());
                 this->picturesDisplay.last()->setPixmap(QPixmap("../assets/pictures/notes/A.png"));
                 this->picturesDisplay.last()->setStyleSheet("border: 0px solid black;");
                 this->picturesDisplayLayout->addWidget(this->picturesDisplay.last(), 0, 1, 1, 1);
                 previousIsBis = false;
             }
-            if(listNote[i] == "A#")
-            {
+            if (listNote[i] == "A#") {
                 this->picturesDisplay.push_back(new QLabel());
                 this->picturesDisplay.last()->setPixmap(QPixmap("../assets/pictures/notes/ADiese.png"));
                 this->picturesDisplay.last()->setStyleSheet("border: 0px solid black;");
                 this->picturesDisplayLayout->addWidget(this->picturesDisplay.last(), 0, 0, 1, 1);
 
-                if(i>0 && listNote[i-1] == "A")
-                {
+                if (i > 0 && listNote[i - 1] == "A") {
                     this->picturesDisplay.push_back(new QLabel());
                     this->picturesDisplay.last()->setPixmap(QPixmap("../assets/pictures/notes/ABecarre.png"));
                     this->picturesDisplay.last()->setStyleSheet("border: 0px solid black;");
@@ -309,20 +280,16 @@ void ChordsView::constructChordPictureDisplay(QStringList listNote)
                 }
             }
         }
-        else if(listNote[i] == "B")
-        {
-            if(i>0 && (listNote[i-1] == "A"||listNote[i-1] == "A#"))
-            {
-                if(i>1 && previousIsBis && (listNote[i-2] == "G" || listNote[i-2] == "G#"))
-                {
+        else if (listNote[i] == "B") {
+            if (i > 0 && (listNote[i - 1] == "A" || listNote[i - 1] == "A#")) {
+                if (i > 1 && previousIsBis && (listNote[i - 2] == "G" || listNote[i - 2] == "G#")) {
                     this->picturesDisplay.push_back(new QLabel());
                     this->picturesDisplay.last()->setPixmap(QPixmap("../assets/pictures/notes/B.png"));
                     this->picturesDisplay.last()->setStyleSheet("border: 0px solid black;");
                     this->picturesDisplayLayout->addWidget(this->picturesDisplay.last(), 0, 1, 1, 1);
                     previousIsBis = false;
                 }
-                else
-                {
+                else {
                     this->picturesDisplay.push_back(new QLabel());
                     this->picturesDisplay.last()->setPixmap(QPixmap("../assets/pictures/notes/BBis.png"));
                     this->picturesDisplay.last()->setStyleSheet("border: 0px solid black;");
@@ -330,8 +297,7 @@ void ChordsView::constructChordPictureDisplay(QStringList listNote)
                     previousIsBis = true;
                 }
             }
-            else
-            {
+            else {
                 this->picturesDisplay.push_back(new QLabel());
                 this->picturesDisplay.last()->setPixmap(QPixmap("../assets/pictures/notes/B.png"));
                 this->picturesDisplay.last()->setStyleSheet("border: 0px solid black;");
@@ -339,20 +305,16 @@ void ChordsView::constructChordPictureDisplay(QStringList listNote)
                 previousIsBis = false;
             }
         }
-        else if(listNote[i] == "C" || listNote[i] == "C#")
-        {
-            if(i>0 && listNote[i-1] == "B")
-            {
-                if(i>1 && previousIsBis && (listNote[i-2] == "A" || listNote[i-2] == "A#"))
-                {
+        else if (listNote[i] == "C" || listNote[i] == "C#") {
+            if (i > 0 && listNote[i - 1] == "B") {
+                if (i > 1 && previousIsBis && (listNote[i - 2] == "A" || listNote[i - 2] == "A#")) {
                     this->picturesDisplay.push_back(new QLabel());
                     this->picturesDisplay.last()->setPixmap(QPixmap("../assets/pictures/notes/C.png"));
                     this->picturesDisplay.last()->setStyleSheet("border: 0px solid black;");
                     this->picturesDisplayLayout->addWidget(this->picturesDisplay.last(), 0, 1, 1, 1);
                     previousIsBis = false;
                 }
-                else
-                {
+                else {
                     this->picturesDisplay.push_back(new QLabel());
                     this->picturesDisplay.last()->setPixmap(QPixmap("../assets/pictures/notes/CBis.png"));
                     this->picturesDisplay.last()->setStyleSheet("border: 0px solid black;");
@@ -360,23 +322,20 @@ void ChordsView::constructChordPictureDisplay(QStringList listNote)
                     previousIsBis = true;
                 }
             }
-            else
-            {
+            else {
                 this->picturesDisplay.push_back(new QLabel());
                 this->picturesDisplay.last()->setPixmap(QPixmap("../assets/pictures/notes/C.png"));
                 this->picturesDisplay.last()->setStyleSheet("border: 0px solid black;");
                 this->picturesDisplayLayout->addWidget(this->picturesDisplay.last(), 0, 1, 1, 1);
                 previousIsBis = false;
             }
-            if(listNote[i] == "C#")
-            {
+            if (listNote[i] == "C#") {
                 this->picturesDisplay.push_back(new QLabel());
                 this->picturesDisplay.last()->setPixmap(QPixmap("../assets/pictures/notes/CDiese.png"));
                 this->picturesDisplay.last()->setStyleSheet("border: 0px solid black;");
                 this->picturesDisplayLayout->addWidget(this->picturesDisplay.last(), 0, 0, 1, 1);
 
-                if(i>0 && listNote[i-1] == "C")
-                {
+                if (i > 0 && listNote[i - 1] == "C") {
                     this->picturesDisplay.push_back(new QLabel());
                     this->picturesDisplay.last()->setPixmap(QPixmap("../assets/pictures/notes/CBecarre.png"));
                     this->picturesDisplay.last()->setStyleSheet("border: 0px solid black;");
@@ -390,41 +349,34 @@ void ChordsView::constructChordPictureDisplay(QStringList listNote)
                 }
             }
         }
-        else if(listNote[i] == "D" || listNote[i] == "D#")
-        {
-            if(i>0 && (listNote[i-1] == "C"||listNote[i-1] == "C#"))
-            {
-                if(i>1 && listNote[i-2] == "B" && previousIsBis)
-                {
+        else if (listNote[i] == "D" || listNote[i] == "D#") {
+            if (i > 0 && (listNote[i - 1] == "C" || listNote[i - 1] == "C#")) {
+                if (i > 1 && listNote[i - 2] == "B" && previousIsBis) {
                     this->picturesDisplay.push_back(new QLabel());
                     this->picturesDisplay.last()->setPixmap(QPixmap("../assets/pictures/notes/D.png"));
                     this->picturesDisplay.last()->setStyleSheet("border: 0px solid black;");
                     this->picturesDisplayLayout->addWidget(this->picturesDisplay.last(), 0, 1, 1, 1);
                 }
-                else
-                {
+                else {
                     this->picturesDisplay.push_back(new QLabel());
                     this->picturesDisplay.last()->setPixmap(QPixmap("../assets/pictures/notes/DBis.png"));
                     this->picturesDisplay.last()->setStyleSheet("border: 0px solid black;");
                     this->picturesDisplayLayout->addWidget(this->picturesDisplay.last(), 0, 1, 1, 1);
                 }
             }
-            else
-            {
+            else {
                 this->picturesDisplay.push_back(new QLabel());
                 this->picturesDisplay.last()->setPixmap(QPixmap("../assets/pictures/notes/D.png"));
                 this->picturesDisplay.last()->setStyleSheet("border: 0px solid black;");
                 this->picturesDisplayLayout->addWidget(this->picturesDisplay.last(), 0, 1, 1, 1);
             }
-            if(listNote[i] == "D#")
-            {
+            if (listNote[i] == "D#") {
                 this->picturesDisplay.push_back(new QLabel());
                 this->picturesDisplay.last()->setPixmap(QPixmap("../assets/pictures/notes/DDiese.png"));
                 this->picturesDisplay.last()->setStyleSheet("border: 0px solid black;");
                 this->picturesDisplayLayout->addWidget(this->picturesDisplay.last(), 0, 0, 1, 1);
 
-                if(i>0 && listNote[i-1] == "D")
-                {
+                if (i > 0 && listNote[i - 1] == "D") {
                     this->picturesDisplay.push_back(new QLabel());
                     this->picturesDisplay.last()->setPixmap(QPixmap("../assets/pictures/notes/DBecarre.png"));
                     this->picturesDisplay.last()->setStyleSheet("border: 0px solid black;");
@@ -445,7 +397,6 @@ void ChordsView::constructChordPictureDisplay(QStringList listNote)
     this->packerLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     this->picturesDisplayLayout->addWidget(packerLabel, 0, this->picturesDisplayLayout->columnCount(), 1, 1);
 
-
     this->pictureDisplayBase = new QLabel();
     this->pictureDisplayBase->setPixmap(QPixmap("../assets/pictures/notes/ChordBase.png"));
     this->pictureDisplayBase->setStyleSheet("border: 0px solid black;");
@@ -464,30 +415,24 @@ void ChordsView::constructScalePictureDisplay(QStringList listNote)
     this->picturesDisplayLayout->addWidget(dieseBase, 0, 0, 1, 1);
     width += 115;
 
-    for(int i = 0; i<listNote.size(); i++)
-    {
+    for (int i = 0; i < listNote.size(); i++) {
         this->notesName->setText(this->notesName->text() + listNote[i] + " ");
-        if(listNote[i] == "E")
-        {
+        if (listNote[i] == "E") {
             this->picturesDisplay.push_back(new QLabel());
             this->picturesDisplay.last()->setPixmap(QPixmap("../assets/pictures/notes/E.png"));
             this->picturesDisplay.last()->setStyleSheet("border: 0px solid black;");
             this->picturesDisplayLayout->addWidget(this->picturesDisplay.last(), 0, this->picturesDisplayLayout->columnCount(), 1, 1);
             width += 37;
         }
-        else if(listNote[i] == "F" || listNote[i] == "F#")
-        {
-            if(listNote[i] == "F#")
-            {
+        else if (listNote[i] == "F" || listNote[i] == "F#") {
+            if (listNote[i] == "F#") {
                 this->picturesDisplay.push_back(new QLabel());
                 this->picturesDisplay.last()->setPixmap(QPixmap("../assets/pictures/notes/FDiese.png"));
                 this->picturesDisplay.last()->setStyleSheet("border: 0px solid black;");
                 this->picturesDisplayLayout->addWidget(this->picturesDisplay.last(), 0, 0, 1, 1);
             }
-            else
-            {
-                if(i<listNote.size()-1 && listNote[i+1] == "F#")
-                {
+            else {
+                if (i < listNote.size() - 1 && listNote[i + 1] == "F#") {
                     this->picturesDisplay.push_back(new QLabel());
                     this->picturesDisplay.last()->setPixmap(QPixmap("../assets/pictures/notes/FBecarre.png"));
                     this->picturesDisplay.last()->setStyleSheet("border: 0px solid black;");
@@ -501,19 +446,15 @@ void ChordsView::constructScalePictureDisplay(QStringList listNote)
             this->picturesDisplayLayout->addWidget(this->picturesDisplay.last(), 0, this->picturesDisplayLayout->columnCount(), 1, 1);
             width += 37;
         }
-        else if(listNote[i] == "G" || listNote[i] == "G#")
-        {
-            if(listNote[i] == "G#")
-            {
+        else if (listNote[i] == "G" || listNote[i] == "G#") {
+            if (listNote[i] == "G#") {
                 this->picturesDisplay.push_back(new QLabel());
                 this->picturesDisplay.last()->setPixmap(QPixmap("../assets/pictures/notes/GDiese.png"));
                 this->picturesDisplay.last()->setStyleSheet("border: 0px solid black;");
                 this->picturesDisplayLayout->addWidget(this->picturesDisplay.last(), 0, 0, 1, 1);
             }
-            else
-            {
-                if(i<listNote.size()-1 && listNote[i+1] == "G#")
-                {
+            else {
+                if (i < listNote.size() - 1 && listNote[i + 1] == "G#") {
                     this->picturesDisplay.push_back(new QLabel());
                     this->picturesDisplay.last()->setPixmap(QPixmap("../assets/pictures/notes/GBecarre.png"));
                     this->picturesDisplay.last()->setStyleSheet("border: 0px solid black;");
@@ -527,19 +468,15 @@ void ChordsView::constructScalePictureDisplay(QStringList listNote)
             this->picturesDisplayLayout->addWidget(this->picturesDisplay.last(), 0, this->picturesDisplayLayout->columnCount(), 1, 1);
             width += 37;
         }
-        else if(listNote[i] == "A" || listNote[i] == "A#")
-        {
-            if(listNote[i] == "A#")
-            {
+        else if (listNote[i] == "A" || listNote[i] == "A#") {
+            if (listNote[i] == "A#") {
                 this->picturesDisplay.push_back(new QLabel());
                 this->picturesDisplay.last()->setPixmap(QPixmap("../assets/pictures/notes/ADiese.png"));
                 this->picturesDisplay.last()->setStyleSheet("border: 0px solid black;");
                 this->picturesDisplayLayout->addWidget(this->picturesDisplay.last(), 0, 0, 1, 1);
             }
-            else
-            {
-                if(i<listNote.size()-1 && listNote[i+1] == "A#")
-                {
+            else {
+                if (i < listNote.size() - 1 && listNote[i + 1] == "A#") {
                     this->picturesDisplay.push_back(new QLabel());
                     this->picturesDisplay.last()->setPixmap(QPixmap("../assets/pictures/notes/ABecarre.png"));
                     this->picturesDisplay.last()->setStyleSheet("border: 0px solid black;");
@@ -553,27 +490,22 @@ void ChordsView::constructScalePictureDisplay(QStringList listNote)
             this->picturesDisplayLayout->addWidget(this->picturesDisplay.last(), 0, this->picturesDisplayLayout->columnCount(), 1, 1);
             width += 37;
         }
-        else if(listNote[i] == "B")
-        {
+        else if (listNote[i] == "B") {
             this->picturesDisplay.push_back(new QLabel());
             this->picturesDisplay.last()->setPixmap(QPixmap("../assets/pictures/notes/B.png"));
             this->picturesDisplay.last()->setStyleSheet("border: 0px solid black;");
             this->picturesDisplayLayout->addWidget(this->picturesDisplay.last(), 0, this->picturesDisplayLayout->columnCount(), 1, 1);
             width += 37;
         }
-        else if(listNote[i] == "C" || listNote[i] == "C#")
-        {
-            if(listNote[i] == "C#")
-            {
+        else if (listNote[i] == "C" || listNote[i] == "C#") {
+            if (listNote[i] == "C#") {
                 this->picturesDisplay.push_back(new QLabel());
                 this->picturesDisplay.last()->setPixmap(QPixmap("../assets/pictures/notes/CDiese.png"));
                 this->picturesDisplay.last()->setStyleSheet("border: 0px solid black;");
                 this->picturesDisplayLayout->addWidget(this->picturesDisplay.last(), 0, 0, 1, 1);
             }
-            else
-            {
-                if(i<listNote.size()-1 && listNote[i+1] == "C#")
-                {
+            else {
+                if (i < listNote.size() - 1 && listNote[i + 1] == "C#") {
                     this->picturesDisplay.push_back(new QLabel());
                     this->picturesDisplay.last()->setPixmap(QPixmap("../assets/pictures/notes/CBecarre.png"));
                     this->picturesDisplay.last()->setStyleSheet("border: 0px solid black;");
@@ -587,19 +519,15 @@ void ChordsView::constructScalePictureDisplay(QStringList listNote)
             this->picturesDisplayLayout->addWidget(this->picturesDisplay.last(), 0, this->picturesDisplayLayout->columnCount(), 1, 1);
             width += 37;
         }
-        else if(listNote[i] == "D" || listNote[i] == "D#")
-        {
-            if(listNote[i] == "D#")
-            {
+        else if (listNote[i] == "D" || listNote[i] == "D#") {
+            if (listNote[i] == "D#") {
                 this->picturesDisplay.push_back(new QLabel());
                 this->picturesDisplay.last()->setPixmap(QPixmap("../assets/pictures/notes/DDiese.png"));
                 this->picturesDisplay.last()->setStyleSheet("border: 0px solid black;");
                 this->picturesDisplayLayout->addWidget(this->picturesDisplay.last(), 0, 0, 1, 1);
             }
-            else
-            {
-                if(i<listNote.size()-1 && listNote[i+1] == "D#")
-                {
+            else {
+                if (i < listNote.size() - 1 && listNote[i + 1] == "D#") {
                     this->picturesDisplay.push_back(new QLabel());
                     this->picturesDisplay.last()->setPixmap(QPixmap("../assets/pictures/notes/DBecarre.png"));
                     this->picturesDisplay.last()->setStyleSheet("border: 0px solid black;");
@@ -616,15 +544,14 @@ void ChordsView::constructScalePictureDisplay(QStringList listNote)
         }
     }
 
-   /* this->packerLabel = new QLabel();
+    /* this->packerLabel = new QLabel();
     this->packerLabel->setStyleSheet("border: 0px solid black;");
     this->packerLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     this->picturesDisplayLayout->addWidget(packerLabel, 0, this->picturesDisplayLayout->columnCount(), 1, 1);*/
 
-
     this->pictureDisplayBase = new QLabel();
 
-    QRect rect(0, 0, width-10, 100);
+    QRect rect(0, 0, width - 10, 100);
     QPixmap temp("../assets/pictures/notes/ScaleBase.png");
     QPixmap cropped = temp.copy(rect);
     this->pictureDisplayBase->setPixmap(cropped);
@@ -634,88 +561,101 @@ void ChordsView::constructScalePictureDisplay(QStringList listNote)
     //this->pictureDisplayBase->setPixmap(QPixmap("../assets/pictures/notes/ScaleBase.png"));
     this->pictureDisplayBase->setStyleSheet("border: 0px solid black;");
     this->picturesDisplayLayout->addWidget(pictureDisplayBase, 0, 0, 1, this->picturesDisplayLayout->columnCount());
-
 }
 
 QVector<Note> ChordsView::notesSort(vector<Note> notesList)
 {
-    cout<<"     notesList.size() = "<<notesList.size()<<endl<<flush;
+    cout << "     notesList.size() = " << notesList.size() << endl
+         << flush;
     QVector<Note> res;
     res.push_back(notesList[0]);
-    for(size_t i = 1; i<notesList.size(); i++)
-    {
-        cout<<"          boucle for "<<i<<endl<<flush;
-        int  j = 0;
+    for (size_t i = 1; i < notesList.size(); i++) {
+        cout << "          boucle for " << i << endl
+             << flush;
+        int j = 0;
         bool end = false;
-        cout<<"          beginning while"<<endl<<flush;
-        while(j < res.size() && !end)
-        {
-            cout<<"               while "<<j+1<<endl<<flush;
-            if(notesList[i] > 3)
-            {
-                cout<<"notesList[i] > 3"<<endl<<flush;
-                if(notesList[i] < res[j] || res[j] < 4)
-                {
-                    cout<<"                    inserting"<<endl<<flush;
+        cout << "          beginning while" << endl
+             << flush;
+        while (j < res.size() && !end) {
+            cout << "               while " << j + 1 << endl
+                 << flush;
+            if (notesList[i] > 3) {
+                cout << "notesList[i] > 3" << endl
+                     << flush;
+                if (notesList[i] < res[j] || res[j] < 4) {
+                    cout << "                    inserting" << endl
+                         << flush;
                     res.insert(j, notesList[i]);
                     end = true;
                 }
             }
-            else
-            {
-                cout<<"notesList[i] < 4"<<endl<<flush;
-                if(res[j] < 4 && notesList[i] < res[j])
-                {
-                    cout<<"                    inserting"<<endl<<flush;
+            else {
+                cout << "notesList[i] < 4" << endl
+                     << flush;
+                if (res[j] < 4 && notesList[i] < res[j]) {
+                    cout << "                    inserting" << endl
+                         << flush;
                     res.insert(j, notesList[i]);
                     end = true;
                 }
             }
             j++;
         }
-        if(!end)
+        if (!end)
             res.push_back(notesList[i]);
     }
-    cout<<"     res.size() = "<<res.size()<<endl<<flush;
+    cout << "     res.size() = " << res.size() << endl
+         << flush;
     return res;
 }
 QStringList ChordsView::noteToString(QVector<Note> notesList)
 {
-    cout<<"     beginning for"<<endl<<flush;
+    cout << "     beginning for" << endl
+         << flush;
     QStringList res;
-    for(int i = 0; i<notesList.size(); i++)
-    {
-        cout<<"          boucle for "<<i<<endl<<flush;
-        switch(notesList[i])
-        {
-            case 0: res.push_back("C");
-                    break;
-            case 1: res.push_back("C#");
-                    break;
-            case 2: res.push_back("D");
-                    break;
-            case 3: res.push_back("D#");
-                    break;
-            case 4: res.push_back("E");
-                    break;
-            case 5: res.push_back("F");
-                    break;
-            case 6: res.push_back("F#");
-                    break;
-            case 7: res.push_back("G");
-                    break;
-            case 8: res.push_back("G#");
-                    break;
-            case 9: res.push_back("A");
-                    break;
-            case 10: res.push_back("A#");
-                     break;
-            case 11: res.push_back("B");
-                     break;
-            case END_OF_LIST:
-                break;
+    for (int i = 0; i < notesList.size(); i++) {
+        cout << "          boucle for " << i << endl
+             << flush;
+        switch (notesList[i]) {
+        case 0:
+            res.push_back("C");
+            break;
+        case 1:
+            res.push_back("C#");
+            break;
+        case 2:
+            res.push_back("D");
+            break;
+        case 3:
+            res.push_back("D#");
+            break;
+        case 4:
+            res.push_back("E");
+            break;
+        case 5:
+            res.push_back("F");
+            break;
+        case 6:
+            res.push_back("F#");
+            break;
+        case 7:
+            res.push_back("G");
+            break;
+        case 8:
+            res.push_back("G#");
+            break;
+        case 9:
+            res.push_back("A");
+            break;
+        case 10:
+            res.push_back("A#");
+            break;
+        case 11:
+            res.push_back("B");
+            break;
+        case END_OF_LIST:
+            break;
         }
     }
     return res;
 }
-

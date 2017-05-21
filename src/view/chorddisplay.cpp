@@ -4,7 +4,8 @@
 
 using namespace std;
 
-ChordDisplay::ChordDisplay(QString note, QString hs) : QGroupBox()
+ChordDisplay::ChordDisplay(QString note, QString hs)
+    : QGroupBox()
 {
     this->setFixedSize(60, 60);
     this->boxLayout = new QGridLayout();
@@ -29,7 +30,7 @@ ChordDisplay::ChordDisplay(QString note, QString hs) : QGroupBox()
     this->hs = hs;
     this->chordName = new QLabel(note + ":" + hs);
     this->chordName->setFixedSize(58, 37);
-    QFont f( "Arial", 10, QFont::Bold);
+    QFont f("Arial", 10, QFont::Bold);
     this->chordName->setFont(f);
     this->chordName->setAlignment(Qt::AlignCenter);
 
@@ -39,7 +40,8 @@ ChordDisplay::ChordDisplay(QString note, QString hs) : QGroupBox()
 
     this->setLayout(this->boxLayout);
 }
-ChordDisplay::ChordDisplay(QString chord) : QGroupBox()
+ChordDisplay::ChordDisplay(QString chord)
+    : QGroupBox()
 {
     this->setFixedSize(60, 60);
     this->boxLayout = new QGridLayout();
@@ -66,7 +68,7 @@ ChordDisplay::ChordDisplay(QString chord) : QGroupBox()
     this->chordName = new QLabel(chord);
     this->chordName->setFixedSize(58, 37);
 
-    QFont f( "Arial", 10, QFont::Bold);
+    QFont f("Arial", 10, QFont::Bold);
     this->chordName->setFont(f);
     this->chordName->setAlignment(Qt::AlignCenter);
 

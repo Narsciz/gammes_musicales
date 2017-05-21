@@ -8,17 +8,15 @@ AddChordsScalesView::AddChordsScalesView(bool isChord)
 
     this->mainLayout = new QVBoxLayout();
 
-    if(isChord)
-    {
+    if (isChord) {
         this->lineEditLabel = new QLabel("Entrez le nom de l'accord (Maximum 5 charactères).");
     }
-    else
-    {
+    else {
         this->lineEditFullNameLabel = new QLabel("Entrez le nom complet de la gamme");
         this->fullNameLineEdit = new QLineEdit();
         this->mainLayout->addWidget(this->lineEditFullNameLabel);
         this->mainLayout->addWidget(this->fullNameLineEdit);
-        this->lineEditLabel = new QLabel("Entrez l'abbréviation de la gamme (Maximum 5 caractères)." );
+        this->lineEditLabel = new QLabel("Entrez l'abbréviation de la gamme (Maximum 5 caractères).");
         connect(this->fullNameLineEdit, SIGNAL(textChanged(QString)), this, SLOT(checkedSlot()));
     }
     this->lineEdit = new QLineEdit();
@@ -26,7 +24,6 @@ AddChordsScalesView::AddChordsScalesView(bool isChord)
     this->mainLayout->addWidget(this->lineEditLabel);
     this->mainLayout->addWidget(this->lineEdit);
     connect(this->lineEdit, SIGNAL(textChanged(QString)), this, SLOT(checkedSlot()));
-
 
     this->intervalleBox = new QGroupBox("Intervalles");
     this->intervalleLayout = new QGridLayout();
@@ -116,89 +113,102 @@ AddChordsScalesView::AddChordsScalesView(bool isChord)
 Note AddChordsScalesView::getFundamental()
 {
     int choice = fundamentalExemple->currentIndex();
-    switch(choice)
-    {
-    case 0: return Note::C;
-    case 1: return Note::Csharp;
-    case 2: return Note::D;
-    case 3: return Note::Dsharp;
-    case 4: return Note::E;
-    case 5: return Note::F;
-    case 6: return Note::Fsharp;
-    case 7: return Note::G;
-    case 8: return Note::Gsharp;
-    case 9: return Note::A;
-    case 10: return Note::Asharp;
-    case 11: return Note::B;
-    default: return END_OF_LIST;
+    switch (choice) {
+    case 0:
+        return Note::C;
+    case 1:
+        return Note::Csharp;
+    case 2:
+        return Note::D;
+    case 3:
+        return Note::Dsharp;
+    case 4:
+        return Note::E;
+    case 5:
+        return Note::F;
+    case 6:
+        return Note::Fsharp;
+    case 7:
+        return Note::G;
+    case 8:
+        return Note::Gsharp;
+    case 9:
+        return Note::A;
+    case 10:
+        return Note::Asharp;
+    case 11:
+        return Note::B;
+    default:
+        return END_OF_LIST;
     }
 }
 Note AddChordsScalesView::convertIntToNote(int i)
 {
-    switch(i%12)
-    {
-    case 0: return Note::C;
-    case 1: return Note::Csharp;
-    case 2: return Note::D;
-    case 3: return Note::Dsharp;
-    case 4: return Note::E;
-    case 5: return Note::F;
-    case 6: return Note::Fsharp;
-    case 7: return Note::G;
-    case 8: return Note::Gsharp;
-    case 9: return Note::A;
-    case 10: return Note::Asharp;
-    case 11: return Note::B;
-    default: return END_OF_LIST;
+    switch (i % 12) {
+    case 0:
+        return Note::C;
+    case 1:
+        return Note::Csharp;
+    case 2:
+        return Note::D;
+    case 3:
+        return Note::Dsharp;
+    case 4:
+        return Note::E;
+    case 5:
+        return Note::F;
+    case 6:
+        return Note::Fsharp;
+    case 7:
+        return Note::G;
+    case 8:
+        return Note::Gsharp;
+    case 9:
+        return Note::A;
+    case 10:
+        return Note::Asharp;
+    case 11:
+        return Note::B;
+    default:
+        return END_OF_LIST;
     }
 }
 vector<Note> AddChordsScalesView::getNotesList()
 {
     vector<Note> res;
     res.push_back(getFundamental());
-    if(this->seconde_m->isChecked())
-    {
-        res.push_back(convertIntToNote(getFundamental()+1));
+    if (this->seconde_m->isChecked()) {
+        res.push_back(convertIntToNote(getFundamental() + 1));
     }
-    if(this->seconde_M->isChecked())
-    {
-        res.push_back(convertIntToNote(getFundamental()+2));
+    if (this->seconde_M->isChecked()) {
+        res.push_back(convertIntToNote(getFundamental() + 2));
     }
-    if(this->tierce_m->isChecked())
-    {
-        res.push_back(convertIntToNote(getFundamental()+3));
+    if (this->tierce_m->isChecked()) {
+        res.push_back(convertIntToNote(getFundamental() + 3));
     }
-    if(this->tierce_M->isChecked())
-    {
-        res.push_back(convertIntToNote(getFundamental()+4));
+    if (this->tierce_M->isChecked()) {
+        res.push_back(convertIntToNote(getFundamental() + 4));
     }
-    if(this->quarte->isChecked())
-    {
-        res.push_back(convertIntToNote(getFundamental()+5));
+    if (this->quarte->isChecked()) {
+        res.push_back(convertIntToNote(getFundamental() + 5));
     }
-    if(this->quarte_a->isChecked())
-    {
-        res.push_back(convertIntToNote(getFundamental()+6));
+    if (this->quarte_a->isChecked()) {
+        res.push_back(convertIntToNote(getFundamental() + 6));
     }
-    if(this->quinte->isChecked())
-    {
-        res.push_back(convertIntToNote(getFundamental()+7));
+    if (this->quinte->isChecked()) {
+        res.push_back(convertIntToNote(getFundamental() + 7));
     }
-    if(this->sixte_m->isChecked())
-    {
-        res.push_back(convertIntToNote(getFundamental()+8));
+    if (this->sixte_m->isChecked()) {
+        res.push_back(convertIntToNote(getFundamental() + 8));
     }
-    if(this->sixte_M->isChecked())
-    {
-        res.push_back(convertIntToNote(getFundamental()+9));
+    if (this->sixte_M->isChecked()) {
+        res.push_back(convertIntToNote(getFundamental() + 9));
     }
-    if(this->septieme_m->isChecked())
-    {
-        res.push_back(convertIntToNote(getFundamental()+10));
+    if (this->septieme_m->isChecked()) {
+        res.push_back(convertIntToNote(getFundamental() + 10));
     }
-    if(this->septieme_M->isChecked())
-    {
-        res.push_back(convertIntToNote(getFundamental()+11));
+    if (this->septieme_M->isChecked()) {
+        res.push_back(convertIntToNote(getFundamental() + 11));
     }
     return res;
 }
@@ -206,15 +216,12 @@ vector<int> AddChordsScalesView::getHS()
 {
     vector<int> res;
     int intervalle = 1;
-    for(int i = 0; i<listCheckBox.size(); i++)
-    {
-        if(listCheckBox[i]->isChecked())
-        {
+    for (int i = 0; i < listCheckBox.size(); i++) {
+        if (listCheckBox[i]->isChecked()) {
             res.push_back(intervalle);
             intervalle = 1;
         }
-        else
-        {
+        else {
             intervalle++;
         }
     }
@@ -228,7 +235,7 @@ QString AddChordsScalesView::getName()
 
 QString AddChordsScalesView::getAlias()
 {
-    if(!isChord)
+    if (!isChord)
         return this->fullNameLineEdit->text();
 }
 
@@ -239,30 +246,25 @@ void AddChordsScalesView::checkedSlot()
 
     delete this->exempleDisplay;
 
-    if(isChord)
+    if (isChord)
         this->exempleDisplay = new ChordsView(this->fundamentalExemple->currentText() + " " + this->lineEdit->text(), notesList, this->isChord);
     else
         this->exempleDisplay = new ChordsView(this->fundamentalExemple->currentText() + " " + this->fullNameLineEdit->text(), notesList, this->isChord);
 
-    this->mainLayout->insertWidget(this->mainLayout->count()-1, exempleDisplay, Qt::AlignHCenter);
+    this->mainLayout->insertWidget(this->mainLayout->count() - 1, exempleDisplay, Qt::AlignHCenter);
 }
 void AddChordsScalesView::createSlot()
 {
-    if(getName().size()>0)
-    {
-        if(getHS().size()>0)
-        {
-            if(isChord)
-            {
-                emit createChordSignal(this->getName() ,this->getHS());
+    if (getName().size() > 0) {
+        if (getHS().size() > 0) {
+            if (isChord) {
+                emit createChordSignal(this->getName(), this->getHS());
                 QMessageBox::information(this, "Accord créé", "Votre accord " + this->getName() + " a été créé et ajouter à la liste.");
                 this->close();
             }
-            else
-            {
-                if(getAlias().size()>0)
-                {
-                    emit createScaleSignal(this->getName() ,this->getHS(), this->getAlias());
+            else {
+                if (getAlias().size() > 0) {
+                    emit createScaleSignal(this->getName(), this->getHS(), this->getAlias());
                     QMessageBox::information(this, "Gamme créée", "Votre gamme " + this->getAlias() + " a été créé avec succès.");
                     this->close();
                 }
@@ -273,8 +275,7 @@ void AddChordsScalesView::createSlot()
         else
             QMessageBox::warning(this, "Accord non conforme", "Une structure harmonique doit être composé d'au moins 2 notes.");
     }
-    else
-    {
+    else {
         QMessageBox::warning(this, "Aucun nom", "Veuillez entrer un nom raccourci");
     }
 }
