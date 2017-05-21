@@ -15,8 +15,7 @@ LIB += -Wl,--stack,4194304000000000
 
 TARGET = UtProject
 TEMPLATE = app
-CONFIG += console
-CONFIG += declarative_debug
+CONFIG += release console
 
 SOURCES += main.cpp\
         view/mainwindow.cpp \
