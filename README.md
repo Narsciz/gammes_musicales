@@ -20,6 +20,8 @@ Execution sur Windows (marche sur Windows 10, Windows 7 pas encore tester) :
   * ligne de commande : >> START UtProject.exe
   * explorer Windows : double-clic sur UtProject.exe
   
-  Execution sur Linux : NYI
-  
-  
+Execution sur Linux : NYI
+- Télécharger le dépôt Git (Download ZIP sur la page GitHub) et le décompresser à l'endroit de votre choix.
+- Aller dans le dossier /path/to/repo/runnable/linux/bin/ ou ajouter le chemin vers /path/to/repo/runnable/linux/bin au PATH.
+- Lancer l'executable :
+  * ligne de commande : >> AppRun -style Windows  
