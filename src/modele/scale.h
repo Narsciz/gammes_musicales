@@ -1,8 +1,13 @@
 #ifndef SCALE_H
 #define SCALE_H
-#include "cs.h"
+
+//Bibliotheques Qt
 #include <QString>
 #include <QStringList>
+
+//Classes
+#include "modele/cs.h"
+
 
 class Scale : public CS
 {

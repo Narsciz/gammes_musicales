@@ -1,6 +1,8 @@
 #ifndef HSCHORD_H
 #define HSCHORD_H
-#include "harmonicstructure.h"
+
+//Classes
+#include "modele/harmonicstructure.h"
 
 class HSChord : public HarmonicStructure
 {

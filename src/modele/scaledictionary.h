@@ -1,13 +1,18 @@
 #ifndef SCALEDICTIONARY_H
 #define SCALEDICTIONARY_H
 
-#include <vector>
-#include "modele/hsscale.h"
-#include "modele/scale.h"
-#include <QVector>
+//Bibliotheques c++
 #include <iostream>
+#include <vector>
+
+//Bibliotheques Qt
 #include <QFile>
 #include <QTextStream>
+#include <QVector>
+
+//Classes
+#include "modele/hsscale.h"
+#include "modele/scale.h"
 
 class ScaleDictionary
 {

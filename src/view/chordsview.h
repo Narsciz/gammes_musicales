@@ -1,21 +1,22 @@
 #ifndef CHORDSVIEW_H
 #define CHORDSVIEW_H
 
-
+//Bibliotheques Qt
 #include <QFrame>
 #include <QStringList>
 #include <QGridLayout>
-#include <QPoint>
-#include <QLabel>
 #include <QGroupBox>
-#include <QPixmap>
-#include <QVBoxLayout>
 #include <QLabel>
+#include <QPixmap>
+#include <QPoint>
+#include <QVBoxLayout>
 #include <QVector>
-#include <modele/cs.h>
 
+//Classes
 #include "modele/chord.h"
+#include "modele/cs.h"
 
+//fenêtre affichant toutes les informations et l'image d'un accord si constructeur appelé avec true, et d'une gamme si appelé avec false
 class ChordsView : public QFrame
 {
 private:

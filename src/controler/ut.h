@@ -1,19 +1,25 @@
 #ifndef UT_H
 #define UT_H
-#include "view/mainwindow.h"
-#include "modele/scaledictionary.h"
-#include "modele/chorddictionary.h"
-#include "modele/algobrut.h"
-#include "modele/algoopti.h"
-#include "modele/algobrutomega.h"
-#include "modele/abstractalgo.h"
-#include "modele/algo.h"
-#include "modele/cs.h"
-#include "modele/scale.h"
-#include "modele/chord.h"
-#include "modele/parametres.h"
+
+//Bibliotheques c++
 #include <thread>
+
+//Bibliotheques Qt
 #include <QObject>
+
+//Classes
+#include "modele/abstractalgo.h"
+#include "modele/algobrut.h"
+#include "modele/algobrutomega.h"
+#include "modele/algoopti.h"
+#include "modele/algo.h"
+#include "modele/chord.h"
+#include "modele/chorddictionary.h"
+#include "modele/cs.h"
+#include "modele/parametres.h"
+#include "modele/scaledictionary.h"
+#include "modele/scale.h"
+#include "view/mainwindow.h"
 
 class Ut : public QObject
 {

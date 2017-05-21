@@ -1,13 +1,18 @@
 #ifndef CHORD_H
 #define CHORD_H
 
-#include "cs.h"
-#include "scale.h"
-#include "scaledictionary.h"
-#include <QStringList>
-#include "chorddictionary.h"
-#include <stdexcept>
+//Bibliotheques c++
 #include <iostream>
+#include <stdexcept>
+
+//Bibliotheques Qt
+#include <QStringList>
+
+//Classes
+#include "modele/chorddictionary.h"
+#include "modele/cs.h"
+#include "modele/scale.h"
+#include "modele/scaledictionary.h"
 
 class Chord : public CS
 {

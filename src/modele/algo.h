@@ -1,13 +1,16 @@
 #ifndef ALGO_H
 #define ALGO_H
 
+//Bibliotheques c++
+#include <iostream>
+#include <limits.h>
+#include <vector>
+
+//Include
 #include "chord.h"
-#include "scale.h"
 #include "note.h"
 #include "node.h"
-#include <iostream>
-#include <vector>
-#include <limits.h>
+#include "scale.h"
 
 std::vector<std::vector<Scale*> > KpartitesScales(std::vector<Chord*> SA);
 std::vector<std::vector<Node*> >ScaleToGraph(std::vector<std::vector<Scale*> > Kpartite);

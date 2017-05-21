@@ -1,20 +1,24 @@
 #ifndef DELETECHORDSSCALESVIEW_H
 #define DELETECHORDSSCALESVIEW_H
 
+//Bibliotheques Qt
 #include <QWidget>
 #include <QPushButton>
 #include <QGridLayout>
 #include <QLabel>
 #include <QVector>
 #include <QVBoxLayout>
-#include <modele/scaledictionary.h>
-#include <modele/chorddictionary.h>
-#include <view/chordsview.h>
+
+//Classes
 #include <modele/chord.h>
-#include <modele/scale.h>
+#include <modele/chorddictionary.h>
 #include <modele/hschord.h>
 #include <modele/hsscale.h>
+#include <modele/scale.h>
+#include <modele/scaledictionary.h>
+#include <view/chordsview.h>
 
+//fenêtre permettant de supprimer des accords personnalisés si le constructeur est appelé avec true, et des gammes si le constructeur appelé avec false
 class DeleteChordsScalesView : public QWidget
 {
     Q_OBJECT

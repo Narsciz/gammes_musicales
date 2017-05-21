@@ -1,6 +1,8 @@
 #ifndef HSSCALE_H
 #define HSSCALE_H
-#include "harmonicstructure.h"
+
+//Classes
+#include "modele/harmonicstructure.h"
 
 class HSScale : public HarmonicStructure
 {

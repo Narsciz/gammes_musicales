@@ -1,15 +1,20 @@
 #ifndef ALGOBRUT_H
 #define ALGOBRUT_H
 
-#include <vector>
-#include "modele/scale.h"
-#include "modele/algo.h"
-#include <iostream>
-#include "modele/abstractalgo.h"
-#include <time.h>
+//Bibliotheques c++
 #include <iomanip>
+#include <iostream>
+#include <time.h>
+#include <vector>
+
+//Bibliotheques Qt
 #include <QFile>
 #include <QTextStream>
+
+//Classes
+#include "modele/abstractalgo.h"
+#include "modele/algo.h"
+#include "modele/scale.h"
 
 class AlgoBrut : public AbstractAlgo
 {

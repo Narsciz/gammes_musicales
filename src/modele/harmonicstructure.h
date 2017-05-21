@@ -1,7 +1,14 @@
 #ifndef HARMONICSTRUCTURE_H
 #define HARMONICSTRUCTURE_H
-#include <QString>
+
+//Bibliotheques c++
 #include <vector>
+
+//Bibliotheques Qt
+#include <QString>
+
+
+
 
 using namespace std;
 

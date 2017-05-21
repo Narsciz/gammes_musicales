@@ -1,11 +1,14 @@
 #ifndef ABSTRACTALGO_H
 #define ABSTRACTALGO_H
 
+//Bibliotheques c++
+#include <thread>
 #include <vector>
+
+//Classes
+#include <modele/algo.h>
 #include <modele/chord.h>
 #include <modele/scale.h>
-#include <modele/algo.h>
-#include <thread>
 
 class AbstractAlgo
 {

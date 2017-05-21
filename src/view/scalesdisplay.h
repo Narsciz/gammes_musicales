@@ -1,13 +1,16 @@
 #ifndef SCALESDISPLAY_H
 #define SCALESDISPLAY_H
 
-#include <QVector>
-#include <QPushButton>
-#include <QGroupBox>
+//Bibliotheques Qt
 #include <QGridLayout>
+#include <QGroupBox>
+#include <QPushButton>
+#include <QVector>
 
+//Classes
 #include "scaledisplay.h"
 
+//Box affichant une suite de gammes
 class ScalesDisplay : public QGroupBox
 {
 private:

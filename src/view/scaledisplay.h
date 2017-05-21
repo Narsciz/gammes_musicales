@@ -1,15 +1,18 @@
 #ifndef SCALEDISPLAY_H
 #define SCALEDISPLAY_H
 
+//Bibliotheques Qt
+#include <QGridLayout>
+#include <QGroupBox>
+#include <QIcon>
 #include <QLabel>
 #include <QPushButton>
-#include <QGroupBox>
-#include <QGridLayout>
-#include <QIcon>
 #include <QString>
+
+//Classes
 #include "view/chordsview.h"
 
-//
+//Box affichant une gamme
 class ScaleDisplay : public QGroupBox
 {
     Q_OBJECT

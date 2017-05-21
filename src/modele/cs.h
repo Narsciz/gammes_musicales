@@ -1,10 +1,15 @@
 #ifndef CS_H
 #define CS_H
-#include "note.h"
-#include "harmonicstructure.h"
+
+//Bibliotheques c++
 #include <string>
+
+//Bibliotheques Qt
 #include <QStringList>
 
+//Classes
+#include "modele/harmonicstructure.h"
+#include "modele/note.h"
 
 class CS
 {
