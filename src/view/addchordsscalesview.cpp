@@ -227,12 +227,10 @@ vector<int> AddChordsScalesView::getHS()
     }
     return res;
 }
-
 QString AddChordsScalesView::getName()
 {
     return this->lineEdit->text();
 }
-
 QString AddChordsScalesView::getAlias()
 {
     if (!isChord)

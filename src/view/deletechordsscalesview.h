@@ -42,13 +42,15 @@ private:
     ChordsView *chordView;
 
 public:
+    //Constructeur
     DeleteChordsScalesView(bool isChord, QWidget *parent = 0);
-
-    void clearLayout(QLayout *layout, bool deleteWidgets);
     void constructNameLayout();
     void constructViewLayout();
     void constructDeleteLayout();
     void constructLayouts();
+
+    //Méthode
+    void clearLayout(QLayout *layout, bool deleteWidgets);
 
 public slots:
     void openViewSlot();

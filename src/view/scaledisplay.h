@@ -25,7 +25,10 @@ private:
     ChordsView *scaleView;
 
 public:
+    //Constructeur
     ScaleDisplay(QString name);
+
+    //Accesseurs
     QString getName();
     QString getAlias();
 

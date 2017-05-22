@@ -33,10 +33,13 @@ private:
 
     QLabel *packerLabel;
 public:
+    //Constructeurs
     ChordsView(QString chordName, bool isChord);
     ChordsView(QString name, vector<Note> notesList, bool isChord);
     void constructChordPictureDisplay(QStringList listNote);
     void constructScalePictureDisplay(QStringList listNote);
+
+    //Méthodes
     QVector<Note> notesSort(vector<Note> notesList);
     QStringList noteToString(QVector<Note> notesList);
 };

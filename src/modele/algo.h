@@ -6,7 +6,7 @@
 #include <limits.h>
 #include <vector>
 
-//Include
+//Classes
 #include "chord.h"
 #include "note.h"
 #include "node.h"

@@ -29,11 +29,16 @@ private:
     ChordsView *chordsView;
 
 public:
+    //Constructeur
     ChordDisplay(QString note, QString sh);
     ChordDisplay(QString chord);
+
+    //Accesseurs
+    QString getName();
+
+    //Méthodes
     void disableDelete();
     void enableDelete();
-    QString getName();
 
 public slots:
     void slotDeleteButton();

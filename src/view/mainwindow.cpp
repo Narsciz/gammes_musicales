@@ -24,6 +24,8 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+
 void MainWindow::constructMenuBar()
 {
     QMenuBar* menuBar = new QMenuBar();
@@ -175,6 +177,16 @@ void MainWindow::clearLayout(QLayout* layout, bool deleteWidgets = true)
         delete item;
     }
 }
+
+/**
+ * @brief openExplorer
+ *  Verifie si une note est dans une suite de notes
+ *  (suite de notes qui represente un accord ou une gamme)
+ * @param i
+ *  mode de lancement de la méthode
+ * @return QString
+ * path du fichier a ouvrir
+ */
 QString MainWindow::openExplorer(int i)
 {
     this->explorer = new QFileDialog();
@@ -201,6 +213,14 @@ QString MainWindow::openExplorer(int i)
     return fileName;
 }
 
+/**
+ * @brief testFile
+ * Vérifie si le fichier texte à importer est conforme aux normes instaurées
+ * @param filePath
+ *  path du file a tester
+ * @return QVector<QString>
+ * liste des accords a ajouter à la vue
+ */
 QVector<QString> MainWindow::testFile(QString filePath)
 {
     QString fileContent = "";

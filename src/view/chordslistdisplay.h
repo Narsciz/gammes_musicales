@@ -42,6 +42,7 @@ public:
     //Accesseurs
     QVector<ChordDisplay*> getListChords();
     QVector<QString> getListChordsName();
+    void removeChordByHs(HSChord *hs);
 
     //Gestion des Accords
     void addChord(QString note, QString sh); //Ajoute un accord a la suite de ceux déjà choisit par l'utilisateur
@@ -49,7 +50,7 @@ public:
     void refresh();
     void enableDeletingChords();
     void disableDeletingChords();
-    void removeChordByHs(HSChord *hs);
+
 public slots:
     void slotDeleteChord(ChordDisplay *cd);
 };

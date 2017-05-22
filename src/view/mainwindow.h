@@ -85,15 +85,20 @@ private:
     ParametersDisplay *parametersWindow;
 
 public:
+    //Constructeurs
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-
     void constructMenuBar();
     void constructLayout();
     void constructChordsLayout();
     void constructChoicesLayout();
     void constructScalesLayout();
 
+    //Accesseurs
+    ParametersDisplay *getParametersDisplay();
+    void removeDeletedChords(HSChord *hs);
+
+    //Méthodes
     void clearLayout(QLayout *layout, bool deleteWidgets);
     QString openExplorer(int i);
     static QVector<QString> testFile(QString filePath);
@@ -102,9 +107,7 @@ public:
     void fillComboBoxHS(QVector<QString> listHS);
     void fillParametersLists(QVector<QString> listHSScales, QVector<QString> listAlias, QVector<QString> listHSCustomScales, QVector<QString> listCustomAlias);
     void constructScaleFoundView(QVector<QVector<QString> > listFoundScales, QString msg);
-    ParametersDisplay *getParametersDisplay();
     void goToResultsInterface();
-    void removeDeletedChords(HSChord *hs);
 
 public slots :
     void slotAddButton();

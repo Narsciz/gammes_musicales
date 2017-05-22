@@ -18,9 +18,14 @@ private:
     QVector<ScaleDisplay*> scalesList;
 
 public:
+    //Constructeur
     ScalesDisplay(QString name, QVector<QString> scaleList);
-    void refresh(int width);
+
+    //Accesseur
     QVector<QString> getListScale();
+
+    //Méthode
+    void refresh(int width);
 };
 
 #endif // SCALESDISPLAY_H

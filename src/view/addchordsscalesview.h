@@ -69,13 +69,18 @@ private :
     QPushButton *createButton;
     QPushButton *returnButton;
 public:
+    //Constructeur
     AddChordsScalesView(bool isChord);
+
+    //Accesseurs
     Note getFundamental();
     vector<Note> getNotesList();
-    Note convertIntToNote(int i);
     vector<int> getHS();
     QString getName();
     QString getAlias();
+
+    //Méthode
+    Note convertIntToNote(int i);
 
 public slots:
     void checkedSlot();

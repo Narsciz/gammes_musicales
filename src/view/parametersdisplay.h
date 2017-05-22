@@ -55,12 +55,17 @@ private :
     QPushButton *validateButton;
 
 public:
+    //Constructeur
     ParametersDisplay();
     void fillLists(QVector<QString> listHSScales, QVector<QString> listAlias, QVector<QString> listHSCustomScales, QVector<QString> listCustomAlias);
+
+    //Accesseurs
     int getParameter();
     int getAlgo();
     int getLimit();
     QVector<QString> getlistAllowedHSscales();
+
+    //Méthode
     void clearLayout(QLayout *layout, bool deleteWidgets = true);
 
 public slots:

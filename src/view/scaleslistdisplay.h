@@ -35,9 +35,14 @@ private:
     QWidget *scrolledWidget;
 
 public:
+    //Constructeur
     ScalesListDisplay();
     void constructScalesFoundList(QVector<QVector<QString> > listFoundScales);
+
+    //Accesseur
     void setName(QString name);
+
+    //Méthode
     void refresh();
 
 public slots:

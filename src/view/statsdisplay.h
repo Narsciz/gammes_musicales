@@ -41,10 +41,13 @@ private:
     QTableWidget *totalScaleView;
 
 public:
+    //Constructeur
     StatsDisplay();
     void createScaleTab();
     void createNoteTab();
     void createTotalScaleTab();
+
+    //Méthode
     QVector<QStringList> loadFile(QString path);
 };
 
