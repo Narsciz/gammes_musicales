@@ -15,15 +15,15 @@ Architecture du dépôt :
 
 Execution sur Windows (marche sur Windows 10, Windows 7) :
 - Télécharger le dépôt Git (Download ZIP sur la page GitHub) et le décompresser à l'endroit de votre choix.
-- Aller dans le dossier '<your path to repo>/runnable/windows/bin/' 
-  ou ajouter le chemin '<your path to repo>/runnable/windows/bin' au PATH.
+- Aller dans le dossier '<<your path to repo>>/runnable/windows/bin/' 
+  ou ajouter le chemin '<<your path to repo>>/runnable/windows/bin' au PATH.
 - Lancer le fichier UtProject.exe :
   * ligne de commande : >> START ./UtProject.exe
   * explorer Windows : double-clic sur UtProject.exe
   
 Execution sur Linux : 
 - Télécharger le dépôt Git (Download ZIP sur la page GitHub) et le décompresser à l'endroit de votre choix.
-- Aller dans le dossier '<<your path to repo>/runnable/linux/bin/' 
-  ou ajouter le chemin vers '<your path to repo>/runnable/linux/bin' au PATH.
+- Aller dans le dossier '<<your path to repo>>/runnable/linux/bin/' 
+  ou ajouter le chemin vers '<<your path to repo>>/runnable/linux/bin' au PATH.
 - Lancer l'executable :
   * ligne de commande : >> ./Ut  
