@@ -23,7 +23,7 @@ Execution sur Windows (marche sur Windows 10, Windows 7) :
   
 Execution sur Linux : 
 - Télécharger le dépôt Git (Download ZIP sur la page GitHub) et le décompresser à l'endroit de votre choix.
-- Aller dans le dossier '<your path to repo>/runnable/linux/bin/' 
+- Aller dans le dossier '<<your path to repo>/runnable/linux/bin/' 
   ou ajouter le chemin vers '<your path to repo>/runnable/linux/bin' au PATH.
 - Lancer l'executable :
   * ligne de commande : >> ./Ut  
